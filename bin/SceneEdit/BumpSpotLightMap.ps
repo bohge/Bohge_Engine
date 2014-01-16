@@ -1,0 +1,50 @@
+
+#include "Utility.glsl"
+#include "PCF.glsl"
+
+
+uniform sampler2D TextureDepth;
+uniform sampler2D BumpTexture;
+
+uniform vec3 vAmbient_Light; //环境光强度乘环境光颜色
+uniform vec3 Specular_Light; //高光强度乘灯光颜色
+uniform vec3 Light;
+uniform float Shininess;
+uniform vec3  vLightDirection;
+uniform vec2  vInner_DiffInv;//光源的衰减
+uniform float fLightRangeInv;
+uniform vec4  vAttenuation;
+
+varying vec2 g_vTexCoord;
+varying vec3 g_vLightTangent;
+varying vec3 g_vLightWorld;
+varying vec4 g_vOutShadowCoord;
+
+void main()
+{
+	highp vec4 vOutShadowCoord = g_vOutShadowCoord;
+	float wInv = 1.0 / vOutShadowCoord.w;
+	vOutShadowCoord *= wInv;
+	
+	highp float dis = length( g_vLightWorld );
+	float disRange = dis * fLightRangeInv;
+	float fAttenuation = (1.0 - disRange ) / ( vAttenuation.x + disRange * vAttenuation.y + disRange * disRange * vAttenuation.z );
+	
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= texture2D( BumpTexture, g_vTexCoord, -1.0 ).xyz * 2.0 - 1.0;
+
+    // Standard Phong lighting
+    mediump vec3  vLightTangent    = normalize( g_vLightTangent );
+    lowp float dotLightNormal= dot( vLightTangent, vNormal );
+
+	float attenAll = clamp( 1.0 - ( vInner_DiffInv.x - dot( normalize(g_vLightWorld), -vLightDirection) ) * vInner_DiffInv.y, 0.0, 1.0 );
+	float shadow = PCFShadowDepth( vOutShadowCoord.z, vOutShadowCoord, TextureDepth );
+	lowp float lightparam = fAttenuation * attenAll * shadow;
+	lowp float fDiffuse = saturate( dotLightNormal ) * lightparam;	
+	
+	gl_FragColor = vec4( fDiffuse * Light , 1.0 );
+	//gl_FragColor = vec4( shadow, shadow, shadow , 1.0 );
+	//gl_FragColor = vec4( fAttenuation,fAttenuation,fAttenuation,1.0);
+	//gl_FragColor = vec4( vOutShadowCoord.xyz/vOutShadowCoord.w ,1.0);
+	//gl_FragColor = vec4( texture2DProj( TextureDepth, vOutShadowCoord ).xyz,1.0);
+}

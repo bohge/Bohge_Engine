@@ -1,0 +1,42 @@
+precision mediump float;
+
+
+// Define some useful macros
+#define saturate(x) clamp( x, 0.0, 1.0 )
+#define lerp        mix
+
+#include "Utility.glsl"
+#include "PCF.glsl"
+
+uniform sampler2D ShadowMap;
+
+uniform vec3 Light;
+uniform float Shininess;
+
+
+varying vec2 g_vTexCoord;
+varying vec3 g_vLightVec;
+varying vec3 g_vNormal;
+varying vec4 g_vOutShadowCoord;
+
+
+void main()
+{
+	highp vec4 vOutShadowCoord = g_vOutShadowCoord;
+	float wInv = 1.0 / vOutShadowCoord.w;
+	vOutShadowCoord *= wInv;
+	
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= normalize( g_vNormal );
+    // Standard Phong lighting
+    float fAtten    	= saturate( 1.0 - 0.05 * dot( g_vLightVec, g_vLightVec ) );
+    vec3  vLight    	= normalize( g_vLightVec );
+    float dotLightNormal= dot( vLight, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+	
+	float shadow = PCFShadowDepth( vOutShadowCoord.z, vOutShadowCoord, ShadowMap );
+	gl_FragColor = vec4( fDiffuse * Light * shadow , 1.0 );
+	//float depth = unpackFloatFromVec( texture2DProj( ShadowMap, vOutShadowCoord ) );
+	//gl_FragColor = vec4( shadow, shadow, shadow , 1.0 );
+	//gl_FragColor = vec4( texture2D( ShadowMap, g_vTexCoord ).xyz , 1.0 );
+}

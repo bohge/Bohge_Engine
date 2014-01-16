@@ -1,0 +1,292 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75266F8B17177BAA0038F703 /* NetUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75266F8917177BAA0038F703 /* NetUtility.cpp */; };
+		75266F8C17177BAA0038F703 /* NetUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 75266F8A17177BAA0038F703 /* NetUtility.h */; };
+		759CB7B116487ADB00AD88F1 /* Packer.h in Headers */ = {isa = PBXBuildFile; fileRef = 759CB7AF16487ADB00AD88F1 /* Packer.h */; };
+		75A070D9160E3B4900965C2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A070D8160E3B4900965C2F /* Foundation.framework */; };
+		75A070F3160E3B8B00965C2F /* BohgeNet.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A070E7160E3B8B00965C2F /* BohgeNet.h */; };
+		75A070F4160E3B8B00965C2F /* Correspondent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75A070E8160E3B8B00965C2F /* Correspondent.cpp */; };
+		75A070F5160E3B8B00965C2F /* Correspondent.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A070E9160E3B8B00965C2F /* Correspondent.h */; };
+		75A070F6160E3B8B00965C2F /* NetBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75A070EA160E3B8B00965C2F /* NetBase.cpp */; };
+		75A070F7160E3B8B00965C2F /* NetBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A070EB160E3B8B00965C2F /* NetBase.h */; };
+		75A070F8160E3B8B00965C2F /* NetHost.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75A070EC160E3B8B00965C2F /* NetHost.cpp */; };
+		75A070F9160E3B8B00965C2F /* NetHost.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A070ED160E3B8B00965C2F /* NetHost.h */; };
+		75A070FA160E3B8B00965C2F /* NetMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A070EE160E3B8B00965C2F /* NetMessage.h */; };
+		75A850F31630B08A0060D278 /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75A850F11630B08A0060D278 /* Base64.cpp */; };
+		75A850F41630B08A0060D278 /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 75A850F21630B08A0060D278 /* Base64.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		75266F8917177BAA0038F703 /* NetUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetUtility.cpp; path = ../../../BohgeNet/NetUtility.cpp; sourceTree = "<group>"; };
+		75266F8A17177BAA0038F703 /* NetUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetUtility.h; path = ../../../BohgeNet/NetUtility.h; sourceTree = "<group>"; };
+		759CB7AF16487ADB00AD88F1 /* Packer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Packer.h; path = ../../../BohgeNet/Packer.h; sourceTree = "<group>"; };
+		75A070D5160E3B4900965C2F /* libBohgeNet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBohgeNet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A070D8160E3B4900965C2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75A070DC160E3B4900965C2F /* BohgeNet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BohgeNet-Prefix.pch"; sourceTree = "<group>"; };
+		75A070E7160E3B8B00965C2F /* BohgeNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BohgeNet.h; path = ../../../BohgeNet/BohgeNet.h; sourceTree = "<group>"; };
+		75A070E8160E3B8B00965C2F /* Correspondent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Correspondent.cpp; path = ../../../BohgeNet/Correspondent.cpp; sourceTree = "<group>"; };
+		75A070E9160E3B8B00965C2F /* Correspondent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Correspondent.h; path = ../../../BohgeNet/Correspondent.h; sourceTree = "<group>"; };
+		75A070EA160E3B8B00965C2F /* NetBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetBase.cpp; path = ../../../BohgeNet/NetBase.cpp; sourceTree = "<group>"; };
+		75A070EB160E3B8B00965C2F /* NetBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetBase.h; path = ../../../BohgeNet/NetBase.h; sourceTree = "<group>"; };
+		75A070EC160E3B8B00965C2F /* NetHost.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetHost.cpp; path = ../../../BohgeNet/NetHost.cpp; sourceTree = "<group>"; };
+		75A070ED160E3B8B00965C2F /* NetHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetHost.h; path = ../../../BohgeNet/NetHost.h; sourceTree = "<group>"; };
+		75A070EE160E3B8B00965C2F /* NetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetMessage.h; path = ../../../BohgeNet/NetMessage.h; sourceTree = "<group>"; };
+		75A850F11630B08A0060D278 /* Base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Base64.cpp; path = ../../../BohgeNet/Base64.cpp; sourceTree = "<group>"; };
+		75A850F21630B08A0060D278 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../../../BohgeNet/Base64.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75A070D2160E3B4900965C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A070D9160E3B4900965C2F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75A070CA160E3B4800965C2F = {
+			isa = PBXGroup;
+			children = (
+				75A070DA160E3B4900965C2F /* BohgeNet */,
+				75A070D7160E3B4900965C2F /* Frameworks */,
+				75A070D6160E3B4900965C2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75A070D6160E3B4900965C2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75A070D5160E3B4900965C2F /* libBohgeNet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75A070D7160E3B4900965C2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75A070D8160E3B4900965C2F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75A070DA160E3B4900965C2F /* BohgeNet */ = {
+			isa = PBXGroup;
+			children = (
+				75266F8917177BAA0038F703 /* NetUtility.cpp */,
+				75266F8A17177BAA0038F703 /* NetUtility.h */,
+				759CB7AF16487ADB00AD88F1 /* Packer.h */,
+				75A850F11630B08A0060D278 /* Base64.cpp */,
+				75A850F21630B08A0060D278 /* Base64.h */,
+				75A070E7160E3B8B00965C2F /* BohgeNet.h */,
+				75A070E8160E3B8B00965C2F /* Correspondent.cpp */,
+				75A070E9160E3B8B00965C2F /* Correspondent.h */,
+				75A070EA160E3B8B00965C2F /* NetBase.cpp */,
+				75A070EB160E3B8B00965C2F /* NetBase.h */,
+				75A070EC160E3B8B00965C2F /* NetHost.cpp */,
+				75A070ED160E3B8B00965C2F /* NetHost.h */,
+				75A070EE160E3B8B00965C2F /* NetMessage.h */,
+				75A070DB160E3B4900965C2F /* Supporting Files */,
+			);
+			path = BohgeNet;
+			sourceTree = "<group>";
+		};
+		75A070DB160E3B4900965C2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75A070DC160E3B4900965C2F /* BohgeNet-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		75A070D3160E3B4900965C2F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A070F3160E3B8B00965C2F /* BohgeNet.h in Headers */,
+				75A070F5160E3B8B00965C2F /* Correspondent.h in Headers */,
+				75A070F7160E3B8B00965C2F /* NetBase.h in Headers */,
+				75A070F9160E3B8B00965C2F /* NetHost.h in Headers */,
+				75A070FA160E3B8B00965C2F /* NetMessage.h in Headers */,
+				75A850F41630B08A0060D278 /* Base64.h in Headers */,
+				759CB7B116487ADB00AD88F1 /* Packer.h in Headers */,
+				75266F8C17177BAA0038F703 /* NetUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		75A070D4160E3B4900965C2F /* BohgeNet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75A070E2160E3B4900965C2F /* Build configuration list for PBXNativeTarget "BohgeNet" */;
+			buildPhases = (
+				75A070D1160E3B4900965C2F /* Sources */,
+				75A070D2160E3B4900965C2F /* Frameworks */,
+				75A070D3160E3B4900965C2F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BohgeNet;
+			productName = BohgeNet;
+			productReference = 75A070D5160E3B4900965C2F /* libBohgeNet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75A070CC160E3B4800965C2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 75A070CF160E3B4800965C2F /* Build configuration list for PBXProject "BohgeNet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 75A070CA160E3B4800965C2F;
+			productRefGroup = 75A070D6160E3B4900965C2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75A070D4160E3B4900965C2F /* BohgeNet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75A070D1160E3B4900965C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A070F4160E3B8B00965C2F /* Correspondent.cpp in Sources */,
+				75A070F6160E3B8B00965C2F /* NetBase.cpp in Sources */,
+				75A070F8160E3B8B00965C2F /* NetHost.cpp in Sources */,
+				75A850F31630B08A0060D278 /* Base64.cpp in Sources */,
+				75266F8B17177BAA0038F703 /* NetUtility.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		75A070E0160E3B4900965C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					IOS,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../../Bohge;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = ../../../Bohge;
+			};
+			name = Debug;
+		};
+		75A070E1160E3B4900965C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = IOS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../../Bohge;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = ../../../Bohge;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75A070E3160E3B4900965C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/BohgeNet.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BohgeNet/BohgeNet-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		75A070E4160E3B4900965C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/BohgeNet.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BohgeNet/BohgeNet-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75A070CF160E3B4800965C2F /* Build configuration list for PBXProject "BohgeNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A070E0160E3B4900965C2F /* Debug */,
+				75A070E1160E3B4900965C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75A070E2160E3B4900965C2F /* Build configuration list for PBXNativeTarget "BohgeNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A070E3160E3B4900965C2F /* Debug */,
+				75A070E4160E3B4900965C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75A070CC160E3B4800965C2F /* Project object */;
+}

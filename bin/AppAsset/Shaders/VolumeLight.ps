@@ -1,0 +1,118 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+precision mediump float;
+
+uniform float		g_SenceNear; // 进剪切点
+uniform float		g_SenceFarNear;
+uniform float		g_SenceFarNearQ;
+uniform float		g_LightNear;
+uniform float		g_LightFarNear;
+uniform float		g_LightFarNearQ;
+uniform vec3 		g_CameraPostion; //摄像机位置
+uniform sampler2D 	g_SenceDepth; // 场景摄像机深度纹理
+uniform sampler2D 	g_LightDepth; // 灯光摄像机深度纹理
+uniform mat4 		g_matViewProjInvers; // 场景摄像机MVP逆矩阵
+uniform mat4 		g_matLightViewProj; // 灯光摄像机MVP
+
+varying vec2 var_coord;
+
+const float MAX_STEP = 100.0;
+const float STEP_UP = 1.0 / MAX_STEP ;
+void main()
+{
+	float SecenDepth = texture2D( g_SenceDepth , var_coord ).r;
+	SecenDepth = (g_SenceNear * g_SenceFarNearQ) / (g_SenceFarNearQ - SecenDepth);
+	SecenDepth = ( SecenDepth - g_SenceNear ) / g_LightFarNear;
+	vec2 SecenPoint = vec2( var_coord.x * 2.0 - 1.0, var_coord.y * 2.0 - 1.0); //to opengl space
+	vec4 RayEnd = vec4( SecenPoint , SecenDepth  , 1.0 );
+	vec4 PostionWS = g_matViewProjInvers * RayEnd;
+	PostionWS.xyz /= PostionWS.w; //计算跟踪结束点
+	vec3 VecForward = PostionWS.xyz - g_CameraPostion; //计算视射线方向
+	vec3 normalVecForward = normalize( VecForward );
+	vec3 PostionBegWS = g_CameraPostion + normalVecForward * g_SenceNear;//计算跟踪起始点world space
+	vec3 PostionEndWS = PostionWS.xyz;//计算跟踪结束点world space
+	
+	vec4 PostionBegLS = g_matLightViewProj * vec4( PostionBegWS, 1.0 );//起始点转换到灯光坐标系
+	vec4 PostionEndLS = g_matLightViewProj * vec4( PostionEndWS, 1.0 );	//结束点转换到灯光坐标系
+	PostionBegLS.xyz /= PostionBegLS.w;
+	PostionBegLS.xy = PostionBegLS.xy * 0.5 + 0.5;//转换到纹理空间
+	PostionEndLS.xyz /= PostionEndLS.w;
+	PostionEndLS.xy = PostionEndLS.xy * 0.5 + 0.5;
+	
+	int StepCount = int(MAX_STEP * SecenDepth); //计算需要的跟踪步数
+	vec3 VecForwardLS = PostionEndLS.xyz - PostionBegLS.xyz;// 计算跟踪的险段
+	vec3 stepSize = VecForwardLS / float(StepCount); //计算每一步的递增
+
+	float EndLight = 0.0;
+	vec3 Pos = PostionBegLS.xyz;
+	int i = 0;
+	while( i < StepCount )
+	{
+		if( Pos.x < 0.0 || Pos.x > 1.0 || Pos.y < 0.0 || Pos.y > 1.0 )
+		{
+			EndLight += STEP_UP;
+		}
+		else
+		{
+			float LightDepth = texture2D( g_LightDepth , Pos.xy ).r;
+			LightDepth = (g_LightNear * g_LightFarNearQ) / (g_LightFarNearQ - LightDepth);
+			LightDepth = (LightDepth - g_LightNear) / g_LightFarNear;
+			if( Pos.z - LightDepth < 0.0001 )//如果当前深度大于纹理中的深度
+			{
+				EndLight += STEP_UP;//光强度累计
+			}
+			else
+			{
+				EndLight -= STEP_UP+STEP_UP;
+			}
+		}
+		Pos += stepSize;//递增
+		i ++;
+	}
+	EndLight *= 0.5;
+    gl_FragColor = vec4( EndLight, EndLight, EndLight, 1.0);
+    /*
+	float SecenDepth = texture2D( g_SenceDepth , var_coord ).r;
+	vec4 RayEnd; //to opengl space
+	RayEnd.x = var_coord.x * 2.0 - 1.0;
+	RayEnd.y = var_coord.y * 2.0 - 1.0;
+	RayEnd.z = SecenDepth;
+	RayEnd.w = 1.0;
+	vec4 PostionWS = g_matViewProjInvers * RayEnd;
+	vec4 PostionLightSpace = g_matLightViewProj * PostionWS;
+	PostionLightSpace.xy/=PostionLightSpace.w;
+	PostionLightSpace.xy *= 0.5;
+	PostionLightSpace.xy += 0.5;
+    gl_FragColor = texture2D( g_LightDepth , PostionLightSpace.xy );*/
+}

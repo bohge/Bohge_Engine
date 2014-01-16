@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'libvorbis' target in the 'libvorbis' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

@@ -1,0 +1,15 @@
+D:/Lord/Librarys/Bohge/External/bullet/CMakeFiles/ALL_BUILD.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/BulletCollision/CMakeFiles/BulletCollision.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/BulletDynamics/CMakeFiles/BulletDynamics.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/Serialize/BulletFileLoader/CMakeFiles/BulletFileLoader.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/BulletMultiThreaded/CMakeFiles/BulletMultiThreaded.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/BulletSoftBody/CMakeFiles/BulletSoftBody.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/BulletMultiThreaded/GpuSoftBodySolvers/OpenCL/MiniCL/CMakeFiles/BulletSoftBodySolvers_OpenCL_Mini.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/Serialize/BulletWorldImporter/CMakeFiles/BulletWorldImporter.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/Serialize/BulletXmlWorldImporter/CMakeFiles/BulletXmlWorldImporter.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/ConvexDecomposition/CMakeFiles/ConvexDecomposition.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/GIMPACTUtils/CMakeFiles/GIMPACTUtils.dir
+D:/Lord/Librarys/Bohge/External/bullet/Extras/HACD/CMakeFiles/HACD.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/LinearMath/CMakeFiles/LinearMath.dir
+D:/Lord/Librarys/Bohge/External/bullet/src/MiniCL/CMakeFiles/MiniCL.dir
+D:/Lord/Librarys/Bohge/External/bullet/CMakeFiles/ZERO_CHECK.dir

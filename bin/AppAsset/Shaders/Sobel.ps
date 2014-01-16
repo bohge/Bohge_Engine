@@ -1,0 +1,85 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+precision mediump float;
+
+
+uniform sampler2D g_DepthTexture;
+uniform float g_CoarseTextureWidthInv;
+uniform float g_CoarseTextureHeightInv;
+
+varying vec2 var_coord;
+
+void main()
+{
+	float offsetX = g_CoarseTextureWidthInv * 0.5;
+	float offsetY = g_CoarseTextureHeightInv * 0.5;
+		
+	float c0 = texture2D( g_DepthTexture, var_coord ).x;
+
+	float c1 = texture2D( g_DepthTexture, var_coord + vec2( offsetX, 0.0) ).x;
+	float c2 = texture2D( g_DepthTexture, var_coord + vec2( 0.0,-offsetY) ).x;
+	float c3 = texture2D( g_DepthTexture, var_coord + vec2(-offsetX, 0.0) ).x;
+	float c4 = texture2D( g_DepthTexture, var_coord + vec2( 0.0, offsetY) ).x;
+
+	float c5 = texture2D( g_DepthTexture, var_coord + vec2( offsetX, offsetY) ).x;
+	float c6 = texture2D( g_DepthTexture, var_coord + vec2( offsetX,-offsetY) ).x;
+	float c7 = texture2D( g_DepthTexture, var_coord + vec2(-offsetX,-offsetY) ).x;
+	float c8 = texture2D( g_DepthTexture, var_coord + vec2(-offsetX, offsetY) ).x;
+
+	float c9 =  texture2D( g_DepthTexture, var_coord + vec2( -2.0 * offsetX, -2.0 * offsetY) ).x;
+	float c10 = texture2D( g_DepthTexture, var_coord + vec2( -1.0 * offsetX, -2.0 * offsetY) ).x;
+	float c11 = texture2D( g_DepthTexture, var_coord + vec2(  0.0 * offsetX, -2.0 * offsetY) ).x;
+	float c12 = texture2D( g_DepthTexture, var_coord + vec2(  1.0 * offsetX, -2.0 * offsetY) ).x;
+	float c13 = texture2D( g_DepthTexture, var_coord + vec2(  2.0 * offsetX, -2.0 * offsetY) ).x;
+
+	float c14 = texture2D( g_DepthTexture, var_coord + vec2( -2.0 * offsetX, 2.0 * offsetY) ).x;
+	float c15 = texture2D( g_DepthTexture, var_coord + vec2( -1.0 * offsetX, 2.0 * offsetY) ).x;
+	float c16 = texture2D( g_DepthTexture, var_coord + vec2(  0.0 * offsetX, 2.0 * offsetY) ).x;
+	float c17 = texture2D( g_DepthTexture, var_coord + vec2(  1.0 * offsetX, 2.0 * offsetY) ).x;
+	float c18 = texture2D( g_DepthTexture, var_coord + vec2(  2.0 * offsetX, 2.0 * offsetY) ).x;
+
+	float c19 = texture2D( g_DepthTexture, var_coord + vec2( -2.0 * offsetX, -1.0 * offsetY) ).x;
+	float c20 = texture2D( g_DepthTexture, var_coord + vec2(  2.0 * offsetX, -1.0 * offsetY) ).x;
+	float c21 = texture2D( g_DepthTexture, var_coord + vec2( -2.0 * offsetX,  0.0 * offsetY) ).x;
+	float c22 = texture2D( g_DepthTexture, var_coord + vec2(  2.0 * offsetX,  0.0 * offsetY) ).x;
+	float c23 = texture2D( g_DepthTexture, var_coord + vec2( -2.0 * offsetX,  1.0 * offsetY) ).x;
+	float c24 = texture2D( g_DepthTexture, var_coord + vec2(  2.0 * offsetX,  1.0 * offsetY) ).x;
+
+	// Apply Sobel 5x5 edge detection filter
+	float Gx = 1.0 * ( -c9 -c14 + c13 + c18 ) + 2.0 * ( -c19 -c23 - c10 - c15 + c12 + c17 + c20 + c24 ) + 3.0 * ( -c21 -c7 -c8 + c6 + c5 + c22 ) + 5.0 * ( -c3 + c1 );
+	float Gy = 1.0 * ( -c14 -c18 + c9 + c13 ) + 2.0 * ( -c15 -c17 - c23 - c24 + c19 + c20 + c10 + c12 ) + 3.0 * ( -c16 -c8 -c5 + c6 + c7 + c11 ) + 5.0 * ( -c4 + c2 );
+	float scale = 25.0; // Blur scale, can be depth dependent
+
+	gl_FragColor = vec4( Gx * scale, Gy * scale ,0.0,1.0);
+}

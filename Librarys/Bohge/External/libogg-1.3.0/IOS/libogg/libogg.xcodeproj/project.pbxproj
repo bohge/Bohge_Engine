@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75397C7E15F6B8BD00DA3666 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75397C7D15F6B8BD00DA3666 /* Foundation.framework */; };
+		75397C8C15F6B8E900DA3666 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = 75397C8A15F6B8E900DA3666 /* bitwise.c */; };
+		75397C8D15F6B8E900DA3666 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 75397C8B15F6B8E900DA3666 /* framing.c */; };
+		75397C9015F6B8F900DA3666 /* ogg.h in Headers */ = {isa = PBXBuildFile; fileRef = 75397C8E15F6B8F900DA3666 /* ogg.h */; };
+		75397C9115F6B8F900DA3666 /* os_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 75397C8F15F6B8F900DA3666 /* os_types.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		75397C7A15F6B8BD00DA3666 /* liblibogg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibogg.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		75397C7D15F6B8BD00DA3666 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75397C8115F6B8BD00DA3666 /* libogg-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libogg-Prefix.pch"; sourceTree = "<group>"; };
+		75397C8A15F6B8E900DA3666 /* bitwise.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitwise.c; path = ../../../src/bitwise.c; sourceTree = "<group>"; };
+		75397C8B15F6B8E900DA3666 /* framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = framing.c; path = ../../../src/framing.c; sourceTree = "<group>"; };
+		75397C8E15F6B8F900DA3666 /* ogg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ogg.h; path = ../../../include/ogg/ogg.h; sourceTree = "<group>"; };
+		75397C8F15F6B8F900DA3666 /* os_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os_types.h; path = ../../../include/ogg/os_types.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75397C7715F6B8BD00DA3666 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75397C7E15F6B8BD00DA3666 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75397C6F15F6B8BD00DA3666 = {
+			isa = PBXGroup;
+			children = (
+				75397C7F15F6B8BD00DA3666 /* libogg */,
+				75397C7C15F6B8BD00DA3666 /* Frameworks */,
+				75397C7B15F6B8BD00DA3666 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75397C7B15F6B8BD00DA3666 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75397C7A15F6B8BD00DA3666 /* liblibogg.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75397C7C15F6B8BD00DA3666 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75397C7D15F6B8BD00DA3666 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75397C7F15F6B8BD00DA3666 /* libogg */ = {
+			isa = PBXGroup;
+			children = (
+				75397C8E15F6B8F900DA3666 /* ogg.h */,
+				75397C8F15F6B8F900DA3666 /* os_types.h */,
+				75397C8A15F6B8E900DA3666 /* bitwise.c */,
+				75397C8B15F6B8E900DA3666 /* framing.c */,
+				75397C8015F6B8BD00DA3666 /* Supporting Files */,
+			);
+			path = libogg;
+			sourceTree = "<group>";
+		};
+		75397C8015F6B8BD00DA3666 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75397C8115F6B8BD00DA3666 /* libogg-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		75397C7815F6B8BD00DA3666 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75397C9015F6B8F900DA3666 /* ogg.h in Headers */,
+				75397C9115F6B8F900DA3666 /* os_types.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		75397C7915F6B8BD00DA3666 /* libogg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75397C8715F6B8BD00DA3666 /* Build configuration list for PBXNativeTarget "libogg" */;
+			buildPhases = (
+				75397C7615F6B8BD00DA3666 /* Sources */,
+				75397C7715F6B8BD00DA3666 /* Frameworks */,
+				75397C7815F6B8BD00DA3666 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libogg;
+			productName = libogg;
+			productReference = 75397C7A15F6B8BD00DA3666 /* liblibogg.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75397C7115F6B8BD00DA3666 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 75397C7415F6B8BD00DA3666 /* Build configuration list for PBXProject "libogg" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 75397C6F15F6B8BD00DA3666;
+			productRefGroup = 75397C7B15F6B8BD00DA3666 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75397C7915F6B8BD00DA3666 /* libogg */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75397C7615F6B8BD00DA3666 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75397C8C15F6B8E900DA3666 /* bitwise.c in Sources */,
+				75397C8D15F6B8E900DA3666 /* framing.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		75397C8515F6B8BD00DA3666 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		75397C8615F6B8BD00DA3666 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75397C8815F6B8BD00DA3666 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/libogg.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libogg/libogg-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__MACOSX__,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = ../../include/;
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				USER_HEADER_SEARCH_PATHS = ../../include/;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		75397C8915F6B8BD00DA3666 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/libogg.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libogg/libogg-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = __MACOSX__;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = ../../include/;
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = ../../include/;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75397C7415F6B8BD00DA3666 /* Build configuration list for PBXProject "libogg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75397C8515F6B8BD00DA3666 /* Debug */,
+				75397C8615F6B8BD00DA3666 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75397C8715F6B8BD00DA3666 /* Build configuration list for PBXNativeTarget "libogg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75397C8815F6B8BD00DA3666 /* Debug */,
+				75397C8915F6B8BD00DA3666 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75397C7115F6B8BD00DA3666 /* Project object */;
+}

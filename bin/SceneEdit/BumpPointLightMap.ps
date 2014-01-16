@@ -1,0 +1,41 @@
+#include "LinerDepth.glsl"
+#include "Utility.glsl"
+#include "PCF.glsl"
+
+uniform samplerCube TextureDepth;
+uniform sampler2D BumpTexture;
+
+
+uniform vec3 Light;
+uniform float fLightRangeInv;
+uniform vec4  vAttenuation;
+
+varying vec2 g_vTexCoord;
+varying mediump vec3 g_vLightTangent;
+varying mediump vec3 g_vLightWorld;
+varying mediump vec3 g_vNormal;
+
+
+
+void main()
+{
+	highp float dis = length( g_vLightWorld );
+	highp float fDepth = GetLineDepthDistance( dis );
+	float disRange = dis * fLightRangeInv;
+	float fAttenuation = (1.0 - disRange ) / ( vAttenuation.x + disRange * vAttenuation.y + disRange * disRange * vAttenuation.z );
+	
+	
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= texture2D( BumpTexture, g_vTexCoord, -1.0 ).xyz * 2.0 - 1.0;
+    // Standard Phong lighting
+    vec3  vLightTangent    	= normalize( g_vLightTangent );
+    float dotLightNormal= dot( vLightTangent, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+
+	
+	float shadow = PCFPointLightShadow( fDepth, -normalize(g_vLightWorld), TextureDepth ) * fAttenuation;
+	gl_FragColor = vec4( fDiffuse * Light * shadow , 1.0 );
+	//gl_FragColor = vec4( shadow, shadow, shadow , 1.0 );
+	//highp float depth = unpackFloatFromVec( textureCube( TextureDepth, -vLight ) );
+	//gl_FragColor = vec4( textureCube( TextureDepth, -vLight ).xyz, 1.0 );
+}

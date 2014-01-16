@@ -1,0 +1,81 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#include "Utility.glsl"
+uniform sampler2D WeightTexture;
+uniform sampler2D BaseTexture;
+uniform sampler2D DetalTexture;
+uniform sampler2D ShadowMap;
+//uniform sampler2D DetalTexture;
+//uniform vec2 DetailDistanceInve_Tile;
+
+uniform mediump float DetailDistanceInve;
+uniform lowp vec3 vAmbient_Light; //环境光强度乘环境光颜色
+uniform lowp vec3 Specular_Light; //高光强度乘灯光颜色
+uniform lowp vec3 Light;
+uniform mediump float Shininess;
+uniform lowp vec3 g_FogColor;
+
+//varying float g_morphLerpK;
+//varying float g_Depth;
+varying mediump vec4 g_vTexCoord;
+varying mediump vec3 g_vLightVec;
+varying mediump vec3 g_vViewVec;
+varying mediump vec3 g_vNormal;
+varying mediump vec4 g_vOutShadowCoord;
+varying mediump float g_fDepth;
+varying mediump float g_fogFactor;
+
+void main()
+{
+	lowp vec4 base = texture2D( BaseTexture, g_vTexCoord.zw );
+	lowp vec4 weight = texture2D( WeightTexture, g_vTexCoord.zw );
+
+    // Select the normal in the appropriate space
+    mediump vec3 vNormal    	= normalize( g_vNormal );
+    mediump vec3  vLight    	= normalize( g_vLightVec );
+    mediump vec3  vView     	= normalize( g_vViewVec );
+    mediump vec3  vHalf     	= normalize( vLight + vView );
+	
+	lowp float fSpecular = pow( saturate( dot( vHalf, vNormal ) ) , Shininess );
+	
+    lowp float shadow = ESMShadowDirectionLight( g_fDepth, g_vOutShadowCoord, ShadowMap );
+	lowp vec3 shadow_ambient = saturate( vAmbient_Light + shadow );
+	shadow = weight.a * shadow;
+	lowp vec3 endcolor  = vec3( base.xyz * shadow_ambient + shadow * fSpecular * Specular_Light );
+	
+	gl_FragColor = vec4( FogEndColor( g_FogColor, endcolor.xyz, g_fogFactor ), 1.0 );
+	//vec3 diffuse = texture2D( DiffuseTexture, g_vTexCoord.zw ).xyz;
+	//gl_FragColor = vec4( diffuse * g_morphLerpK + base * (1.0-g_morphLerpK), 1.0 );
+	//gl_FragColor = vec4( unpackFloatFromVec( texture2DProj( ShadowMap, g_vOutShadowCoord ) ) - g_fDepth, 0.0, 0.0, 1.0 );
+}

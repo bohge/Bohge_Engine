@@ -1,0 +1,40 @@
+
+#include "Utility.glsl"
+#include "PCF.glsl"
+#include "LinerDepth.glsl"
+
+
+uniform samplerCube TextureDepth;
+
+uniform vec3 Light;
+uniform float fLightRangeInv;
+uniform vec4  vAttenuation;
+
+varying mediump vec3 g_vLightVec;
+varying mediump vec3 g_vNormal;
+
+
+
+void main()
+{
+	highp float dis = length( g_vLightVec );
+	highp float fDepth = GetLineDepthDistance( dis );
+	float disRange = dis * fLightRangeInv;
+	float fAttenuation = (1.0 - disRange ) / ( vAttenuation.x + disRange * vAttenuation.y + disRange * disRange * vAttenuation.z );
+	
+	
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= normalize( g_vNormal );
+    // Standard Phong lighting
+    float fAtten    	= saturate( 1.0 - 0.05 * dot( g_vLightVec, g_vLightVec ) );
+    vec3  vLight    	= normalize( g_vLightVec );
+    float dotLightNormal= dot( vLight, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+
+	
+	float shadow = PCFPointLightShadow( fDepth, -vLight, TextureDepth ) * fAttenuation;
+	gl_FragColor = vec4( fDiffuse * Light * shadow , 1.0 );
+	//gl_FragColor = vec4( shadow, shadow, shadow , 1.0 );
+	//highp float depth = unpackFloatFromVec( textureCube( TextureDepth, -vLight ) );
+	//gl_FragColor = vec4( textureCube( TextureDepth, -vLight ).xyz, 1.0 );
+}

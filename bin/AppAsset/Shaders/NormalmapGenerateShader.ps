@@ -1,0 +1,66 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+   precision highp float;
+#else
+   precision mediump float;
+#endif
+uniform float amplitude;
+uniform sampler2D hsampler;
+
+varying float g_fStep;
+varying vec2 g_tc;
+varying vec3 tc_m_dx;
+varying vec3 tc_p_dx;
+varying vec3 tc_m_dy;
+varying vec3 tc_p_dy;
+
+
+void main()
+{
+	vec2 dx = vec2(g_fStep,0);
+	vec2 dy = vec2(0,g_fStep);
+	vec3 l_tc_m_dx = tc_m_dx;
+	vec3 l_tc_p_dx = tc_p_dx;
+	vec3 l_tc_m_dy = tc_m_dy;
+	vec3 l_tc_p_dy = tc_p_dy;
+	l_tc_p_dx.y = amplitude*texture2D(hsampler, g_tc+dx).x;
+	l_tc_m_dx.y = amplitude*texture2D(hsampler, g_tc-dx).x;
+	l_tc_p_dy.y = amplitude*texture2D(hsampler, g_tc+dy).x;
+	l_tc_m_dy.y = amplitude*texture2D(hsampler, g_tc-dy).x;
+	vec3 normal = normalize(-cross(l_tc_p_dx-l_tc_m_dx, l_tc_p_dy-l_tc_m_dy));
+	gl_FragColor = vec4(0.5+0.5*normal,1);
+	//float c = texture2D(hsampler, g_tc).x;
+	//gl_FragColor = vec4( c,c,c,1);
+}

@@ -1,0 +1,16 @@
+#version 140
+uniform vec2 p;
+in vec4 position;
+in vec4 icol;
+out vec4 col;
+void main ()
+{
+  col = icol;
+  vec4 tmpvar_1;
+  tmpvar_1.zw = vec2(0.0, 0.0);
+  tmpvar_1.xy = p;
+  gl_Position = (tmpvar_1 + position);
+}
+
+
+// inputs: 2, stats: 2 alu 0 tex 0 flow

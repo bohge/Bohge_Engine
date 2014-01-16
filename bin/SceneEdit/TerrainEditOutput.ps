@@ -1,0 +1,50 @@
+// OpenGL ES require that precision is defined for a fragment shader
+precision highp float;
+
+// Define some useful macros
+#define saturate(x) clamp( x, 0.0, 1.0 )
+#define lerp        mix
+#include "Utility.glsl"
+#include "PCF.glsl"
+uniform sampler2D ClampTexture;
+uniform sampler2D RTexture;
+uniform sampler2D GTexture;
+uniform sampler2D BTexture;
+uniform sampler2D BaseTexture;
+uniform sampler2D BumpTexture;
+uniform sampler2D ShadowMap;
+
+uniform vec3 vAmbient_Light; //环境光强度乘环境光颜色
+uniform vec3 Light;
+
+varying vec4 g_vTexCoord;
+varying vec3 g_vLightVec;
+varying vec4 g_vOutShadowCoord;
+varying float g_fDepth;
+
+
+
+void main()
+{
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= texture2D( BumpTexture, g_vTexCoord.xy, -1.0 ).xyz * 2.0 - 1.0;
+	
+	vec4 weight = texture2D( ClampTexture, g_vTexCoord.zw );
+	vec3 EndColor = texture2D( BaseTexture, g_vTexCoord.xy ).xyz;
+	vec3 rTex = texture2D( RTexture, g_vTexCoord.xy ).xyz;
+	vec3 gTex = texture2D( GTexture, g_vTexCoord.xy ).xyz;
+	vec3 bTex = texture2D( BTexture, g_vTexCoord.xy ).xyz;
+
+	EndColor *= clamp(1.0 - weight.r - weight.g - weight.b, 0.0, 1.0);
+	EndColor += weight.r * rTex + weight.g * gTex + weight.b * bTex;
+
+    vec3  vLight    	= normalize( g_vLightVec );
+    float dotLightNormal= dot( vLight, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+	
+	float shadow = PCFShadow( g_fDepth, g_vOutShadowCoord, ShadowMap );
+    //float shadow = ESMShadow( g_fDepth, g_vOutShadowCoord, ShadowMap );
+	gl_FragColor = vec4( ( vAmbient_Light + ( fDiffuse * shadow ) * Light ) * EndColor, shadow );
+	//highp float tex_depth = unpackFloatFromVec( texture2DProj( ShadowMap, g_vOutShadowCoord ) );
+	//gl_FragColor = vec4( g_tangent, 1.0 );
+}

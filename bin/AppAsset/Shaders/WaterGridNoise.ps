@@ -1,0 +1,106 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+precision mediump float;
+
+
+// Define some useful macros
+#define saturate(x) clamp( x, 0.0, 1.0 )
+#define lerp        mix
+#include "Utility.glsl"
+uniform samplerCube SkyBox;
+uniform sampler2D	NoiseMap;
+uniform sampler2D	WorldDepth;
+uniform sampler2D	SceneTex;
+uniform sampler2D	WaterColorTex;
+
+uniform vec2 NeraQ_Q;
+uniform float CanSeeDepth;
+uniform vec3 vLightDir;
+uniform vec3 vFordWaterColor;
+uniform vec3 vDepthWaterColor;
+uniform vec3 Specular_Light; //高光强度乘灯光颜色
+uniform float Shininess;
+uniform vec2 NearQ_Q;
+
+
+varying vec3 g_vViewVec;
+varying vec3 g_vNormal;
+varying vec4 g_vSSPos;
+varying vec2 g_vtexCoord;
+varying float g_fReflRefr_Offset_On_Z;
+varying float g_fHeightNoise;
+varying highp float g_SurfaceHeight;
+
+void main()
+{
+    vec3 vNormal = normalize(g_vNormal);
+    // Standard Phong lighting
+    vec3  vLight    	= vLightDir;
+    vec3  vView     	= normalize( g_vViewVec );
+    vec3  vHalf     	= normalize( vLight + vView );
+    float dotLightNormal= dot( vLight, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+	float f = pow( 1.0 - dot( vView, vNormal), 4.0 );
+	float fSpecular = pow( saturate( dot( vHalf, vNormal ) ) , Shininess );
+	
+	lowp float noise = texture2D( NoiseMap , g_vtexCoord ).r;
+	float noiseWeight = g_fHeightNoise;
+	
+	float z_b = unpackFloatFromVec( texture2D(WorldDepth, g_vSSPos.xy) );
+    float z_n = 2.0 * z_b - 1.0;
+	float no_water_depth = NeraQ_Q.x / ( NeraQ_Q.y - z_n );
+	float water_depth = no_water_depth - g_vSSPos.w;
+	water_depth = saturate( water_depth * CanSeeDepth );
+	//noiseWeight += pow( 1.0 - water_depth, 6.0 );//这两句是在边缘加白沫，没意思，不要了
+	noiseWeight *= noise;
+	water_depth = lerp( water_depth, 1.0, fSpecular + noiseWeight );
+	
+	vec3 R = normalize( reflect( vView, vNormal ) );
+	//vec3 waterColor = lerp(vFordWaterColor, vDepthWaterColor, g_SurfaceHeight );
+	lowp vec3 waterColor = texture2D( WaterColorTex, vec2(g_SurfaceHeight) ).xyz;
+	lowp vec3 watercolorlight = waterColor * fDiffuse;
+	lowp vec3 colorwater = lerp( watercolorlight, Specular_Light,saturate(fSpecular - noiseWeight) );
+
+	lowp vec3 refl = textureCube(SkyBox, R).xyz;
+	lowp vec3 endColor = lerp( colorwater, refl, f );// reflationc
+	lowp vec3 refr = texture2D( SceneTex, g_vSSPos.xy - g_fReflRefr_Offset_On_Z*vNormal.xz).xyz;
+	endColor = lerp( refr, endColor, water_depth );
+
+	endColor = lerp( endColor, vec3( 0.6,0.8,0.9 ), noiseWeight );//noise
+	//finalColor = waterColor + reflectionColor * fastFresnel + reftractionColor *  ( 1 - fastFresnel );
+	//water_depth = 1.0 - pow( 1.0 - water_depth, 4.0 );
+	gl_FragColor = vec4( endColor, 1.0 );
+	//gl_FragColor = vec4( refl ,1.0 );
+	//gl_FragColor = vec4( water_depth, water_depth, water_depth, 1.0 );//vec4( no_water_depth, no_water_depth, no_water_depth, 1.0 );
+}

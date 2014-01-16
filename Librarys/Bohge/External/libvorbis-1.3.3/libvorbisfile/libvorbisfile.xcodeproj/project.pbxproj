@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		759F4BC415F6C1EF00A1F89B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 759F4BC315F6C1EF00A1F89B /* Foundation.framework */; };
+		759F4BD115F6C28D00A1F89B /* vorbisfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 759F4BD015F6C28D00A1F89B /* vorbisfile.c */; };
+		759F4BD315F6C2A400A1F89B /* vorbisfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 759F4BD215F6C2A400A1F89B /* vorbisfile.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		759F4BC015F6C1EF00A1F89B /* liblibvorbisfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibvorbisfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		759F4BC315F6C1EF00A1F89B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		759F4BC715F6C1EF00A1F89B /* libvorbisfile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libvorbisfile-Prefix.pch"; sourceTree = "<group>"; };
+		759F4BD015F6C28D00A1F89B /* vorbisfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vorbisfile.c; path = ../../lib/vorbisfile.c; sourceTree = "<group>"; };
+		759F4BD215F6C2A400A1F89B /* vorbisfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vorbisfile.h; path = ../../include/vorbis/vorbisfile.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		759F4BBD15F6C1EF00A1F89B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				759F4BC415F6C1EF00A1F89B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		759F4BB515F6C1EE00A1F89B = {
+			isa = PBXGroup;
+			children = (
+				759F4BC515F6C1EF00A1F89B /* libvorbisfile */,
+				759F4BC215F6C1EF00A1F89B /* Frameworks */,
+				759F4BC115F6C1EF00A1F89B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		759F4BC115F6C1EF00A1F89B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				759F4BC015F6C1EF00A1F89B /* liblibvorbisfile.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		759F4BC215F6C1EF00A1F89B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				759F4BC315F6C1EF00A1F89B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		759F4BC515F6C1EF00A1F89B /* libvorbisfile */ = {
+			isa = PBXGroup;
+			children = (
+				759F4BD215F6C2A400A1F89B /* vorbisfile.h */,
+				759F4BD015F6C28D00A1F89B /* vorbisfile.c */,
+				759F4BC615F6C1EF00A1F89B /* Supporting Files */,
+			);
+			path = libvorbisfile;
+			sourceTree = "<group>";
+		};
+		759F4BC615F6C1EF00A1F89B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				759F4BC715F6C1EF00A1F89B /* libvorbisfile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		759F4BBE15F6C1EF00A1F89B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				759F4BD315F6C2A400A1F89B /* vorbisfile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		759F4BBF15F6C1EF00A1F89B /* libvorbisfile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 759F4BCD15F6C1EF00A1F89B /* Build configuration list for PBXNativeTarget "libvorbisfile" */;
+			buildPhases = (
+				759F4BBC15F6C1EF00A1F89B /* Sources */,
+				759F4BBD15F6C1EF00A1F89B /* Frameworks */,
+				759F4BBE15F6C1EF00A1F89B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libvorbisfile;
+			productName = libvorbisfile;
+			productReference = 759F4BC015F6C1EF00A1F89B /* liblibvorbisfile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		759F4BB715F6C1EE00A1F89B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 759F4BBA15F6C1EE00A1F89B /* Build configuration list for PBXProject "libvorbisfile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 759F4BB515F6C1EE00A1F89B;
+			productRefGroup = 759F4BC115F6C1EF00A1F89B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				759F4BBF15F6C1EF00A1F89B /* libvorbisfile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		759F4BBC15F6C1EF00A1F89B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				759F4BD115F6C28D00A1F89B /* vorbisfile.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		759F4BCB15F6C1EF00A1F89B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		759F4BCC15F6C1EF00A1F89B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		759F4BCE15F6C1EF00A1F89B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhao peng (UV2V8CWDNS)";
+				DSTROOT = /tmp/libvorbisfile.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libvorbisfile/libvorbisfile-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"../../libogg-1.3.0/include/",
+					../include/,
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BD8DBA52-AE9C-461C-B7D8-A1B1DCAA1BDD";
+				SKIP_INSTALL = NO;
+				USER_HEADER_SEARCH_PATHS = "../../libogg-1.3.0/include/ ../include/";
+				VALID_ARCHS = "armv6 armv7";
+			};
+			name = Debug;
+		};
+		759F4BCF15F6C1EF00A1F89B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhao peng (UV2V8CWDNS)";
+				DSTROOT = /tmp/libvorbisfile.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libvorbisfile/libvorbisfile-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"../../libogg-1.3.0/include/",
+					../include/,
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BD8DBA52-AE9C-461C-B7D8-A1B1DCAA1BDD";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../../libogg-1.3.0/include/ ../include/";
+				VALID_ARCHS = "armv6 armv7";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		759F4BBA15F6C1EE00A1F89B /* Build configuration list for PBXProject "libvorbisfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				759F4BCB15F6C1EF00A1F89B /* Debug */,
+				759F4BCC15F6C1EF00A1F89B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		759F4BCD15F6C1EF00A1F89B /* Build configuration list for PBXNativeTarget "libvorbisfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				759F4BCE15F6C1EF00A1F89B /* Debug */,
+				759F4BCF15F6C1EF00A1F89B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 759F4BB715F6C1EE00A1F89B /* Project object */;
+}

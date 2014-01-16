@@ -1,0 +1,125 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+#include "Utility.glsl"
+
+
+
+uniform samplerCube SkyBox;
+uniform sampler2D	WorldDepth;
+uniform sampler2D	SceneTex;
+uniform sampler2D	WaterColorTex;
+uniform sampler2D	WaterNoise;
+
+
+uniform highp vec2 NeraQ_Q;
+uniform mediump float NoiseStrength;
+uniform lowp vec3 NoiseColor;
+uniform highp float CanSeeDepth;
+uniform highp vec3 vLightDir;
+//uniform vec3 vFordWaterColor;
+//uniform vec3 vDepthWaterColor;
+uniform lowp vec3 Specular_Light; //高光强度乘灯光颜色
+uniform mediump float Shininess;
+uniform sampler2D Bumpmap;
+uniform mediump float g_BumpReduic;//法线有效视角的缩减
+uniform mediump float g_BumpStrength;//法线的最终强度上限
+uniform lowp vec3 g_FogColor;
+
+
+varying highp vec3 g_vViewVec;
+varying mediump vec3 g_vNormal;
+varying highp vec4 g_vSSPos;
+varying mediump vec2 g_SurfaceHeightCoord;
+varying mediump vec2 g_RefrCoord;
+varying mediump vec4 g_NoiseCoord;
+//varying vec2 g_LightFresnel;
+varying highp vec4 g_vOutShadowCoord;
+varying highp float g_fogFactor;
+varying highp float g_fDepth;
+
+void main()
+{
+    highp vec3  vLight    	= vLightDir;
+    highp vec3  vView     	= normalize( g_vViewVec );
+    highp vec3  vHalf     	= normalize( vLight + vView );
+	
+	highp float dotViewGNormal = dot( vView, g_vNormal);
+	mediump float normalstrength = dotViewGNormal * g_BumpStrength;
+    mediump vec3 vNormal = normalize( g_vNormal + ( texture2D( Bumpmap, g_NoiseCoord.zw ).rbg * ( normalstrength * 2.0 ) - normalstrength ) );
+    // Standard Phong lighting
+    highp float dotLightNormal= dot( vLight, vNormal );
+	mediump float fDiffuse = saturate( dotLightNormal );
+	mediump float fSpecular = pow( saturate( dot( vHalf, vNormal ) ) , Shininess );	
+	//vNormal = g_vNormal;
+
+	highp float f = pow( 1.0 - dotViewGNormal, 4.0 );
+	
+	mediump float NoiseWeight = texture2D( WaterNoise, g_NoiseCoord.xy ).a;
+	NoiseWeight = NoiseWeight * pow( ( 1.0 - g_SurfaceHeightCoord.x ), NoiseStrength );
+	fSpecular *= ( 1.0 - NoiseWeight );
+
+	highp float z_b = unpackFloatFromVec( texture2D(WorldDepth, g_vSSPos.xy) );
+    highp float z_n = 2.0 * z_b - 1.0;
+	highp float no_water_depth = NeraQ_Q.x / ( NeraQ_Q.y - z_n );
+	highp float water_depth = no_water_depth - g_vSSPos.w;
+	water_depth = saturate( water_depth * CanSeeDepth );
+	water_depth = lerp( water_depth, 1.0, fSpecular );
+	
+	mediump vec3 R = normalize( reflect( vView, vNormal ) );
+	//vec3 waterColor = lerp(vFordWaterColor, vDepthWaterColor, g_SurfaceHeight );
+	lowp vec3 waterColor = texture2D( WaterColorTex, g_SurfaceHeightCoord ).xyz;
+	lowp vec3 watercolorlight = waterColor * fDiffuse;
+	lowp vec3 colorwater = lerp( watercolorlight, Specular_Light,fSpecular );
+
+	lowp vec3 refl = textureCube(SkyBox, R).xyz;
+	lowp vec3 endColor = lerp( colorwater, refl, f );// reflationc
+	lowp vec3 refr = texture2D( SceneTex, g_RefrCoord ).xyz;
+	//float lightscatting = texture2D( WaterNoise, g_LightFresnel).a;
+	//refr *= (1.0+lightscatting);
+	endColor = lerp( refr, endColor, water_depth );
+
+	//finalColor = waterColor + reflectionColor * fastFresnel + reftractionColor *  ( 1 - fastFresnel );
+	//water_depth = 1.0 - pow( 1.0 - water_depth, 4.0 );
+	
+	endColor = lerp( endColor, NoiseColor, NoiseWeight );
+	
+	
+	//gl_FragColor = vec4( endColor, 1.0 );
+	gl_FragColor = vec4( FogEndColor( g_FogColor, endColor, g_fogFactor ), 1.0 );
+	//gl_FragColor = texture2D( Bumpmap, g_NoiseCoord.zw );
+	//gl_FragColor = vec4( f, 0.0, 0.0, 1.0 );
+	//gl_FragColor = vec4( refl ,1.0 );
+	//gl_FragColor = vec4( water_depth, water_depth, water_depth, 1.0 );//vec4( no_water_depth, no_water_depth, no_water_depth, 1.0 );
+}

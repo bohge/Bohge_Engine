@@ -1,0 +1,21 @@
+// OpenGL ES require that precision is defined for a fragment shader
+precision highp float;
+
+// Define some useful macros
+#define saturate(x) clamp( x, 0.0, 1.0 )
+#define lerp        mix
+#include "Utility.glsl"
+uniform sampler2D BaseTexture;
+uniform vec3 g_FogColor;
+
+
+varying vec2 g_vTexCoord;
+varying vec3 g_vLightColor;
+varying vec3 g_vSpecular;
+varying float g_fogFactor;
+
+void main()
+{
+    vec4 vBaseColor = texture2D( BaseTexture, g_vTexCoord );
+	gl_FragColor = vec4( vBaseColor.xyz, 1.0 );//输出主要是要alpha，做光照计算
+}

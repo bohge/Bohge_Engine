@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_Adreno|Win32">
+      <Configuration>Debug_Adreno</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_OpenGL|Win32">
+      <Configuration>Debug_OpenGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Adreno|Win32">
+      <Configuration>Release_Adreno</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Opengl|Win32">
+      <Configuration>Release_Opengl</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{343FFCBB-FFB9-43A6-930E-5A8C2B0E70AF}</ProjectGuid>
+    <RootNamespace>Card</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">../../../bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">../../../bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">../../../bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">../../../bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'" />
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">_OpenGL_d.exe</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">_Adreno_d.exe</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">_Adreno.exe</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">_OpenGL.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../../Librarys/Game/Game;../../../Librarys/Bohge/External/Adreno/Include;../../../Librarys/Bohge/Bohge;../../../Librarys/Bohge/BohgeNet/BohgeNet;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;ADRENO;ONLINE;MEMORYPOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;OpenAL32.lib;pthreadVC2.lib;libOpenSLES.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_Adreno.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../Librarys/Bohge/External/OpenAL/lib;../../../Librarys/Bohge/External/Adreno/Lib;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/lib/x86;../../../Librarys/Bohge/External/OpenSLES/lib;../Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../Librarys/Game/Game;../../../Librarys/Bohge/Bohge;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../../../Librarys/Bohge/External/glew-1.9.0-win32/include;../../../Librarys/Bohge/External/glut-3.7.6-bin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;OPENGL;ONLINE;MEMORYPOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>OpenAL32.lib;pthreadVC2.lib;libOpenSLES.lib;glew32.lib;glew32mx.lib;glew32mxs.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_OpenGL_d.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../Librarys/Bohge/External/OpenAL/lib;../../../Librarys/Bohge/External/glew-1.9.0-win32/lib;../../../Librarys/Bohge/External/glut-3.7.6-bin;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/lib/x86;../../../Librarys/Bohge/External/OpenSLES/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../Librarys/Game/Game;../../../Librarys/Bohge/External/Adreno/Include;../../../Librarys/Bohge/Bohge;../../../Librarys/Bohge/BohgeNet/BohgeNet;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/include;../../../Librarys/Bohge/External/lua-5.2.2/Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;ADRENO;ONLINE;MEMORYPOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level1</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;OpenAL32.lib;pthreadVC2.lib;libOpenSLES.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_Adreno_d.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../Librarys/Bohge/External/OpenAL/lib;../../../Librarys/Bohge/External/Adreno/Lib;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/lib/x86;../../../Librarys/Bohge/External/OpenSLES/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../../Librarys/Game/Game;../../../Librarys/Bohge/Bohge;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../../../Librarys/Bohge/External/glew-1.9.0-win32/include;../../../Librarys/Bohge/External/glut-3.7.6-bin;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;OPENGL;ONLINE;MEMORYPOOL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>OpenAL32.lib;pthreadVC2.lib;libOpenSLES.lib;glew32.lib;glew32mx.lib;glew32mxs.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_OpenGL.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../Librarys/Bohge/External/OpenAL/lib;../../../Librarys/Bohge/External/glew-1.9.0-win32/lib;../../../Librarys/Bohge/External/glut-3.7.6-bin;../../../Librarys/Bohge/External/pthreads-w32-2-9-1-release/Pre-built.2/lib/x86;../../../Librarys/Bohge/External/OpenSLES/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Android\jni\jni.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Adreno|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Opengl|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="win_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\BohgeNet\BohgeNet\BohgeNet.vcxproj">
+      <Project>{9449622c-25ef-48e4-b034-04ce60489d6d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\Bohge\Bohge.vcxproj">
+      <Project>{27d50088-3c1c-47eb-b9b3-c335f85988b3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\Extras\ConvexDecomposition\ConvexDecomposition.vcxproj">
+      <Project>{6222f3bb-30ba-4734-821d-5e8d36f46f9a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\Extras\GIMPACTUtils\GIMPACTUtils.vcxproj">
+      <Project>{d864020a-609e-45ba-9b31-219e1fc17e81}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\Extras\HACD\HACD.vcxproj">
+      <Project>{6911f9ad-3496-423b-b83f-25141ab54b03}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{08fa2d4c-a0fb-429c-97c7-9033a5b717d8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{41b77781-3585-4251-a5f6-0b1bf8d77abb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\src\BulletMultiThreaded\BulletMultiThreaded.vcxproj">
+      <Project>{6fe1f34c-b1a8-4b14-b170-6ad0d862d201}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\src\BulletSoftBody\BulletSoftBody.vcxproj">
+      <Project>{f2853757-a5e1-4a45-8fdc-b662a42a2866}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{d9cd1651-85bb-4122-9160-05a98a8af366}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\freetype\builds\win32\vc2008\freetype.vcxproj">
+      <Project>{78b079bd-9fc7-4b9e-b4a6-96da0f00248b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\glsl_optimizer\projects\vs2010\glsl_optimizer_lib.vcxproj">
+      <Project>{b475a403-9d9b-410d-8a93-ba49fc4dd811}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\Json\makefiles\vs71\lib_json.vcxproj">
+      <Project>{b84f7231-16ce-41d8-8c08-7b523ff4225b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\libogg-1.3.0\win32\VS2010\libogg_static.vcxproj">
+      <Project>{15cbfeff-7965-41f5-b4e2-21e8795c9159}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\libpng-1.5.10\projects\visualc71\libpng.vcxproj">
+      <Project>{b5b56c2e-434a-48f0-a8a9-dc45e80c4fbb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\libvorbis-1.3.3\win32\VS2010\libvorbisfile\libvorbisfile_static.vcxproj">
+      <Project>{cebde98b-a6aa-46e6-bc79-faaf823db9ec}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\libvorbis-1.3.3\win32\VS2010\libvorbis\libvorbis_static.vcxproj">
+      <Project>{3a214e06-b95e-4d61-a291-1f8df2ec10fd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\lua-5.2.2\Lua\Lua.vcxproj">
+      <Project>{87cceb82-0b49-47b9-8b5e-781eb03b3c39}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\nedmalloc_v1.06beta2\nedmalloc_dll.vcxproj">
+      <Project>{47044b33-6c5a-40b6-901f-d80ca003cd8c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\neonmath\NeonMath.vcxproj">
+      <Project>{d4d1ec8b-4bcf-4b59-ac11-ce9234127337}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Bohge\External\zlib-1.2.6\zlib.vcxproj">
+      <Project>{dd6a0787-5f98-47b5-ac19-9bea08b09af8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Librarys\Game\Game\Game.vcxproj">
+      <Project>{da05f152-cb47-4ec9-825b-3c30c144b6d3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,61 @@
+// OpenGL ES require that precision is defined for a fragment shader
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+   precision highp float;
+#else
+   precision mediump float;
+#endif
+
+// Define some useful macros
+#define saturate(x) clamp( x, 0.0, 1.0 )
+#define lerp        mix
+#include "Utility.glsl"
+uniform sampler2D ClampTexture;
+uniform sampler2D RTexture;
+uniform sampler2D GTexture;
+uniform sampler2D BTexture;
+uniform sampler2D BaseTexture;
+uniform sampler2D DetalTexture;
+uniform vec3 g_FogColor;
+
+
+
+uniform vec3 vAmbient_Light; //环境光强度乘环境光颜色
+uniform vec3 Specular_Light; //高光强度乘灯光颜色
+uniform vec3 Light;
+uniform float Shininess;
+
+
+varying vec4 g_vTexCoord;
+varying vec3 g_vLightVec;
+varying vec3 g_vViewVec;
+varying vec3 g_vNormal;
+varying float g_fogFactor;
+
+void main()
+{
+	vec4 weight = texture2D( ClampTexture, g_vTexCoord.zw );
+	vec4 EndColor = texture2D( BaseTexture, g_vTexCoord.xy );
+	vec4 rTex = texture2D( RTexture, g_vTexCoord.xy );
+	vec4 gTex = texture2D( GTexture, g_vTexCoord.xy );
+	vec4 bTex = texture2D( BTexture, g_vTexCoord.xy );
+
+	EndColor *= clamp(1.0 - weight.r - weight.g - weight.b, 0.0, 1.0);
+	EndColor += weight.r * rTex + weight.g * gTex + weight.b * bTex;
+	
+    // Select the normal in the appropriate space
+    vec3 vNormal    	= normalize( g_vNormal );
+
+    // Standard Phong lighting
+    float fAtten    	= saturate( 1.0 - 0.05 * dot( g_vLightVec, g_vLightVec ) );
+    vec3  vLight    	= normalize( g_vLightVec );
+    vec3  vView     	= normalize( g_vViewVec );
+    vec3  vHalf     	= normalize( vLight + vView );
+    float dotLightNormal= dot( vLight, vNormal );
+	float fDiffuse = saturate( dotLightNormal );
+	
+	float fSpecular = pow( saturate( dot( vHalf, vNormal ) ) , Shininess );		
+	EndColor.xyz = ( vAmbient_Light + fDiffuse * Light ) * EndColor.xyz + fSpecular * Specular_Light * EndColor.w;
+
+    gl_FragColor = vec4( FogEndColor( g_FogColor, EndColor.xyz, g_fogFactor ), 1.0 );
+	//gl_FragColor = vec4( EndColor.w );
+}

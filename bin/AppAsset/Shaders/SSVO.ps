@@ -1,0 +1,126 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+precision mediump float;
+
+
+varying vec2 g_TexCoord;
+varying vec3 g_ViewDir;
+
+uniform sampler2D g_NormalTexture;
+uniform sampler2D g_DepthTexture;
+uniform sampler2D g_JitterTexture;
+uniform mat4 g_ProjInv;
+uniform mat4 proj;
+uniform vec2 g_StepSize;
+uniform float g_AOEdgeFinder;
+uniform float g_AOIntensity;
+uniform float g_JitterAmount;
+
+vec4 sphere_xy = vec4(0.66667,0.0, 0.0, 0.3333);
+
+
+vec2 TexCoordFromPos(vec4 pos)
+{
+	vec2 tex = pos.xy / 2.0;
+	tex += 0.5;
+	return tex;
+}
+
+float CalcAlchemyObscurance(vec2 tc, vec3 pos_es, vec3 x_dir, vec3 y_dir, vec3 normal, float radius, float depth_center)
+{
+	float rotate = texture2D( g_JitterTexture, g_TexCoord.xy * vec2( 4.0 ) ).r;
+	float sz, cz;
+	sz = sin( rotate );
+	cz = sin( rotate );
+
+	x_dir *= radius;
+	y_dir *= radius;
+
+	float sqr_radius = radius * radius;
+	float obscurance = 0.0;
+	float total_weight = 0.0;
+	for (int i = 0; i < 2; ++ i)
+	{
+		vec2 sxy;
+		sxy.x = sphere_xy[i*2];
+		sxy.y = sphere_xy[i*2+1];
+		sxy = vec2(dot(sxy, vec2(cz, -sz)), dot(sxy, vec2(sz, cz)));
+		for (int j = 0; j < 2; ++ j)
+		{
+			vec3 sample_point_offset = sxy.x * x_dir + sxy.y * y_dir;
+			vec3 sample_point = pos_es + sample_point_offset;
+			vec4 sample_point_ss = vec4(sample_point, 1) * proj;
+
+			vec2 tc_sample = TexCoordFromPos(sample_point_ss / sample_point_ss.w);
+			float depth_sample = texture2D( g_DepthTexture, tc_sample ).r;
+			vec3 pos_es_sample = sample_point * (depth_sample / sample_point.z);
+			vec3 dir_es_sample = pos_es_sample - pos_es;
+
+			float epsilon = 0.0001;
+			float beta = 0.002;
+
+			float dist_sqr = dot(dir_es_sample, dir_es_sample);
+			if (dist_sqr < sqr_radius)
+			{
+				obscurance += max(0.0, dot(dir_es_sample, normal) - depth_center * beta) / (dist_sqr + epsilon);
+				total_weight += 1.0;
+			}
+
+			sxy = -sxy;
+		}
+	}
+
+	float delta = 1.0;
+	return (total_weight > 1e-6) ? 2.0 * delta * obscurance / total_weight : 0.0;
+}
+
+
+void main()
+{
+	float radius = 1.0;
+	float obscurance = 1.0;
+
+	float depth = texture2D( g_DepthTexture, g_TexCoord ).r;
+	vec3 normal = texture2D( g_NormalTexture, g_TexCoord ).rgb;
+
+	vec3 view_dir = normalize(g_ViewDir);
+	vec3 pos_es = view_dir * (depth / view_dir.z);
+
+	vec3 y_dir = normalize(cross(normal, vec3(0, 0, 1)));
+	vec3 x_dir = cross(y_dir, normal);
+
+	obscurance = CalcAlchemyObscurance(g_TexCoord, pos_es, x_dir, y_dir, normal, radius, depth);
+	obscurance = max(0.0, 1.0 - obscurance);
+	gl_FragColor = vec4( obscurance, obscurance, obscurance, 1.0 );
+}

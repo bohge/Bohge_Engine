@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BohgeNet", "BohgeNet\BohgeNet.vcproj", "{9449622C-25EF-48E4-B034-04CE60489D6D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_json", "..\External\Json\makefiles\vs71\lib_json.vcproj", "{B84F7231-16CE-41D8-8C08-7B523FF4225B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		dummy|Win32 = dummy|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.Debug|Win32.Build.0 = Debug|Win32
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.dummy|Win32.ActiveCfg = Debug|Win32
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.dummy|Win32.Build.0 = Debug|Win32
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.Release|Win32.ActiveCfg = Release|Win32
+		{9449622C-25EF-48E4-B034-04CE60489D6D}.Release|Win32.Build.0 = Release|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Debug|Win32.Build.0 = Debug|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.dummy|Win32.ActiveCfg = dummy|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.dummy|Win32.Build.0 = dummy|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.ActiveCfg = Release|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

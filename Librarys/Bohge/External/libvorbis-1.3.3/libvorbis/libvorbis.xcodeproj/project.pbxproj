@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		75AF58AE15F6CDC400A329DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AF58AD15F6CDC400A329DB /* Foundation.framework */; };
+		75AF58D315F6CEB300A329DB /* analysis.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58BD15F6CEB300A329DB /* analysis.c */; };
+		75AF58D415F6CEB300A329DB /* bitrate.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58BE15F6CEB300A329DB /* bitrate.c */; };
+		75AF58D515F6CEB300A329DB /* block.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58BF15F6CEB300A329DB /* block.c */; };
+		75AF58D615F6CEB300A329DB /* codebook.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C015F6CEB300A329DB /* codebook.c */; };
+		75AF58D715F6CEB300A329DB /* envelope.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C115F6CEB300A329DB /* envelope.c */; };
+		75AF58D815F6CEB300A329DB /* floor0.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C215F6CEB300A329DB /* floor0.c */; };
+		75AF58D915F6CEB300A329DB /* floor1.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C315F6CEB300A329DB /* floor1.c */; };
+		75AF58DA15F6CEB300A329DB /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C415F6CEB300A329DB /* info.c */; };
+		75AF58DB15F6CEB300A329DB /* lookup.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C515F6CEB300A329DB /* lookup.c */; };
+		75AF58DC15F6CEB300A329DB /* lpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C615F6CEB300A329DB /* lpc.c */; };
+		75AF58DD15F6CEB300A329DB /* lsp.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C715F6CEB300A329DB /* lsp.c */; };
+		75AF58DE15F6CEB300A329DB /* mapping0.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C815F6CEB300A329DB /* mapping0.c */; };
+		75AF58DF15F6CEB300A329DB /* mdct.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58C915F6CEB300A329DB /* mdct.c */; };
+		75AF58E015F6CEB300A329DB /* psy.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CA15F6CEB300A329DB /* psy.c */; };
+		75AF58E115F6CEB300A329DB /* registry.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CB15F6CEB300A329DB /* registry.c */; };
+		75AF58E215F6CEB300A329DB /* res0.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CC15F6CEB300A329DB /* res0.c */; };
+		75AF58E315F6CEB300A329DB /* sharedbook.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CD15F6CEB300A329DB /* sharedbook.c */; };
+		75AF58E415F6CEB300A329DB /* smallft.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CE15F6CEB300A329DB /* smallft.c */; };
+		75AF58E515F6CEB300A329DB /* synthesis.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58CF15F6CEB300A329DB /* synthesis.c */; };
+		75AF58E615F6CEB300A329DB /* vorbisenc.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58D015F6CEB300A329DB /* vorbisenc.c */; };
+		75AF58E715F6CEB300A329DB /* vorbisfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58D115F6CEB300A329DB /* vorbisfile.c */; };
+		75AF58E815F6CEB300A329DB /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = 75AF58D215F6CEB300A329DB /* window.c */; };
+		75AF58EC15F6CED100A329DB /* codec.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58E915F6CED100A329DB /* codec.h */; };
+		75AF58ED15F6CED100A329DB /* vorbisenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58EA15F6CED100A329DB /* vorbisenc.h */; };
+		75AF58EE15F6CED100A329DB /* vorbisfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58EB15F6CED100A329DB /* vorbisfile.h */; };
+		75AF58FA15F6CF1200A329DB /* backends.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58EF15F6CF1200A329DB /* backends.h */; };
+		75AF58FB15F6CF1200A329DB /* bitrate.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F015F6CF1200A329DB /* bitrate.h */; };
+		75AF58FC15F6CF1200A329DB /* codebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F115F6CF1200A329DB /* codebook.h */; };
+		75AF58FD15F6CF1200A329DB /* codec_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F215F6CF1200A329DB /* codec_internal.h */; };
+		75AF58FE15F6CF1200A329DB /* envelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F315F6CF1200A329DB /* envelope.h */; };
+		75AF58FF15F6CF1200A329DB /* highlevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F415F6CF1200A329DB /* highlevel.h */; };
+		75AF590015F6CF1200A329DB /* lookup_data.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F515F6CF1200A329DB /* lookup_data.h */; };
+		75AF590115F6CF1200A329DB /* lookup.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F615F6CF1200A329DB /* lookup.h */; };
+		75AF590215F6CF1200A329DB /* lpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F715F6CF1200A329DB /* lpc.h */; };
+		75AF590315F6CF1200A329DB /* lsp.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F815F6CF1200A329DB /* lsp.h */; };
+		75AF590415F6CF1200A329DB /* masking.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58F915F6CF1200A329DB /* masking.h */; };
+		75AF590D15F6CF3F00A329DB /* mdct.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590515F6CF3F00A329DB /* mdct.h */; };
+		75AF590E15F6CF3F00A329DB /* misc.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590615F6CF3F00A329DB /* misc.h */; };
+		75AF590F15F6CF3F00A329DB /* os.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590715F6CF3F00A329DB /* os.h */; };
+		75AF591015F6CF3F00A329DB /* psy.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590815F6CF3F00A329DB /* psy.h */; };
+		75AF591115F6CF3F00A329DB /* registry.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590915F6CF3F00A329DB /* registry.h */; };
+		75AF591215F6CF3F00A329DB /* scales.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590A15F6CF3F00A329DB /* scales.h */; };
+		75AF591315F6CF3F00A329DB /* smallft.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590B15F6CF3F00A329DB /* smallft.h */; };
+		75AF591415F6CF3F00A329DB /* window.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF590C15F6CF3F00A329DB /* window.h */; };
+		75AF592615F6CF6D00A329DB /* floor_all.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591515F6CF6D00A329DB /* floor_all.h */; };
+		75AF592715F6CF6D00A329DB /* psych_8.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591615F6CF6D00A329DB /* psych_8.h */; };
+		75AF592815F6CF6D00A329DB /* psych_11.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591715F6CF6D00A329DB /* psych_11.h */; };
+		75AF592915F6CF6D00A329DB /* psych_16.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591815F6CF6D00A329DB /* psych_16.h */; };
+		75AF592A15F6CF6D00A329DB /* psych_44.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591915F6CF6D00A329DB /* psych_44.h */; };
+		75AF592B15F6CF6D00A329DB /* residue_8.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591A15F6CF6D00A329DB /* residue_8.h */; };
+		75AF592C15F6CF6D00A329DB /* residue_16.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591B15F6CF6D00A329DB /* residue_16.h */; };
+		75AF592D15F6CF6D00A329DB /* residue_44.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591C15F6CF6D00A329DB /* residue_44.h */; };
+		75AF592E15F6CF6D00A329DB /* residue_44u.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591D15F6CF6D00A329DB /* residue_44u.h */; };
+		75AF592F15F6CF6D00A329DB /* setup_8.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591E15F6CF6D00A329DB /* setup_8.h */; };
+		75AF593015F6CF6D00A329DB /* setup_11.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF591F15F6CF6D00A329DB /* setup_11.h */; };
+		75AF593115F6CF6D00A329DB /* setup_16.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592015F6CF6D00A329DB /* setup_16.h */; };
+		75AF593215F6CF6D00A329DB /* setup_22.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592115F6CF6D00A329DB /* setup_22.h */; };
+		75AF593315F6CF6D00A329DB /* setup_32.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592215F6CF6D00A329DB /* setup_32.h */; };
+		75AF593415F6CF6D00A329DB /* setup_44.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592315F6CF6D00A329DB /* setup_44.h */; };
+		75AF593515F6CF6D00A329DB /* setup_44u.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592415F6CF6D00A329DB /* setup_44u.h */; };
+		75AF593615F6CF6D00A329DB /* setup_X.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF592515F6CF6D00A329DB /* setup_X.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		75AF58AA15F6CDC400A329DB /* liblibvorbis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibvorbis.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AF58AD15F6CDC400A329DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		75AF58B115F6CDC400A329DB /* libvorbis-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libvorbis-Prefix.pch"; sourceTree = "<group>"; };
+		75AF58BD15F6CEB300A329DB /* analysis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = analysis.c; path = ../../lib/analysis.c; sourceTree = "<group>"; };
+		75AF58BE15F6CEB300A329DB /* bitrate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitrate.c; path = ../../lib/bitrate.c; sourceTree = "<group>"; };
+		75AF58BF15F6CEB300A329DB /* block.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = block.c; path = ../../lib/block.c; sourceTree = "<group>"; };
+		75AF58C015F6CEB300A329DB /* codebook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = codebook.c; path = ../../lib/codebook.c; sourceTree = "<group>"; };
+		75AF58C115F6CEB300A329DB /* envelope.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = envelope.c; path = ../../lib/envelope.c; sourceTree = "<group>"; };
+		75AF58C215F6CEB300A329DB /* floor0.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = floor0.c; path = ../../lib/floor0.c; sourceTree = "<group>"; };
+		75AF58C315F6CEB300A329DB /* floor1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = floor1.c; path = ../../lib/floor1.c; sourceTree = "<group>"; };
+		75AF58C415F6CEB300A329DB /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = ../../lib/info.c; sourceTree = "<group>"; };
+		75AF58C515F6CEB300A329DB /* lookup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lookup.c; path = ../../lib/lookup.c; sourceTree = "<group>"; };
+		75AF58C615F6CEB300A329DB /* lpc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lpc.c; path = ../../lib/lpc.c; sourceTree = "<group>"; };
+		75AF58C715F6CEB300A329DB /* lsp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lsp.c; path = ../../lib/lsp.c; sourceTree = "<group>"; };
+		75AF58C815F6CEB300A329DB /* mapping0.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mapping0.c; path = ../../lib/mapping0.c; sourceTree = "<group>"; };
+		75AF58C915F6CEB300A329DB /* mdct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mdct.c; path = ../../lib/mdct.c; sourceTree = "<group>"; };
+		75AF58CA15F6CEB300A329DB /* psy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = psy.c; path = ../../lib/psy.c; sourceTree = "<group>"; };
+		75AF58CB15F6CEB300A329DB /* registry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = registry.c; path = ../../lib/registry.c; sourceTree = "<group>"; };
+		75AF58CC15F6CEB300A329DB /* res0.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = res0.c; path = ../../lib/res0.c; sourceTree = "<group>"; };
+		75AF58CD15F6CEB300A329DB /* sharedbook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sharedbook.c; path = ../../lib/sharedbook.c; sourceTree = "<group>"; };
+		75AF58CE15F6CEB300A329DB /* smallft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = smallft.c; path = ../../lib/smallft.c; sourceTree = "<group>"; };
+		75AF58CF15F6CEB300A329DB /* synthesis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = synthesis.c; path = ../../lib/synthesis.c; sourceTree = "<group>"; };
+		75AF58D015F6CEB300A329DB /* vorbisenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vorbisenc.c; path = ../../lib/vorbisenc.c; sourceTree = "<group>"; };
+		75AF58D115F6CEB300A329DB /* vorbisfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vorbisfile.c; path = ../../lib/vorbisfile.c; sourceTree = "<group>"; };
+		75AF58D215F6CEB300A329DB /* window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = window.c; path = ../../lib/window.c; sourceTree = "<group>"; };
+		75AF58E915F6CED100A329DB /* codec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec.h; path = ../../include/vorbis/codec.h; sourceTree = "<group>"; };
+		75AF58EA15F6CED100A329DB /* vorbisenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vorbisenc.h; path = ../../include/vorbis/vorbisenc.h; sourceTree = "<group>"; };
+		75AF58EB15F6CED100A329DB /* vorbisfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vorbisfile.h; path = ../../include/vorbis/vorbisfile.h; sourceTree = "<group>"; };
+		75AF58EF15F6CF1200A329DB /* backends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = backends.h; path = ../../lib/backends.h; sourceTree = "<group>"; };
+		75AF58F015F6CF1200A329DB /* bitrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitrate.h; path = ../../lib/bitrate.h; sourceTree = "<group>"; };
+		75AF58F115F6CF1200A329DB /* codebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codebook.h; path = ../../lib/codebook.h; sourceTree = "<group>"; };
+		75AF58F215F6CF1200A329DB /* codec_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_internal.h; path = ../../lib/codec_internal.h; sourceTree = "<group>"; };
+		75AF58F315F6CF1200A329DB /* envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = envelope.h; path = ../../lib/envelope.h; sourceTree = "<group>"; };
+		75AF58F415F6CF1200A329DB /* highlevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = highlevel.h; path = ../../lib/highlevel.h; sourceTree = "<group>"; };
+		75AF58F515F6CF1200A329DB /* lookup_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lookup_data.h; path = ../../lib/lookup_data.h; sourceTree = "<group>"; };
+		75AF58F615F6CF1200A329DB /* lookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lookup.h; path = ../../lib/lookup.h; sourceTree = "<group>"; };
+		75AF58F715F6CF1200A329DB /* lpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lpc.h; path = ../../lib/lpc.h; sourceTree = "<group>"; };
+		75AF58F815F6CF1200A329DB /* lsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lsp.h; path = ../../lib/lsp.h; sourceTree = "<group>"; };
+		75AF58F915F6CF1200A329DB /* masking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = masking.h; path = ../../lib/masking.h; sourceTree = "<group>"; };
+		75AF590515F6CF3F00A329DB /* mdct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mdct.h; path = ../../lib/mdct.h; sourceTree = "<group>"; };
+		75AF590615F6CF3F00A329DB /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = misc.h; path = ../../lib/misc.h; sourceTree = "<group>"; };
+		75AF590715F6CF3F00A329DB /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os.h; path = ../../lib/os.h; sourceTree = "<group>"; };
+		75AF590815F6CF3F00A329DB /* psy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = psy.h; path = ../../lib/psy.h; sourceTree = "<group>"; };
+		75AF590915F6CF3F00A329DB /* registry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = registry.h; path = ../../lib/registry.h; sourceTree = "<group>"; };
+		75AF590A15F6CF3F00A329DB /* scales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scales.h; path = ../../lib/scales.h; sourceTree = "<group>"; };
+		75AF590B15F6CF3F00A329DB /* smallft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = smallft.h; path = ../../lib/smallft.h; sourceTree = "<group>"; };
+		75AF590C15F6CF3F00A329DB /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = window.h; path = ../../lib/window.h; sourceTree = "<group>"; };
+		75AF591515F6CF6D00A329DB /* floor_all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = floor_all.h; path = ../../lib/modes/floor_all.h; sourceTree = "<group>"; };
+		75AF591615F6CF6D00A329DB /* psych_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = psych_8.h; path = ../../lib/modes/psych_8.h; sourceTree = "<group>"; };
+		75AF591715F6CF6D00A329DB /* psych_11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = psych_11.h; path = ../../lib/modes/psych_11.h; sourceTree = "<group>"; };
+		75AF591815F6CF6D00A329DB /* psych_16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = psych_16.h; path = ../../lib/modes/psych_16.h; sourceTree = "<group>"; };
+		75AF591915F6CF6D00A329DB /* psych_44.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = psych_44.h; path = ../../lib/modes/psych_44.h; sourceTree = "<group>"; };
+		75AF591A15F6CF6D00A329DB /* residue_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = residue_8.h; path = ../../lib/modes/residue_8.h; sourceTree = "<group>"; };
+		75AF591B15F6CF6D00A329DB /* residue_16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = residue_16.h; path = ../../lib/modes/residue_16.h; sourceTree = "<group>"; };
+		75AF591C15F6CF6D00A329DB /* residue_44.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = residue_44.h; path = ../../lib/modes/residue_44.h; sourceTree = "<group>"; };
+		75AF591D15F6CF6D00A329DB /* residue_44u.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = residue_44u.h; path = ../../lib/modes/residue_44u.h; sourceTree = "<group>"; };
+		75AF591E15F6CF6D00A329DB /* setup_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_8.h; path = ../../lib/modes/setup_8.h; sourceTree = "<group>"; };
+		75AF591F15F6CF6D00A329DB /* setup_11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_11.h; path = ../../lib/modes/setup_11.h; sourceTree = "<group>"; };
+		75AF592015F6CF6D00A329DB /* setup_16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_16.h; path = ../../lib/modes/setup_16.h; sourceTree = "<group>"; };
+		75AF592115F6CF6D00A329DB /* setup_22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_22.h; path = ../../lib/modes/setup_22.h; sourceTree = "<group>"; };
+		75AF592215F6CF6D00A329DB /* setup_32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_32.h; path = ../../lib/modes/setup_32.h; sourceTree = "<group>"; };
+		75AF592315F6CF6D00A329DB /* setup_44.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_44.h; path = ../../lib/modes/setup_44.h; sourceTree = "<group>"; };
+		75AF592415F6CF6D00A329DB /* setup_44u.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_44u.h; path = ../../lib/modes/setup_44u.h; sourceTree = "<group>"; };
+		75AF592515F6CF6D00A329DB /* setup_X.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setup_X.h; path = ../../lib/modes/setup_X.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75AF58A715F6CDC400A329DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AF58AE15F6CDC400A329DB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75AF589F15F6CDC400A329DB = {
+			isa = PBXGroup;
+			children = (
+				75AF58AF15F6CDC400A329DB /* libvorbis */,
+				75AF58AC15F6CDC400A329DB /* Frameworks */,
+				75AF58AB15F6CDC400A329DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75AF58AB15F6CDC400A329DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75AF58AA15F6CDC400A329DB /* liblibvorbis.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75AF58AC15F6CDC400A329DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75AF58AD15F6CDC400A329DB /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75AF58AF15F6CDC400A329DB /* libvorbis */ = {
+			isa = PBXGroup;
+			children = (
+				75AF591515F6CF6D00A329DB /* floor_all.h */,
+				75AF591615F6CF6D00A329DB /* psych_8.h */,
+				75AF591715F6CF6D00A329DB /* psych_11.h */,
+				75AF591815F6CF6D00A329DB /* psych_16.h */,
+				75AF591915F6CF6D00A329DB /* psych_44.h */,
+				75AF591A15F6CF6D00A329DB /* residue_8.h */,
+				75AF591B15F6CF6D00A329DB /* residue_16.h */,
+				75AF591C15F6CF6D00A329DB /* residue_44.h */,
+				75AF591D15F6CF6D00A329DB /* residue_44u.h */,
+				75AF591E15F6CF6D00A329DB /* setup_8.h */,
+				75AF591F15F6CF6D00A329DB /* setup_11.h */,
+				75AF592015F6CF6D00A329DB /* setup_16.h */,
+				75AF592115F6CF6D00A329DB /* setup_22.h */,
+				75AF592215F6CF6D00A329DB /* setup_32.h */,
+				75AF592315F6CF6D00A329DB /* setup_44.h */,
+				75AF592415F6CF6D00A329DB /* setup_44u.h */,
+				75AF592515F6CF6D00A329DB /* setup_X.h */,
+				75AF590515F6CF3F00A329DB /* mdct.h */,
+				75AF590615F6CF3F00A329DB /* misc.h */,
+				75AF590715F6CF3F00A329DB /* os.h */,
+				75AF590815F6CF3F00A329DB /* psy.h */,
+				75AF590915F6CF3F00A329DB /* registry.h */,
+				75AF590A15F6CF3F00A329DB /* scales.h */,
+				75AF590B15F6CF3F00A329DB /* smallft.h */,
+				75AF590C15F6CF3F00A329DB /* window.h */,
+				75AF58EF15F6CF1200A329DB /* backends.h */,
+				75AF58F015F6CF1200A329DB /* bitrate.h */,
+				75AF58F115F6CF1200A329DB /* codebook.h */,
+				75AF58F215F6CF1200A329DB /* codec_internal.h */,
+				75AF58F315F6CF1200A329DB /* envelope.h */,
+				75AF58F415F6CF1200A329DB /* highlevel.h */,
+				75AF58F515F6CF1200A329DB /* lookup_data.h */,
+				75AF58F615F6CF1200A329DB /* lookup.h */,
+				75AF58F715F6CF1200A329DB /* lpc.h */,
+				75AF58F815F6CF1200A329DB /* lsp.h */,
+				75AF58F915F6CF1200A329DB /* masking.h */,
+				75AF58E915F6CED100A329DB /* codec.h */,
+				75AF58EA15F6CED100A329DB /* vorbisenc.h */,
+				75AF58EB15F6CED100A329DB /* vorbisfile.h */,
+				75AF58BD15F6CEB300A329DB /* analysis.c */,
+				75AF58BE15F6CEB300A329DB /* bitrate.c */,
+				75AF58BF15F6CEB300A329DB /* block.c */,
+				75AF58C015F6CEB300A329DB /* codebook.c */,
+				75AF58C115F6CEB300A329DB /* envelope.c */,
+				75AF58C215F6CEB300A329DB /* floor0.c */,
+				75AF58C315F6CEB300A329DB /* floor1.c */,
+				75AF58C415F6CEB300A329DB /* info.c */,
+				75AF58C515F6CEB300A329DB /* lookup.c */,
+				75AF58C615F6CEB300A329DB /* lpc.c */,
+				75AF58C715F6CEB300A329DB /* lsp.c */,
+				75AF58C815F6CEB300A329DB /* mapping0.c */,
+				75AF58C915F6CEB300A329DB /* mdct.c */,
+				75AF58CA15F6CEB300A329DB /* psy.c */,
+				75AF58CB15F6CEB300A329DB /* registry.c */,
+				75AF58CC15F6CEB300A329DB /* res0.c */,
+				75AF58CD15F6CEB300A329DB /* sharedbook.c */,
+				75AF58CE15F6CEB300A329DB /* smallft.c */,
+				75AF58CF15F6CEB300A329DB /* synthesis.c */,
+				75AF58D015F6CEB300A329DB /* vorbisenc.c */,
+				75AF58D115F6CEB300A329DB /* vorbisfile.c */,
+				75AF58D215F6CEB300A329DB /* window.c */,
+				75AF58B015F6CDC400A329DB /* Supporting Files */,
+			);
+			path = libvorbis;
+			sourceTree = "<group>";
+		};
+		75AF58B015F6CDC400A329DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75AF58B115F6CDC400A329DB /* libvorbis-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		75AF58A815F6CDC400A329DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AF58EC15F6CED100A329DB /* codec.h in Headers */,
+				75AF58ED15F6CED100A329DB /* vorbisenc.h in Headers */,
+				75AF58EE15F6CED100A329DB /* vorbisfile.h in Headers */,
+				75AF58FA15F6CF1200A329DB /* backends.h in Headers */,
+				75AF58FB15F6CF1200A329DB /* bitrate.h in Headers */,
+				75AF58FC15F6CF1200A329DB /* codebook.h in Headers */,
+				75AF58FD15F6CF1200A329DB /* codec_internal.h in Headers */,
+				75AF58FE15F6CF1200A329DB /* envelope.h in Headers */,
+				75AF58FF15F6CF1200A329DB /* highlevel.h in Headers */,
+				75AF590015F6CF1200A329DB /* lookup_data.h in Headers */,
+				75AF590115F6CF1200A329DB /* lookup.h in Headers */,
+				75AF590215F6CF1200A329DB /* lpc.h in Headers */,
+				75AF590315F6CF1200A329DB /* lsp.h in Headers */,
+				75AF590415F6CF1200A329DB /* masking.h in Headers */,
+				75AF590D15F6CF3F00A329DB /* mdct.h in Headers */,
+				75AF590E15F6CF3F00A329DB /* misc.h in Headers */,
+				75AF590F15F6CF3F00A329DB /* os.h in Headers */,
+				75AF591015F6CF3F00A329DB /* psy.h in Headers */,
+				75AF591115F6CF3F00A329DB /* registry.h in Headers */,
+				75AF591215F6CF3F00A329DB /* scales.h in Headers */,
+				75AF591315F6CF3F00A329DB /* smallft.h in Headers */,
+				75AF591415F6CF3F00A329DB /* window.h in Headers */,
+				75AF592615F6CF6D00A329DB /* floor_all.h in Headers */,
+				75AF592715F6CF6D00A329DB /* psych_8.h in Headers */,
+				75AF592815F6CF6D00A329DB /* psych_11.h in Headers */,
+				75AF592915F6CF6D00A329DB /* psych_16.h in Headers */,
+				75AF592A15F6CF6D00A329DB /* psych_44.h in Headers */,
+				75AF592B15F6CF6D00A329DB /* residue_8.h in Headers */,
+				75AF592C15F6CF6D00A329DB /* residue_16.h in Headers */,
+				75AF592D15F6CF6D00A329DB /* residue_44.h in Headers */,
+				75AF592E15F6CF6D00A329DB /* residue_44u.h in Headers */,
+				75AF592F15F6CF6D00A329DB /* setup_8.h in Headers */,
+				75AF593015F6CF6D00A329DB /* setup_11.h in Headers */,
+				75AF593115F6CF6D00A329DB /* setup_16.h in Headers */,
+				75AF593215F6CF6D00A329DB /* setup_22.h in Headers */,
+				75AF593315F6CF6D00A329DB /* setup_32.h in Headers */,
+				75AF593415F6CF6D00A329DB /* setup_44.h in Headers */,
+				75AF593515F6CF6D00A329DB /* setup_44u.h in Headers */,
+				75AF593615F6CF6D00A329DB /* setup_X.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		75AF58A915F6CDC400A329DB /* libvorbis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75AF58B715F6CDC400A329DB /* Build configuration list for PBXNativeTarget "libvorbis" */;
+			buildPhases = (
+				75AF58A615F6CDC400A329DB /* Sources */,
+				75AF58A715F6CDC400A329DB /* Frameworks */,
+				75AF58A815F6CDC400A329DB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libvorbis;
+			productName = libvorbis;
+			productReference = 75AF58AA15F6CDC400A329DB /* liblibvorbis.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75AF58A115F6CDC400A329DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 75AF58A415F6CDC400A329DB /* Build configuration list for PBXProject "libvorbis" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 75AF589F15F6CDC400A329DB;
+			productRefGroup = 75AF58AB15F6CDC400A329DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75AF58A915F6CDC400A329DB /* libvorbis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75AF58A615F6CDC400A329DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75AF58D315F6CEB300A329DB /* analysis.c in Sources */,
+				75AF58D415F6CEB300A329DB /* bitrate.c in Sources */,
+				75AF58D515F6CEB300A329DB /* block.c in Sources */,
+				75AF58D615F6CEB300A329DB /* codebook.c in Sources */,
+				75AF58D715F6CEB300A329DB /* envelope.c in Sources */,
+				75AF58D815F6CEB300A329DB /* floor0.c in Sources */,
+				75AF58D915F6CEB300A329DB /* floor1.c in Sources */,
+				75AF58DA15F6CEB300A329DB /* info.c in Sources */,
+				75AF58DB15F6CEB300A329DB /* lookup.c in Sources */,
+				75AF58DC15F6CEB300A329DB /* lpc.c in Sources */,
+				75AF58DD15F6CEB300A329DB /* lsp.c in Sources */,
+				75AF58DE15F6CEB300A329DB /* mapping0.c in Sources */,
+				75AF58DF15F6CEB300A329DB /* mdct.c in Sources */,
+				75AF58E015F6CEB300A329DB /* psy.c in Sources */,
+				75AF58E115F6CEB300A329DB /* registry.c in Sources */,
+				75AF58E215F6CEB300A329DB /* res0.c in Sources */,
+				75AF58E315F6CEB300A329DB /* sharedbook.c in Sources */,
+				75AF58E415F6CEB300A329DB /* smallft.c in Sources */,
+				75AF58E515F6CEB300A329DB /* synthesis.c in Sources */,
+				75AF58E615F6CEB300A329DB /* vorbisenc.c in Sources */,
+				75AF58E715F6CEB300A329DB /* vorbisfile.c in Sources */,
+				75AF58E815F6CEB300A329DB /* window.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		75AF58B515F6CDC400A329DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		75AF58B615F6CDC400A329DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75AF58B815F6CDC400A329DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/libvorbis.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libvorbis/libvorbis-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__MACOSX__,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"../../libogg-1.3.0/include/",
+					../lib,
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				USER_HEADER_SEARCH_PATHS = "../include ../../libogg-1.3.0/include/";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		75AF58B915F6CDC400A329DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DSTROOT = /tmp/libvorbis.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libvorbis/libvorbis-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = __MACOSX__;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"../../libogg-1.3.0/include/",
+					../lib,
+				);
+				INSTALL_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../include ../../libogg-1.3.0/include/";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75AF58A415F6CDC400A329DB /* Build configuration list for PBXProject "libvorbis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AF58B515F6CDC400A329DB /* Debug */,
+				75AF58B615F6CDC400A329DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75AF58B715F6CDC400A329DB /* Build configuration list for PBXNativeTarget "libvorbis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75AF58B815F6CDC400A329DB /* Debug */,
+				75AF58B915F6CDC400A329DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75AF58A115F6CDC400A329DB /* Project object */;
+}

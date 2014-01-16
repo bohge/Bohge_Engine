@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_Adreno_App|Win32">
+      <Configuration>Debug_Adreno_App</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_Adreno_ObjectEdit|Win32">
+      <Configuration>Debug_Adreno_ObjectEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_Adreno_SceneEdit|Win32">
+      <Configuration>Debug_Adreno_SceneEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_OpenGL_App|Win32">
+      <Configuration>Debug_OpenGL_App</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_OpenGL_ObjectEdit|Win32">
+      <Configuration>Debug_OpenGL_ObjectEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_OpenGL_SceneEdit|Win32">
+      <Configuration>Debug_OpenGL_SceneEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Adreno_App|Win32">
+      <Configuration>Release_Adreno_App</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Adreno_ObjectEdit|Win32">
+      <Configuration>Release_Adreno_ObjectEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Adreno_SceneEdit|Win32">
+      <Configuration>Release_Adreno_SceneEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Opengl_App|Win32">
+      <Configuration>Release_Opengl_App</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_OpenGL_ObjectEdit|Win32">
+      <Configuration>Release_OpenGL_ObjectEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Opengl_SceneEdit|Win32">
+      <Configuration>Release_Opengl_SceneEdit</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{27D50088-3C1C-47EB-B9B3-C335F85988B3}</ProjectGuid>
+    <RootNamespace>Bohge</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_App|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/bullet/src;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;ADRENO;TERRAINMANAGER;MEMORYPOOL;APP_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_App|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINMANAGER;MEMORYPOOL;APP_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_App|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/bullet/src;../External/lua-5.2.2/Lua;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;ADRENO;TERRAINMANAGER;MEMORYPOOL;APP_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level1</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_SceneEdit|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/bullet/src;../../../Tools/SceneEdit/SceneEdit;../External/lua-5.2.2/Lua;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;TERRAINEDIT;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_SceneEdit|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/libzip-0.11.1/lib;../External/bullet/src;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../../../Tools/SceneEdit/SceneEdit;../External/lua-5.2.2/Lua;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;ADRENO;TERRAINEDIT;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_App|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libzip-0.11.1/lib;../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINMANAGER;MEMORYPOOL;APP_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_SceneEdit|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../../../Tools/SceneEdit/SceneEdit;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINEDIT;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Opengl_SceneEdit|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libzip-0.11.1/lib;../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../../../Tools/SceneEdit/SceneEdit;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINEDIT;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Adreno_ObjectEdit|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/bullet/src;../External/lua-5.2.2/Lua;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;ADRENO;TERRAINMANAGER;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level1</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL_ObjectEdit|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINMANAGER;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Adreno_ObjectEdit|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libpng-1.5.10;../External/bullet/src;../External/freetype/include;../External/OpenAL/Include;../External/Adreno/Include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libogg-1.3.0/include;../External/libvorbis-1.3.3/include;../BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/libzip-0.11.1/lib;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;ADRENO;TERRAINMANAGER;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_OpenGL_ObjectEdit|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../External/libzip-0.11.1/lib;../External/OpenAL/Include;../External/glut-3.7.6-bin;../External/glew-1.9.0-win32/include;../External/libpng-1.5.10;../External/freetype/include;../External/zlib-1.2.6;../External/OpenSLES/Include;../External/libvorbis-1.3.3/include;../External/libogg-1.3.0/include;../../../Librarys/Bohge/BohgeNet/BohgeNet;../External/pthreads-w32-2-9-1-release/Pre-built.2/include;../External/lua-5.2.2/Lua;../External/bullet/src;../External/nedmalloc_v1.06beta2;../External/neonmath;../External/glsl_optimizer/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BOHGE_EXPORTS;OPENGL;TERRAINMANAGER;LUA_DEBUG_MODE;EDIT_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="EmitterBase.cpp" />
+    <ClCompile Include="IndicesBuffer.cpp" />
+    <ClCompile Include="LightMaped.cpp" />
+    <ClCompile Include="MaterialCompiler.cpp" />
+    <ClCompile Include="MaterialManager.cpp" />
+    <ClCompile Include="NeonMath.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="ObjectFactory.cpp" />
+    <ClCompile Include="ObjectGroup.cpp" />
+    <ClCompile Include="ObjectRoot.cpp" />
+    <ClCompile Include="ObjectTile.cpp" />
+    <ClCompile Include="OCTree.cpp" />
+    <ClCompile Include="AssembledMaterialShader.cpp" />
+    <ClCompile Include="ShaderAssembler.cpp" />
+    <ClCompile Include="ShaderFile.cpp" />
+    <ClCompile Include="ShaderLibrary.cpp" />
+    <ClCompile Include="ShaderParameter.cpp" />
+    <ClCompile Include="ShaderSegment.cpp" />
+    <ClCompile Include="SoundManage.cpp" />
+    <ClCompile Include="3DMath.cpp" />
+    <ClCompile Include="aabboxDraw.cpp" />
+    <ClCompile Include="Bfont.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="MemoryPool.c" />
+    <ClCompile Include="RendBuffer.cpp" />
+    <ClCompile Include="RenderTarget.cpp" />
+    <ClCompile Include="TextureState.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="AES.cpp" />
+    <ClCompile Include="FilePath.cpp" />
+    <ClCompile Include="ResLoader.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Serializer.cpp" />
+    <ClCompile Include="EncryptFile.cpp" />
+    <ClCompile Include="UsualFile.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="ZipFile.cpp" />
+    <ClCompile Include="ActionManage.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Track.cpp" />
+    <ClCompile Include="GameSetting.cpp" />
+    <ClCompile Include="Language.cpp" />
+    <ClCompile Include="ScriptBase.cpp" />
+    <ClCompile Include="ScriptManager.cpp" />
+    <ClCompile Include="ScriptEmitter.cpp" />
+    <ClCompile Include="PhysicManager.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="OpenGLES.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="ShaderManage.cpp" />
+    <ClCompile Include="BaseShader.cpp" />
+    <ClCompile Include="ConcisePEShaders.cpp" />
+    <ClCompile Include="EnvironmentShaders.cpp" />
+    <ClCompile Include="HDRShaders.cpp" />
+    <ClCompile Include="ModelShaders.cpp" />
+    <ClCompile Include="ModelSkeleton.cpp" />
+    <ClCompile Include="ParticleShaders.cpp" />
+    <ClCompile Include="PlantShaders.cpp" />
+    <ClCompile Include="PrePixelLightShaders.cpp" />
+    <ClCompile Include="Shaders2D.cpp" />
+    <ClCompile Include="ShadowShader.cpp" />
+    <ClCompile Include="TerrainShaders.cpp" />
+    <ClCompile Include="UtilityShaders.cpp" />
+    <ClCompile Include="VolumeLightShaders.cpp" />
+    <ClCompile Include="WaterShaders.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UIAnimation.cpp" />
+    <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="LocatableObject.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="ModelData.cpp" />
+    <ClCompile Include="Emitter.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="BloomPS.cpp" />
+    <ClCompile Include="DOFPostEffect.cpp" />
+    <ClCompile Include="FXAAPostEffect.cpp" />
+    <ClCompile Include="HDRPostEffect.cpp" />
+    <ClCompile Include="IPostEffect.cpp" />
+    <ClCompile Include="SSAOPostEffect.cpp" />
+    <ClCompile Include="VolumeLightPS.cpp" />
+    <ClCompile Include="CopyCurrentScreen.cpp" />
+    <ClCompile Include="Pipeline.cpp" />
+    <ClCompile Include="AxisNode.cpp" />
+    <ClCompile Include="Billboard.cpp" />
+    <ClCompile Include="CubeNode.cpp" />
+    <ClCompile Include="GridNode.cpp" />
+    <ClCompile Include="RotatingRing.cpp" />
+    <ClCompile Include="Shapes.cpp" />
+    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="TerrainChunk.cpp" />
+    <ClCompile Include="TerrainManager.cpp" />
+    <ClCompile Include="TerrainTile.cpp" />
+    <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="NormalGenerate.cpp" />
+    <ClCompile Include="parameterhandler.cpp" />
+    <ClCompile Include="WaterGrid.cpp" />
+    <ClCompile Include="WaterManager.cpp" />
+    <ClCompile Include="WaterTile.cpp" />
+    <ClCompile Include="complex.cpp" />
+    <ClCompile Include="fft.cpp" />
+    <ClCompile Include="PlantChunk.cpp" />
+    <ClCompile Include="PlantManager.cpp" />
+    <ClCompile Include="PlantTile.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="SceneManage.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="FakeLights.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="RealLights.cpp" />
+    <ClCompile Include="ShadowCaster.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseMathImplement.hpp" />
+    <ClInclude Include="EmitterBase.h" />
+    <ClInclude Include="EventImplement.hpp" />
+    <ClInclude Include="FakeLights.h" />
+    <ClInclude Include="IndicesBuffer.h" />
+    <ClInclude Include="LightMaped.h" />
+    <ClInclude Include="Line.hpp" />
+    <ClInclude Include="MaterialCompiler.h" />
+    <ClInclude Include="MaterialManager.h" />
+    <ClInclude Include="Matrix22.hpp" />
+    <ClInclude Include="Matrix33.hpp" />
+    <ClInclude Include="Matrix44.hpp" />
+    <ClInclude Include="NeonMath.h" />
+    <ClInclude Include="ObjectDataIndex.h" />
+    <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="ObjectFactory.h" />
+    <ClInclude Include="ObjectGroup.h" />
+    <ClInclude Include="ObjectRoot.h" />
+    <ClInclude Include="ObjectTile.h" />
+    <ClInclude Include="OCTree.h" />
+    <ClInclude Include="Quaternion.hpp" />
+    <ClInclude Include="ScriptNodeInterface.h" />
+    <ClInclude Include="AssembledMaterialShader.h" />
+    <ClInclude Include="ShaderAssembler.h" />
+    <ClInclude Include="ShaderFile.h" />
+    <ClInclude Include="ShaderLibrary.h" />
+    <ClInclude Include="ShaderParameter.h" />
+    <ClInclude Include="ShaderSegment.h" />
+    <ClInclude Include="SoundManage.h" />
+    <ClInclude Include="3DMath.h" />
+    <ClInclude Include="aabbox.hpp" />
+    <ClInclude Include="aabrect.hpp" />
+    <ClInclude Include="aabround.hpp" />
+    <ClInclude Include="aabsphere.hpp" />
+    <ClInclude Include="BaseMathDeclaration.h" />
+    <ClInclude Include="Bfont.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Event.hpp" />
+    <ClInclude Include="Frustum.hpp" />
+    <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="Plane.hpp" />
+    <ClInclude Include="Predefine.h" />
+    <ClInclude Include="Ray.h" />
+    <ClInclude Include="RendBuffer.h" />
+    <ClInclude Include="RenderTarget.h" />
+    <ClInclude Include="TextureState.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="VariableType.h" />
+    <ClInclude Include="vector2.hpp" />
+    <ClInclude Include="vector3.hpp" />
+    <ClInclude Include="vector4.hpp" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="AES.h" />
+    <ClInclude Include="FilePath.h" />
+    <ClInclude Include="ResLoader.h" />
+    <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Serializer.h" />
+    <ClInclude Include="EncryptFile.h" />
+    <ClInclude Include="IFile.h" />
+    <ClInclude Include="UsualFile.h" />
+    <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="ZipFile.h" />
+    <ClInclude Include="ActionManage.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="Track.h" />
+    <ClInclude Include="GameSetting.h" />
+    <ClInclude Include="Language.h" />
+    <ClInclude Include="ScriptBase.h" />
+    <ClInclude Include="ScriptInterface.hpp" />
+    <ClInclude Include="ScriptManager.h" />
+    <ClInclude Include="3DMathRegister.h" />
+    <ClInclude Include="CameraRegister.h" />
+    <ClInclude Include="EngineManagerRegister.h" />
+    <ClInclude Include="LogicBindRegister.h" />
+    <ClInclude Include="UIRegister.h" />
+    <ClInclude Include="ScriptEmitter.h" />
+    <ClInclude Include="PhysicManager.h" />
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EngineResourceList.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="ShaderManage.h" />
+    <ClInclude Include="BaseShader.h" />
+    <ClInclude Include="ConcisePEShaders.h" />
+    <ClInclude Include="EnvironmentShaders.h" />
+    <ClInclude Include="HDRShaders.h" />
+    <ClInclude Include="ModelShaders.h" />
+    <ClInclude Include="ModelSkeleton.h" />
+    <ClInclude Include="ParticleShaders.h" />
+    <ClInclude Include="PlantShaders.h" />
+    <ClInclude Include="PrePixelLightShaders.h" />
+    <ClInclude Include="Shaders2D.h" />
+    <ClInclude Include="ShadowShader.h" />
+    <ClInclude Include="TerrainShaders.h" />
+    <ClInclude Include="UtilityShaders.h" />
+    <ClInclude Include="VolumeLightShaders.h" />
+    <ClInclude Include="WaterShaders.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="UIAnimation.h" />
+    <ClInclude Include="UIManager.h" />
+    <ClInclude Include="LocatableObject.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelData.h" />
+    <ClInclude Include="Emitter.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="BloomPS.h" />
+    <ClInclude Include="DOFPostEffect.h" />
+    <ClInclude Include="FXAAPostEffect.h" />
+    <ClInclude Include="HDRPostEffect.h" />
+    <ClInclude Include="IPostEffect.h" />
+    <ClInclude Include="SSAOPostEffect.h" />
+    <ClInclude Include="VolumeLightPS.h" />
+    <ClInclude Include="CopyCurrentScreen.h" />
+    <ClInclude Include="Pipeline.h" />
+    <ClInclude Include="AxisNode.h" />
+    <ClInclude Include="Billboard.h" />
+    <ClInclude Include="CubeNode.h" />
+    <ClInclude Include="GridNode.h" />
+    <ClInclude Include="RotatingRing.h" />
+    <ClInclude Include="Shapes.h" />
+    <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="SceneDataIndex.h" />
+    <ClInclude Include="SecenProperty.h" />
+    <ClInclude Include="TerrainChunk.h" />
+    <ClInclude Include="TerrainManager.h" />
+    <ClInclude Include="TerrainTile.h" />
+    <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="NormalGenerate.h" />
+    <ClInclude Include="parameterhandler.h" />
+    <ClInclude Include="WaterGrid.h" />
+    <ClInclude Include="WaterManager.h" />
+    <ClInclude Include="WaterTile.h" />
+    <ClInclude Include="complex.h" />
+    <ClInclude Include="fft.h" />
+    <ClInclude Include="Ocean.h" />
+    <ClInclude Include="PlantBaseInfo.h" />
+    <ClInclude Include="PlantChunk.h" />
+    <ClInclude Include="PlantManager.h" />
+    <ClInclude Include="PlantTile.h" />
+    <ClInclude Include="Environment.h" />
+    <ClInclude Include="ISceneNode.h" />
+    <ClInclude Include="SceneManage.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureData.h" />
+    <ClInclude Include="triangle.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="RealLights.h" />
+    <ClInclude Include="ShadowCaster.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BohgeNet\BohgeNet\BohgeNet.vcxproj">
+      <Project>{9449622c-25ef-48e4-b034-04ce60489d6d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\Extras\ConvexDecomposition\ConvexDecomposition.vcxproj">
+      <Project>{6222f3bb-30ba-4734-821d-5e8d36f46f9a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\Extras\GIMPACTUtils\GIMPACTUtils.vcxproj">
+      <Project>{d864020a-609e-45ba-9b31-219e1fc17e81}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\Extras\HACD\HACD.vcxproj">
+      <Project>{6911f9ad-3496-423b-b83f-25141ab54b03}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{08fa2d4c-a0fb-429c-97c7-9033a5b717d8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{41b77781-3585-4251-a5f6-0b1bf8d77abb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\src\BulletMultiThreaded\BulletMultiThreaded.vcxproj">
+      <Project>{6fe1f34c-b1a8-4b14-b170-6ad0d862d201}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\src\BulletSoftBody\BulletSoftBody.vcxproj">
+      <Project>{f2853757-a5e1-4a45-8fdc-b662a42a2866}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{d9cd1651-85bb-4122-9160-05a98a8af366}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\glsl_optimizer\projects\vs2010\glsl_optimizer_lib.vcxproj">
+      <Project>{b475a403-9d9b-410d-8a93-ba49fc4dd811}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\External\lua-5.2.2\Lua\Lua.vcxproj">
+      <Project>{87cceb82-0b49-47b9-8b5e-781eb03b3c39}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\nedmalloc_v1.06beta2\nedmalloc_dll.vcxproj">
+      <Project>{47044b33-6c5a-40b6-901f-d80ca003cd8c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Private>true</Private>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\External\neonmath\NeonMath.vcxproj">
+      <Project>{d4d1ec8b-4bcf-4b59-ac11-ce9234127337}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

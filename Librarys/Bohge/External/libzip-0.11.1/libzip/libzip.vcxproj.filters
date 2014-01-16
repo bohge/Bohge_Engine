@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{a4faf5ae-9a5c-47f1-b8fd-7eda2e169b2f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\compat.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\config.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\getopt.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\stdint.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\zip.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lib\getopt.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\mkstemp.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_add.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_add_dir.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_add_entry.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_close.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_delete.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_dir_add.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_dirent.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_discard.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_entry.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_err_str.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error_clear.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error_get.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error_get_sys_type.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error_strerror.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_error_to_str.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_extra_field.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_extra_field_api.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fclose.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fdopen.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_add.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_error_clear.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_error_get.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_get_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_get_offset.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_rename.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_replace.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_set_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_file_strerror.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_filerange_crc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fopen.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fopen_encrypted.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fopen_index.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fopen_index_encrypted.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_fread.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_archive_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_archive_flag.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_compression_implementation.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_encryption_implementation.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_file_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_name.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_num_entries.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_get_num_files.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_memdup.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_name_locate.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_new.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_open.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_rename.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_replace.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_archive_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_archive_flag.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_default_password.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_file_comment.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_file_compression.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_set_name.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_buffer.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_close.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_crc.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_deflate.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_error.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_file.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_filep.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_free.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_function.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_layered.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_open.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_pkware.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_pop.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_read.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_stat.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_window.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_zip.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_source_zip_new.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_stat.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_stat_index.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_stat_init.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_strerror.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_string.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_unchange.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_unchange_all.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_unchange_archive.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_unchange_data.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zip_utf-8.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

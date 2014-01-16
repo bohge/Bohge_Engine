@@ -1,0 +1,8 @@
+uniform sampler2D _MainTex;
+void main ()
+{
+  gl_FragData[0] = ((gl_Color * texture2D (_MainTex, gl_TexCoord[0].xy)) * gl_Color.w);
+}
+
+
+// inputs: 2, stats: 2 alu 1 tex 0 flow

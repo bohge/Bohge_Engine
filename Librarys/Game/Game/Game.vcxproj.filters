@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="AdHelper.cpp">
+      <Filter>Component\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageBox.cpp">
+      <Filter>Component\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="NetHelper.cpp">
+      <Filter>Component\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveHelper.cpp">
+      <Filter>Component\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopHelper.cpp">
+      <Filter>Component\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StateLogo.cpp">
+      <Filter>StateMachine\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMainMenu.cpp">
+      <Filter>StateMachine\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManage.cpp">
+      <Filter>StateMachine\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="AdHelper.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GameResourceList.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageBox.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="NetHelper.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveHelper.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopHelper.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="StateInterface.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManage.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateLogo.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMainMenu.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{7ec9bf04-a295-4de7-af7c-c2ae95a67b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Source">
+      <UniqueIdentifier>{645a972f-9d84-4073-b1a5-31028f5c7c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachine">
+      <UniqueIdentifier>{490ecd7b-88ee-436e-a247-0820407d49bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateMachine\Source">
+      <UniqueIdentifier>{728af17c-f330-4853-80ba-672a14267e44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

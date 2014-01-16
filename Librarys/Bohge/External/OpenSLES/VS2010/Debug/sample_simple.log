@@ -1,0 +1,50 @@
+﻿Build started 2012/9/4 10:10:34.
+     1>Project "D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\sample_simple.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\sdk_samples.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Tool\Visual Studio 2010\VC\bin\CL.exe /c /ID:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\/../include/SLES /ID:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\/../include /ID:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\/.. /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /D _DEBUG /D DEBUG /D WIN32 /D _WIN32 /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\source\samples.c ..\source\sample_framework.c
+         sample_framework.c
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(88): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(96): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(118): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(123): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(241): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(244): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(247): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(336): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(339): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(342): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(346): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(350): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(354): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(471): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(580): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(583): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(586): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(590): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(591): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(713): warning C4090: 'function' : different 'const' qualifiers
+     1>d:\3dtetris\trunk\librarys\bohge\external\opensles\source\sample_framework.c(716): warning C4090: 'function' : different 'const' qualifiers
+         samples.c
+         Generating Code...
+       Link:
+         D:\Tool\Visual Studio 2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe" /NOLOGO /LIBPATH:D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\/../lib libOpenSLES.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\sdk_samples.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.lib" /MACHINE:X86 Debug\samples.obj
+         Debug\sample_framework.obj
+         LINK : D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe not found or not built by the last incremental link; performing full link
+         sample_simple.vcxproj -> D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe;#1" /manifest Debug\sdk_samples.exe.intermediate.manifest
+       PostBuildEvent:
+         xcopy /Y "D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe" "D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\..\"
+         :VCEnd
+         D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\Debug\sdk_samples.exe
+         复制了 1 个文件
+       FinalizeBuildStatus:
+         Deleting file "Debug\sdk_samples.unsuccessfulbuild".
+         Touching "Debug\sdk_samples.lastbuildstate".
+     1>Done Building Project "D:\3DTetris\trunk\Librarys\Bohge\External\OpenSLES\VS2010\sample_simple.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.39
