@@ -115,7 +115,7 @@ namespace BohgeGame
 				if( GameSetting::Instance().isFirstTime() )
 				{
 					STRING.Setlanguage(LanguageControl::L_English);//设置默认语言进入
-					//StateManage::Instance().ChangeState(StateManage::State_Language, true, false, false);
+					StateManage::Instance().ChangeState(StateManage::State_Main_Menu, true, false, false);
 				}
 				else
 				{
