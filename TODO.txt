@@ -1,0 +1,11 @@
+1.IOS project(math-neon on ios)
+2.Porting old shader struct to new struct(.Material .shader)
+3.Using neon to optimize quaternion and matrix
+4.BSP and OCtree culling system
+5.Sound system
+6.Lua script system(DO NOT create new Lua state on each class, may use lua chunk ?)
+7.Resource manager(Asynchronous resource loader)
+8.Scene manager(the tactics of scene loading)
+9.Parallax mapping
+10.light map include Specular effect(using Spherical Harmonics) 
+11.using factor mode to io code refactoring(Generate different instances of different file types and different platforms)
