@@ -53,30 +53,31 @@ namespace BohgeEngine
 		s->RegClassVar< vector2<T>  >( "m_y", &vector2<T>::m_y );
 		//注册table成员函数
 		//操作符
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const  >( "AddVector", &vector2<T>::operator+ );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const  >( "MinusVector", &vector2<T>::operator- );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const  >( "MultiplyVector", &vector2<T>::operator* );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const  >( "DivideVector", &vector2<T>::operator/ );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&)  >( "AddEqualVector", &vector2<T>::operator+= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&)  >( "MinusEqualVector", &vector2<T>::operator-= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&)  >( "MultiplyEqualVector", &vector2<T>::operator*= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&)  >( "DivideEqualVector", &vector2<T>::operator/= );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(T) const  >( "AddNumber", &vector2<T>::operator+ );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(T) const  >( "MinusNumber", &vector2<T>::operator- );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(T) const  >( "MultiplyNumber", &vector2<T>::operator* );
-		s->RegClassFunc<  vector2<T>, vector2<T> (vector2<T>::*)(T) const  >( "DivideNumber", &vector2<T>::operator/ );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(T)  >( "AddEqualNumber", &vector2<T>::operator+= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(T)  >( "MinusEqualNumber", &vector2<T>::operator-= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(T)  >( "MultiplyEqualNumber", &vector2<T>::operator*= );
-		s->RegClassFunc<  vector2<T>, vector2<T>& (vector2<T>::*)(T)  >( "DivideEqualNumber", &vector2<T>::operator/= );
-		s->RegClassFunc<  vector2<T>, bool (vector2<T>::*)(const vector2<T>&) const  >( "isEqualVector", &vector2<T>::operator== );
-		s->RegClassFunc<  vector2<T>, bool (vector2<T>::*)(const vector2<T>&) const  >( "NotEqualVector", &vector2<T>::operator!= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "Equal", &vector2<T>::operator= );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const >( "AddVector", &vector2<T>::operator+ );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const >( "MinusVector", &vector2<T>::operator- );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const >( "MultiplyVector", &vector2<T>::operator* );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(const vector2<T>&) const >( "DivideVector", &vector2<T>::operator/ );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "AddEqualVector", &vector2<T>::operator+= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "MinusEqualVector", &vector2<T>::operator-= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "MultiplyEqualVector", &vector2<T>::operator*= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "DivideEqualVector", &vector2<T>::operator/= );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "AddNumber", &vector2<T>::operator+ );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "MinusNumber", &vector2<T>::operator- );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "MultiplyNumber", &vector2<T>::operator* );
+		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "DivideNumber", &vector2<T>::operator/ );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "AddEqualNumber", &vector2<T>::operator+= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "MinusEqualNumber", &vector2<T>::operator-= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "MultiplyEqualNumber", &vector2<T>::operator*= );
+		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "DivideEqualNumber", &vector2<T>::operator/= );
+		s->RegClassFunc< vector2<T>, bool (vector2<T>::*)(const vector2<T>&) const >( "isEqualVector", &vector2<T>::operator== );
+		s->RegClassFunc< vector2<T>, bool (vector2<T>::*)(const vector2<T>&) const >( "NotEqualVector", &vector2<T>::operator!= );
 		//函数
-		s->RegClassFunc<  vector2<T>  >( "Dot", &vector2<T>::Dot );
-		s->RegClassFunc<  vector2<T>  >( "NormalizeSelf", &vector2<T>::NormalizeSelf );
-		s->RegClassFunc<  vector2<T>  >( "Normalize", &vector2<T>::Normalize );
-		s->RegClassFunc<  vector2<T>  >( "Length", &vector2<T>::Length );
-		s->RegClassFunc<  vector2<T>  >( "LengthPow", &vector2<T>::LengthPow );
+		s->RegClassFunc< vector2<T> >( "Dot", &vector2<T>::Dot );
+		s->RegClassFunc< vector2<T> >( "NormalizeSelf", &vector2<T>::NormalizeSelf );
+		s->RegClassFunc< vector2<T> >( "Normalize", &vector2<T>::Normalize );
+		s->RegClassFunc< vector2<T> >( "Length", &vector2<T>::Length );
+		s->RegClassFunc< vector2<T> >( "LengthPow", &vector2<T>::LengthPow );
 	}
 
 	template < typename T >
@@ -92,6 +93,7 @@ namespace BohgeEngine
 		s->RegClassVar< vector3<T> >( "m_z", &vector3<T>::m_z );
 		//注册table成员函数
 		//操作符
+		s->RegClassFunc< vector3<T>, vector3<T>& (vector3<T>::*)(const vector3<T>&) >( "Equal", &vector3<T>::operator= );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(const vector3<T>&) const >( "AddVector", &vector3<T>::operator+ );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(const vector3<T>&) const >( "MinusVector", &vector3<T>::operator- );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(const vector3<T>&) const >( "MultiplyVector", &vector3<T>::operator* );
@@ -137,6 +139,7 @@ namespace BohgeEngine
 		s->RegClassVar<vector4<T> >( "m_w", &vector4<T>::m_w );
 		//注册table成员函数
 		//操作符
+		s->RegClassFunc< vector4<T>, vector4<T>& (vector4<T>::*)(const vector4<T>&) >( "Equal", &vector4<T>::operator= );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(const vector4<T>&) const >( "AddVector", &vector4<T>::operator+ );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(const vector4<T>&) const >( "MinusVector", &vector4<T>::operator- );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(const vector4<T>&) const >( "MultiplyVector", &vector4<T>::operator* );
@@ -180,6 +183,7 @@ namespace BohgeEngine
 		s->RegClassVar<Quaternion<T> >( "m_w", &Quaternion<T>::m_w );
 		//注册table成员函数
 		//操作符
+		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(const Quaternion<T>&) >( "Equal", &Quaternion<T>::operator= );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(const vector4<T>&) >( "EqualVector4", &Quaternion<T>::operator= );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T> (Quaternion<T>::*)(const Quaternion<T>&) const >( "AddQuaternion", &Quaternion<T>::operator+ );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T> (Quaternion<T>::*)(const Quaternion<T>&) const >( "MinusQuaternion", &Quaternion<T>::operator- );
