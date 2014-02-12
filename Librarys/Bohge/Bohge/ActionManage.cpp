@@ -44,7 +44,7 @@
 
 
 
-#define TOUCH_LOGIC_TIME 1000
+#define TOUCH_LOGIC_TIME 600
 namespace BohgeEngine
 {
 	//--------------------------------------------------------------------------------------
@@ -193,6 +193,7 @@ namespace BohgeEngine
 			}
 			else
 			{
+				m_CounterLastInput = 0;
 				m_CounterLongTouch = 0;
 				if( m_isTouchOnUI ) // 如果只输入了一个点
 				{
@@ -268,18 +269,18 @@ namespace BohgeEngine
 				{
 					m_pTouched->OnRelease();
 				}
+				DEBUGLOG( "Double click time is %d\n", m_CounterLastInput );
+				if ( m_CounterLastInput < TOUCH_LOGIC_TIME )
+				{
+					m_OnDoubleTouchEvent.Multicast( *this );
+				}
+				m_CounterLastInput = 0;
 			}
 			m_pTouched = NULL;
 			m_isTouch = false;
 			m_isTouchObject = false;
 			m_is2Point = false;
 			m_isTouchOnUI = false;//不需要对UI的判断了
-			DEBUGLOG( "Double click time is %d\n", m_CounterLastInput );
-			if ( m_CounterLastInput < TOUCH_LOGIC_TIME )
-			{
-				m_OnDoubleTouchEvent.Multicast( *this );
-			}
-			m_CounterLastInput = 0;
 		}
 	}
 	//--------------------------------------------------------------------------------------
