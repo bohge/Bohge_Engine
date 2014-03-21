@@ -36,7 +36,7 @@
 /////////////////////////////////////
 #pragma once
 #include "IPostEffect.h"
-#include "ActionManage.h"
+#include "ActionManager.h"
 
 
 
@@ -73,7 +73,7 @@ namespace BohgeEngine
 		virtual void OnSizeChange( const vector2d& size );
 		virtual void Process(Engine& engine, const RenderTarget* const org, const RenderTarget* const scene, RenderTarget* const out );
 	public:
-		bool OnKeyDown( ActionManage::Key_Down );
+		bool OnKeyDown( ActionManager::Key_Down );
 	};
 
 }

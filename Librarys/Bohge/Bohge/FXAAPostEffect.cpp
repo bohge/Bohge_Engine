@@ -38,7 +38,7 @@
 #include "Device.h"
 #include "Engine.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "ConcisePEShaders.h"
 
 
@@ -56,7 +56,7 @@ namespace BohgeEngine
 		engine.GetDevice()->PushRenderTarget( out );
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER | Device::DEPTH_BUFFER | Device::STENCIL_BUFFER ); //ÇåÀíÆÁÄ»
 		vector2d size = engine.GetDevice()->GetResolutionSize();
-		FXAAShder& fxaa = engine.GetShaderManage()->GetShader<FXAAShder>(ShaderManage::FXAAShder);
+		FXAAShder& fxaa = engine.GetShaderManager()->GetShader<FXAAShder>(ShaderManager::FXAAShder);
 		fxaa.SetParamSceneTexture( scene->GetColorBuffer() );
 		fxaa.SetParamStepSize( vector2f( 1.0 / size.m_x, 1.0 / size.m_y ) );
 		engine.GetDevice()->Draw( *m_pRendBuffer, fxaa, NULL );

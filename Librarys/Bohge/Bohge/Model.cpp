@@ -66,7 +66,7 @@ namespace BohgeEngine
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	Model::~Model(void)
 	{
-		Engine::Instance().GetResourceManage()->ReleaseModel( m_FileName );
+		Engine::Instance().GetResourceManager()->ReleaseModel( m_FileName );
 		for ( JointNode::iterator it = m_JointNodes.begin();
 			it != m_JointNodes.end();
 			it++ )
@@ -79,10 +79,10 @@ namespace BohgeEngine
 	{
 		if ( m_isLoaded )
 		{
-			Engine::Instance().GetResourceManage()->ReleaseModel( m_FileName );
+			Engine::Instance().GetResourceManager()->ReleaseModel( m_FileName );
 		}
 		m_isLoaded = true;
-		const ModelData& data = Engine::Instance().GetResourceManage()->LoadModel( name );
+		const ModelData& data = Engine::Instance().GetResourceManager()->LoadModel( name );
 		m_FileName = name;
 		m_isBone = data.m_isBone;
 		m_MaxBoneIndexCount = data.m_MaxBoneIndexCount;
@@ -292,16 +292,16 @@ namespace BohgeEngine
 			//现在都在初始阶段
 			switch( m_MaxBoneIndexCount )
 			{
-			case 1:m.SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelLightMaped );break;
-			case 2:m.SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelLightMaped );break;
-			case 3:m.SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelLightMaped );break;
-			case 4:m.SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelLightMaped );break;
+			case 1:m.SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelLightMaped );break;
+			case 2:m.SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelLightMaped );break;
+			case 3:m.SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelLightMaped );break;
+			case 4:m.SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelLightMaped );break;
 			default: ASSERT(false);
 			}
 		}
 		else
 		{
-			m.SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelLightMaped );
+			m.SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelLightMaped );
 		}
 	}
 

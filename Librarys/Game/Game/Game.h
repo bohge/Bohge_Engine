@@ -44,8 +44,8 @@
 #include "Engine.h"
 #include "Bfont.h"
 #include "Log.h"
-#include "ShaderManage.h"
-#include "ActionManage.h"
+#include "ShaderManager.h"
+#include "ActionManager.h"
 #include "Camera.h"
 #include "Pipeline.h"
 #include "EngineResourceList.h"
@@ -53,10 +53,9 @@
 #include "MessageBox.h"
 #include "Language.h"
 #include "UIManager.h"
-#include "SoundManage.h"
 #include "GameResourceList.h"
 #include "SceneMain.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "ScriptManager.h"
 #include "AES.h"
 
@@ -107,9 +106,9 @@ namespace BohgeGame
 	public:
 		void BecomeBackground();//切到背景的时候调用
 		void BecomeFrontground();//切换到前台
-		bool OnTouchEvent( ActionManage& sender );
-		bool OnMoveEvent( ActionManage& sender );
-		bool OnReleaseEvent( ActionManage& sender );
+		bool OnTouchEvent( ActionManager& sender );
+		bool OnMoveEvent( ActionManager& sender );
+		bool OnReleaseEvent( ActionManager& sender );
 		bool OnCameraUpdate( ICamera& camera )
 		{
 			vector3f pos = camera.GetPosition();
@@ -126,7 +125,7 @@ namespace BohgeGame
 			{
 				nearondiYr = -( downDir * camera.GetNear() ).m_y;
 			}
-			float wh_nearondiYr =m_pEngine->GetSceneManage()->GetWorld().GetHeight( pos.m_x, pos.m_z ) + nearondiYr;
+			float wh_nearondiYr =m_pEngine->GetSceneManager()->GetWorld().GetHeight( pos.m_x, pos.m_z ) + nearondiYr;
 			pos.m_y = wh_nearondiYr;
 			camera.SetPosition( pos );
 			return true;
@@ -143,7 +142,7 @@ namespace BohgeGame
 			//m_pCamera = NEW TrackballCamera();
 			m_pCamera = NEW FPSCamera();
 			m_pCamera->AttachCamera();
-			m_pCamera->ConectOnUpdateCallBack( make_bind( &SceneManage::OnCameraUpdate, m_pEngine->GetSceneManage() ) );
+			m_pCamera->ConectOnUpdateCallBack( make_bind( &SceneManager::OnCameraUpdate, m_pEngine->GetSceneManager() ) );
 			//m_pCamera->ConectOnUpdateCallBack( MEMBER_FUNC_PTR( &Game::OnCameraUpdate ) );
 			m_pEngine->GetCamera()->SetMoveRotateZoom( 50.0, PI/2, 10.0 );
 			m_pEngine->GetDevice()->DeviceCaps();
@@ -157,9 +156,9 @@ namespace BohgeGame
 			//设置设备UDID
 			NetHelper::Instance().UDID() = udid;
 			m_pEngine->GetNet()->AddTCPResponse( make_bind( &ShopHelper::ListenReceipt, &ShopHelper::Instance() ) );//讲订单的回调添加到响应中
-			m_pEngine->GetActionManage()->OnTouchEvent( MEMBER_FUNC_PTR( &Game::OnTouchEvent ) );
-			m_pEngine->GetActionManage()->OnMoveEvent( MEMBER_FUNC_PTR( &Game::OnMoveEvent ) );
-			m_pEngine->GetActionManage()->OnReleaseEvent( MEMBER_FUNC_PTR( &Game::OnReleaseEvent ) );
+			m_pEngine->GetActionManager()->OnTouchEvent( MEMBER_FUNC_PTR( &Game::OnTouchEvent ) );
+			m_pEngine->GetActionManager()->OnMoveEvent( MEMBER_FUNC_PTR( &Game::OnMoveEvent ) );
+			m_pEngine->GetActionManager()->OnReleaseEvent( MEMBER_FUNC_PTR( &Game::OnReleaseEvent ) );
 			m_isRunning = true;//完成初始化，开始游戏逻辑
 		}
 		BOHGE_FORCEINLINE void QuitGame()
@@ -173,7 +172,7 @@ namespace BohgeGame
 				return false;
 			}
 			else if( NULL != m_pMessageBox 
-				&& m_pEngine->GetActionManage()->isAction(ActionManage::ACTION_EXIT)
+				&& m_pEngine->GetActionManager()->isAction(ActionManager::ACTION_EXIT)
 				&& StateManage::State_Main_Menu == StateManage::Instance().CurrextState() )
 			{
 				if( !m_pMessageBox->isShowing() )
@@ -201,8 +200,8 @@ namespace BohgeGame
 		}
 		BOHGE_FORCEINLINE void Exit()
 		{
-			m_pEngine->GetSoundManage()->UnloadSound( sou_Button );
-			m_pEngine->GetSoundManage()->UnloadSound( sou_Slider );
+			//m_pEngine->GetSoundManage()->UnloadSound( sou_Button );
+			//m_pEngine->GetSoundManage()->UnloadSound( sou_Slider );
 			SAFE_DELETE(m_pMessageBox);
 			SAFE_DELETE(m_pCamera);
 			StateManage::Instance().Exit(*m_pEngine);//通知当前state退出，释放资源
@@ -232,17 +231,17 @@ namespace BohgeGame
 			m_bPasue = false;
 			return true;
 		}
-		BOHGE_FORCEINLINE void SetKeyDown(ActionManage::Key_Down k)
+		BOHGE_FORCEINLINE void SetKeyDown(ActionManager::Key_Down k)
 		{
-			if(m_isRunning) m_pEngine->GetActionManage()->KeyDown( k );
+			if(m_isRunning) m_pEngine->GetActionManager()->KeyDown( k );
 		}
-		BOHGE_FORCEINLINE void SetActionState(ActionManage::Action action)
+		BOHGE_FORCEINLINE void SetActionState(ActionManager::Action action)
 		{
-			if(m_isRunning) m_pEngine->GetActionManage()->SetAction(action);
+			if(m_isRunning) m_pEngine->GetActionManager()->SetAction(action);
 		}
-		BOHGE_FORCEINLINE void TouchPoint(const ActionManage::InputAction& input)
+		BOHGE_FORCEINLINE void TouchPoint(const ActionManager::InputAction& input)
 		{
-			if(m_isRunning) m_pEngine->GetActionManage()->TouchAction( input );
+			if(m_isRunning) m_pEngine->GetActionManager()->TouchAction( input );
 		}
 		BOHGE_FORCEINLINE bool isShowAd()
 		{

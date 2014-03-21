@@ -36,7 +36,7 @@
 /////////////////////////////
 #include "GridNode.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "RendBuffer.h"
 #include "Shaders2D.h"
 #include <vector>
@@ -137,7 +137,7 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void GridNode::Render( Engine& engine )
 	{
-		WorldShapes& ss = engine.GetShaderManage()->GetShader<WorldShapes>(ShaderManage::WorldShapes);
+		WorldShapes& ss = engine.GetShaderManager()->GetShader<WorldShapes>(ShaderManager::WorldShapes);
 		ss.SetParamTransform( &m_Transform );
 		engine.GetDevice()->Draw( *m_pRendBuffer, ss, NULL );
 	}

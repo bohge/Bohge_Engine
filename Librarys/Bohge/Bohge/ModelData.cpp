@@ -276,34 +276,34 @@ namespace BohgeEngine
 				{
 				case 1:
 					{
-						ShaderManage::ShaderName sn;
-						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManage::SkeletonModel1B : ShaderManage::SkeletonModelBump1B;
-						m->SetShader( Pipeline::PT_DEPTH, ShaderManage::SkeletonModelDepth1B );
-						m->SetShader( Pipeline::PT_NORMAL, ShaderManage::SkeletonModelNormal1B );
+						ShaderManager::ShaderName sn;
+						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManager::SkeletonModel1B : ShaderManager::SkeletonModelBump1B;
+						m->SetShader( Pipeline::PT_DEPTH, ShaderManager::SkeletonModelDepth1B );
+						m->SetShader( Pipeline::PT_NORMAL, ShaderManager::SkeletonModelNormal1B );
 						m->SetShader( Pipeline::PT_LIGHTING, sn );
 					}break;
 				case 2:
 					{
-						ShaderManage::ShaderName sn;
-						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManage::SkeletonModel2B : ShaderManage::SkeletonModelBump2B;
-						m->SetShader( Pipeline::PT_DEPTH, ShaderManage::SkeletonModelDepth2B );
-						m->SetShader( Pipeline::PT_NORMAL, ShaderManage::SkeletonModelNormal2B );
+						ShaderManager::ShaderName sn;
+						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManager::SkeletonModel2B : ShaderManager::SkeletonModelBump2B;
+						m->SetShader( Pipeline::PT_DEPTH, ShaderManager::SkeletonModelDepth2B );
+						m->SetShader( Pipeline::PT_NORMAL, ShaderManager::SkeletonModelNormal2B );
 						m->SetShader( Pipeline::PT_LIGHTING, sn );
 					}break;
 				case 3:
 					{
-						ShaderManage::ShaderName sn;
-						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManage::SkeletonModel3B : ShaderManage::SkeletonModelBump3B;
-						m->SetShader( Pipeline::PT_DEPTH, ShaderManage::SkeletonModelDepth3B );
-						m->SetShader( Pipeline::PT_NORMAL, ShaderManage::SkeletonModelNormal3B );
+						ShaderManager::ShaderName sn;
+						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManager::SkeletonModel3B : ShaderManager::SkeletonModelBump3B;
+						m->SetShader( Pipeline::PT_DEPTH, ShaderManager::SkeletonModelDepth3B );
+						m->SetShader( Pipeline::PT_NORMAL, ShaderManager::SkeletonModelNormal3B );
 						m->SetShader( Pipeline::PT_LIGHTING, sn );
 					}break;
 				case 4:
 					{
-						ShaderManage::ShaderName sn;
-						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManage::SkeletonModel4B : ShaderManage::SkeletonModelBump4B;
-						m->SetShader( Pipeline::PT_DEPTH, ShaderManage::SkeletonModelDepth4B );
-						m->SetShader( Pipeline::PT_NORMAL, ShaderManage::SkeletonModelNormal4B );
+						ShaderManager::ShaderName sn;
+						sn = NULL == m->Attribute( Material::ATT_TEX_BUMP ) ? ShaderManager::SkeletonModel4B : ShaderManager::SkeletonModelBump4B;
+						m->SetShader( Pipeline::PT_DEPTH, ShaderManager::SkeletonModelDepth4B );
+						m->SetShader( Pipeline::PT_NORMAL, ShaderManager::SkeletonModelNormal4B );
 						m->SetShader( Pipeline::PT_LIGHTING, sn );
 					}break;
 				default: ASSERT(false);
@@ -311,15 +311,15 @@ namespace BohgeEngine
 			}
 			else
 			{
-				m->SetShader( Pipeline::PT_DEPTH, ShaderManage::ModelDepth );
-				m->SetShader( Pipeline::PT_NORMAL, ShaderManage::ModelNormal );
+				m->SetShader( Pipeline::PT_DEPTH, ShaderManager::ModelDepth );
+				m->SetShader( Pipeline::PT_NORMAL, ShaderManager::ModelNormal );
 				if( NULL == m->Attribute( Material::ATT_TEX_BUMP ) )
 				{
-					m->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelPrePixelLight );
+					m->SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelPrePixelLight );
 				}
 				else
 				{
-					m->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelBump );
+					m->SetShader( Pipeline::PT_LIGHTING, ShaderManager::ModelBump );
 				}
 			}
 		}

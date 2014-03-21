@@ -39,7 +39,7 @@
 #include "Device.h"
 #include "Engine.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "VolumeLightShaders.h"
 #include "UtilityShaders.h"
 
@@ -82,14 +82,14 @@ namespace BohgeEngine
 		engine.GetDevice()->PushRenderTarget(m_pDownSimple);
 #ifdef DirectVolumeLight
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		VolumeLight& vl = engine.GetShaderManage()->GetShader<VolumeLight>(ShaderManage::VolumeLight);
+		VolumeLight& vl = engine.GetShaderManager()->GetShader<VolumeLight>(ShaderManager::VolumeLight);
 		vl.SetParamOrginial(org->GetDepthBuffer());
 		vl.SetParamLight(env->GetDepthBuffer());
 		engine.GetDevice()->Draw( *m_pRendBuffer, vl, NULL );
 #else
 		//light scating
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		VolumeLightPost& vlp = engine.GetShaderManage()->GetShader<VolumeLightPost>(ShaderManage::VolumeLightPost);
+		VolumeLightPost& vlp = engine.GetShaderManager()->GetShader<VolumeLightPost>(ShaderManager::VolumeLightPost);
 		vlp.SetParamOrginial(org->GetColorBuffer());
 		engine.GetDevice()->Draw( *m_pRendBuffer, vlp, NULL );
 #endif
@@ -100,7 +100,7 @@ namespace BohgeEngine
 			{
 				engine.GetDevice()->PushRenderTarget(m_pSimple1); //sobel ±ßÔµ¼ì²â
 				engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-				SobelShader& ss = engine.GetShaderManage()->GetShader<SobelShader>(ShaderManage::SobelShader);
+				SobelShader& ss = engine.GetShaderManager()->GetShader<SobelShader>(ShaderManager::SobelShader);
 				ss.SetParamTextureSize(m_pDownSimple->GetSize());
 				engine.GetDevice()->Draw( *m_pRendBuffer, ss, m_pDownSimple->GetColorBuffer() );
 				engine.GetDevice()->PopRenderTarget();
@@ -109,7 +109,7 @@ namespace BohgeEngine
 			{
 				engine.GetDevice()->PushRenderTarget(m_pSimple2); //±ßÔµÄ£ºý
 				engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-				BlurEdgaShader& bes = engine.GetShaderManage()->GetShader<BlurEdgaShader>(ShaderManage::BlurEdgaShader);
+				BlurEdgaShader& bes = engine.GetShaderManager()->GetShader<BlurEdgaShader>(ShaderManager::BlurEdgaShader);
 				bes.SetParamTextureSize(m_pSimple1->GetSize());
 				bes.SetParamScaleTexture( m_pDownSimple->GetColorBuffer() );
 				bes.SetParamEdgaTexture( m_pSimple1->GetColorBuffer() );
@@ -120,7 +120,7 @@ namespace BohgeEngine
 			{
 				engine.GetDevice()->PushRenderTarget(m_pDownSimple);//¾í»ýÄ£ºý
 				engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-				BlurImageShader& bis = engine.GetShaderManage()->GetShader<BlurImageShader>(ShaderManage::BlurImageShader);
+				BlurImageShader& bis = engine.GetShaderManager()->GetShader<BlurImageShader>(ShaderManager::BlurImageShader);
 				bis.SetParamTextureSize(m_pSimple2->GetSize());
 				engine.GetDevice()->Draw( *m_pRendBuffer, bis, m_pSimple2->GetColorBuffer() );
 				engine.GetDevice()->PopRenderTarget();
@@ -128,7 +128,7 @@ namespace BohgeEngine
 		}
 
 		engine.GetDevice()->PushRenderTarget(out);//¾í»ýÄ£ºý
-		VolumeLightCombine& vc = engine.GetShaderManage()->GetShader<VolumeLightCombine>(ShaderManage::VolumeLightCombine);
+		VolumeLightCombine& vc = engine.GetShaderManager()->GetShader<VolumeLightCombine>(ShaderManager::VolumeLightCombine);
 		vc.SetParamOrginial( scene->GetColorBuffer() );
 		vc.SetParamSecen( m_pDownSimple->GetColorBuffer() );
 		engine.GetDevice()->Draw( *m_pRendBuffer, vc, NULL );

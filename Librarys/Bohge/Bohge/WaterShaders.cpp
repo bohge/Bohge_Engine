@@ -165,9 +165,9 @@ namespace BohgeEngine
 		{
 			device->SetShaderParameter( m_hWaterColorTex, *((Texture*)m_pMaterial->Attribute(Material::ATT_TEX_DIFFUSE)) );
 		}
-		if( NULL != engine.GetSceneManage()->GetSkyBox().Texture() )
+		if( NULL != engine.GetSceneManager()->GetSkyBox().Texture() )
 		{
-			device->SetShaderParameter( m_hSkyBox, *(Texture*)engine.GetSceneManage()->GetSkyBox().Texture() );
+			device->SetShaderParameter( m_hSkyBox, *(Texture*)engine.GetSceneManager()->GetSkyBox().Texture() );
 		}
 		if ( NULL != m_pMaterial->Attribute(Material::ATT_TEX_BUMP) )
 		{
@@ -321,9 +321,9 @@ namespace BohgeEngine
 		{
 			device->SetShaderParameter( m_hWaterColorTex, *((Texture*)m_pMaterial->Attribute(Material::ATT_TEX_DIFFUSE)) );
 		}
-		if( NULL != engine.GetSceneManage()->GetSkyBox().Texture() )
+		if( NULL != engine.GetSceneManager()->GetSkyBox().Texture() )
 		{
-			device->SetShaderParameter( m_hSkyBox, *(Texture*)engine.GetSceneManage()->GetSkyBox().Texture() );
+			device->SetShaderParameter( m_hSkyBox, *(Texture*)engine.GetSceneManager()->GetSkyBox().Texture() );
 		}
 		if ( NULL != m_pMaterial->Attribute(Material::ATT_TEX_BUMP) )
 		{

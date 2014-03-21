@@ -42,14 +42,11 @@
 #include "Environment.h"
 #include "Bfont.h"
 #include "UIManager.h"
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "Camera.h"
-#include "ShaderManage.h"
-#include "SceneManage.h"
-#include "SoundManage.h"
+#include "ShaderManager.h"
+#include "SceneManager.h"
 #include "UIManager.h"
-#include "ShaderManage.h"
-#include "SoundManage.h"
 #include "Pipeline.h"
 #include "Log.h"
 #include "ResourceManager.h"
@@ -61,7 +58,7 @@
 #include "RendBuffer.h"
 #include "Language.h"
 #include "MaterialManager.h"
-
+#include "SoundManager.h"
 
 
 using namespace BohgeNet;
@@ -96,22 +93,23 @@ namespace BohgeEngine
 		//应为其他成员的构造可能会调用engine
 		SharedBuffer::CreatSharedMemeryInstance();
 		LanguageControl::Create();
+		SoundManager::Create( SoundManager::ST_OPENAL );
+		m_Sound = SoundManager::Instance();
 		m_eDeviceLevel = l;
 		m_pDevice = NEW Device();
 		m_pDevice->OnDeviceCreate();
 		m_pDevice->SetViewport(vector4d(0,0,viewport.m_x,viewport.m_y));
 		m_pDevice->SetResolutionSize(resolution);
-		m_pAction = NEW ActionManage();
+		m_pAction = NEW ActionManager();
 		//	m_pCamera = NEW Camera();
-		m_pShader = NEW ShaderManage();
+		m_pShader = NEW ShaderManager();
 		m_pMaterial = NEW MaterialManager;
-		m_Sound = NEW SoundManage();
 		m_pUI = NEW UIManager();
 		m_pString = NEW StringManager();
 		//m_pParticle = NEW EmitterManager();
 		m_pPipeline = NEW Pipeline();
 		m_pResource = NEW ResourceManager();
-		m_pSecen = NEW SceneManage();
+		m_pSecen = NEW SceneManager();
 		m_pPhysic = NEW PhysicManager();
 		m_pScript = NEW ScriptManager();
 		m_pNet = NEW NetHost();
@@ -143,13 +141,14 @@ namespace BohgeEngine
 	{
 		SharedBuffer::DestorySharedMemeryInstance();
 		LanguageControl::Destroy();
+		SoundManager::Destroy();
+		m_Sound = NULL;
 		m_pNet->Destry();//消灭网络
 		SAFE_DELETE( m_pAction );
 		m_pViewCamera = NULL;
 		//SAFE_DELETE( m_pCamera );//外部给进来的，外部删除
 		SAFE_DELETE( m_pMaterial );
 		SAFE_DELETE( m_pShader );
-		SAFE_DELETE( m_Sound );
 		SAFE_DELETE( m_pUI );
 		SAFE_DELETE( m_pString );
 		//SAFE_DELETE( m_pParticle );

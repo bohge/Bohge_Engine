@@ -38,7 +38,7 @@
 #include "3DMath.h"
 #include "FilePath.h"
 #include "Texture.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Vertex.h"
 #include "Log.h"
 #include "ResLoader.h"

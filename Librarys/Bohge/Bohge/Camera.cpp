@@ -34,7 +34,7 @@
 /////////////////////////////////////////
 //			State Manage class		   //
 /////////////////////////////////////////
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "Camera.h"
 #include "3DMath.h"
 #include "Predefine.h"
@@ -353,7 +353,7 @@ namespace BohgeEngine
 		out.SetRayDirection( reslut2 );
 	}
 	//-------------------------------------------------------------------
-	void ICamera::OnActionInput( ActionManage& am )
+	void ICamera::OnActionInput( ActionManager& am )
 	{
 	}
 	//-------------------------------------------------------------------
@@ -407,7 +407,7 @@ namespace BohgeEngine
 		m_VerticalAixs.NormalizeSelf();
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	void TrackballCamera::OnActionInput( ActionManage& am )
+	void TrackballCamera::OnActionInput( ActionManager& am )
 	{
 		if( am.isTouch() && am.isMove() )
 		{
@@ -503,7 +503,7 @@ namespace BohgeEngine
 		m_VerticalAixs.NormalizeSelf();
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	void FPSCamera::OnActionInput( ActionManage& am )
+	void FPSCamera::OnActionInput( ActionManager& am )
 	{
 
 		if( am.isTouch() && am.isMove() )
@@ -528,22 +528,22 @@ namespace BohgeEngine
 			vector3f move;
 			bool isMove = false;
 			float movedis = m_MoveSpeed * Engine::Instance().GetTimeSpan() / 1000.0f;
-			if( am.isAction( ActionManage::ACTION_MOVEFORWARD ) )
+			if( am.isAction( ActionManager::ACTION_MOVEFORWARD ) )
 			{
 				isMove = true;
 				move += vector3f( 0, 0, -movedis );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVEBACK ) )
+			if( am.isAction( ActionManager::ACTION_MOVEBACK ) )
 			{
 				isMove = true;
 				move += vector3f( 0, 0, movedis );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVELRIGHT ) )
+			if( am.isAction( ActionManager::ACTION_MOVELRIGHT ) )
 			{
 				isMove = true;
 				move += vector3f( movedis, 0, 0 );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVELEFT ) )
+			if( am.isAction( ActionManager::ACTION_MOVELEFT ) )
 			{
 				isMove = true;
 				move += vector3f( -movedis, 0, 0 );
@@ -594,7 +594,7 @@ namespace BohgeEngine
 		m_VerticalAixs.NormalizeSelf();
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	void EditCamera::OnActionInput( ActionManage& am )
+	void EditCamera::OnActionInput( ActionManager& am )
 	{
 		//if( am.isTouch() && am.isMove() )
 		//{
@@ -616,22 +616,22 @@ namespace BohgeEngine
 			vector3f move;
 			bool isMove = false;
 			float movedis = m_MoveSpeed * Engine::Instance().GetTimeSpan() / 1000.0f;
-			if( am.isAction( ActionManage::ACTION_MOVEFORWARD ) )
+			if( am.isAction( ActionManager::ACTION_MOVEFORWARD ) )
 			{
 				isMove = true;
 				move += vector3f( 0, 0, -movedis );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVEBACK ) )
+			if( am.isAction( ActionManager::ACTION_MOVEBACK ) )
 			{
 				isMove = true;
 				move += vector3f( 0, 0, movedis );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVELRIGHT ) )
+			if( am.isAction( ActionManager::ACTION_MOVELRIGHT ) )
 			{
 				isMove = true;
 				move += vector3f( movedis, 0, 0 );
 			}
-			if( am.isAction( ActionManage::ACTION_MOVELEFT ) )
+			if( am.isAction( ActionManager::ACTION_MOVELEFT ) )
 			{
 				isMove = true;
 				move += vector3f( -movedis, 0, 0 );

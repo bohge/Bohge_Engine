@@ -42,7 +42,7 @@
 #include "Device.h"
 #include "Texture.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "aabrect.hpp"
 #include "UIAnimation.h"
 #include "RendBuffer.h"
@@ -308,7 +308,7 @@ namespace BohgeEngine
 		{
 			if( NULL != m_pUIRendStructVector[static_cast<int>(layer)]->m_pRender )
 			{
-				UIShader& ui = engine.GetShaderManage()->GetShader<UIShader>(ShaderManage::UIShader);
+				UIShader& ui = engine.GetShaderManager()->GetShader<UIShader>(ShaderManager::UIShader);
 				ui.SetParamColor(m_Color);
 				engine.GetDevice()->Draw( *m_pUIRendStructVector[static_cast<int>(layer)]->m_pRender, ui, m_pTexture );
 				for(UIVector::iterator it = m_UIVectorArray[static_cast<int>(layer)].begin();

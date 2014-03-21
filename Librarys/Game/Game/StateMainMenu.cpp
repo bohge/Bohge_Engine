@@ -35,25 +35,24 @@
 //			State Manage class		   //
 /////////////////////////////////////////
 #include "FilePath.h"
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "StateMainMenu.h"
 #include "StateManage.h"
 #include "Device.h"
 #include "UI.h"
 #include "Bfont.h"
 #include "Particle.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Texture.h"
 #include "Log.h"
 #include "Emitter.h"
 #include "UIManager.h"
 #include "Camera.h"
 #include "SkyBox.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "SaveHelper.h"
 #include "GameResourceList.h"
 #include "MessageBox.h"
-#include "SoundManage.h"
 #include "Language.h"
 #include "GameSetting.h"
 #include "UIAnimation.h"
@@ -182,10 +181,10 @@ namespace BohgeGame
 		//engine.GetSceneManage()->LoadScene( "tt.sfd" );
 		//engine.GetSceneManage()->LoadScene( "GIS.sfd" );
 		//engine.GetSceneManage()->LoadScene( "proj.sfd" );
-		engine.GetSceneManage()->LoadScene( "Demo.sfd" );
+		engine.GetSceneManager()->LoadScene( "Demo.sfd" );
 		//engine.GetSceneManage()->LoadScene( "demo_island.sfd" );
 		//engine.GetSceneManage()->LoadScene( "Test.sfd" );
-		engine.GetSceneManage()->GetSkyBox().AndSkyBox( SkyBox::BACKGROUND, "fl.png", "bl.png", "ul.png", "dl.png", "ll.png", "rl.png" );
+		engine.GetSceneManager()->GetSkyBox().AndSkyBox( SkyBox::BACKGROUND, "fl.png", "bl.png", "ul.png", "dl.png", "ll.png", "rl.png" );
 		lm = new LocatableModel();
 		lm->LoadModel( FILEPATH.ModelFolder() + "Fox" );
 		//lm->InitPhysical( 10, vector3f(0,0,0) );

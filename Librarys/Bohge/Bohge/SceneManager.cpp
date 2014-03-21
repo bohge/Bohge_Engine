@@ -37,9 +37,9 @@
 
 
 #include "Predefine.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "Device.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "ISceneNode.h"
 #include "SkyBox.h"
 #include "RendBuffer.h"
@@ -57,13 +57,13 @@ using namespace std;
 namespace BohgeEngine
 {
 	//---------------------------------------------------------------
-	SceneManage::SceneManage()
+	SceneManager::SceneManager()
 	{
 		m_pSky = NEW SkyBox();
 		m_pWorld = NEW SceneMain();
 	}
 	//---------------------------------------------------------------
-	SceneManage::~SceneManage()
+	SceneManager::~SceneManager()
 	{
 		SAFE_DELETE(m_pSky);
 		SAFE_DELETE(m_pWorld);
@@ -148,7 +148,7 @@ namespace BohgeEngine
 	//	}
 	//}
 	//---------------------------------------------------------------
-	void SceneManage::BeginUpdate( Engine& engine )
+	void SceneManager::BeginUpdate( Engine& engine )
 	{
 		m_UpdataQueue.clear();
 		for ( SceneNodeList::iterator it = m_SceneNodeList.begin();
@@ -168,7 +168,7 @@ namespace BohgeEngine
 		}
 	}
 	//---------------------------------------------------------------
-	void SceneManage::EndUpdate( Engine& engine )
+	void SceneManager::EndUpdate( Engine& engine )
 	{
 		for ( NodeQueue::iterator it = m_UpdataQueue.begin();
 			it != m_UpdataQueue.end();
@@ -186,7 +186,7 @@ namespace BohgeEngine
 		}
 	}
 	//---------------------------------------------------------------
-	void SceneManage::Update( uint milisecond )
+	void SceneManager::Update( uint milisecond )
 	{
 		//更新世界
 		m_pWorld->Update( milisecond );
@@ -200,7 +200,7 @@ namespace BohgeEngine
 		}
 	}
 	//---------------------------------------------------------------
-	void SceneManage::RenderSecen(Engine& engine)
+	void SceneManager::RenderSecen(Engine& engine)
 	{
 		const ICamera& maincame = *Engine::Instance().GetCamera();
 		//计算更新全部其他的物体
@@ -307,7 +307,7 @@ namespace BohgeEngine
 		}
 	}
 	//---------------------------------------------------------------
-	void SceneManage::RenderNormal( Engine& engine )
+	void SceneManager::RenderNormal( Engine& engine )
 	{
 		for ( NodeMultimap::iterator it = m_NeedRenders.begin();
 			it != m_NeedRenders.end();
@@ -318,7 +318,7 @@ namespace BohgeEngine
 		m_pWorld->RenderNormal( engine );
 	}
 	//---------------------------------------------------------------
-	bool SceneManage::OnCameraUpdate( ICamera& camera )
+	bool SceneManager::OnCameraUpdate( ICamera& camera )
 	{
 		vector3f pos = camera.GetPosition();
 		float nearondiYr = 0;
@@ -378,7 +378,7 @@ namespace BohgeEngine
 	//	}
 	//}
 	//---------------------------------------------------------------
-	void SceneManage::LoadScene( const std::string& path )
+	void SceneManager::LoadScene( const std::string& path )
 	{
 		string fullpath = FILEPATH.SceneFolder() + path;
 		Serializer loader( fullpath );
@@ -397,12 +397,12 @@ namespace BohgeEngine
 		}
 	}
 	//---------------------------------------------------------------
-	void SceneManage::AssignMaterial( const bool& isCast, const ICamera& camera )
+	void SceneManager::AssignMaterial( const bool& isCast, const ICamera& camera )
 	{
 		m_pWorld->AssignMaterial( isCast, camera );
 	}
 	//---------------------------------------------------------------
-	const LocatableObject* SceneManage::GetLoadedObject( const std::string& Tilename )
+	const LocatableObject* SceneManager::GetLoadedObject( const std::string& Tilename )
 	{
 		return m_pWorld->GetLoadedObject( Tilename );
 	}

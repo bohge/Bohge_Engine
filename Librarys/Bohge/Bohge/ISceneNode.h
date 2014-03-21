@@ -40,7 +40,7 @@
 #include "Engine.h"
 #include "aabbox.hpp"
 #include "Frustum.hpp"
-#include "SceneManage.h"
+#include "SceneManager.h"
 
 
 
@@ -80,7 +80,7 @@ namespace BohgeEngine
 
 	class IAttributeNode : public NodeType//一个带有属性的节点
 	{
-		friend class SceneManage;
+		friend class SceneManager;
 	private:
 		typedef std::map< int, IAttributeNode* >	SonNodeMap;
 	public:
@@ -118,7 +118,7 @@ namespace BohgeEngine
 			m_NodeDepth(0)
 		{
 			_SetNodeType( NodeType::NT_ATTRIBUTENODE );
-			Engine::Instance().GetSceneManage()->AttachNode(this);
+			Engine::Instance().GetSceneManager()->AttachNode(this);
 		}
 		virtual ~IAttributeNode()
 		{
@@ -134,9 +134,9 @@ namespace BohgeEngine
 				//SAFE_DELETE( it->second );//或者直接删除，2选1
 			}
 			m_SonNodes.clear();
-			if( NULL != Engine::Instance().GetSceneManage() )//最后析构顺序可能导致为空，这里检查
+			if( NULL != Engine::Instance().GetSceneManager() )//最后析构顺序可能导致为空，这里检查
 			{
-				Engine::Instance().GetSceneManage()->RemoveNode(this);
+				Engine::Instance().GetSceneManager()->RemoveNode(this);
 			}
 		}
 	private:
@@ -247,7 +247,7 @@ namespace BohgeEngine
 		{
 			_SetNodeType( NodeType::NT_SCENENODE );
 			m_isAttached = true;
-			Engine::Instance().GetSceneManage()->AttachObject(this);
+			Engine::Instance().GetSceneManager()->AttachObject(this);
 		}
 		explicit ISceneNode( int rs )
 			:IAttributeNode(),
@@ -255,14 +255,14 @@ namespace BohgeEngine
 		{
 			_SetNodeType( NodeType::NT_SCENENODE );
 			m_isAttached = true;
-			Engine::Instance().GetSceneManage()->AttachObject(this);
+			Engine::Instance().GetSceneManager()->AttachObject(this);
 		}
 		virtual ~ISceneNode()
 		{
-			if ( m_isAttached && NULL != Engine::Instance().GetSceneManage() )//最后析构顺序可能导致为空，这里检查
+			if ( m_isAttached && NULL != Engine::Instance().GetSceneManager() )//最后析构顺序可能导致为空，这里检查
 			{
 				m_isAttached = false;
-				Engine::Instance().GetSceneManage()->RemoveObject(this);
+				Engine::Instance().GetSceneManager()->RemoveObject(this);
 			}
 		};
 	public:
@@ -288,7 +288,7 @@ namespace BohgeEngine
 			if ( !m_isAttached )
 			{
 				m_isAttached = true;
-				Engine::Instance().GetSceneManage()->AttachObject(this);
+				Engine::Instance().GetSceneManager()->AttachObject(this);
 			}		
 		}
 		BOHGE_FORCEINLINE void DetachObject()//从场景管理器剥离
@@ -296,7 +296,7 @@ namespace BohgeEngine
 			if ( m_isAttached )
 			{
 				m_isAttached = false;
-				Engine::Instance().GetSceneManage()->RemoveObject(this);
+				Engine::Instance().GetSceneManager()->RemoveObject(this);
 			}		
 		}
 		BOHGE_FORCEINLINE void SetRender(bool isr)

@@ -67,7 +67,7 @@ namespace BohgeEngine
 	{
 		UnLoadScript();
 #ifdef LUA_DEBUG_MODE
-		Engine::Instance().GetScriptManage()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
+		Engine::Instance().GetScriptManager()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
 		SAFE_DELETE( m_OnErrorFunc );
 #endif
 	}
@@ -115,11 +115,11 @@ namespace BohgeEngine
 		//¼ÓÔØ½Å±¾
 		m_Scriptname = "Buffer";
 #ifdef LUA_DEBUG_MODE
-		Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+		Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 #endif
 		lua_tinker::dostring( m_LuaState, buffer.c_str() );
 #ifdef LUA_DEBUG_MODE
-		Engine::Instance().GetScriptManage()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
+		Engine::Instance().GetScriptManager()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
 #endif
 		this->CallLua<bool>( FUNCNAME(Script::FN_REGISTER) );
 		_OnScriptLoaded();
@@ -146,11 +146,11 @@ namespace BohgeEngine
 		ruf.CloseFile();
 		buffer.push_back( 0 );
 #ifdef LUA_DEBUG_MODE
-		Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+		Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 #endif
 		lua_tinker::dostring( m_LuaState, buffer.c_str() );
 #ifdef LUA_DEBUG_MODE
-		Engine::Instance().GetScriptManage()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
+		Engine::Instance().GetScriptManager()->RemoveOnScriptErrorEvent( m_OnErrorFunc );
 #endif
 		this->CallLua<bool>( FUNCNAME(Script::FN_REGISTER) );
 		_OnScriptLoaded();
@@ -164,7 +164,7 @@ namespace BohgeEngine
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	void ScriptBase::_SetGlobalClassesIndex()
 	{
-		Engine::Instance().GetScriptManage()->_SetGlobalClassesIndex( this );
+		Engine::Instance().GetScriptManager()->_SetGlobalClassesIndex( this );
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	void ScriptBase::LoadClasses( int name )
@@ -173,7 +173,7 @@ namespace BohgeEngine
 		if ( m_LoadedSet.end() == it )
 		{
 			m_LoadedSet.insert( name );
-			Engine::Instance().GetScriptManage()->_LoadClasses( name, this );
+			Engine::Instance().GetScriptManager()->_LoadClasses( name, this );
 		}
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------

@@ -45,7 +45,6 @@
 #include "UIAnimation.h"
 #include "Language.h"
 #include "UI.h"
-#include "SoundManage.h"
 
 using namespace BohgeEngine;
 
@@ -89,8 +88,8 @@ namespace BohgeGame
 	{
 		//engine.GetUIManager()->DeleteUIGroup(m_pStudioLogo);
 		engine.GetUIManager()->DeleteUIGroup(m_pEngineLogo);
-		engine.GetSoundManage()->LoadSound( sou_Button, SoundFileName[sou_Button] );
-		engine.GetSoundManage()->LoadSound( sou_Slider, SoundFileName[sou_Slider] );
+		//engine.GetSoundManage()->LoadSound( sou_Button, SoundFileName[sou_Button] );
+		//engine.GetSoundManage()->LoadSound( sou_Slider, SoundFileName[sou_Slider] );
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	void StateLogo::OnEnter(Engine& engine, StateManage::GameState Previous)

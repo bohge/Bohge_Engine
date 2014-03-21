@@ -39,7 +39,7 @@
 #include "Device.h"
 #include "RendBuffer.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Material.h"
 
 

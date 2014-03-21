@@ -38,7 +38,7 @@
 #include "RendBuffer.h"
 #include "Frustum.hpp"
 #include "Ray.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Material.h"
 #include "Log.h"
 #include "Environment.h"
@@ -229,11 +229,11 @@ namespace BohgeEngine
 			}
 			if ( engine.GetEnvironment()->isCastShadow() )//场景中的灯光只要有要发出阴影的，海水一半都会接收，应为海水是一个整块
 			{
-				m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::WaterShader );
+				m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::WaterShader );
 			}
 			else
 			{
-				m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::WaterShaderNoShadow );
+				m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::WaterShaderNoShadow );
 			}
 		}
 		pthread_mutex_unlock(&mtxRender); //解锁

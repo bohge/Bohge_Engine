@@ -39,7 +39,7 @@
 #include "ISceneNode.h"
 #include "aabsphere.hpp"
 #include "Frustum.hpp"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include <vector>
 
 
@@ -65,7 +65,7 @@ namespace BohgeEngine
 			int					m_DetailIndex;//细节的等级，8对应0，等等，用于平滑过渡
 			//下面数值要传递给shader,保存多个内容，分别是
 			vector4f					m_MorphXY_SteperScaleInvers_DoubleChunkSize;//变形系数, 当前的递增距离与缩放的乘积的逆，用于确定当前是第几个mesh等级使用，将顶点还原到0,1,2,3,4,5这种1递增方式,当前chunk的尺寸
-			ShaderManage::ShaderName	m_RenderShader;//保存绘制时候的材质
+			ShaderManager::ShaderName	m_RenderShader;//保存绘制时候的材质
 			IndicesBuffer*				m_IndicesBuffer;////当前精度的三角形索引
 			//数据在chunk中删除
 		};

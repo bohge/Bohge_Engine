@@ -39,7 +39,7 @@
 #include "Device.h"
 #include "Engine.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Texture.h"
 #include "Pipeline.h"
 #include "ConcisePEShaders.h"
@@ -89,18 +89,18 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pDownSimple_2 );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool SSAOPostEffect::OnKeyDown( ActionManage::Key_Down k )
+	bool SSAOPostEffect::OnKeyDown( ActionManager::Key_Down k )
 	{
 		switch( k )
 		{
-		case ActionManage::KD_KEY1: AOIntensity += 0.1; break;
-		case ActionManage::KD_KEY2: AOIntensity -= 0.1; break;
-		case ActionManage::KD_KEY3: AOEdgeFinder += 0.01; break;
-		case ActionManage::KD_KEY4: AOEdgeFinder -= 0.01; break;
-		case ActionManage::KD_KEY5: JitterAmount += 0.01; break;
-		case ActionManage::KD_KEY6: JitterAmount -= 0.01; break;
-		case ActionManage::KD_KEY9: this->SetActive( true ); break;
-		case ActionManage::KD_KEY0: this->SetActive( false ); break;
+		case ActionManager::KD_KEY1: AOIntensity += 0.1; break;
+		case ActionManager::KD_KEY2: AOIntensity -= 0.1; break;
+		case ActionManager::KD_KEY3: AOEdgeFinder += 0.01; break;
+		case ActionManager::KD_KEY4: AOEdgeFinder -= 0.01; break;
+		case ActionManager::KD_KEY5: JitterAmount += 0.01; break;
+		case ActionManager::KD_KEY6: JitterAmount -= 0.01; break;
+		case ActionManager::KD_KEY9: this->SetActive( true ); break;
+		case ActionManager::KD_KEY0: this->SetActive( false ); break;
 		}
 		DEBUGLOG( "AOIntensity=%f, AOEdgeFinder=%f, JitterAmount=%f\n", AOIntensity, AOEdgeFinder, JitterAmount );
 		return true;
@@ -139,7 +139,7 @@ namespace BohgeEngine
 		{
 			engine.GetDevice()->PushRenderTarget(m_pDownSimple_1);
 
-			SSAOShader& ssao = engine.GetShaderManage()->GetShader<SSAOShader>(ShaderManage::SSAOShader);
+			SSAOShader& ssao = engine.GetShaderManager()->GetShader<SSAOShader>(ShaderManager::SSAOShader);
 			ssao.SetParamDepthTex( org->GetDepthBuffer() );
 			ssao.SetParamJitterTex( m_JitterTex );
 			ssao.SetParamNormalTex( engine.GetPipeline()->NormalRenderTarget()->GetColorBuffer() );
@@ -156,7 +156,7 @@ namespace BohgeEngine
 			//x
 			engine.GetDevice()->PushRenderTarget(m_pDownSimple_2);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			Blur2x2Shader& bs = engine.GetShaderManage()->GetShader<Blur2x2Shader>(ShaderManage::Blur2x2Shader);
+			Blur2x2Shader& bs = engine.GetShaderManager()->GetShader<Blur2x2Shader>(ShaderManager::Blur2x2Shader);
 			bs.SetParamColorTexture( m_pDownSimple_1->GetColorBuffer() );
 			bs.SetParamStepSize( vector2f( (1.0f / m_pDownSimple_2->GetSize().m_x) * GaussSpread, 0.0 ) );
 			bs.SetParamGaussWeight( GaussWeight );
@@ -177,14 +177,14 @@ namespace BohgeEngine
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
 		if( 1 )
 		{
-			SSAOCombine& sc = engine.GetShaderManage()->GetShader<SSAOCombine>(ShaderManage::SSAOCombine);
+			SSAOCombine& sc = engine.GetShaderManager()->GetShader<SSAOCombine>(ShaderManager::SSAOCombine);
 			sc.SetParamSceneTexture( scene->GetColorBuffer() );
 			sc.SetParamSSVOTexture( m_pDownSimple_1->GetColorBuffer() );
 			engine.GetDevice()->Draw( *m_pRendBuffer, sc, NULL );
 		}
 		else
 		{
-			QuadShader& qs = engine.GetShaderManage()->GetShader<QuadShader>(ShaderManage::QuadShader);
+			QuadShader& qs = engine.GetShaderManager()->GetShader<QuadShader>(ShaderManager::QuadShader);
 			//engine.GetDevice()->Draw( *m_pRendBuffer, qs, engine.GetPipeline()->NormalRenderTarget()->GetColorBuffer() );
 			engine.GetDevice()->Draw( *m_pRendBuffer, qs, m_pDownSimple_1->GetColorBuffer() );
 		}

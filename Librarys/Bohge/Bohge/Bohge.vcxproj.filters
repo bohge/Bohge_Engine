@@ -218,11 +218,44 @@
     <Filter Include="Material\Outdated\Shaders\Source">
       <UniqueIdentifier>{6692bda0-ebe1-40a4-8889-93505f991236}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{359957f1-52ec-4357-8240-58f2b303468d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread\Source">
+      <UniqueIdentifier>{31b0a6da-02d8-4428-8bf9-0fde55360d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\DependentLayer">
+      <UniqueIdentifier>{7a65c74f-4b2e-4f56-af9e-4171bdfc9038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\DependentLayer\OpenSL">
+      <UniqueIdentifier>{0beaceb6-cf6a-4419-ac31-5b84b732bfa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\DependentLayer\OpenAL">
+      <UniqueIdentifier>{a60d3fff-65f9-4dc2-9804-ba2000f8df3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\IndependentLayer">
+      <UniqueIdentifier>{0e4f83e4-1ced-4604-8b4c-9a3273cbf199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\IndependentLayer\SoundPlayer">
+      <UniqueIdentifier>{d2d83cc7-1d42-4ec8-b884-0d69ac3954e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\old">
+      <UniqueIdentifier>{6d70b5ff-48eb-4c99-83b4-cfbaae081377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SoundResource">
+      <UniqueIdentifier>{7646d886-2315-455f-a309-6f29ae839395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SoundResource\Mananger">
+      <UniqueIdentifier>{38a0deee-afdc-4879-b971-8fac28a1898f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\IndependentLayer\SoundManager">
+      <UniqueIdentifier>{b63fd522-08d5-428f-baab-483c0f5e0aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SoundResource\Resource">
+      <UniqueIdentifier>{0854b87e-d474-4dd6-81ec-3f608124c2de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SoundManage.cpp">
-      <Filter>Sound</Filter>
-    </ClCompile>
     <ClCompile Include="aabboxDraw.cpp">
       <Filter>Core\Source Files</Filter>
     </ClCompile>
@@ -267,9 +300,6 @@
     </ClCompile>
     <ClCompile Include="ZipFile.cpp">
       <Filter>File\FileEntity\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ActionManage.cpp">
-      <Filter>Action\Source</Filter>
     </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>Misc\DebugTool</Filter>
@@ -460,9 +490,6 @@
     <ClCompile Include="Environment.cpp">
       <Filter>Scene\Manage\Source</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManage.cpp">
-      <Filter>Scene\Manage\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Texture\Source</Filter>
     </ClCompile>
@@ -520,9 +547,6 @@
     <ClCompile Include="ScriptBase.cpp">
       <Filter>Script\ScriptBase\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderManage.cpp">
-      <Filter>Material\Outdated</Filter>
-    </ClCompile>
     <ClCompile Include="MaterialCompiler.cpp">
       <Filter>Material\Compilers\Source</Filter>
     </ClCompile>
@@ -553,11 +577,86 @@
     <ClCompile Include="ShaderFile.cpp">
       <Filter>Material\Compilers\Source</Filter>
     </ClCompile>
+    <ClCompile Include="AsynJobManager.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GreaterThread.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="JobBaseThread.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LessThread.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="QueueThread.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadCondition.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Threading.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadMutex.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadRWLock.cpp">
+      <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManagerAL.cpp">
+      <Filter>Sound\DependentLayer\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerAL.cpp">
+      <Filter>Sound\DependentLayer\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManagerSL.cpp">
+      <Filter>Sound\DependentLayer\OpenSL</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerSL.cpp">
+      <Filter>Sound\DependentLayer\OpenSL</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManage.cpp">
+      <Filter>Sound\old</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayer.cpp">
+      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerFactory.cpp">
+      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundResource.cpp">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundResourceManager.cpp">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Sound\IndependentLayer\SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MPTDecoder.cpp">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="WAVDecoder.cpp">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="OGGDecoder.cpp">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundResourceDecoder.cpp">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionManager.cpp">
+      <Filter>Action\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>Material\Outdated</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Scene\Manage\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SoundManage.h">
-      <Filter>Sound</Filter>
-    </ClInclude>
     <ClInclude Include="aabbox.hpp">
       <Filter>Core</Filter>
     </ClInclude>
@@ -632,9 +731,6 @@
     </ClInclude>
     <ClInclude Include="ZipFile.h">
       <Filter>File\FileEntity</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionManage.h">
-      <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="Log.h">
       <Filter>Misc\DebugTool</Filter>
@@ -861,9 +957,6 @@
     <ClInclude Include="ISceneNode.h">
       <Filter>Scene\Manage</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManage.h">
-      <Filter>Scene\Manage</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Texture</Filter>
     </ClInclude>
@@ -966,9 +1059,6 @@
     <ClInclude Include="ScriptNodeInterface.h">
       <Filter>Script\ScriptBase</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderManage.h">
-      <Filter>Material\Outdated</Filter>
-    </ClInclude>
     <ClInclude Include="MaterialCompiler.h">
       <Filter>Material\Compilers</Filter>
     </ClInclude>
@@ -998,6 +1088,87 @@
     </ClInclude>
     <ClInclude Include="ShaderFile.h">
       <Filter>Material\Compilers</Filter>
+    </ClInclude>
+    <ClInclude Include="AsynJobManager.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="GreaterThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="JobBaseThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="LessThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueThread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadCondition.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Threading.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadMutex.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadRWLock.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="IAsynJob.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManagerAL.h">
+      <Filter>Sound\DependentLayer\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayerAL.h">
+      <Filter>Sound\DependentLayer\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManagerSL.h">
+      <Filter>Sound\DependentLayer\OpenSL</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayerSL.h">
+      <Filter>Sound\DependentLayer\OpenSL</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManage.h">
+      <Filter>Sound\old</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayer.h">
+      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayerFactory.h">
+      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundResourceManager.h">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundResource.h">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Sound\IndependentLayer\SoundManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MPTDecoder.h">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="OGGDecoder.h">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundResourceDecoder.h">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="WAVDecoder.h">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionManager.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Material\Outdated</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Scene\Manage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

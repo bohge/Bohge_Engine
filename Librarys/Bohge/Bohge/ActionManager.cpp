@@ -35,12 +35,12 @@
 //		游戏中动作管理的类			//
 //////////////////////////////////////
 
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "Engine.h"
 #include "aabbox.hpp"
 #include "UIManager.h"
 #include "Camera.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 
 
 
@@ -48,7 +48,7 @@
 namespace BohgeEngine
 {
 	//--------------------------------------------------------------------------------------
-	ActionManage::ActionManage()
+	ActionManager::ActionManager()
 		:m_isTouch(false),
 		m_isTouchObject(false),
 		m_nActionState(0),
@@ -70,14 +70,14 @@ namespace BohgeEngine
 		m_sCurrentAction[1].resize( C_INPUT_ALLOC );
 	}
 	//--------------------------------------------------------------------------------------
-	ActionManage::~ActionManage()
+	ActionManager::~ActionManager()
 	{
 		m_OnTouchEvent.ClearConnect();
 		m_OnMoveEvent.ClearConnect();
 		m_OnReleaseEvent.ClearConnect();
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::_CheckFreeObject(ITouchObject* ptr)
+	void ActionManager::_CheckFreeObject(ITouchObject* ptr)
 	{
 		if( ptr == m_pTouched )
 		{
@@ -86,7 +86,7 @@ namespace BohgeEngine
 		}
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::Update( uint milisecon )
+	void ActionManager::Update( uint milisecon )
 	{
 		m_CounterLastInput = m_CounterLastInput < TOUCH_LOGIC_TIME ? m_CounterLastInput + milisecon: m_CounterLastInput;
 		m_CounterLongTouch = m_isTouch ? m_CounterLongTouch < TOUCH_LOGIC_TIME ? m_CounterLongTouch + milisecon: m_CounterLongTouch : 0;
@@ -112,7 +112,7 @@ namespace BohgeEngine
 		}
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::_TouchPoint( const InputAction& input )
+	void ActionManager::_TouchPoint( const InputAction& input )
 	{
 		if( !m_isTouch )
 		{
@@ -157,7 +157,7 @@ namespace BohgeEngine
 		}
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::_TouchMove( const InputAction& input )
+	void ActionManager::_TouchMove( const InputAction& input )
 	{
 		if( m_isTouch )
 		{
@@ -249,7 +249,7 @@ namespace BohgeEngine
 		}
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::_ReleasePoint( const InputAction& input )
+	void ActionManager::_ReleasePoint( const InputAction& input )
 	{
 		if( m_isTouch )
 		{
@@ -284,7 +284,7 @@ namespace BohgeEngine
 		}
 	}
 	//--------------------------------------------------------------------------------------
-	void ActionManage::EraseTouchObject(ITouchObject* touchObj)
+	void ActionManager::EraseTouchObject(ITouchObject* touchObj)
 	{
 		TouchMap::iterator it = m_vTouchMap.find( (int)touchObj );
 		if( it != m_vTouchMap.end() )
@@ -295,12 +295,12 @@ namespace BohgeEngine
 	}
 	//--------------------------------------------------------------------------------------
 #ifdef DRAWACTIONLINE
-	void ActionManage::Render(Engine& engine)
+	void ActionManager::Render(Engine& engine)
 	{
 		if( 1 < m_Points.size() )
 		{
 			m_pBuffer = NEW RendBuffer( &m_Points[0], m_Points.size(), sizeof(VertexColor), VertexColor::Layout(), Device::RM_LINE_STRIP);
-			ShapesShader& ss = engine.GetShaderManage()->GetShader<ShapesShader>(ShaderManage::ShapesShader);
+			ShapesShader& ss = engine.GetShaderManager()->GetShader<ShapesShader>(ShaderManager::ShapesShader);
 			ss.SetParamTransform( NULL );
 			engine.GetDevice()->Draw( *m_pBuffer, ss, NULL );
 			SAFE_DELETE(m_pBuffer);
@@ -308,7 +308,7 @@ namespace BohgeEngine
 	}
 #endif
 	//--------------------------------------------------------------------------------------
-	void ActionManage::_ResetCounterTime()
+	void ActionManager::_ResetCounterTime()
 	{
 		m_CounterLastInput = TOUCH_LOGIC_TIME + 1;
 	}
@@ -317,7 +317,7 @@ namespace BohgeEngine
 	//--------------------------------------------------------------------------------------
 	ITouchObject::~ITouchObject()
 	{
-		Engine::Instance().GetActionManage()->EraseTouchObject(this);
+		Engine::Instance().GetActionManager()->EraseTouchObject(this);
 	}
 	//--------------------------------------------------------------------------------------
 }

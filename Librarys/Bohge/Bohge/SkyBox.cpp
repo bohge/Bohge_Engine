@@ -41,7 +41,7 @@
 #include "Texture.h"
 #include "3DMath.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Camera.h"
 #include "Device.h"
 #include "RendBuffer.h"
@@ -108,7 +108,7 @@ namespace BohgeEngine
 		//ro.RotateAxis( vector3f( 1,0,0) , time * 0.01 * PI );
 		//Matrix44f trm = Math::Quaternion_to_Matrix( ro );
 		//trm = *trans * trm;
-		SkyBoxShader& sbs = engine.GetShaderManage()->GetShader<SkyBoxShader>(ShaderManage::SkyBoxShader);
+		SkyBoxShader& sbs = engine.GetShaderManager()->GetShader<SkyBoxShader>(ShaderManager::SkyBoxShader);
 		sbs.SetParamAlpha( 0.0 );
 		sbs.SetParamTransform(trans);
 		engine.GetDevice()->Draw( *m_pBuffer, sbs, m_Texture );
@@ -123,7 +123,7 @@ namespace BohgeEngine
 		ro.RotateAxis( vector3f( 1,0,0) , m_Times * 0.005 * PI );
 		m_LocalRotate = ro.ToMatrix44();
 		m_LocalRotate = *trans * m_LocalRotate;
-		SkyBoxShader& sbs = engine.GetShaderManage()->GetShader<SkyBoxShader>(ShaderManage::SkyBoxShader);
+		SkyBoxShader& sbs = engine.GetShaderManager()->GetShader<SkyBoxShader>(ShaderManager::SkyBoxShader);
 		sbs.SetParamTransform(&m_LocalRotate);
 		sbs.SetParamAlpha( 1.0 );
 		engine.GetDevice()->Draw( *m_pBuffer, sbs, m_Texture );

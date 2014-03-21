@@ -38,7 +38,7 @@
 #include "Bfont.h"
 #include "Vertex.h"
 #include "Texture.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "string.h"
 #include "FilePath.h"
 #include "Log.h"
@@ -106,7 +106,7 @@ namespace BohgeEngine
 	{
 		if( m_isShow )
 		{
-			FontShader& font = engine.GetShaderManage()->GetShader<FontShader>(ShaderManage::FontShader);
+			FontShader& font = engine.GetShaderManager()->GetShader<FontShader>(ShaderManager::FontShader);
 			font.SetParamPos(m_Pos * m_fScale );
 			font.SetParamScale(m_fScale);
 			engine.GetDevice()->Draw( *m_pRendBuffer, font, m_pTex );

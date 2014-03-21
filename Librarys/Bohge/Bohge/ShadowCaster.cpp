@@ -35,11 +35,11 @@
 #include "RendBuffer.h"
 #include "RenderTarget.h"
 #include "ShadowShader.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Device.h"
 #include "Light.h"
 #include "Camera.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "Engine.h"
 
 
@@ -128,7 +128,7 @@ namespace BohgeEngine
 					float Range = 1.2; //¿ØÖÆÄ£ºý¶È
 					engine.GetDevice()->PushRenderTarget(m_pGaussHelper);
 					engine.GetDevice()->Clear( Device::COLOR_BUFFER | Device::DEPTH_BUFFER );
-					GaussianDepthLow& gaussLow = engine.GetShaderManage()->GetShader<GaussianDepthLow>(ShaderManage::GaussianDepthLow);
+					GaussianDepthLow& gaussLow = engine.GetShaderManager()->GetShader<GaussianDepthLow>(ShaderManager::GaussianDepthLow);
 					gaussLow.SetParamStep( vector2f( Range / m_pGaussHelper->GetSize().m_x, 0.0f ) );
 					engine.GetDevice()->Draw( *m_pRendBuffer, gaussLow, _GetRendTarget(i)->GetColorBuffer() );
 					engine.GetDevice()->PopRenderTarget();
@@ -157,8 +157,8 @@ namespace BohgeEngine
 		for ( int i = 0 ; i < m_eCasterType ; i ++ )
 		{
 			m_CameraItemArray[i].m_CastShadowNode.clear();
-			SceneManage::SceneNodeList& nodelist = Engine::Instance().GetSceneManage()->GetSceneList();
-			for ( SceneManage::SceneNodeList::iterator it = nodelist.begin();
+			SceneManager::SceneNodeList& nodelist = Engine::Instance().GetSceneManager()->GetSceneList();
+			for ( SceneManager::SceneNodeList::iterator it = nodelist.begin();
 				it != nodelist.end();
 				it ++ )
 			{

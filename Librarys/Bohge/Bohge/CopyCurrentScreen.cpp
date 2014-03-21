@@ -36,10 +36,10 @@
 /////////////////////////
 #include "CopyCurrentScreen.h"
 #include "Engine.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Vertex.h"
 #include "RendBuffer.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "Texture.h"
 #include "UtilityShaders.h"
 
@@ -85,7 +85,7 @@ namespace BohgeEngine
 
 		engine.GetDevice()->PushRenderTarget( m_Color );
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		QuadShader& qs = engine.GetShaderManage()->GetShader<QuadShader>( ShaderManage::QuadShader );
+		QuadShader& qs = engine.GetShaderManager()->GetShader<QuadShader>( ShaderManager::QuadShader );
 		engine.GetDevice()->Draw( *m_pRendBuffer, qs, rt->GetColorBuffer() );
 		engine.GetDevice()->PopRenderTarget( );
 
@@ -103,7 +103,7 @@ namespace BohgeEngine
 		engine.GetDevice()->DisableAlpha();//切记，拷贝深度的时候一定要把alpha混合关掉，不然会将深度数据与清屏数据混合
 		engine.GetDevice()->PushRenderTarget( m_Depth );
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		CopyDepthToRBGAShader& dls = engine.GetShaderManage()->GetShader<CopyDepthToRBGAShader>( ShaderManage::CopyDepthToRBGAShader );
+		CopyDepthToRBGAShader& dls = engine.GetShaderManager()->GetShader<CopyDepthToRBGAShader>( ShaderManager::CopyDepthToRBGAShader );
 		engine.GetDevice()->Draw( *m_pRendBuffer, dls, rt->GetDepthBuffer() );
 		engine.GetDevice()->PopRenderTarget( );
 		engine.GetDevice()->EnableAlphaBlend( as );

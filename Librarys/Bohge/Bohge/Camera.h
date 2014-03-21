@@ -47,7 +47,7 @@ namespace BohgeEngine
 	//由于投影水面的关系，本帧update中的摄像机更新全部统一在下一帧进行，否则会导致多线程水面计算的问题
 	//新的摄像机如果带有x轴上的旋转需要从新做watergrid
 	class LineNode;
-	class ActionManage;
+	class ActionManager;
 	class ICamera
 	{
 	private:
@@ -131,7 +131,7 @@ namespace BohgeEngine
 		void SetForward(const vector3f& forward);
 		void SetMoveRotateZoom( float mov, float rot, float zoom );//设置运动速度(unit/s)一个屏幕空间（左滑至右面）内旋转的角度和缩放
 	public:
-		virtual void OnActionInput( ActionManage& am );
+		virtual void OnActionInput( ActionManager& am );
 	public:
 		BOHGE_FORCEINLINE FunctionPtr ConectOnUpdateCallBack( IFunction<bool, ICamera&>* ptr )
 		{
@@ -332,7 +332,7 @@ namespace BohgeEngine
 	private:
 		virtual void _OnlookAt( );//档外部设置lookat的时候调用_LookAt不会调用
 	public:
-		virtual void OnActionInput( ActionManage& am );
+		virtual void OnActionInput( ActionManager& am );
 	public:
 		void Rotate( float xd, float yd );//输入范围[-n,n]分别是在围绕right和up轴转动rotSpeed*xd,yd角度
 		void ZoomInOut( float d );//放大缩小，同上
@@ -359,7 +359,7 @@ namespace BohgeEngine
 	private:
 		virtual void _OnlookAt( );//档外部设置lookat的时候调用_LookAt不会调用
 	public:
-		virtual void OnActionInput( ActionManage& am );
+		virtual void OnActionInput( ActionManager& am );
 	public:
 		void Rotate( float xd, float yd );//输入范围[-n,n]分别是在围绕right和up轴转动rotSpeed*xd,yd角度
 		void Move( const vector3f& dis );//移动一定距离
@@ -379,7 +379,7 @@ namespace BohgeEngine
 	private:
 		virtual void _OnlookAt( );//档外部设置lookat的时候调用_LookAt不会调用
 	public:
-		virtual void OnActionInput( ActionManage& am );
+		virtual void OnActionInput( ActionManager& am );
 	public:
 		void Rotate( float xd, float yd );//输入范围[-n,n]分别是在围绕right和up轴转动rotSpeed*xd,yd角度
 		void Move( const vector3f& dis );//移动一定距离

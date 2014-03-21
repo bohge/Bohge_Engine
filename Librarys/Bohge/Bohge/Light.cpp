@@ -42,7 +42,7 @@
 #include "Billboard.h"
 #include "Texture.h"
 #include "Device.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "RendBuffer.h"
 #include "EnvironmentShaders.h"
 
@@ -239,7 +239,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void FakeLightNode::Render( Engine& engine )
 	{
-		FakeLightShader& fls = engine.GetShaderManage()->GetShader<FakeLightShader>(ShaderManage::FakeLightShader);
+		FakeLightShader& fls = engine.GetShaderManager()->GetShader<FakeLightShader>(ShaderManager::FakeLightShader);
 		fls.SetColor( GetColor() );
 		engine.GetDevice()->Draw( *m_pRendBuffer, fls, m_pTexture );
 	}

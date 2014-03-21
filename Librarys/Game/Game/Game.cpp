@@ -55,7 +55,7 @@ namespace BohgeGame
 		NetHelper::Instance().CheckReconnect();
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool Game::OnTouchEvent( ActionManage& sender )
+	bool Game::OnTouchEvent( ActionManager& sender )
 	{
 		m_isAnyAction = false;
 		m_vLastRayOrig = sender.TouchRay().GetRayOrigin();
@@ -63,35 +63,35 @@ namespace BohgeGame
 		return true;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool Game::OnMoveEvent( ActionManage& sender )
+	bool Game::OnMoveEvent( ActionManager& sender )
 	{
 		if( NULL != sender.TouchObject() )//处理移动
 		{
 			//DEBUGLOG("Ray on X %d, Y %d\n", (int)sender.CurrentRay().m_x, (int)sender.CurrentRay().m_y);
 			if( (sender.TouchRay().GetRayOrigin().m_x - m_vLastRayOrig.m_x) < -spanH )//左移
 			{
-				sender.TouchObject()->Response(ActionManage::ACTION_LEFT);
+				sender.TouchObject()->Response(ActionManager::ACTION_LEFT);
 				m_vLastRayOrig.m_x = sender.TouchRay().GetRayOrigin().m_x;
 				m_isAnyAction = true;
 				//DEBUGLOG("MoveObject left\n");
 			}
 			else if( (sender.TouchRay().GetRayOrigin().m_x - m_vLastRayOrig.m_x) > spanH )//右移
 			{
-				sender.TouchObject()->Response(ActionManage::ACTION_RIGHT);
+				sender.TouchObject()->Response(ActionManager::ACTION_RIGHT);
 				m_vLastRayOrig.m_x = sender.TouchRay().GetRayOrigin().m_x;
 				m_isAnyAction = true;
 				//DEBUGLOG("MoveObject right\n");
 			}
 			else if( (sender.TouchRay().GetRayOrigin().m_z - m_vLastRayOrig.m_z) < -spanV )//上移
 			{
-				sender.TouchObject()->Response(ActionManage::ACTION_UP);
+				sender.TouchObject()->Response(ActionManager::ACTION_UP);
 				m_vLastRayOrig.m_z = sender.TouchRay().GetRayOrigin().m_z;
 				m_isAnyAction = true;
 				//DEBUGLOG("MoveObject up\n");
 			}
 			else if( (sender.TouchRay().GetRayOrigin().m_z - m_vLastRayOrig.m_z) > spanV )//下移
 			{
-				sender.TouchObject()->Response(ActionManage::ACTION_DOWN);
+				sender.TouchObject()->Response(ActionManager::ACTION_DOWN);
 				m_vLastRayOrig.m_z = sender.TouchRay().GetRayOrigin().m_z;
 				m_isAnyAction = true;
 				//DEBUGLOG("MoveObject down\n");
@@ -103,7 +103,7 @@ namespace BohgeGame
 			{
 				if( NULL != sender.FirstObject() && Math::Abs( sender.TouchPoint().m_x )> 0.5 )
 				{
-					sender.FirstObject()->Response(ActionManage::ACTION_FALL);
+					sender.FirstObject()->Response(ActionManager::ACTION_FALL);
 				}
 				m_vLastPoint = sender.TouchPoint();
 				m_isAnyAction = true;
@@ -112,13 +112,13 @@ namespace BohgeGame
 		return true;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool Game::OnReleaseEvent( ActionManage& sender )
+	bool Game::OnReleaseEvent( ActionManager& sender )
 	{
 		if( false == m_isAnyAction )
 		{
 			if( NULL != sender.TouchObject() )
 			{
-				sender.TouchObject()->Response(ActionManage::ACTION_SWITH);
+				sender.TouchObject()->Response(ActionManager::ACTION_SWITH);
 			}
 		}
 		m_isAnyAction = false;

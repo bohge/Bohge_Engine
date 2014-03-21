@@ -38,19 +38,17 @@
 #include "Pipeline.h"
 #include "Device.h"
 #include "IPostEffect.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "Environment.h"
 #include "Bfont.h"
 #include "UIManager.h"
 #include "Environment.h"
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "Camera.h"
-#include "ShaderManage.h"
-#include "SceneManage.h"
-#include "SoundManage.h"
+#include "ShaderManager.h"
+#include "SceneManager.h"
 #include "UIManager.h"
-#include "ShaderManage.h"
-#include "SoundManage.h"
+#include "ShaderManager.h"
 #include "RenderTarget.h"
 #include "Vertex.h"
 #include "RendBuffer.h"
@@ -146,14 +144,14 @@ namespace BohgeEngine
 			if ( engine.GetEnvironment()->isCastShadow() )//实际上这个在多光源中需要循环
 			{
 				m_isDirtyAssign = true;
-				engine.GetSceneManage()->AssignMaterial( 
+				engine.GetSceneManager()->AssignMaterial( 
 					engine.GetEnvironment()->GetCurrentLight().GetCaster().isCastShadow(),
 					engine.GetEnvironment()->GetCurrentLight().GetCaster().GetFirstCamera() );
 			}
 			else if( m_isDirtyAssign )
 			{
 				m_isDirtyAssign = false;
-				engine.GetSceneManage()->AssignMaterial( 
+				engine.GetSceneManager()->AssignMaterial( 
 					false,
 					engine.GetEnvironment()->GetCurrentLight().GetCaster().GetFirstCamera() );
 			}
@@ -168,7 +166,7 @@ namespace BohgeEngine
 				engine.GetDevice()->ClearScreenColor( 0.0f, 0.0f, 0.0f, 0.0f );
 				engine.GetDevice()->PushRenderTarget( m_pNormalBuffer );//先将场景绘制在原始纹理上
 				engine.GetDevice()->Clear( Device::COLOR_BUFFER | Device::DEPTH_BUFFER | Device::STENCIL_BUFFER );
-				engine.GetSceneManage()->RenderNormal(engine);
+				engine.GetSceneManager()->RenderNormal(engine);
 				engine.GetDevice()->PopRenderTarget( );
 			}
 
@@ -187,7 +185,7 @@ namespace BohgeEngine
 				//engine.GetSceneManage()->Render(engine);
 				//engine.GetDevice()->ColorMask( true, true, true, true);
 				//old->AttachCamera();
-				engine.GetSceneManage()->RenderSecen(engine);
+				engine.GetSceneManager()->RenderSecen(engine);
 				engine.GetEnvironment()->Render( engine );//绘制halo和甲光源
 				engine.GetDevice()->PopRenderTarget( );
 			}
@@ -217,7 +215,7 @@ namespace BohgeEngine
 			engine.GetDevice()->DisableDepthTest();
 			engine.GetDevice()->DisableAlpha();
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );//| Device::DEPTH_BUFFER | Device::STENCIL_BUFFER );//注掉的原因看Clear函数
-			QuadShader& qs = engine.GetShaderManage()->GetShader<QuadShader>(ShaderManage::QuadShader);
+			QuadShader& qs = engine.GetShaderManager()->GetShader<QuadShader>(ShaderManager::QuadShader);
 			engine.GetDevice()->Draw( *m_pRendBuffer, qs, m_pPreviousSceneColor[static_cast<int>( !swtich/*注意叹号*/ )]->GetColorBuffer() );
 		}
 		else
@@ -229,7 +227,7 @@ namespace BohgeEngine
 			m_CurrentPassType = PT_LIGHTING;
 			engine.GetDevice()->ClearScreenColor( );//改变清屏颜色,使用客户设置的颜色
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER | Device::DEPTH_BUFFER | Device::STENCIL_BUFFER );
-			engine.GetSceneManage()->RenderSecen(engine);
+			engine.GetSceneManager()->RenderSecen(engine);
 			engine.GetEnvironment()->Render( engine );//绘制halo和甲光源
 		}
 		//渲染2D

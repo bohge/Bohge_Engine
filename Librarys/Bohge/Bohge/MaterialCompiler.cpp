@@ -334,7 +334,7 @@ namespace BohgeEngine
 		{//±‡“Î,…Ë÷√
 			m_pShaderAssembler->CompileShader( VertexSegment, FargmentSegment, *shadercode, Textures );
 			shadercode->Initialization();
-			int index = Engine::Instance().GetShaderManage()->InsertAssembledShader( shadercode );
+			int index = Engine::Instance().GetShaderManager()->InsertAssembledShader( shadercode );
 			mat.SetShader( pass, index );
 		}
 		{//Œ∆¿Ì Ù–‘

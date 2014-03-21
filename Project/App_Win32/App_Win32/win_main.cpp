@@ -70,7 +70,7 @@ using namespace BohgeEngine;
 // Global variables
 //--------------------------------------------------------------------------------------
 //#define FULLSCREEN
-#define HOME
+//#define HOME
 
 //#define _4_3
 //#define _3_2
@@ -118,7 +118,7 @@ HWND	g_hEdit;
 int		maxSize;
 bool	KeyDownState[256] = {false};
 bool	isMouseDown = false;
-static ActionManage::InputAction input;
+static ActionManager::InputAction input;
 static bool is2Point = false;
 #ifdef FULLSCREEN
 bool	g_isFullScreen = true;
@@ -138,28 +138,28 @@ void DrawCall()
 		{
 			switch(i) 
 			{
-			case '1' : Game::Instance().SetKeyDown( ActionManage::KD_KEY1 ); break;
-			case '2' : Game::Instance().SetKeyDown( ActionManage::KD_KEY2 ); break;
-			case '3' : Game::Instance().SetKeyDown( ActionManage::KD_KEY3 ); break;
-			case '4' : Game::Instance().SetKeyDown( ActionManage::KD_KEY4 ); break;
-			case '5' : Game::Instance().SetKeyDown( ActionManage::KD_KEY5 ); break;
-			case '6' : Game::Instance().SetKeyDown( ActionManage::KD_KEY6 ); break;
-			case '7' : Game::Instance().SetKeyDown( ActionManage::KD_KEY7 ); break;
-			case '8' : Game::Instance().SetKeyDown( ActionManage::KD_KEY8 ); break;
-			case '9' : Game::Instance().SetKeyDown( ActionManage::KD_KEY9 ); break;
-			case '0' : Game::Instance().SetKeyDown( ActionManage::KD_KEY0 ); break;
+			case '1' : Game::Instance().SetKeyDown( ActionManager::KD_KEY1 ); break;
+			case '2' : Game::Instance().SetKeyDown( ActionManager::KD_KEY2 ); break;
+			case '3' : Game::Instance().SetKeyDown( ActionManager::KD_KEY3 ); break;
+			case '4' : Game::Instance().SetKeyDown( ActionManager::KD_KEY4 ); break;
+			case '5' : Game::Instance().SetKeyDown( ActionManager::KD_KEY5 ); break;
+			case '6' : Game::Instance().SetKeyDown( ActionManager::KD_KEY6 ); break;
+			case '7' : Game::Instance().SetKeyDown( ActionManager::KD_KEY7 ); break;
+			case '8' : Game::Instance().SetKeyDown( ActionManager::KD_KEY8 ); break;
+			case '9' : Game::Instance().SetKeyDown( ActionManager::KD_KEY9 ); break;
+			case '0' : Game::Instance().SetKeyDown( ActionManager::KD_KEY0 ); break;
 			case 'q' :
-			case 'Q' : Game::Instance().SetKeyDown( ActionManage::KD_KEYQ ); break;
+			case 'Q' : Game::Instance().SetKeyDown( ActionManager::KD_KEYQ ); break;
 			case 'e' :
-			case 'E' : Game::Instance().SetKeyDown( ActionManage::KD_KEYE ); break;
+			case 'E' : Game::Instance().SetKeyDown( ActionManager::KD_KEYE ); break;
 			case 'w' :
-			case 'W' : Game::Instance().SetActionState(ActionManage::ACTION_MOVEFORWARD); break;
+			case 'W' : Game::Instance().SetActionState(ActionManager::ACTION_MOVEFORWARD); break;
 			case 'a' :
-			case 'A' : Game::Instance().SetActionState(ActionManage::ACTION_MOVELEFT); break;
+			case 'A' : Game::Instance().SetActionState(ActionManager::ACTION_MOVELEFT); break;
 			case 's' :
-			case 'S' : Game::Instance().SetActionState(ActionManage::ACTION_MOVEBACK); break;
+			case 'S' : Game::Instance().SetActionState(ActionManager::ACTION_MOVEBACK); break;
 			case 'd' :
-			case 'D' : Game::Instance().SetActionState(ActionManage::ACTION_MOVELRIGHT); break;
+			case 'D' : Game::Instance().SetActionState(ActionManager::ACTION_MOVELRIGHT); break;
 			}
 
 		}
@@ -254,37 +254,37 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			case 'e':
 			case 'E':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_EXIT);
+					Game::Instance().SetActionState(ActionManager::ACTION_EXIT);
 				}break;
 			case 'q':
 			case 'Q':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_FALL);
+					Game::Instance().SetActionState(ActionManager::ACTION_FALL);
 				}break;
 			case 'w':
 			case 'W':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_UP);
+					Game::Instance().SetActionState(ActionManager::ACTION_UP);
 				}break;
 			case 'a':
 			case 'A':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_LEFT);
+					Game::Instance().SetActionState(ActionManager::ACTION_LEFT);
 				}break;
 			case 's':
 			case 'S':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_DOWN);
+					Game::Instance().SetActionState(ActionManager::ACTION_DOWN);
 				}break;
 			case 'd':
 			case 'D':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_RIGHT);
+					Game::Instance().SetActionState(ActionManager::ACTION_RIGHT);
 				}break;
 			case 'p':
 			case 'P':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_PAUSE);
+					Game::Instance().SetActionState(ActionManager::ACTION_PAUSE);
 				}break;
 			case 'b':
 			case 'B':
@@ -293,7 +293,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 				}break;
 			case ' ':
 				{
-					Game::Instance().SetActionState(ActionManage::ACTION_SWITH);
+					Game::Instance().SetActionState(ActionManager::ACTION_SWITH);
 				}break;
 			}
 		}return 0;
@@ -311,7 +311,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			h = yPos / h;
 			h = 2.0 * h - 1.0;
 			input.Begin();
-			input.SetType( ActionManage::INPUT_DOWN );
+			input.SetType( ActionManager::INPUT_DOWN );
 			input.SetPoint( vector2f(w,h) );
 			if( is2Point )
 			{
@@ -331,7 +331,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			h = yPos / h;
 			h = 2.0 * h - 1.0;
 			input.Begin();
-			input.SetType( ActionManage::INPUT_MOVE );
+			input.SetType( ActionManager::INPUT_MOVE );
 			input.SetPoint( vector2f(w,h) );
 			if( is2Point )
 			{
@@ -353,7 +353,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			h = yPos / h;
 			h = 2.0 * h - 1.0;
 			input.Begin();
-			input.SetType( ActionManage::INPUT_UP );
+			input.SetType( ActionManager::INPUT_UP );
 			input.SetPoint( vector2f(w,h) );
 			if( is2Point )
 			{

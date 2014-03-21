@@ -126,8 +126,8 @@ namespace BohgeEngine
 							}break;
 						case static_cast<int>(Material::ATTRIBUTE_END):
 							{
-								m_WaterMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::WaterShader );
-								m_WaterMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManage::WaterShaderNormal );
+								m_WaterMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::WaterShader );
+								m_WaterMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManager::WaterShaderNormal );
 								m_WaterMaterial->GetAlpahState( Pipeline::PT_LIGHTING ).m_isAlphaEnable = false;
 								m_WaterMaterial->GetAlpahState( Pipeline::PT_NORMAL ).m_isAlphaEnable = false;
 								isDone = true; break;

@@ -39,7 +39,7 @@
 #include "Engine.h"
 #include "Device.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "ConcisePEShaders.h"
 #include "UtilityShaders.h"
 
@@ -104,7 +104,7 @@ namespace BohgeEngine
 			//x
 			engine.GetDevice()->PushRenderTarget(m_pDownSimple_1);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			Blur2x2Shader& bs = engine.GetShaderManage()->GetShader<Blur2x2Shader>(ShaderManage::Blur2x2Shader);
+			Blur2x2Shader& bs = engine.GetShaderManager()->GetShader<Blur2x2Shader>(ShaderManager::Blur2x2Shader);
 			bs.SetParamColorTexture( scene->GetColorBuffer() );
 			bs.SetParamStepSize( vector2f( (1.0f / scene->GetSize().m_x) * GaussSpread, 0.0 ) );
 			bs.SetParamGaussWeight( GaussWeight );
@@ -125,7 +125,7 @@ namespace BohgeEngine
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
 		//if( 1 )
 		//{
-		DOFCombine& dof = engine.GetShaderManage()->GetShader<DOFCombine>(ShaderManage::DOFCombine);
+		DOFCombine& dof = engine.GetShaderManager()->GetShader<DOFCombine>(ShaderManager::DOFCombine);
 		dof.SetParamFocus( vector2f( 10, 1.0/ 1500.0 ) );
 		dof.SetParamSceneTex( scene->GetColorBuffer() );
 		dof.SetParamDepthTex( org->GetDepthBuffer() );

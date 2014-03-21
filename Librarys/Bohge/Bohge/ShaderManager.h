@@ -49,7 +49,7 @@ namespace BohgeEngine
 	class MaterialShader;
 	class AssembledMaterialShader;
 	//---------------------------------------------------------------------
-	class ShaderManage
+	class ShaderManager
 	{
 	public:
 		enum ShaderName
@@ -161,8 +161,8 @@ namespace BohgeEngine
 		int				m_AssembledShaderIndex;
 		ShaderVector	m_mpShaderVector;
 	public:
-		ShaderManage();
-		~ShaderManage();
+		ShaderManager();
+		~ShaderManager();
 		void InsertShader( int index, Shader* s );
 		int InsertAssembledShader( AssembledMaterialShader* s );
 		MaterialShader* GetMaterialShader(int index);

@@ -78,7 +78,7 @@ namespace BohgeEngine
 		{
 			DrawData data;
 			{//¼ÆËã»æÖÆÊôÐÔ
-				data.m_RenderShader = iterDepth - i >= ppy.m_SplitLevel ? ShaderManage::TerrainCDLOD : ShaderManage::TerrainCDLODLow;
+				data.m_RenderShader = iterDepth - i >= ppy.m_SplitLevel ? ShaderManager::TerrainCDLOD : ShaderManager::TerrainCDLODLow;
 				float begin = ( iterDepth - i == ppy.m_SplitLevel ? 0 : range[iterDepth-i+1] ) * Engine::Instance().GetCamera()->GetFar();
 				float end = range[iterDepth-i] * Engine::Instance().GetCamera()->GetFar();
 				float morphEnd = end;
@@ -232,15 +232,15 @@ namespace BohgeEngine
 		{
 			for ( int i = 0 ; i < DL_COUNT ; i ++ )
 			{
-				if ( m_DrawData[i].m_RenderShader != ShaderManage::TerrainCDLODLow )
+				if ( m_DrawData[i].m_RenderShader != ShaderManager::TerrainCDLODLow )
 				{
 					if ( isCast && camera.GetFrustum().Intersect( m_BindBox ) )
 					{
-						m_DrawData[i].m_RenderShader = ShaderManage::TerrainCDLOD;
+						m_DrawData[i].m_RenderShader = ShaderManager::TerrainCDLOD;
 					}
 					else
 					{
-						m_DrawData[i].m_RenderShader = ShaderManage::TerrainCDLODNoShadow;
+						m_DrawData[i].m_RenderShader = ShaderManager::TerrainCDLODNoShadow;
 					}
 				}
 			}

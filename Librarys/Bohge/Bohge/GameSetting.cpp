@@ -41,7 +41,7 @@
 #include "Language.h"
 #include "Engine.h"
 #include "Device.h"
-#include "SoundManage.h"
+#include "SoundManager.h"
 
 
 namespace BohgeEngine
@@ -72,8 +72,9 @@ namespace BohgeEngine
 			int language = 0;
 			file>>m_isBloom>>m_isVolumeLight>>language>>m_isVolumeLightHighEffect>>m_fMusicVolume>>m_fSoundVolume;
 			STRING.Setlanguage( static_cast<LanguageControl::LanguageType>(language) );
-			Engine::Instance().GetSoundManage()->SetMusicVolume( m_fMusicVolume );
-			Engine::Instance().GetSoundManage()->SetSoundVolume( m_fSoundVolume );
+			//Engine::Instance().GetSoundManager()->SetMusicVolume( m_fMusicVolume );
+			//Engine::Instance().GetSoundManager()->SetSoundVolume( m_fSoundVolume );
+			Engine::Instance().GetSoundManager()->SetGlobalVolume( m_fSoundVolume );
 			if ( !Engine::Instance().GetDevice()->isPackedDepthStencil() )
 			{
 				m_isBloom = false;

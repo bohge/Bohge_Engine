@@ -38,7 +38,7 @@
 #include "Predefine.h"
 #include "Engine.h"
 #include "StateManage.h"
-#include "ActionManage.h"
+#include "ActionManager.h"
 #include "Log.h"
 #include "UIManager.h"
 #include "GameResourceList.h"
@@ -89,7 +89,7 @@ namespace BohgeGame
 			m_lStateList.begin()->m_pStatePtr->OnEnter(engine, m_ePreviousState );
 			m_isShowLoading = false;
 			m_pLoading->SetShow(false);
-			engine.GetActionManage()->SetResponse(true);//开始保存按键buffer
+			engine.GetActionManager()->SetResponse(true);//开始保存按键buffer
 		}
 		if ( !m_lStateList.empty() )
 		{
@@ -117,7 +117,7 @@ namespace BohgeGame
 	//-------------------------------------------------------------------
 	void StateManage::SwitchState(Engine& engine)
 	{
-		engine.GetActionManage()->SetResponse(false);//状态切换停止保存案件buffer
+		engine.GetActionManager()->SetResponse(false);//状态切换停止保存案件buffer
 		DEBUGLOG("State Change to %d!\n", static_cast<int>(m_eNextState));
 		if( ! m_lStateList.empty() )
 		{
@@ -231,6 +231,6 @@ namespace BohgeGame
 		m_isReplace = false;
 		m_ClearOtherState = false;
 		m_eNextState = State_None;
-		engine.GetActionManage()->SetResponse(true);//回复
+		engine.GetActionManager()->SetResponse(true);//回复
 	}
 }

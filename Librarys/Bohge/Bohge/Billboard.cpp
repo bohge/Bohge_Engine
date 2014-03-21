@@ -37,7 +37,7 @@
 #include "Predefine.h"
 #include "Billboard.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "3DMath.h"
 #include "Camera.h"
 #include "Texture.h"
@@ -130,7 +130,7 @@ namespace BohgeEngine
 	{
 		engine.GetDevice()->DisableDepthTest();
 		engine.GetDevice()->EnableAlphaBlend( Device::BL_SRC_ALPHA, Device::BL_ONE_MINUS_SRC_ALPHA, Device::BL_ONE, Device::BL_ONE );
-		BillboardShader& bs = engine.GetShaderManage()->GetShader<BillboardShader>(ShaderManage::BillboardShader);
+		BillboardShader& bs = engine.GetShaderManager()->GetShader<BillboardShader>(ShaderManager::BillboardShader);
 		engine.GetDevice()->Draw( *m_pRendBuffer, bs, m_pTexture );
 	}
 	//-------------------------------------------------------------------------------------

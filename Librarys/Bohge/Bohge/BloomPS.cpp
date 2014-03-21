@@ -40,7 +40,7 @@
 #include "Engine.h"
 #include "Device.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "HDRShaders.h"
 #include "UtilityShaders.h"
 
@@ -82,14 +82,14 @@ namespace BohgeEngine
 		//流明化
 		engine.GetDevice()->PushRenderTarget(m_pDownSimple_1);
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		Luminance& le = engine.GetShaderManage()->GetShader<Luminance>(ShaderManage::Luminance);
+		Luminance& le = engine.GetShaderManager()->GetShader<Luminance>(ShaderManager::Luminance);
 		engine.GetDevice()->Draw( *m_pRendBuffer, le, scene->GetColorBuffer() );
 		engine.GetDevice()->PopRenderTarget();
 
 		//x方向模糊
 		engine.GetDevice()->PushRenderTarget(m_pDownSimple_2);
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		Gaussian& gauss = engine.GetShaderManage()->GetShader<Gaussian>(ShaderManage::Gaussian);
+		Gaussian& gauss = engine.GetShaderManager()->GetShader<Gaussian>(ShaderManager::Gaussian);
 		gauss.SetParamStep( vector2f( Range / m_pDownSimple_1->GetSize().m_x, 0.0f ) );
 		engine.GetDevice()->Draw( *m_pRendBuffer, gauss, m_pDownSimple_1->GetColorBuffer() );
 		engine.GetDevice()->PopRenderTarget();
@@ -105,7 +105,7 @@ namespace BohgeEngine
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
 		//if( 0 )
 		//{
-		Combine& ce = engine.GetShaderManage()->GetShader<Combine>(ShaderManage::Combine);
+		Combine& ce = engine.GetShaderManager()->GetShader<Combine>(ShaderManager::Combine);
 		ce.SetParamOrginial( scene->GetColorBuffer() );
 		ce.SetParamSecen( m_pDownSimple_1->GetColorBuffer() );
 		ce.SetParamOrginialWeight(m_StrengthOriginal);

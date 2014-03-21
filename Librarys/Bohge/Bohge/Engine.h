@@ -51,10 +51,10 @@ namespace BohgeNet
 namespace BohgeEngine
 {
 	class Device;
-	class SoundManage;
-	class ActionManage;
-	class ShaderManage;
-	class SceneManage;
+	class SoundManager;
+	class ActionManager;
+	class ShaderManager;
+	class SceneManager;
 	class UIManager;
 	class ICamera;
 	class Environment;
@@ -99,10 +99,10 @@ namespace BohgeEngine
 		bool				m_isUseLightCamera;//当绘制灯光矩阵的图像时切换
 		ICamera*			m_pViewCamera;	//管理摄像机
 		ICamera*			m_pActivCamera;	//当前激活的摄像机，可能是环境的深度投影摄像机
-		ActionManage*		m_pAction;	//管理输入输出
-		ShaderManage*		m_pShader;	//shader管理
-		SceneManage*		m_pSecen;	//绘制管理
-		SoundManage*		m_Sound;	//声音
+		ActionManager*		m_pAction;	//管理输入输出
+		ShaderManager*		m_pShader;	//shader管理
+		SceneManager*		m_pSecen;	//绘制管理
+		SoundManager*		m_Sound;	//声音
 		UIManager*			m_pUI;		//UI
 		StringManager*		m_pString;	//文本
 		//EmitterManager*		m_pParticle;//粒子管理器
@@ -148,11 +148,11 @@ namespace BohgeEngine
 		{
 			return m_pDevice;
 		}
-		BOHGE_FORCEINLINE ResourceManager* GetResourceManage()
+		BOHGE_FORCEINLINE ResourceManager* GetResourceManager()
 		{
 			return m_pResource;
 		}
-		BOHGE_FORCEINLINE ScriptManager* GetScriptManage()
+		BOHGE_FORCEINLINE ScriptManager* GetScriptManager()
 		{
 			return m_pScript;
 		}
@@ -160,7 +160,7 @@ namespace BohgeEngine
 		{
 			return m_pPipeline;
 		}
-		BOHGE_FORCEINLINE SceneManage* GetSceneManage()
+		BOHGE_FORCEINLINE SceneManager* GetSceneManager()
 		{
 			return m_pSecen;
 		}
@@ -168,11 +168,11 @@ namespace BohgeEngine
 		{
 			return m_pActivCamera;
 		}
-		BOHGE_FORCEINLINE ActionManage* GetActionManage()
+		BOHGE_FORCEINLINE ActionManager* GetActionManager()
 		{
 			return m_pAction;
 		}
-		BOHGE_FORCEINLINE ShaderManage* GetShaderManage()
+		BOHGE_FORCEINLINE ShaderManager* GetShaderManager()
 		{
 			return m_pShader;
 		}
@@ -180,7 +180,7 @@ namespace BohgeEngine
 		{
 			return m_pMaterial;
 		}
-		BOHGE_FORCEINLINE SoundManage* GetSoundManage()
+		BOHGE_FORCEINLINE SoundManager* GetSoundManager()
 		{
 			return m_Sound;
 		}

@@ -62,7 +62,7 @@ namespace BohgeEngine
 		m_TerrainBuffer->SetVertexBuffer( m_pVertexBuffer );
 		//材质
 		m_TerrainMaterial = new Material;
-		m_TerrainMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::TerrainCDLODNoShadow );
+		m_TerrainMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::TerrainCDLODNoShadow );
 
 		//构造树结构
 		m_QTNode = NEW TerrainChunk( vector2d(0,0), vector2d(m_Property.m_TileSize, m_Property.m_TileSize), 0, m_Property );
@@ -165,7 +165,7 @@ namespace BohgeEngine
 							{
 								m_TerrainMaterial->GetAlpahState( Pipeline::PT_LIGHTING ).m_isAlphaEnable = false;
 								m_TerrainMaterial->GetAlpahState( Pipeline::PT_NORMAL ).m_isAlphaEnable = false;
-								m_TerrainMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManage::TerrainCDLODNormal );
+								m_TerrainMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManager::TerrainCDLODNormal );
 								isDone = true;
 								m_QTNode->SetMaterial( m_TerrainMaterial );
 							}break;

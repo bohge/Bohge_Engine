@@ -61,7 +61,7 @@ namespace BohgeEngine
 	class UIManager
 	{
 		friend class Engine;
-		friend class ActionManage;
+		friend class ActionManager;
 		friend class Pipeline;
 		friend class UIGroup;
 	public:

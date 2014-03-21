@@ -42,7 +42,7 @@
 #include "Device.h"
 #include "VolumeLightPS.h"
 #include "Pipeline.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Texture.h"
 #include "GameSetting.h"
 #include "Light.h"
@@ -217,7 +217,7 @@ namespace BohgeEngine
 			(*it)->Render( engine );//äÖÈ¾¹âÔÎ
 		}
 		engine.GetDevice()->EnableAlphaBlend( Device::BL_SRC_ALPHA, Device::BL_ONE, Device::BL_ZERO, Device::BL_ONE );
-		HaloShader& hs = engine.GetShaderManage()->GetShader<HaloShader>(ShaderManage::HaloShader);
+		HaloShader& hs = engine.GetShaderManager()->GetShader<HaloShader>(ShaderManager::HaloShader);
 		hs.SetLightTexture( m_pTexture );
 		hs.SetDepthTexture( engine.GetPipeline()->GetCopyDepthTexture() );
 		hs.SetColor( vector3f( 0.1, 0.3, 1.0 ) );

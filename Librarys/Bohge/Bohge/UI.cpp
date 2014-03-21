@@ -41,7 +41,7 @@
 #include "ScriptBase.h"
 #include "Language.h"
 #include "Shaders2D.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 
 
 
@@ -1021,7 +1021,7 @@ namespace BohgeEngine
 		engine.GetDevice()->StencilOp(Device::ON_INCR,Device::ON_INCR,Device::ON_INCR);
 
 		//在模板上绘制
-		UIShader& ui = engine.GetShaderManage()->GetShader<UIShader>(ShaderManage::UIShader);
+		UIShader& ui = engine.GetShaderManager()->GetShader<UIShader>(ShaderManager::UIShader);
 		ui.SetParamColor(Color::White);
 		engine.GetDevice()->Draw( *m_pStencilRender, ui, NULL );
 		//绘制Item
@@ -1256,7 +1256,7 @@ namespace BohgeEngine
 		engine.GetDevice()->StencilOp(Device::ON_INCR,Device::ON_INCR,Device::ON_INCR);
 
 		//在模板上绘制
-		UIShader& ui = engine.GetShaderManage()->GetShader<UIShader>(ShaderManage::UIShader);
+		UIShader& ui = engine.GetShaderManager()->GetShader<UIShader>(ShaderManager::UIShader);
 		ui.SetParamColor(Color::White);
 		engine.GetDevice()->Draw( *m_pStencilRender, ui, NULL );
 		//绘制文字等

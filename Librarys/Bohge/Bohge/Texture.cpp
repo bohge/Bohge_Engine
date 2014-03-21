@@ -123,7 +123,7 @@ namespace BohgeEngine
 		}
 		else
 		{
-			Engine::Instance().GetResourceManage()->ReleaseTexture( m_eFormat, m_Name);
+			Engine::Instance().GetResourceManager()->ReleaseTexture( m_eFormat, m_Name);
 		}
 		m_isLoadFormFile = false;
 		m_isLoaded = false;
@@ -191,7 +191,7 @@ namespace BohgeEngine
 				this->UnloadTexture();
 			}
 			m_isLoadFormFile = true;
-			const TextureData& data = Engine::Instance().GetResourceManage()->LoadTexture2D(f,strFileName);
+			const TextureData& data = Engine::Instance().GetResourceManager()->LoadTexture2D(f,strFileName);
 			m_hasMipMap = data.m_hasMipMap;
 			m_hTextureHandle = data.m_hTextureHandle;
 			m_vSize = data.m_vSize;
@@ -289,7 +289,7 @@ namespace BohgeEngine
 			this->UnloadTexture();
 		}
 		m_isLoadFormFile = true;
-		const TextureData& data = Engine::Instance().GetResourceManage()->LoadTextureCube(pf, f, b, u, d, l, r);
+		const TextureData& data = Engine::Instance().GetResourceManager()->LoadTextureCube(pf, f, b, u, d, l, r);
 		m_hasMipMap = data.m_hasMipMap;
 		m_hTextureHandle = data.m_hTextureHandle;
 		m_vSize = data.m_vSize;

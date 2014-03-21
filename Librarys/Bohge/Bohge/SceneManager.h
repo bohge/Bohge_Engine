@@ -57,7 +57,7 @@ namespace BohgeEngine
 	class ICamera;
     class IAttributeNode;
 	class LocatableObject;
-	class SceneManage
+	class SceneManager
 	{
 		friend class Emitter;
 		friend class ISceneNode;
@@ -83,8 +83,8 @@ namespace BohgeEngine
 		//编辑器的场景
 		SceneMain*			m_pWorld;
 	public:
-		explicit SceneManage();
-		~SceneManage();
+		explicit SceneManager();
+		~SceneManager();
 	public:
 		void BeginUpdate( Engine& engine );
 		void Update( uint milisecond );//更新场景，控制是否绘制啊，升级骨骼动画绑定啊

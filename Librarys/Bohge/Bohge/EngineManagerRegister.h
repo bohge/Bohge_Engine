@@ -36,8 +36,7 @@
 /////////////////////////////////
 #pragma once
 #include "Engine.h"
-#include "SceneManage.h"
-#include "SoundManage.h"
+#include "SceneManager.h"
 #include "UIManager.h"
 #include "PhysicManager.h"
 #include "NetHost.h"
@@ -52,8 +51,8 @@ namespace BohgeEngine
 		s->RegClass<Engine >( classname );
 		//×¢²átable³ÉÔ±º¯Êý
 		s->RegClassFunc< Engine >( "GetCamera", &Engine::GetCamera );
-		s->RegClassFunc< Engine >( "GetSceneManage", &Engine::GetSceneManage );
-		s->RegClassFunc< Engine >( "GetSoundManage", &Engine::GetSoundManage );
+		s->RegClassFunc< Engine >( "GetSceneManager", &Engine::GetSceneManager );
+		s->RegClassFunc< Engine >( "GetSoundManager", &Engine::GetSoundManager );
 		s->RegClassFunc< Engine >( "GetUIManager", &Engine::GetUIManager );
 		s->RegClassFunc< Engine >( "GetPhysicManager", &Engine::GetPhysicManager );
 		s->RegClassFunc< Engine >( "GetNet", &Engine::GetNet );

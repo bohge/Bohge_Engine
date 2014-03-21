@@ -38,12 +38,12 @@
 #include "Emitter.h"
 #include "Vertex.h"
 #include "Particle.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Device.h"
 #include "Material.h"
 #include "Log.h"
 #include "RendBuffer.h"
-#include "SceneManage.h"
+#include "SceneManager.h"
 #include "Camera.h"
 #include "Engine.h"
 
@@ -138,7 +138,7 @@ namespace BohgeEngine
 		//²ÄÖÊ
 		m_pMaterial = NEW Material;
 		m_pMaterial->SetNode( this );
-		m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ParticleShader );
+		m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::ParticleShader );
 		m_pMaterial->LoadTexture( Material::ATT_TEX_DIFFUSE, Device::PF_R8G8B8A8, texName );
 		m_pMaterial->GetDrawState( Pipeline::PT_LIGHTING ).m_isDepthMask = false;
 		m_pMaterial->GetAlpahState( Pipeline::PT_LIGHTING ).m_isAlphaEnable = true;

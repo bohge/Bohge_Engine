@@ -37,7 +37,7 @@
 
 #include "AxisNode.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "RendBuffer.h"
 #include "Shaders2D.h"
 #include "Billboard.h"
@@ -272,12 +272,12 @@ namespace BohgeEngine
 		{
 			engine.GetDevice()->DisableDepthTest();
 			engine.GetDevice()->DepthMask( true );
-			WorldShapes& ss = engine.GetShaderManage()->GetShader<WorldShapes>(ShaderManage::WorldShapes);
+			WorldShapes& ss = engine.GetShaderManager()->GetShader<WorldShapes>(ShaderManager::WorldShapes);
 			ss.SetParamTransform( &m_Transfrom );
 			engine.GetDevice()->Draw( *m_pLineBuffer, ss, NULL );
 
 			engine.GetDevice()->EnableAlphaBlend( Device::BL_SRC_ALPHA, Device::BL_ONE_MINUS_SRC_ALPHA, Device::BL_SRC_ALPHA, Device::BL_ONE_MINUS_SRC_ALPHA);
-			BillboardShader& bs = engine.GetShaderManage()->GetShader<BillboardShader>(ShaderManage::BillboardShader);
+			BillboardShader& bs = engine.GetShaderManager()->GetShader<BillboardShader>(ShaderManager::BillboardShader);
 			engine.GetDevice()->Draw( *m_pBillboardBuffer, bs, &m_pBillboardString->GetTexture() );
 		}
 	}

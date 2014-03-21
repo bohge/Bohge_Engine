@@ -190,8 +190,8 @@ namespace BohgeEngine
 							{
 							case PlantBaseInfo::PS_TRUNK:
 								{
-									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::PlantTrunk );
-									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManage::PlantTrunkNormal );
+									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::PlantTrunk );
+									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManager::PlantTrunkNormal );
 								} break;
 							case PlantBaseInfo::PS_LEAF: 
 								{
@@ -201,8 +201,8 @@ namespace BohgeEngine
 									m_BufferVector[BufferIndex].m_PlantMaterial->GetDrawState( Pipeline::PT_NORMAL).m_isCullFace = Device::CFM_NONE;
 									m_BufferVector[BufferIndex].m_PlantMaterial->GetAlpahState( Pipeline::PT_NORMAL ).m_isAlphaEnable = false;
 									//m_BufferVector[BufferIndex].m_PlantMaterial->GetAlpahState().m_DesA = Device::BL_ONE;
-									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::PlantLeaf );
-									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManage::PlantLeafNormal );
+									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManager::PlantLeaf );
+									m_BufferVector[BufferIndex].m_PlantMaterial->SetShader( Pipeline::PT_NORMAL, ShaderManager::PlantLeafNormal );
 								} break;
 							default:ASSERT(false);break;
 							}

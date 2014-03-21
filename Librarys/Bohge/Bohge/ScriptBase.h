@@ -122,7 +122,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::setglobal(m_LuaState, name, object);
 			}
 #else
@@ -136,7 +136,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::getglobal<T>(m_LuaState, name);
 			}
 #else
@@ -151,7 +151,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::def<F>(m_LuaState, funcName, func);
 			}
 #else
@@ -166,7 +166,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_add<Class>(m_LuaState, name);
 			}
 #else
@@ -182,7 +182,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_inh<Classengine,ClassBase>(m_LuaState);
 			}
 #else
@@ -196,7 +196,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class> );
 			}
 #else
@@ -210,7 +210,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1> );
 			}
 #else
@@ -224,7 +224,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2> );
 			}
 #else
@@ -238,7 +238,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2, T3> );
 			}
 #else
@@ -252,7 +252,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2, T3, T4> );
 			}
 #else
@@ -266,7 +266,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2, T3, T4, T5> );
 			}
 #else
@@ -280,7 +280,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2, T3, T4, T5, T6> );
 			}
 #else
@@ -294,7 +294,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_con<Class>( m_LuaState, lua_tinker::constructor<Class, T1, T2, T3, T4, T5, T6, T7> );
 			}
 #else
@@ -308,7 +308,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_def<Class>(m_LuaState, name, func);
 			}
 #else
@@ -322,7 +322,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				lua_tinker::class_mem<Class>(m_LuaState, name, val);
 			}
 #else
@@ -338,7 +338,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R>(m_LuaState, func);
 			}
 #else
@@ -352,7 +352,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1>(m_LuaState, func, t1);
 			}
 #else
@@ -366,7 +366,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2>(m_LuaState, func, t1, t2);
 			}
 #else
@@ -380,7 +380,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3>(m_LuaState, func, t1, t2, t3);
 			}
 #else
@@ -394,7 +394,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3, T4>(m_LuaState, func, t1, t2, t3, t4);
 			}
 #else
@@ -408,7 +408,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3, T4, T5>(m_LuaState, func, t1, t2, t3, t4, t5);
 			}
 #else
@@ -422,7 +422,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3, T4, T5, T6>(m_LuaState, func, t1, t2, t3, t4, t5, t6);
 			}
 #else
@@ -436,7 +436,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3, T4, T5, T6, T7>(m_LuaState, func, t1, t2, t3, t4, t5, t6, t7);
 			}
 #else
@@ -450,7 +450,7 @@ namespace BohgeEngine
 #ifdef LUA_DEBUG_MODE
 			if ( !m_isError && m_isLoaded )
 			{
-				Engine::Instance().GetScriptManage()->OnScriptErrorEvent( m_OnErrorFunc );
+				Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );
 				return lua_tinker::call<R, T1, T2, T3, T4, T5, T6, T7, T8>(m_LuaState, func, t1, t2, t3, t4, t5, t6, t7, t8);
 			}
 #else

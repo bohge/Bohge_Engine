@@ -37,7 +37,7 @@
 
 #include "Shapes.h"
 #include "Vertex.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "RendBuffer.h"
 #include "Camera.h"
 #include "Shaders2D.h"
@@ -139,7 +139,7 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void Rect2D::Render(Engine& engine) const 
 	{
-		ScreenShapes& ss = engine.GetShaderManage()->GetShader<ScreenShapes>(ShaderManage::ScreenShapes);
+		ScreenShapes& ss = engine.GetShaderManager()->GetShader<ScreenShapes>(ShaderManager::ScreenShapes);
 		engine.GetDevice()->Draw( *m_pRendBuffer, ss, NULL );
 	}
 	//------------------------------------------------------------------------------------------------------
@@ -197,7 +197,7 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void Rect3D::Render(Engine& engine) const 
 	{
-		WorldShapes& ss = engine.GetShaderManage()->GetShader<WorldShapes>(ShaderManage::WorldShapes);
+		WorldShapes& ss = engine.GetShaderManager()->GetShader<WorldShapes>(ShaderManager::WorldShapes);
 		ss.SetParamTransform( &m_Transform );
 		engine.GetDevice()->Draw( *m_pRendBuffer, ss, NULL );
 	}
@@ -254,7 +254,7 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void LineNode::Render( Engine& engine )
 	{
-		WorldShapes& ss = engine.GetShaderManage()->GetShader<WorldShapes>(ShaderManage::WorldShapes);
+		WorldShapes& ss = engine.GetShaderManager()->GetShader<WorldShapes>(ShaderManager::WorldShapes);
 		ss.SetParamTransform( &m_Transfrom );
 		engine.GetDevice()->Draw( *m_pRendBuffer, ss, NULL );
 	}

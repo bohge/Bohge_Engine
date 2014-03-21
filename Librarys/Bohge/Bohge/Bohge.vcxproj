@@ -374,11 +374,16 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AsynJobManager.cpp" />
     <ClCompile Include="EmitterBase.cpp" />
+    <ClCompile Include="GreaterThread.cpp" />
     <ClCompile Include="IndicesBuffer.cpp" />
+    <ClCompile Include="JobBaseThread.cpp" />
+    <ClCompile Include="LessThread.cpp" />
     <ClCompile Include="LightMaped.cpp" />
     <ClCompile Include="MaterialCompiler.cpp" />
     <ClCompile Include="MaterialManager.cpp" />
+    <ClCompile Include="MPTDecoder.cpp" />
     <ClCompile Include="NeonMath.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="ObjectFactory.cpp" />
@@ -387,6 +392,8 @@
     <ClCompile Include="ObjectTile.cpp" />
     <ClCompile Include="OCTree.cpp" />
     <ClCompile Include="AssembledMaterialShader.cpp" />
+    <ClCompile Include="OGGDecoder.cpp" />
+    <ClCompile Include="QueueThread.cpp" />
     <ClCompile Include="ShaderAssembler.cpp" />
     <ClCompile Include="ShaderFile.cpp" />
     <ClCompile Include="ShaderLibrary.cpp" />
@@ -400,7 +407,21 @@
     <ClCompile Include="MemoryPool.c" />
     <ClCompile Include="RendBuffer.cpp" />
     <ClCompile Include="RenderTarget.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundManagerAL.cpp" />
+    <ClCompile Include="SoundManagerSL.cpp" />
+    <ClCompile Include="SoundPlayer.cpp" />
+    <ClCompile Include="SoundPlayerAL.cpp" />
+    <ClCompile Include="SoundPlayerFactory.cpp" />
+    <ClCompile Include="SoundPlayerSL.cpp" />
+    <ClCompile Include="SoundResource.cpp" />
+    <ClCompile Include="SoundResourceDecoder.cpp" />
+    <ClCompile Include="SoundResourceManager.cpp" />
     <ClCompile Include="TextureState.cpp" />
+    <ClCompile Include="ThreadCondition.cpp" />
+    <ClCompile Include="Threading.cpp" />
+    <ClCompile Include="ThreadMutex.cpp" />
+    <ClCompile Include="ThreadRWLock.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="AES.cpp" />
     <ClCompile Include="FilePath.cpp" />
@@ -410,8 +431,9 @@
     <ClCompile Include="EncryptFile.cpp" />
     <ClCompile Include="UsualFile.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="WAVDecoder.cpp" />
     <ClCompile Include="ZipFile.cpp" />
-    <ClCompile Include="ActionManage.cpp" />
+    <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Track.cpp" />
     <ClCompile Include="GameSetting.cpp" />
@@ -423,7 +445,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="OpenGLES.cpp" />
     <ClCompile Include="Material.cpp" />
-    <ClCompile Include="ShaderManage.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="BaseShader.cpp" />
     <ClCompile Include="ConcisePEShaders.cpp" />
     <ClCompile Include="EnvironmentShaders.cpp" />
@@ -478,7 +500,7 @@
     <ClCompile Include="PlantManager.cpp" />
     <ClCompile Include="PlantTile.cpp" />
     <ClCompile Include="Environment.cpp" />
-    <ClCompile Include="SceneManage.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="triangle.cpp" />
     <ClCompile Include="FakeLights.cpp" />
@@ -487,11 +509,16 @@
     <ClCompile Include="ShadowCaster.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AsynJobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
     <ClInclude Include="EmitterBase.h" />
     <ClInclude Include="EventImplement.hpp" />
     <ClInclude Include="FakeLights.h" />
+    <ClInclude Include="GreaterThread.h" />
+    <ClInclude Include="IAsynJob.h" />
     <ClInclude Include="IndicesBuffer.h" />
+    <ClInclude Include="JobBaseThread.h" />
+    <ClInclude Include="LessThread.h" />
     <ClInclude Include="LightMaped.h" />
     <ClInclude Include="Line.hpp" />
     <ClInclude Include="MaterialCompiler.h" />
@@ -499,6 +526,7 @@
     <ClInclude Include="Matrix22.hpp" />
     <ClInclude Include="Matrix33.hpp" />
     <ClInclude Include="Matrix44.hpp" />
+    <ClInclude Include="MPTDecoder.h" />
     <ClInclude Include="NeonMath.h" />
     <ClInclude Include="ObjectDataIndex.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -507,7 +535,9 @@
     <ClInclude Include="ObjectRoot.h" />
     <ClInclude Include="ObjectTile.h" />
     <ClInclude Include="OCTree.h" />
+    <ClInclude Include="OGGDecoder.h" />
     <ClInclude Include="Quaternion.hpp" />
+    <ClInclude Include="QueueThread.h" />
     <ClInclude Include="ScriptNodeInterface.h" />
     <ClInclude Include="AssembledMaterialShader.h" />
     <ClInclude Include="ShaderAssembler.h" />
@@ -532,7 +562,21 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="RendBuffer.h" />
     <ClInclude Include="RenderTarget.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundManagerAL.h" />
+    <ClInclude Include="SoundManagerSL.h" />
+    <ClInclude Include="SoundPlayer.h" />
+    <ClInclude Include="SoundPlayerAL.h" />
+    <ClInclude Include="SoundPlayerFactory.h" />
+    <ClInclude Include="SoundPlayerSL.h" />
+    <ClInclude Include="SoundResource.h" />
+    <ClInclude Include="SoundResourceDecoder.h" />
+    <ClInclude Include="SoundResourceManager.h" />
     <ClInclude Include="TextureState.h" />
+    <ClInclude Include="ThreadCondition.h" />
+    <ClInclude Include="Threading.h" />
+    <ClInclude Include="ThreadMutex.h" />
+    <ClInclude Include="ThreadRWLock.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="VariableType.h" />
     <ClInclude Include="vector2.hpp" />
@@ -548,8 +592,9 @@
     <ClInclude Include="IFile.h" />
     <ClInclude Include="UsualFile.h" />
     <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="WAVDecoder.h" />
     <ClInclude Include="ZipFile.h" />
-    <ClInclude Include="ActionManage.h" />
+    <ClInclude Include="ActionManager.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="Track.h" />
     <ClInclude Include="GameSetting.h" />
@@ -568,7 +613,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineResourceList.h" />
     <ClInclude Include="Material.h" />
-    <ClInclude Include="ShaderManage.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="ConcisePEShaders.h" />
     <ClInclude Include="EnvironmentShaders.h" />
@@ -628,7 +673,7 @@
     <ClInclude Include="PlantTile.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="ISceneNode.h" />
-    <ClInclude Include="SceneManage.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="triangle.h" />

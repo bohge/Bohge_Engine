@@ -39,7 +39,7 @@
 #include "Device.h"
 #include "Engine.h"
 #include "RenderTarget.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "HDRShaders.h"
 #include "UtilityShaders.h"
 
@@ -112,7 +112,7 @@ namespace BohgeEngine
 				}
 			}
 		}
-		Engine::Instance().GetActionManage()->OnKeyDownEvent( MEMBER_FUNC_PTR( &HDRPostEffect::OnKeyDown ) );
+		Engine::Instance().GetActionManager()->OnKeyDownEvent( MEMBER_FUNC_PTR( &HDRPostEffect::OnKeyDown ) );
 
 
 		//ushort Indies[4]={0,1,2,3};
@@ -166,22 +166,22 @@ namespace BohgeEngine
 		SAFE_DELETE( m_LastAverageLumRT );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool HDRPostEffect::OnKeyDown( ActionManage::Key_Down k )
+	bool HDRPostEffect::OnKeyDown( ActionManager::Key_Down k )
 	{
 		switch( k )
 		{
-		case ActionManage::KD_KEY1: ExposureLimits += 0.001; break;
-		case ActionManage::KD_KEY2: ExposureLimits -= 0.001; break;
-		case ActionManage::KD_KEY3: MiddleGray += 0.001; break;
-		case ActionManage::KD_KEY4: MiddleGray -= 0.001; break;
-		case ActionManage::KD_KEY5: White += 0.001; break;
-		case ActionManage::KD_KEY6: White -= 0.001; break;
-		case ActionManage::KD_KEY7: BrightPassWhite += 0.001; break;
-		case ActionManage::KD_KEY8: BrightPassWhite -= 0.001; break;
-		case ActionManage::KD_KEY9: BrightPassThreshold += 0.005; break;
-		case ActionManage::KD_KEY0: BrightPassThreshold -= 0.005; break;
-		case ActionManage::KD_KEYQ: BrightPassOffset += 0.005; break;
-		case ActionManage::KD_KEYE: BrightPassOffset -= 0.005; break;
+		case ActionManager::KD_KEY1: ExposureLimits += 0.001; break;
+		case ActionManager::KD_KEY2: ExposureLimits -= 0.001; break;
+		case ActionManager::KD_KEY3: MiddleGray += 0.001; break;
+		case ActionManager::KD_KEY4: MiddleGray -= 0.001; break;
+		case ActionManager::KD_KEY5: White += 0.001; break;
+		case ActionManager::KD_KEY6: White -= 0.001; break;
+		case ActionManager::KD_KEY7: BrightPassWhite += 0.001; break;
+		case ActionManager::KD_KEY8: BrightPassWhite -= 0.001; break;
+		case ActionManager::KD_KEY9: BrightPassThreshold += 0.005; break;
+		case ActionManager::KD_KEY0: BrightPassThreshold -= 0.005; break;
+		case ActionManager::KD_KEYQ: BrightPassOffset += 0.005; break;
+		case ActionManager::KD_KEYE: BrightPassOffset -= 0.005; break;
 		}
 		DEBUGLOG( "EL=%f, MG=%f, W=%f, BPW=%f BPT=%f, BPO=%f\n", ExposureLimits, MiddleGray, White, BrightPassWhite, BrightPassThreshold, BrightPassOffset );
 		return true;
@@ -193,7 +193,7 @@ namespace BohgeEngine
 			//x
 		engine.GetDevice()->PushRenderTarget(m_ScratchRT);
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-		Blur2x2Shader& hdrB = engine.GetShaderManage()->GetShader<Blur2x2Shader>(ShaderManage::Blur2x2Shader);
+		Blur2x2Shader& hdrB = engine.GetShaderManager()->GetShader<Blur2x2Shader>(ShaderManager::Blur2x2Shader);
 		hdrB.SetParamColorTexture( InputTargetRT->GetColorBuffer() );
 		hdrB.SetParamStepSize( vector2f( (1.0f / m_ScratchRT->GetSize().m_x) * GaussSpread, 0.0 ) );
 		hdrB.SetParamGaussWeight( GaussWeight );
@@ -236,7 +236,7 @@ namespace BohgeEngine
 			//生成流明
 			engine.GetDevice()->PushRenderTarget(m_64x64RT);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			HDRGenerateLuminance& gl = engine.GetShaderManage()->GetShader<HDRGenerateLuminance>(ShaderManage::HDRGenerateLuminance);
+			HDRGenerateLuminance& gl = engine.GetShaderManager()->GetShader<HDRGenerateLuminance>(ShaderManager::HDRGenerateLuminance);
 			gl.SetParamColorTexture( m_BlurredRT->GetColorBuffer() );
 			gl.SetParamStepSize( vector2f( 1.0 / m_BlurredRT->GetSize().m_x,  1.0 / m_BlurredRT->GetSize().m_y ) );
 			engine.GetDevice()->Draw( *m_pRendBuffer, gl, NULL );
@@ -245,7 +245,7 @@ namespace BohgeEngine
 			//缩小
 			engine.GetDevice()->PushRenderTarget(m_16x16RT);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			HDRAverageLuminance& al = engine.GetShaderManage()->GetShader<HDRAverageLuminance>(ShaderManage::HDRAverageLuminance);
+			HDRAverageLuminance& al = engine.GetShaderManager()->GetShader<HDRAverageLuminance>(ShaderManager::HDRAverageLuminance);
 			al.SetParamColorTexture( m_64x64RT->GetColorBuffer() );
 			al.SetParamStepSize( vector2f( 1.0 / m_64x64RT->GetSize().m_x,  1.0 / m_64x64RT->GetSize().m_y ) );
 			engine.GetDevice()->Draw( *m_pRendBuffer, al, NULL );
@@ -268,7 +268,7 @@ namespace BohgeEngine
 			//生成上输入的流明
 			engine.GetDevice()->PushRenderTarget(m_LastAverageLumRT);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			HDRAdaptLuminance& adapt = engine.GetShaderManage()->GetShader<HDRAdaptLuminance>(ShaderManage::HDRAdaptLuminance);
+			HDRAdaptLuminance& adapt = engine.GetShaderManager()->GetShader<HDRAdaptLuminance>(ShaderManager::HDRAdaptLuminance);
 			adapt.SetParamCurrentLuminance( m_1x1RT->GetColorBuffer() );
 			adapt.SetParamPreviousLuminance( m_PreviousAverageLumRT->GetColorBuffer() );
 			adapt.SetParamLambdaElapsedTime( Lambda * engine.GetTimeSpan() );		
@@ -279,7 +279,7 @@ namespace BohgeEngine
 		{//拷贝
 			engine.GetDevice()->PushRenderTarget(m_PreviousAverageLumRT);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			QuadShader& qs = engine.GetShaderManage()->GetShader<QuadShader>(ShaderManage::QuadShader);
+			QuadShader& qs = engine.GetShaderManager()->GetShader<QuadShader>(ShaderManager::QuadShader);
 			engine.GetDevice()->Draw( *m_pRendBuffer, qs, m_LastAverageLumRT->GetColorBuffer() );
 			engine.GetDevice()->PopRenderTarget();
 		}
@@ -287,7 +287,7 @@ namespace BohgeEngine
 		{//Bright pass
 			engine.GetDevice()->PushRenderTarget(m_BrightPassRT);
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );
-			HDRBrightPass& bp = engine.GetShaderManage()->GetShader<HDRBrightPass>(ShaderManage::HDRBrightPass);
+			HDRBrightPass& bp = engine.GetShaderManager()->GetShader<HDRBrightPass>(ShaderManager::HDRBrightPass);
 			bp.SetParamCurrentLuminance( m_LastAverageLumRT->GetColorBuffer() );
 			bp.SetParamScratchTexture( scene->GetColorBuffer() );
 			bp.SetParamMiddleGray( MiddleGray );
@@ -305,7 +305,7 @@ namespace BohgeEngine
 		engine.GetDevice()->Clear( Device::COLOR_BUFFER );
 		//if( 1 )
 		//{
-		HDRCombine& ce = engine.GetShaderManage()->GetShader<HDRCombine>(ShaderManage::HDRCombine);
+		HDRCombine& ce = engine.GetShaderManager()->GetShader<HDRCombine>(ShaderManager::HDRCombine);
 		ce.SetParamCurrentLuminance( m_LastAverageLumRT->GetColorBuffer() );
 		ce.SetParamSharpTexture( scene->GetColorBuffer() );
 		ce.SetParamBloomTexture( m_BlurredRT->GetColorBuffer() );

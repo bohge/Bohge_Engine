@@ -54,7 +54,7 @@ namespace BohgeEngine
 	//--------------------------------------------------------------------------------------
 	class ITouchObject;
 
-	class ActionManage
+	class ActionManager
 	{
 	private:
 		typedef std::map<int,ITouchObject*>		TouchMap;
@@ -178,11 +178,11 @@ namespace BohgeEngine
 		Rayf			m_vLastRay;//上一个触摸的射线
 		TouchMap		m_vTouchMap;//触摸列表
 		ITouchObject*	m_pTouched;//被点击的物体
-		Event<bool, ActionManage&>	m_OnTouchEvent;
-		Event<bool, ActionManage&>	m_OnMoveEvent;
-		Event<bool, ActionManage&>	m_OnReleaseEvent;
-		Event<bool, ActionManage&>	m_OnLongTouch;//长时间触摸
-		Event<bool, ActionManage&>	m_OnDoubleTouchEvent;
+		Event<bool, ActionManager&>	m_OnTouchEvent;
+		Event<bool, ActionManager&>	m_OnMoveEvent;
+		Event<bool, ActionManager&>	m_OnReleaseEvent;
+		Event<bool, ActionManager&>	m_OnLongTouch;//长时间触摸
+		Event<bool, ActionManager&>	m_OnDoubleTouchEvent;
 		//调试的按键响应
 		Event<bool, Key_Down>		m_OnKeyDown;
 
@@ -198,8 +198,8 @@ namespace BohgeEngine
 		void Render(Engine& engine);
 #endif // DRAWACTIONLINE
 	public:
-		ActionManage();
-		~ActionManage();
+		ActionManager();
+		~ActionManager();
 	private:
 		void _CheckFreeObject(ITouchObject* ptr);//如果当前触摸的物体被删除，则需要停止触摸响应
 		/*输入为已经转换为opengle坐标系的相对点
@@ -257,23 +257,23 @@ namespace BohgeEngine
 			m_OnReleaseEvent.ClearConnect();
 			m_OnDoubleTouchEvent.ClearConnect();
 		}
-		BOHGE_FORCEINLINE FunctionPtr OnTouchEvent( IFunction<bool, ActionManage&>* const func )
+		BOHGE_FORCEINLINE FunctionPtr OnTouchEvent( IFunction<bool, ActionManager&>* const func )
 		{
 			return m_OnTouchEvent.Connect( func );
 		}
-		BOHGE_FORCEINLINE FunctionPtr OnMoveEvent( IFunction<bool, ActionManage&>* const func )
+		BOHGE_FORCEINLINE FunctionPtr OnMoveEvent( IFunction<bool, ActionManager&>* const func )
 		{
 			return m_OnMoveEvent.Connect( func );
 		}
-		BOHGE_FORCEINLINE FunctionPtr OnReleaseEvent( IFunction<bool, ActionManage&>* const func )
+		BOHGE_FORCEINLINE FunctionPtr OnReleaseEvent( IFunction<bool, ActionManager&>* const func )
 		{
 			return m_OnReleaseEvent.Connect( func );
 		}
-		BOHGE_FORCEINLINE FunctionPtr OnLongTouch( IFunction<bool, ActionManage&>* const func )
+		BOHGE_FORCEINLINE FunctionPtr OnLongTouch( IFunction<bool, ActionManager&>* const func )
 		{
 			return m_OnLongTouch.Connect( func );
 		}
-		BOHGE_FORCEINLINE FunctionPtr OnDoubleTouchEvent( IFunction<bool, ActionManage&>* const func )
+		BOHGE_FORCEINLINE FunctionPtr OnDoubleTouchEvent( IFunction<bool, ActionManager&>* const func )
 		{
 			_ResetCounterTime();
 			return m_OnDoubleTouchEvent.Connect( func );
@@ -357,7 +357,7 @@ namespace BohgeEngine
 		virtual ~ITouchObject();	//析构的时候如果ActionManager中指向这个物体，一定要停止继续的响应
 		virtual aabbox3df& GetBindBox() const = 0;
 		virtual Matrix44f& GetTransform() const = 0;
-		virtual void Response(ActionManage::Action action) = 0;
+		virtual void Response(ActionManager::Action action) = 0;
 		virtual void OnTouch() = 0;//当备选中的时候
 		virtual void OnRelease() = 0;//当选择离开的时候
 	};

@@ -109,7 +109,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_exit(JNIEnv * env, jobjec
 	Game::Instance().Exit();
 }
 
-static ActionManage::InputAction input;
+static ActionManager::InputAction input;
 JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_TouchPoint(JNIEnv * env, jobject obj, jint length, jfloatArray jPoints )
 {
 	Engine& engine = Engine::Instance();
@@ -117,7 +117,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_TouchPoint(JNIEnv * env, 
 	float* arr;
 	arr = env->GetFloatArrayElements( jPoints, NULL );
 	input.Begin();
-	input.SetType( ActionManage::INPUT_DOWN );
+	input.SetType( ActionManager::INPUT_DOWN );
 	for ( int i = 0; i < length; i ++ )
 	{		
 		float xPos = arr[i*2];;
@@ -139,7 +139,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_TouchMove(JNIEnv * env, j
 	float* arr;
 	arr = env->GetFloatArrayElements( jPoints, NULL );
 	input.Begin();
-	input.SetType( ActionManage::INPUT_MOVE );
+	input.SetType( ActionManager::INPUT_MOVE );
 	for ( int i = 0; i < length; i ++ )
 	{		
 		float xPos = arr[i*2];;
@@ -161,7 +161,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_TouchRelease(JNIEnv * env
 	float* arr;
 	arr = env->GetFloatArrayElements( jPoints, NULL );
 	input.Begin();
-	input.SetType( ActionManage::INPUT_UP );
+	input.SetType( ActionManager::INPUT_UP );
 	for ( int i = 0; i < length; i ++ )
 	{		
 		float xPos = arr[i*2];;
@@ -201,7 +201,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_KeyDown(JNIEnv * env, job
 	{
 	case 1:
 		{
-			Game::Instance().SetActionState(ActionManage::ACTION_EXIT);
+			Game::Instance().SetActionState(ActionManager::ACTION_EXIT);
 		}break;
 	}
 }

@@ -39,7 +39,7 @@
 #include "Device.h"
 #include "3DMath.h"
 #include "ISceneNode.h"
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "Pipeline.h"
 #include <string>
 #include <map>
@@ -172,7 +172,7 @@ namespace BohgeEngine
 			engine.GetDevice()->EnableAlphaBlend( m_MaterialState[pt].m_AlphaState );
 			//ASSERT( NULL != m_pNode );
 			ASSERT( -1 != m_MaterialState[pt].m_ShaderIndexs );
-			MaterialShader* pShader = engine.GetShaderManage()->GetMaterialShader( m_MaterialState[pt].m_ShaderIndexs );
+			MaterialShader* pShader = engine.GetShaderManager()->GetMaterialShader( m_MaterialState[pt].m_ShaderIndexs );
 			pShader->SetParamNode(this);
 			pShader->UsingShader();
 			//m_pNode = NULL;
@@ -240,7 +240,7 @@ namespace BohgeEngine
 		BOHGE_FORCEINLINE MaterialShader& GetShader( const Pipeline::PassType& pt ) const
 		{
 			ASSERT( -1 != m_MaterialState[pt].m_ShaderIndexs );
-			return *Engine::Instance().GetShaderManage()->GetMaterialShader( m_MaterialState[pt].m_ShaderIndexs );
+			return *Engine::Instance().GetShaderManager()->GetMaterialShader( m_MaterialState[pt].m_ShaderIndexs );
 		}
 		BOHGE_FORCEINLINE void SetNode( IAttributeNode* node )
 		{

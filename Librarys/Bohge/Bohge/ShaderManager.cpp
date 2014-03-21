@@ -35,7 +35,7 @@
 //			State Manage class		   //
 /////////////////////////////////////////
 
-#include "ShaderManage.h"
+#include "ShaderManager.h"
 #include "ConcisePEShaders.h"
 #include "EnvironmentShaders.h"
 #include "HDRShaders.h"
@@ -65,7 +65,7 @@ namespace BohgeEngine
 	/////////////////////////
 	//		ShaderManage   //
 	/////////////////////////
-	ShaderManage::ShaderManage()
+	ShaderManager::ShaderManager()
 		:m_AssembledShaderIndex(SC_MAX_COUNT)
 	{
 		m_mpShaderVector.resize( SC_MAX_COUNT );
@@ -163,7 +163,7 @@ namespace BohgeEngine
 		}
 	}
 	//----------------------------------------------------------------------------------------------------------
-	ShaderManage::~ShaderManage()
+	ShaderManager::~ShaderManager()
 	{
 		for ( ShaderVector::iterator it = m_mpShaderVector.begin() ;
 			it != m_mpShaderVector.end();
@@ -173,14 +173,14 @@ namespace BohgeEngine
 		}
 	}
 	//----------------------------------------------------------------------------------------------------------
-	void ShaderManage::InsertShader( int index, Shader* s )
+	void ShaderManager::InsertShader( int index, Shader* s )
 	{
 		ASSERT( SC_MAX_COUNT > index );
 		m_mpShaderVector[index] = s;
 		s->Initialization();
 	}
 	//----------------------------------------------------------------------------------------------------------
-	int ShaderManage::InsertAssembledShader( AssembledMaterialShader* s )
+	int ShaderManager::InsertAssembledShader( AssembledMaterialShader* s )
 	{
 		if ( m_mpShaderVector.size() <= m_AssembledShaderIndex )
 		{
@@ -191,7 +191,7 @@ namespace BohgeEngine
 		return res;
 	}
 	//----------------------------------------------------------------------------------------------------------
-	MaterialShader* ShaderManage::GetMaterialShader( int index )
+	MaterialShader* ShaderManager::GetMaterialShader( int index )
 	{
 #ifdef _DEBUG
 		ASSERT( NULL != dynamic_cast<MaterialShader*>( m_mpShaderVector[index]) );//如果要求转换的指针不是目标指针，此处会报错
