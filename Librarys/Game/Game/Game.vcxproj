@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="StateInterface.h" />
-    <ClInclude Include="StateManage.h" />
+    <ClInclude Include="StateManager.h" />
     <ClInclude Include="StateLogo.h" />
     <ClInclude Include="StateMainMenu.h" />
     <ClInclude Include="AdHelper.h" />
@@ -93,7 +93,7 @@
   <ItemGroup>
     <ClCompile Include="StateLogo.cpp" />
     <ClCompile Include="StateMainMenu.cpp" />
-    <ClCompile Include="StateManage.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="AdHelper.cpp" />
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="NetHelper.cpp" />

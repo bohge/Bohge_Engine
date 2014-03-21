@@ -70,7 +70,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	SoundPlayer* SoundManager::LoadSound( const std::string& path )
 	{
-		int hash = Utility::HashCode( path );//计算哈希码(伪代码)
+		uint hash = Utility::HashCode( path );//计算哈希码(伪代码)
 		SoundPlayer* player = NULL;
 		SoundPlayerMapManager* spvm = NULL;
 
@@ -98,7 +98,7 @@ namespace BohgeEngine
 		}
 		else //达到可以加载的上限
 		{
-			spvm->m_bCurrentIndex->second->m_pSoundPlayer++;
+			spvm->m_bCurrentIndex->second->m_ReferenceCounting++;
 			player = spvm->m_bCurrentIndex->second->m_pSoundPlayer;
 			spvm->m_bCurrentIndex++;
 			spvm->m_bCurrentIndex = spvm->m_bCurrentIndex == spvm->m_SoundPlayerMap.end() ? spvm->m_SoundPlayerMap.begin() : spvm->m_bCurrentIndex;

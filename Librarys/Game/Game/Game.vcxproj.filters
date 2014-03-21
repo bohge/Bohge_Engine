@@ -23,7 +23,7 @@
     <ClCompile Include="StateMainMenu.cpp">
       <Filter>StateMachine\Source</Filter>
     </ClCompile>
-    <ClCompile Include="StateManage.cpp">
+    <ClCompile Include="StateManager.cpp">
       <Filter>StateMachine\Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,13 +50,13 @@
     <ClInclude Include="StateInterface.h">
       <Filter>StateMachine</Filter>
     </ClInclude>
-    <ClInclude Include="StateManage.h">
-      <Filter>StateMachine</Filter>
-    </ClInclude>
     <ClInclude Include="StateLogo.h">
       <Filter>StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="StateMainMenu.h">
+      <Filter>StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
       <Filter>StateMachine</Filter>
     </ClInclude>
   </ItemGroup>

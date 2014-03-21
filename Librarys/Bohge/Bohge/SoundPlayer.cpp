@@ -3,7 +3,7 @@
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	SoundPlayer::SoundPlayer( int hash, int index, SoundResource* res )
+	SoundPlayer::SoundPlayer( uint hash, int index, SoundResource* res )
 		:m_pResource( res ),
 		m_nHashCode( hash ),
 		m_nIndex( index ),

@@ -38,7 +38,7 @@
 #pragma once
 
 #include "VariableType.h"
-#include "StateManage.h"
+#include "StateManager.h"
 
 
 
@@ -49,15 +49,15 @@ namespace BohgeEngine
 
 namespace BohgeGame
 {
-	class StateManage;
+	class StateManager;
 	class IGameState
 	{
 	public:
 		virtual ~IGameState(){}
 		virtual void LoadResource(BohgeEngine::Engine& engine) = 0;	//首次进入，读取资源
 		virtual void ReleaseResource(BohgeEngine::Engine& engine) = 0;//释放资源
-		virtual void Update(StateManage& state, BohgeEngine::Engine& engine, uint millisecond) = 0;//更新
-		virtual void OnEnter(BohgeEngine::Engine& engine, StateManage::GameState Previous) = 0;//进入当前状态时
+		virtual void Update(StateManager& state, BohgeEngine::Engine& engine, uint millisecond) = 0;//更新
+		virtual void OnEnter(BohgeEngine::Engine& engine, StateManager::GameState Previous) = 0;//进入当前状态时
 		virtual void OnLeave(BohgeEngine::Engine& engine) = 0;//离开当前状态时
 	};
 }

@@ -40,7 +40,7 @@ namespace BohgeEngine
 			byte						m_bCreatedPlayer;//已经建立的资源索引
 			SoundPlayerMap				m_SoundPlayerMap;
 		public:
-			SoundPlayerMapManager():m_bCurrentIndex(m_SoundPlayerMap.begin()),m_bCreatedPlayer(0){};
+			SoundPlayerMapManager():m_bCreatedPlayer(0){};
 		};
 	private:
 		typedef std::map< uint, SoundPlayerMapManager* >	SoundPlayerManagerMap;

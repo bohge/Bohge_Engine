@@ -37,7 +37,7 @@
 #include "FilePath.h"
 #include "ActionManager.h"
 #include "StateMainMenu.h"
-#include "StateManage.h"
+#include "StateManager.h"
 #include "Device.h"
 #include "UI.h"
 #include "Bfont.h"
@@ -70,6 +70,8 @@
 #include "ScriptBase.h"
 #include "MaterialManager.h"
 
+#include "SoundManager.h"
+#include "SoundPlayer.h"
 
 #include <string>
 
@@ -307,6 +309,20 @@ namespace BohgeGame
 		//	reallight->SetAttenuation( 1, 0.0, 0.0, 0 );
 		//	reallight->SetAttribute( LightNode::LA_SHADOW );
 		//}
+
+		//ÉùÒô²âÊÔ
+		SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+		SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+		SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+		SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+		SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+
+		engine.GetSoundManager()->ReleaseSound( s1 );
+		engine.GetSoundManager()->ReleaseSound( s2 );
+		engine.GetSoundManager()->ReleaseSound( s3 );
+		engine.GetSoundManager()->ReleaseSound( s4 );
+		engine.GetSoundManager()->ReleaseSound( s5 );
+		engine.GetSoundManager()->ReleaseSound( s5 );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void StateMainMenu::ReleaseResource(Engine& engine)
@@ -329,7 +345,7 @@ namespace BohgeGame
 		SAFE_DELETE( e );
 	}
 	//-------------------------------------------------------------------
-	void StateMainMenu::OnEnter(Engine& engine, StateManage::GameState Previous)
+	void StateMainMenu::OnEnter(Engine& engine, StateManager::GameState Previous)
 	{
 
 	}
@@ -339,7 +355,7 @@ namespace BohgeGame
 
 	}
 	//-------------------------------------------------------------------
-	void StateMainMenu::Update(StateManage& state, Engine& engine, uint millisecond)
+	void StateMainMenu::Update(StateManager& state, Engine& engine, uint millisecond)
 	{
 		//vector3f pos = engine.GetCamera()->GetPosition() + engine.GetCamera()->GetForward() * 80;
 		//pos.m_y = engine.GetSceneManage()->GetWorld().GetHeight( pos.m_x, pos.m_z );

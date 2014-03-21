@@ -37,7 +37,7 @@
 
 #include "Predefine.h"
 #include "Engine.h"
-#include "StateManage.h"
+#include "StateManager.h"
 #include "ActionManager.h"
 #include "Log.h"
 #include "UIManager.h"
@@ -50,7 +50,7 @@ using namespace BohgeEngine;
 
 namespace BohgeGame
 {
-	StateManage::StateManage ()
+	StateManager::StateManager ()
 		:m_isSwitchState(true),	//游戏初始化，走第一个state
 		m_isReplace(true),//替换
 		m_ePreviousState(State_None),
@@ -64,7 +64,7 @@ namespace BohgeGame
 		m_pLoading->SetShow(false);
 	}
 	//-------------------------------------------------------------------
-	StateManage::~StateManage ()
+	StateManager::~StateManager ()
 	{
 		for (StateList::iterator it = m_lStateList.begin();
 			it != m_lStateList.end();
@@ -74,7 +74,7 @@ namespace BohgeGame
 		}
 	}
 	//-------------------------------------------------------------------
-	void StateManage::Update (Engine& engine, uint millisecond)
+	void StateManager::Update (Engine& engine, uint millisecond)
 	{
 		if( m_isJustSwitch )
 		{
@@ -101,7 +101,7 @@ namespace BohgeGame
 		}
 	}
 	//-------------------------------------------------------------------
-	void StateManage::Exit(Engine& engine)
+	void StateManager::Exit(Engine& engine)
 	{
 		m_lStateList.begin()->m_pStatePtr->OnLeave(engine);//通知栈首的状态退出
 		for (StateList::iterator it = m_lStateList.begin();
@@ -115,7 +115,7 @@ namespace BohgeGame
 		Engine::Instance().GetUIManager()->DeleteUIGroup( m_pLoading );
 	}
 	//-------------------------------------------------------------------
-	void StateManage::SwitchState(Engine& engine)
+	void StateManager::SwitchState(Engine& engine)
 	{
 		engine.GetActionManager()->SetResponse(false);//状态切换停止保存案件buffer
 		DEBUGLOG("State Change to %d!\n", static_cast<int>(m_eNextState));

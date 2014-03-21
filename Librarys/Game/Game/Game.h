@@ -38,7 +38,7 @@
 #pragma once
 #include "3DMath.h"
 #include "Predefine.h"
-#include "StateManage.h"
+#include "StateManager.h"
 #include "Environment.h"
 #include "Device.h"
 #include "Engine.h"
@@ -173,7 +173,7 @@ namespace BohgeGame
 			}
 			else if( NULL != m_pMessageBox 
 				&& m_pEngine->GetActionManager()->isAction(ActionManager::ACTION_EXIT)
-				&& StateManage::State_Main_Menu == StateManage::Instance().CurrextState() )
+				&& StateManager::State_Main_Menu == StateManager::Instance().CurrextState() )
 			{
 				if( !m_pMessageBox->isShowing() )
 				{
@@ -189,7 +189,7 @@ namespace BohgeGame
 			m_pEngine->OnFramebegin();
 			if( !m_bPasue )
 			{
-				StateManage::Instance().Update(*m_pEngine, m_pEngine->GetTimeSpan());	//更新state
+				StateManager::Instance().Update(*m_pEngine, m_pEngine->GetTimeSpan());	//更新state
 			}
 			m_pEngine->Update();	//更新engine中的各种manage
 			return true;
@@ -204,7 +204,7 @@ namespace BohgeGame
 			//m_pEngine->GetSoundManage()->UnloadSound( sou_Slider );
 			SAFE_DELETE(m_pMessageBox);
 			SAFE_DELETE(m_pCamera);
-			StateManage::Instance().Exit(*m_pEngine);//通知当前state退出，释放资源
+			StateManager::Instance().Exit(*m_pEngine);//通知当前state退出，释放资源
 			//最后删除engine
 			Engine::DropEngine( &m_pEngine );
 		}

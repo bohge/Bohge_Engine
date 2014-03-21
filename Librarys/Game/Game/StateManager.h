@@ -52,7 +52,7 @@ namespace BohgeEngine
 namespace BohgeGame
 {
 	class IGameState;
-	class StateManage
+	class StateManager
 	{
 		friend class Game;
 	public:
@@ -88,16 +88,16 @@ namespace BohgeGame
 		StateList				m_lStateList;//游戏状态栈
 		BohgeEngine::UIGroup*	m_pLoading;
 	private:
-		StateManage();
-		~StateManage();
+		StateManager();
+		~StateManager();
 	private:
 		void SwitchState(BohgeEngine::Engine& engine);
 		void Update(BohgeEngine::Engine& engine, uint millisecond);
 		void Exit(BohgeEngine::Engine& engine);
 	public:
-		static StateManage& Instance()
+		static StateManager& Instance()
 		{
-			static StateManage state;
+			static StateManager state;
 			return state;
 		}
 		BOHGE_FORCEINLINE void ChangeState(GameState state, bool isReplace, bool isClearOther, bool isShowLoading)//是否被退出之前状态，是否清楚全部压栈的，是否显示loding界面

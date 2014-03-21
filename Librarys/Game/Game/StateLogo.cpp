@@ -32,7 +32,7 @@
 
 
 #include "StateLogo.h"
-#include "StateManage.h"
+#include "StateManager.h"
 #include "UIManager.h"
 #include "Device.h"
 #include "GameResourceList.h"
@@ -92,7 +92,7 @@ namespace BohgeGame
 		//engine.GetSoundManage()->LoadSound( sou_Slider, SoundFileName[sou_Slider] );
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	void StateLogo::OnEnter(Engine& engine, StateManage::GameState Previous)
+	void StateLogo::OnEnter(Engine& engine, StateManager::GameState Previous)
 	{
 		GameSetting::Instance().LoadData();//读取设置
 	}
@@ -102,7 +102,7 @@ namespace BohgeGame
 		engine.GetStringManager()->LoadFont(FontName);//加载字体库
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------
-	void StateLogo::Update(StateManage& state, Engine& engine, uint millisecond)
+	void StateLogo::Update(StateManager& state, Engine& engine, uint millisecond)
 	{
 		//state.ChangeState(StateManage::State_Main_Menu, true, false, true);GameSetting::Instance().LoadData();
 
@@ -114,11 +114,11 @@ namespace BohgeGame
 				if( GameSetting::Instance().isFirstTime() )
 				{
 					STRING.Setlanguage(LanguageControl::L_English);//设置默认语言进入
-					StateManage::Instance().ChangeState(StateManage::State_Main_Menu, true, false, false);
+					StateManager::Instance().ChangeState(StateManager::State_Main_Menu, true, false, false);
 				}
 				else
 				{
-					StateManage::Instance().ChangeState(StateManage::State_Main_Menu, true, false, true);
+					StateManager::Instance().ChangeState(StateManager::State_Main_Menu, true, false, true);
 				}
 			}
 			//else

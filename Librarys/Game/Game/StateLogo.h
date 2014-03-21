@@ -58,8 +58,8 @@ namespace BohgeGame
 		StateLogo();
 		virtual void LoadResource(BohgeEngine::Engine& engine);
 		virtual void ReleaseResource(BohgeEngine::Engine& engine);
-		virtual void OnEnter(BohgeEngine::Engine& engine, StateManage::GameState Previous);
-		virtual void Update(StateManage& state ,BohgeEngine::Engine& engine, uint millisecond);
+		virtual void OnEnter(BohgeEngine::Engine& engine, StateManager::GameState Previous);
+		virtual void Update(StateManager& state ,BohgeEngine::Engine& engine, uint millisecond);
 		virtual void OnLeave(BohgeEngine::Engine& engine);
 		bool OnLogoOutDone(BohgeEngine::UIGroup& sender);
 		bool OnEngineInDone(BohgeEngine::UIGroup& sender);

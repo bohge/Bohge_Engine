@@ -21,13 +21,13 @@ namespace BohgeEngine
 		};
 	private:
 		int				m_nIndex;
-		int				m_nHashCode;
+		uint			m_nHashCode;
 		float			m_fVolume;
 		float			m_fPitch;
 		int				m_nFlag;
 		SoundResource*	m_pResource;
 	protected:
-		SoundPlayer( int hash, int index, SoundResource* res );
+		SoundPlayer( uint hash, int index, SoundResource* res );
 		virtual ~SoundPlayer(void);
 	private:
 		virtual void _DoSetVolume( float volume ) = 0;
@@ -53,7 +53,7 @@ namespace BohgeEngine
 		{
 			return m_nIndex;
 		}
-		inline int GetHashCode() const
+		inline uint GetHashCode() const
 		{
 			return m_nHashCode;
 		}
