@@ -322,7 +322,6 @@ namespace BohgeGame
 		engine.GetSoundManager()->ReleaseSound( s3 );
 		engine.GetSoundManager()->ReleaseSound( s4 );
 		engine.GetSoundManager()->ReleaseSound( s5 );
-		engine.GetSoundManager()->ReleaseSound( s5 );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void StateMainMenu::ReleaseResource(Engine& engine)

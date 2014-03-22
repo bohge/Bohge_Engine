@@ -114,10 +114,11 @@ namespace BohgeEngine
 		if ( 0 == -- spm->second->m_ReferenceCounting )
 		{
 			SAFE_DELETE( spm->second->m_pSoundPlayer );
+			findspm->second->m_SoundPlayerMap.erase( spm );
 			if( 0 == -- findspm->second->m_bCreatedPlayer )
 			{
-				SAFE_DELETE( spm->second );
-				findspm->second->m_SoundPlayerMap.erase( spm );
+				SAFE_DELETE( findspm->second );
+				m_SoundMapMap.erase( findspm );
 			}
 		}
 	}
