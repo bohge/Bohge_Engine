@@ -104,7 +104,7 @@ namespace BohgeGame
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	void StateLogo::Update(StateManager& state, Engine& engine, uint millisecond)
 	{
-		//state.ChangeState(StateManage::State_Main_Menu, true, false, true);GameSetting::Instance().LoadData();
+		state.ChangeState(StateManager::State_Main_Menu, true, false, true);GameSetting::Instance().LoadData();
 
 
 		if( m_isLogoDone )

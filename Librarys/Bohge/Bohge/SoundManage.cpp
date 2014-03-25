@@ -216,6 +216,18 @@ namespace BohgeEngine
 		return nmemb;
 	}
 	//-----------------------------------------------------------------------------------
+	int SeekHelp(void *datasource, ogg_int64_t offset, int whence)
+	{
+		IReadFile* reader = static_cast<ReadUsualFile*>( datasource );
+		return reader->Seek( offset, whence );
+	}
+	//-----------------------------------------------------------------------------------
+	long TellHelp(void *datasource)
+	{
+		IReadFile* reader = static_cast<ReadUsualFile*>( datasource );
+		return reader->Tell();
+	}
+	//-----------------------------------------------------------------------------------
 	bool SoundManage::LoadOGG(const std::string& fileName, SoundData& out)
 	{
 #define BUFFER_SIZE     32768       // 32 KB buffers 
@@ -227,8 +239,8 @@ namespace BohgeEngine
 		ov_callbacks callbacks;
 		callbacks.read_func = &ReadHelp;
 		callbacks.close_func = NULL;
-		callbacks.tell_func = NULL;
-		callbacks.seek_func = NULL;
+		callbacks.tell_func = &TellHelp;
+		callbacks.seek_func = &SeekHelp;
 		//if (ov_open(readfile.BaseFile(), &oggFile, NULL, 0) != 0)
 		if (ov_open_callbacks( &readfile, &oggFile, NULL, 0, callbacks ) != 0)
 		{
@@ -251,12 +263,11 @@ namespace BohgeEngine
 		memset( data, 0 , out.size );
 		out.data = data;
 		long bytes;
-		int endian = 0;
 		int bitStream;
 		int loaded = 0;
 		do  
 		{   
-			bytes = ov_read(&oggFile, Local, BUFFER_SIZE, endian, 2, 1, &bitStream);  
+			bytes = ov_read(&oggFile, Local, BUFFER_SIZE, 0, 2, 1, &bitStream);  
 			if (bytes < 0)  
 			{  
 				ov_clear(&oggFile);  

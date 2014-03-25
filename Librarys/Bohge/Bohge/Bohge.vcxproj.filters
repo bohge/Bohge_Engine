@@ -622,13 +622,7 @@
     <ClCompile Include="SoundPlayer.cpp">
       <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
     </ClCompile>
-    <ClCompile Include="SoundPlayerFactory.cpp">
-      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
-    </ClCompile>
     <ClCompile Include="SoundResource.cpp">
-      <Filter>Sound\SoundResource\Mananger</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundResourceManager.cpp">
       <Filter>Sound\SoundResource\Mananger</Filter>
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
@@ -643,9 +637,6 @@
     <ClCompile Include="OGGDecoder.cpp">
       <Filter>Sound\SoundResource\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="SoundResourceDecoder.cpp">
-      <Filter>Sound\SoundResource\Resource</Filter>
-    </ClCompile>
     <ClCompile Include="ActionManager.cpp">
       <Filter>Action\Source</Filter>
     </ClCompile>
@@ -654,6 +645,12 @@
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>Scene\Manage\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DecoderManager.cpp">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClCompile>
+    <ClCompile Include="Decoder.cpp">
+      <Filter>Sound\SoundResource\Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1137,12 +1134,6 @@
     <ClInclude Include="SoundPlayer.h">
       <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
     </ClInclude>
-    <ClInclude Include="SoundPlayerFactory.h">
-      <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundResourceManager.h">
-      <Filter>Sound\SoundResource\Mananger</Filter>
-    </ClInclude>
     <ClInclude Include="SoundResource.h">
       <Filter>Sound\SoundResource\Mananger</Filter>
     </ClInclude>
@@ -1153,9 +1144,6 @@
       <Filter>Sound\SoundResource\Resource</Filter>
     </ClInclude>
     <ClInclude Include="OGGDecoder.h">
-      <Filter>Sound\SoundResource\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundResourceDecoder.h">
       <Filter>Sound\SoundResource\Resource</Filter>
     </ClInclude>
     <ClInclude Include="WAVDecoder.h">
@@ -1169,6 +1157,15 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Scene\Manage</Filter>
+    </ClInclude>
+    <ClInclude Include="DecoderManager.h">
+      <Filter>Sound\SoundResource\Mananger</Filter>
+    </ClInclude>
+    <ClInclude Include="Decoder.h">
+      <Filter>Sound\SoundResource\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryIndex.hpp">
+      <Filter>Misc\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

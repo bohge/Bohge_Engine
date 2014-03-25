@@ -58,6 +58,8 @@
 #include "Engine.h"
 #include "RealLights.h"
 #include "ShadowCaster.h"
+#include "BinaryIndex.hpp"
+
 
 
 namespace BohgeEngine
@@ -189,7 +191,8 @@ namespace BohgeEngine
 				engine.GetEnvironment()->Render( engine );//绘制halo和甲光源
 				engine.GetDevice()->PopRenderTarget( );
 			}
-			bool swtich = false;
+			//bool swtich = false;
+			Utility::BinaryIndex swtich;
 			bool isNeedOrig = true;
 			for ( PostEffectMap::iterator it = m_PostMap.begin();//绘制特效
 				it != m_PostMap.end();
@@ -200,11 +203,11 @@ namespace BohgeEngine
 					if( isNeedOrig )//如果是第一个posteffect就把初始ogi传到secee
 					{
 						isNeedOrig = false;
-						it->second->Process(engine, m_pOriginalColorDepthStencil,m_pOriginalColorDepthStencil, m_pPreviousSceneColor[static_cast<int>(swtich)] );
+						it->second->Process(engine, m_pOriginalColorDepthStencil,m_pOriginalColorDepthStencil, m_pPreviousSceneColor[swtich] );
 					}
 					else
 					{
-						it->second->Process(engine, m_pOriginalColorDepthStencil,m_pPreviousSceneColor[static_cast<int>( !swtich/*注意叹号*/ )], m_pPreviousSceneColor[static_cast<int>(swtich)] );
+						it->second->Process(engine, m_pOriginalColorDepthStencil,m_pPreviousSceneColor[!swtich/*注意叹号*/], m_pPreviousSceneColor[swtich] );
 					}
 					swtich = !swtich; //交换
 				}
@@ -216,7 +219,7 @@ namespace BohgeEngine
 			engine.GetDevice()->DisableAlpha();
 			engine.GetDevice()->Clear( Device::COLOR_BUFFER );//| Device::DEPTH_BUFFER | Device::STENCIL_BUFFER );//注掉的原因看Clear函数
 			QuadShader& qs = engine.GetShaderManager()->GetShader<QuadShader>(ShaderManager::QuadShader);
-			engine.GetDevice()->Draw( *m_pRendBuffer, qs, m_pPreviousSceneColor[static_cast<int>( !swtich/*注意叹号*/ )]->GetColorBuffer() );
+			engine.GetDevice()->Draw( *m_pRendBuffer, qs, m_pPreviousSceneColor[!swtich/*注意叹号*/]->GetColorBuffer() );
 		}
 		else
 		{

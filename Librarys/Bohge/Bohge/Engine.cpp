@@ -92,8 +92,8 @@ namespace BohgeEngine
 		//构造其他引擎成员必须在engine构造之后
 		//应为其他成员的构造可能会调用engine
 		SharedBuffer::CreatSharedMemeryInstance();
-		LanguageControl::Create();
-		SoundManager::Create( SoundManager::ST_OPENAL );
+		LanguageControl::Create( );
+		SoundManager::Create( );
 		m_Sound = SoundManager::Instance();
 		m_eDeviceLevel = l;
 		m_pDevice = NEW Device();

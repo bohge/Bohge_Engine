@@ -9,7 +9,6 @@ namespace BohgeEngine
 	class SoundResource;
 	class SoundPlayer
 	{
-
 		friend class SoundManager;
 	private:
 		enum SoundSourceFlag
@@ -27,7 +26,7 @@ namespace BohgeEngine
 		int				m_nFlag;
 		SoundResource*	m_pResource;
 	protected:
-		SoundPlayer( uint hash, int index, SoundResource* res );
+		SoundPlayer( uint hash, int index, Decoder* res );
 		virtual ~SoundPlayer(void);
 	private:
 		virtual void _DoSetVolume( float volume ) = 0;
@@ -37,87 +36,95 @@ namespace BohgeEngine
 		virtual void _DoSetPlay( bool isplay ) = 0;
 		virtual void _DoSet3D( bool is3d ) = 0;
 		virtual void _DoSetSoundPosition( const vector3f& pos, const vector3f& forward, const vector3f& up ) = 0;
+		virtual void _DoUpdate() = 0;
 	public:
-		virtual void Update() = 0;
+		void Update();
+	public:
+		void Initialization();
 	private:
-		inline void _SetFlag( bool isflag, SoundSourceFlag flag )
+		BOHGE_FORCEINLINE void _SetFlag( bool isflag, SoundSourceFlag flag )
 		{
 			isflag ? m_nFlag |= flag : m_nFlag &= ~flag;
 		}
-		inline bool _GetFlag( SoundSourceFlag flag ) const
+		BOHGE_FORCEINLINE bool _GetFlag( SoundSourceFlag flag ) const
 		{
 			return 0 != ( m_nFlag & flag );
 		}
+	protected:
+		BOHGE_FORCEINLINE SoundResource* _GetSoundResource()
+		{
+			return m_pResource;
+		}
 	public:
-		inline int GetIndex() const
+		BOHGE_FORCEINLINE int GetIndex() const
 		{
 			return m_nIndex;
 		}
-		inline uint GetHashCode() const
+		BOHGE_FORCEINLINE uint GetHashCode() const
 		{
 			return m_nHashCode;
 		}
-		inline void Release( )
+		BOHGE_FORCEINLINE void Release( )
 		{
 			SoundManager::Instance()->ReleaseSound( this );
 		}
-		inline void SetVolume( float volume )
+		BOHGE_FORCEINLINE void SetVolume( float volume )
 		{
 			m_fVolume = volume;
 			_DoSetVolume( volume * SoundManager::Instance()->GetGlobalVolume() );
 		}
-		inline float GetVolume() const
+		BOHGE_FORCEINLINE float GetVolume() const
 		{
 			return m_fVolume;
 		}
-		inline void SetPitch( float pitch )
+		BOHGE_FORCEINLINE void SetPitch( float pitch )
 		{
 			m_fPitch = pitch;
 			_DoSetPitch( pitch * SoundManager::Instance()->GetGlobalPitch() );
 		}
-		inline float GetPitch() const
+		BOHGE_FORCEINLINE float GetPitch() const
 		{
 			return m_fPitch;
 		}
-		inline void SetPaused( bool ispaused )
+		BOHGE_FORCEINLINE void SetPaused( bool ispaused )
 		{
 			_SetFlag( ispaused, SSF_PAUSED );
 			_DoSetPaused( ispaused );
 		}
-		inline bool isPaused( ) const
+		BOHGE_FORCEINLINE bool isPaused( ) const
 		{
 			return _GetFlag( SSF_PAUSED );
 		}
-		inline void SetLoop( bool isloop )
+		BOHGE_FORCEINLINE void SetLoop( bool isloop )
 		{
 			_SetFlag( isloop, SSF_LOOP );
 			_DoSetLoop( isloop );
 		}
-		inline bool isLoop( ) const
+		BOHGE_FORCEINLINE bool isLoop( ) const
 		{
 			return _GetFlag( SSF_LOOP );
 		}
-		inline void Paly( )
+		BOHGE_FORCEINLINE void Paly( )
 		{
 			_SetFlag( true, SSF_PLAYING );
 			SetPaused( false );
 			_DoSetPlay( true );
 		}
-		inline void Stop()
+		BOHGE_FORCEINLINE void Stop()
 		{
 			_SetFlag( false, SSF_PLAYING );
 			_DoSetPlay( false );
 		}
-		inline bool isPlaying( ) const
+		BOHGE_FORCEINLINE bool isPlaying( ) const
 		{
 			return _GetFlag( SSF_PLAYING ) & !_GetFlag( SSF_PAUSED );
 		}
-		inline bool Set3D( bool is3D )
+		BOHGE_FORCEINLINE bool Set3D( bool is3D )
 		{
 			_SetFlag( is3D, SSF_IS3D );
 			_DoSet3D( is3D );
 		}
-		inline bool is3D( ) const
+		BOHGE_FORCEINLINE bool is3D( ) const
 		{
 			_GetFlag( SSF_IS3D );
 		}

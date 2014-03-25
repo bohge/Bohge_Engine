@@ -311,17 +311,20 @@ namespace BohgeGame
 		//}
 
 		//ÉùÒô²âÊÔ
-		SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( "test.mp3" );
-		SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( "test.mp3" );
-		SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( "test.mp3" );
-		SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( "test.mp3" );
-		SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( "test.mp3" );
+		SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.ogg" );
+		s1->SetVolume( 1.0 );
+		s1->Paly();
+		//SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 
-		engine.GetSoundManager()->ReleaseSound( s1 );
-		engine.GetSoundManager()->ReleaseSound( s2 );
-		engine.GetSoundManager()->ReleaseSound( s3 );
-		engine.GetSoundManager()->ReleaseSound( s4 );
-		engine.GetSoundManager()->ReleaseSound( s5 );
+		//engine.GetSoundManager()->ReleaseSound( s1 );
+		//engine.GetSoundManager()->ReleaseSound( s2 );
+		//engine.GetSoundManager()->ReleaseSound( s3 );
+		//engine.GetSoundManager()->ReleaseSound( s4 );
+		//engine.GetSoundManager()->ReleaseSound( s5 );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void StateMainMenu::ReleaseResource(Engine& engine)

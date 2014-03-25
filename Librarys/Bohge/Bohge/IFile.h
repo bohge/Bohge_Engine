@@ -76,6 +76,8 @@ namespace BohgeEngine
 	protected:
 		virtual bool _DoOpenFile() = 0;
 		virtual bool _DoCloseFile() = 0;
+		virtual int _DoSeekFile( uint to, int whence ) = 0;
+		virtual int _DoTell() = 0;
 	public:
 		virtual int DoWork( void* ptr, uint bitesize ) = 0;//读取或者写入
 	public:
@@ -91,6 +93,15 @@ namespace BohgeEngine
 			m_isOpen = false;
 			_DoCloseFile();
 			return !m_isOpen;
+		}
+		BOHGE_FORCEINLINE int Seek( uint to, int whence )
+		{
+			ASSERT( m_isOpen == true );
+			return _DoSeekFile( to, whence );
+		}
+		BOHGE_FORCEINLINE int Tell()
+		{
+			return _DoTell();
 		}
 		BOHGE_FORCEINLINE const std::string& GetFilePath()
 		{

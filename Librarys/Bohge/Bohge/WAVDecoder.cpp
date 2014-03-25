@@ -5,8 +5,8 @@
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	WAVDecoder::WAVDecoder( IReadFile* stream )
-		:SoundResourceDecoder( stream, SoundResourceDecoder::ST_WAV )
+	WAVDecoder::WAVDecoder(void)
+		:Decoder( Decoder::ST_WAV )
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -14,7 +14,17 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void WAVDecoder::DoDecodeAsyn( uint form, uint to )
+	void WAVDecoder::_DoDecodeAsyn( uint form, uint to )
+	{
+
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void WAVDecoder::_DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time )
+	{
+
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void WAVDecoder::_DoReleaseDecoder()
 	{
 
 	}

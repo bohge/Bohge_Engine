@@ -6,11 +6,11 @@ namespace BohgeEngine
 {
 	class SoundPlayerSL : public SoundPlayer
 	{
-		friend class SoundPlayerFactorySL;
+		friend class SoundManagerSL;
 	private:
-		SoundPlayerSL( int hash, int index, SoundResource* res );
+		SoundPlayerSL( int hash, int index, Decoder* res );
 		virtual ~SoundPlayerSL(void);
-	public:
+	private:
 		virtual void _DoSetVolume( float volume );
 		virtual void _DoSetPitch(float pitch);
 		virtual void _DoSetPaused( bool ispaused );
@@ -18,7 +18,6 @@ namespace BohgeEngine
 		virtual void _DoSetPlay( bool isplay );
 		virtual void _DoSet3D( bool is3d );
 		virtual void _DoSetSoundPosition( const vector3f& pos, const vector3f& forward, const vector3f& up );
-	public:
-		virtual void Update();
+		virtual void _DoUpdate();
 	};
 }

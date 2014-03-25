@@ -1,15 +1,17 @@
 #pragma once
-#include "soundresourcedecoder.h"
+#include "Decoder.h"
 
 
 namespace BohgeEngine
 {
-	class MPTDecoder : public SoundResourceDecoder
+	class MPTDecoder : public Decoder
 	{
 	public:
-		MPTDecoder( IReadFile* stream );
+		MPTDecoder(void);
 		~MPTDecoder(void);
-	public:
-		virtual void DoDecodeAsyn( uint form, uint to );//异步解码
+	private:
+		virtual void _DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time );
+		virtual void _DoDecodeAsyn( uint form, uint to );//异步解码
+		virtual void _DoReleaseDecoder();//释放资源
 	};
 }

@@ -5,7 +5,7 @@
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	SoundPlayerSL::SoundPlayerSL( int hash, int index, SoundResource* res )
+	SoundPlayerSL::SoundPlayerSL( int hash, int index, Decoder* res )
 		:SoundPlayer( hash, index, res )
 	{
 	}
@@ -49,7 +49,7 @@ namespace BohgeEngine
 
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerSL::Update()
+	void SoundPlayerSL::_DoUpdate()
 	{
 
 	}

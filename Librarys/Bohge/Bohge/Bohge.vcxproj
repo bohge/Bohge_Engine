@@ -412,11 +412,10 @@
     <ClCompile Include="SoundManagerSL.cpp" />
     <ClCompile Include="SoundPlayer.cpp" />
     <ClCompile Include="SoundPlayerAL.cpp" />
-    <ClCompile Include="SoundPlayerFactory.cpp" />
     <ClCompile Include="SoundPlayerSL.cpp" />
     <ClCompile Include="SoundResource.cpp" />
-    <ClCompile Include="SoundResourceDecoder.cpp" />
-    <ClCompile Include="SoundResourceManager.cpp" />
+    <ClCompile Include="Decoder.cpp" />
+    <ClCompile Include="DecoderManager.cpp" />
     <ClCompile Include="TextureState.cpp" />
     <ClCompile Include="ThreadCondition.cpp" />
     <ClCompile Include="Threading.cpp" />
@@ -511,6 +510,7 @@
   <ItemGroup>
     <ClInclude Include="AsynJobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
+    <ClInclude Include="BinaryIndex.hpp" />
     <ClInclude Include="EmitterBase.h" />
     <ClInclude Include="EventImplement.hpp" />
     <ClInclude Include="FakeLights.h" />
@@ -567,11 +567,10 @@
     <ClInclude Include="SoundManagerSL.h" />
     <ClInclude Include="SoundPlayer.h" />
     <ClInclude Include="SoundPlayerAL.h" />
-    <ClInclude Include="SoundPlayerFactory.h" />
     <ClInclude Include="SoundPlayerSL.h" />
     <ClInclude Include="SoundResource.h" />
-    <ClInclude Include="SoundResourceDecoder.h" />
-    <ClInclude Include="SoundResourceManager.h" />
+    <ClInclude Include="Decoder.h" />
+    <ClInclude Include="DecoderManager.h" />
     <ClInclude Include="TextureState.h" />
     <ClInclude Include="ThreadCondition.h" />
     <ClInclude Include="Threading.h" />

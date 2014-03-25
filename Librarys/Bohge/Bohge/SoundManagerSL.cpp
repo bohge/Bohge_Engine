@@ -12,6 +12,7 @@ namespace BohgeEngine
 	SoundManagerSL::~SoundManagerSL(void)
 	{
 	}
+#ifdef _OPENSL
 	//-------------------------------------------------------------------------------------------------------
 	void SoundManagerSL::_OnCreate()
 	{
@@ -22,4 +23,26 @@ namespace BohgeEngine
 	{
 		//释放系统
 	}
+	//-------------------------------------------------------------------------------------------------------
+	SoundPlayer* SoundManagerSL::CreatePlayer( int hash, int index, Decoder* res )
+	{
+		return NEW SoundPlayerSL( hash, index, res );
+	}
+#else
+	//-------------------------------------------------------------------------------------------------------
+	void SoundManagerSL::_OnCreate()
+	{
+		//初始化系统
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void SoundManagerSL::_OnDestroy()
+	{
+		//释放系统
+	}
+	//-------------------------------------------------------------------------------------------------------
+	SoundPlayer* SoundManagerSL::CreatePlayer( int hash, int index, Decoder* res )
+	{
+		return NULL;
+	}
+#endif
 }

@@ -82,4 +82,21 @@ namespace BohgeEngine
 		return bitesize;
 	}
 	//--------------------------------------------------------------------------------------------------------------
+	int ReadEncryptFile::_DoSeekFile( uint to, int whence )
+	{
+		switch( whence )
+		{
+		case SEEK_SET: m_PosIndex = 0; return 0;
+		case SEEK_CUR: m_PosIndex += to; return 0;
+		case SEEK_END: m_PosIndex = m_FileSize - to; return 0;
+		}
+		return -1;
+	}
+	//--------------------------------------------------------------------------------------------------------------
+	int ReadEncryptFile::_DoTell()
+	{
+		return m_PosIndex;
+	}
+
+	//--------------------------------------------------------------------------------------------------------------
 }

@@ -7,10 +7,27 @@
 #include <map>
 #include <string>
 
+
+
+#ifdef WIN32
+//#define OPENSL
+#define _OPENAL
+#endif
+
+#ifdef ANDROID
+#define _OPENSL
+#endif
+
+#ifdef IOS
+#define _OPENAL
+#endif
+
+
 namespace BohgeEngine
 {
+	class Decoder;
 	class SoundPlayer;
-	class ISoundPlayerFactory;
+	class SoundResource;
 	class SoundManager
 	{
 	public:
@@ -48,7 +65,6 @@ namespace BohgeEngine
 		static SoundManager*		m_pInstance;
 	private:
 		SoundPlayerManagerMap	m_SoundMapMap;
-		ISoundPlayerFactory*	m_SoundFactory;
 		float					m_fGlobalVolume;
 		float					m_fGlobalPitch;
 		bool					m_isGlobalMute;
@@ -58,11 +74,13 @@ namespace BohgeEngine
 		virtual ~SoundManager(void);
 	public:
 		static BOHGE_FORCEINLINE SoundManager* Instance() { return m_pInstance; };
-		static void Create( ServerType st );
+		static void Create();
 		static void Destroy();
 	private:
 		virtual void _OnCreate( ) = 0;
 		virtual void _OnDestroy( ) = 0;
+	public:
+		virtual SoundPlayer* CreatePlayer( int hash, int index, Decoder* res ) = 0;
 	public:
 		SoundPlayer* LoadSound( const std::string& path );
 		void ReleaseSound( SoundPlayer* sound );

@@ -1,15 +1,21 @@
 #pragma once
-#include "soundresourcedecoder.h"
+#include "Decoder.h"
 
+
+#include <vorbis/vorbisfile.h> 
 
 namespace BohgeEngine
 {
-	class OGGDecoder : public SoundResourceDecoder
+	class OGGDecoder : public Decoder
 	{
+	private:
+		OggVorbis_File		m_OggFile;
 	public:
-		OGGDecoder( IReadFile* stream );
+		OGGDecoder(void);
 		~OGGDecoder(void);
-	public:
-		virtual void DoDecodeAsyn( uint form, uint to );//异步解码
+	private:
+		virtual void _DoDecodeAsyn( uint form, uint to );//异步解码
+		virtual void _DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time );
+		virtual void _DoReleaseDecoder();//释放资源
 	};
 }

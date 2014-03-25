@@ -1,16 +1,18 @@
 #pragma once
-#include "soundresourcedecoder.h"
+#include "Decoder.h"
 
 
 
 namespace BohgeEngine
 {
-	class WAVDecoder : public SoundResourceDecoder
+	class WAVDecoder : public Decoder
 	{
 	public:
-		WAVDecoder( IReadFile* stream );
+		WAVDecoder(void);
 		~WAVDecoder(void);
-	public:
-		virtual void DoDecodeAsyn( uint form, uint to );//异步解码
+	private:
+		virtual void _DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time );
+		virtual void _DoDecodeAsyn( uint form, uint to );//异步解码
+		virtual void _DoReleaseDecoder();//释放资源
 	};
 }

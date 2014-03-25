@@ -1,9 +1,8 @@
 #include "SoundManager.h"
 #include "SoundManagerAL.h"
 #include "SoundManagerSL.h"
-#include "SoundPlayerFactory.h"
 #include "SoundPlayer.h"
-#include "SoundResourceManager.h"
+#include "DecoderManager.h"
 #include "Utility.h"
 
 
@@ -24,32 +23,34 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void SoundManager::Create( ServerType st )
+	void SoundManager::Create( )
 	{
+#ifdef _OPENAL
+		ServerType st = ST_OPENAL;
+#elif defined _OPENSL
+		ServerType st = ST_OPENSL;
+#endif // _OPENSL
 		switch( st )
 		{
 		case ST_OPENSL:
 			{
 				m_pInstance = NEW SoundManagerSL;
-				m_pInstance->m_SoundFactory = NEW SoundPlayerFactorySL;
 			}break;
 		case ST_OPENAL:
 			{
 				m_pInstance = NEW SoundManagerAL;
-				m_pInstance->m_SoundFactory = NEW SoundPlayerFactoryAL;
 			}break;
 		default: ASSERT( false && "Unkonw Sound server type!" );
 		}
 		m_pInstance->_OnCreate();
 		//初始化资源管理器
-		SoundResourceManager::Create();
+		DecoderManager::Create();
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundManager::Destroy()
 	{ 
-		SoundResourceManager::Destroy();
+		DecoderManager::Destroy();
 		m_pInstance->_OnDestroy();
-		SAFE_DELETE( m_pInstance->m_SoundFactory );
 		SAFE_DELETE( m_pInstance );
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -88,8 +89,9 @@ namespace BohgeEngine
 		if ( spvm->m_bCreatedPlayer < SMC_MAX_REPEAT_SOUND_PLAYER ) //如果相同资源加载不到规定最大重复的个数
 		{
 			int index = spvm->m_bCreatedPlayer ++;
-			SoundResource* res = SoundResourceManager::Instance()->LoadSoundResource( path );
-			player = m_SoundFactory->CreatePlayer( hash, index, res );
+			Decoder* decoder = DecoderManager::Instance()->LoadSoundDecoder( path );
+			player = m_pInstance->CreatePlayer( hash, index, decoder );
+			player->Initialization();
 			SharedSoundPlayer* ssp = NEW SharedSoundPlayer();
 			ssp->m_pSoundPlayer = player;
 			ssp->m_ReferenceCounting = 1;
