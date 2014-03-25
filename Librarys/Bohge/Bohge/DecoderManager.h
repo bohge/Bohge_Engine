@@ -9,7 +9,7 @@
 namespace BohgeEngine
 {	
 	class Decoder;
-	class QueueThread;
+	class LessThread;
 	class DecoderManager
 	{
 	public:
@@ -29,7 +29,7 @@ namespace BohgeEngine
 	private:
 		typedef std::map< uint, DecoderReference* >	DecoderReferenceMap;//共享的解码数据段
 	private:
-		QueueThread*						m_pDecodingQueueThread;//异步解码线程
+		LessThread*							m_pDecodingLessThread;//异步解码线程
 		DecoderReferenceMap					m_DecoderMap;
 	public:
 		static BOHGE_FORCEINLINE DecoderManager* Instance() { return m_pInstance; };

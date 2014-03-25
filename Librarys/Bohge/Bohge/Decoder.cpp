@@ -133,6 +133,7 @@ namespace BohgeEngine
 	void Decoder::_RequestDecode()
 	{
 		//添加到解码线程队列，进行解码
+		SetPriority( m_nLoadedBufferIndex );//优先级就是读到第几个buffer
 		DecoderManager::Instance()->PushDecodeJob( this );
 	}
 	//-------------------------------------------------------------------------------------------------------

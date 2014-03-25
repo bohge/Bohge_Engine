@@ -320,7 +320,10 @@ namespace BohgeGame
 		s2->SetVolume( 2.0 );
 		s2->SetLoop( true );
 		s2->Paly();
-		//SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Slider.ogg" );
+		s3->SetVolume( 3.0 );
+		s3->SetLoop( true );
+		s3->Paly();
 		//SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 		//SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 

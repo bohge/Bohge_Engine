@@ -2,7 +2,7 @@
 #include "DecoderManager.h"
 #include "Decoder.h"
 #include "SoundResource.h"
-#include "QueueThread.h"
+#include "LessThread.h"
 #include "Utility.h"
 
 
@@ -26,20 +26,20 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	DecoderManager::DecoderManager(void)
 	{
-		m_pDecodingQueueThread = NEW QueueThread();
-		m_pDecodingQueueThread->SetPriority( Threading::TP_HIGH );
-		m_pDecodingQueueThread->Start();
+		m_pDecodingLessThread = NEW LessThread();
+		m_pDecodingLessThread->SetPriority( Threading::TP_HIGH );
+		m_pDecodingLessThread->Start();
 	}
 	//-------------------------------------------------------------------------------------------------------
 	DecoderManager::~DecoderManager(void)
 	{
-		m_pDecodingQueueThread->Stop();
-		SAFE_DELETE( m_pDecodingQueueThread );
+		m_pDecodingLessThread->Stop();
+		SAFE_DELETE( m_pDecodingLessThread );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void DecoderManager::PushDecodeJob( Decoder* job )
 	{
-		m_pDecodingQueueThread->PushJob( job );
+		m_pDecodingLessThread->PushJob( job );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	Decoder* DecoderManager::LoadSoundDecoder( const std::string& path )

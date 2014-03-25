@@ -130,7 +130,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetVolume( float volume )
 	{
-		alSourcef (m_SourceHandle, AL_GAIN, volume );
+		alSourcef (m_SourceHandle, AL_GAIN, Math::Clamp0to1( volume ) );
 		CHECKERROR;;
 	}
 	//-------------------------------------------------------------------------------------------------------
