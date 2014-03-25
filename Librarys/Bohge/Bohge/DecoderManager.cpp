@@ -57,7 +57,6 @@ namespace BohgeEngine
 		{
 			refDecoder->second->m_nReference ++;
 			decoder = refDecoder->second->m_pDecoder;
-			decoder->StorageBuffer();
 		}
 		return decoder;
 	}

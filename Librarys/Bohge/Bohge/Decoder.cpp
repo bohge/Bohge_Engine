@@ -48,17 +48,14 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	Decoder::Decoder( SoundType type )
 		:m_isActived( true ),
-		m_isStorageBuffer( false ),
-		m_isDecodeing( false ),
 		m_pFileStream( NULL ),
 		m_eDecoderTypes( type ),
-		m_pBuffer( NULL ),
 		m_nFrequency( 0 ),
 		m_nFormat( DF_MONO_8 ),
 		m_nChannels( 0 ),
-		m_nSourceTotalSize( 0 )
+		m_nSourceTotalSize( 0 ),
+		m_nLoadedBufferIndex( 0 )
 	{
-		m_pBuffer = NEW char[ DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE ];
 	}
 	//-------------------------------------------------------------------------------------------------------
 	Decoder::~Decoder(void)
@@ -73,6 +70,14 @@ namespace BohgeEngine
 		m_pFileStream->OpenFile();
 		_DoInitialization(m_nFrequency, m_nFormat, m_nChannels, m_nSourceTotalSize, m_dTime);
 		m_nSourceTotalSize -= ( m_nSourceTotalSize % (m_nChannels*2) );//确保整数倍
+		int vecSize = Math::Ceil( static_cast<float>(m_nSourceTotalSize) / DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE );
+		m_BufferVector.resize( vecSize );
+		for ( int i = 0 ; i < vecSize ; i ++ )
+		{
+			m_BufferVector[i] = NEW char[DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE];
+			memset( m_BufferVector[i], 0, DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE );
+		}
+		_RequestDecode();
 		//sample rate * channels * bitrate/8 * length.
 		//switch( m_nChannels )
 		//{
@@ -108,57 +113,39 @@ namespace BohgeEngine
 			m_pFileStream->CloseFile();
 			m_isActived = false;
 			SAFE_DELETE( m_pFileStream );
-			SAFE_DELETE_ARRAY( m_pBuffer );
+			for ( int i = 0 ; i < m_BufferVector.size() ; i ++ )
+			{
+				SAFE_DELETE_ARRAY( m_BufferVector[i] );
+			}
+			m_BufferVector.clear();
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void Decoder::StorageBuffer()
-	{
-		if ( !m_isStorageBuffer )
-		{
-			m_isStorageBuffer = true;
-			SAFE_DELETE_ARRAY( m_pBuffer );//删除旧的buffer
-			m_pBuffer = NEW char[ m_nSourceTotalSize ];//分配一个完整的buffer
-			memset( m_pBuffer, 0, m_nSourceTotalSize );
-			_RequestDecode( 0, DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE );
-		}
-	}
-	//-------------------------------------------------------------------------------------------------------
-	Decoder::BufferChunk Decoder::GetBufferChunk( int pos )
+	Decoder::BufferChunk Decoder::GetBufferChunk( int index )
 	{	
-		uint buffersize = pos + DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE > m_nSourceTotalSize ? m_nSourceTotalSize - pos : DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
-		uint next_pos = pos + DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE > m_nSourceTotalSize ? 0 : pos + buffersize;
-		if ( m_isStorageBuffer )
-		{
-			return BufferChunk( m_pBuffer + pos, buffersize, next_pos );
-		}
-		else if ( !m_isDecodeing )//解码中就不反回数据
-		{
-			return BufferChunk( m_pBuffer, buffersize, next_pos );
-		}
-		return BufferChunk(NULL,0,pos);
+		int pos = index * DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
+		bool isdone = pos + DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE >= m_nSourceTotalSize;
+		uint buffersize = isdone ? m_nSourceTotalSize - pos : DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
+		uint next_index = isdone ? 0 : index + 1;
+		return BufferChunk( m_BufferVector[index], buffersize, next_index, isdone );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void Decoder::RequestDecode( uint begin )
+	void Decoder::_RequestDecode()
 	{
-		if ( !m_isStorageBuffer )
-		{
-			_RequestDecode( begin, _GetEndPosition( begin ) );
-		}
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void Decoder::_RequestDecode( uint form, uint to )
-	{
-		m_isDecodeing = true;
-		m_FromTo = vector2d( form, to );
 		//添加到解码线程队列，进行解码
 		DecoderManager::Instance()->PushDecodeJob( this );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void Decoder::AsyncDoJob()
 	{
-		_DoDecodeAsyn( m_FromTo.m_x, m_FromTo.m_y );
-		m_isDecodeing = false;
+		uint from = m_nLoadedBufferIndex * DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
+		uint to = _GetEndPosition(from);
+		_DoDecodeAsyn( from, to );
+		m_nLoadedBufferIndex ++;
+		if ( m_nLoadedBufferIndex < m_BufferVector.size() )
+		{
+			_RequestDecode();
+		}
 	}
 
 }

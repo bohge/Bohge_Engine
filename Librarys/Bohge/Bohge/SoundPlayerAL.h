@@ -17,6 +17,7 @@ namespace BohgeEngine
 		typedef std::queue<uint>	BufferDataQueue;
 	private:
 		BufferDataQueue			m_DataQueue;//“Ù∆µplayer
+		bool					m_isLooping;
 		bool					m_isPlaying;
 		uint					m_DataQueueHandles[SC_DATA_QUEUE_SIZE];//“Ù∆µplayer
 		uint					m_SourceHandle;//≤•∑≈µƒ“Ù‘¥æ‰±˙

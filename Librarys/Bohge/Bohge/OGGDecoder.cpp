@@ -16,12 +16,12 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void OGGDecoder::_DoDecodeAsyn( uint form, uint to )
+	uint OGGDecoder::_DoDecodeAsyn( uint form, uint to )
 	{
 		//int endian = 0;
 		//int bitStream;
 		//ov_read(&m_OggFile, _GetInternalBuffer(), DecoderManager::SC_DEFUALT_SOUND_BUFFER_SIZE, endian, 2, 1, &bitStream); 
-		//DEBUGLOG( "ogg decoding from %d to %d\n", form, to );
+		DEBUGLOG( "ogg decoding from %d to %d\n", form, to );
 		if ( 0 == form )
 		{
 			ov_time_seek( &m_OggFile, 0.0 );
@@ -47,6 +47,7 @@ namespace BohgeEngine
 			buffer += bytes;
 		}  
 		while ( loaded < size );
+		return loaded;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	size_t ReadHelp(void *ptr, size_t size, size_t nmemb, void *datasource)
@@ -79,9 +80,11 @@ namespace BohgeEngine
 		int res = ov_open_callbacks( _GetFileSteam(), &m_OggFile, NULL, 0, callbacks );
 		pInfo = ov_info(&m_OggFile, -1);
 		time = ov_time_total( &m_OggFile, -1 );
-		buffersize = ov_pcm_total( &m_OggFile, -1 );
 		ch = pInfo->channels;
 		freq = pInfo->rate;
+		//buffersize = ov_pcm_total( &m_OggFile, -1 ) * ch * pInfo->channels;
+		//sample rate * channels * bitrate/8 * length.
+		buffersize = time * freq * ch * 2;
 		if (pInfo->channels == 1)
 		{
 			format = DF_MONO_16;

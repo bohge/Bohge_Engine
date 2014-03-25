@@ -14,9 +14,9 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void MPTDecoder::_DoDecodeAsyn( uint form, uint to )
+	uint MPTDecoder::_DoDecodeAsyn( uint form, uint to )
 	{
-
+		return 0;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void MPTDecoder::_DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time )

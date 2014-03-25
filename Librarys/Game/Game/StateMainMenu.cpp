@@ -314,8 +314,12 @@ namespace BohgeGame
 		SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 		//SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.ogg" );
 		s1->SetVolume( 1.0 );
+		s1->SetLoop( true );
 		s1->Paly();
-		//SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		s2->SetVolume( 2.0 );
+		s2->SetLoop( true );
+		s2->Paly();
 		//SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 		//SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
 		//SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );

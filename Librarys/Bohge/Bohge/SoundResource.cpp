@@ -1,6 +1,6 @@
 #include "SoundResource.h"
 #include "DecoderManager.h"
-
+#include "Log.h"
 
 namespace BohgeEngine
 {
@@ -8,7 +8,8 @@ namespace BohgeEngine
 	SoundResource::SoundResource( Decoder* decoder )
 		:m_pDecoder(decoder ),
 		m_nBufferSize(0),
-		m_nCurrentBufferPosition(0)
+		m_nCurrentBufferIndex(0),
+		m_isDone(false)
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -17,17 +18,15 @@ namespace BohgeEngine
 		DecoderManager::Instance()->UnloadSoundDecoder( m_pDecoder );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void SoundResource::DecoderNextChunk()
+	void SoundResource::FlushBufferData()
 	{
-		m_pDecoder->RequestDecode( m_nCurrentBufferPosition );
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundResource::_CopyBufferData()
-	{
-		Decoder::BufferChunk buffer = m_pDecoder->GetBufferChunk(m_nCurrentBufferPosition);
-		m_nCurrentBufferPosition = buffer.GetNextPosition();
+		Decoder::BufferChunk buffer = m_pDecoder->GetBufferChunk(m_nCurrentBufferIndex);
+		m_nCurrentBufferIndex = buffer.GetNextIndex();
+		//DEBUGLOG("next index %d\n", m_nCurrentBufferIndex );
 		m_nBufferSize = buffer.GetSize();
 		m_BufferAddress = buffer.GetBuffer();
+		m_isDone = buffer.isDone();
+		//DEBUGLOG("m_isDone %s\n", m_isDone ? "true" : "false" );
 	}
 
 }

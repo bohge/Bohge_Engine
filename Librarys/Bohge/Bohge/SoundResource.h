@@ -18,14 +18,13 @@ namespace BohgeEngine
 		Decoder*		m_pDecoder;
 		const char*		m_BufferAddress;
 		uint			m_nBufferSize;
-		uint			m_nCurrentBufferPosition;//当前声音buffer的读取地址
+		uint			m_nCurrentBufferIndex;//当前声音buffer的index
+		bool			m_isDone;
 	public:
 		SoundResource( Decoder* decoder );
 		~SoundResource(void);
-	private:
-		void _CopyBufferData();
 	public:
-		void DecoderNextChunk();//解码下一段数据
+		void FlushBufferData();
 	public:
 		BOHGE_FORCEINLINE void ReleaseResource()//sl需要释放资源，应为sl不需要读取
 		{
@@ -55,14 +54,13 @@ namespace BohgeEngine
 		{
 			return m_BufferAddress;
 		}
-		BOHGE_FORCEINLINE bool isDecoding()
+		BOHGE_FORCEINLINE bool isChunkReady() const
 		{
-			bool res = m_pDecoder->isDecoding();
-			if ( !res )
-			{
-				_CopyBufferData();
-			}
-			return res;
+			return m_pDecoder->isChunkReady( m_nCurrentBufferIndex );
+		}
+		BOHGE_FORCEINLINE bool isDone() const //是否播放完毕
+		{
+			return m_isDone;
 		}
 	};
 }

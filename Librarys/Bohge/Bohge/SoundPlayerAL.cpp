@@ -58,19 +58,10 @@ namespace BohgeEngine
 		//更新
 		ALint status;
 		ALuint buffer;
-		ALint val;
-		if ( !_GetSoundResource()->isDecoding() )//当解码完毕后
+		ALint ProcessedBuffer;
+		if ( _GetSoundResource()->isChunkReady() )//有空闲数据的时候
 		{
-			//alGetSourcei(m_SourceHandle, AL_SOURCE_STATE, &status);
-			//if(status != AL_PLAYING)
-			//{
-			//	m_isPlaying = false;
-			//	for( ; m_nPushedQueueData > 0; m_nPushedQueueData-- )
-			//	{
-			//		alSourceUnqueueBuffers(m_SourceHandle, 1, &buffer);
-			//		CHECKERROR;
-			//	}
-			//}
+			_GetSoundResource()->FlushBufferData();
 			Decoder::Format fm = _GetSoundResource()->GetFormat();
 			ALenum al_fm;
 			switch(fm)
@@ -93,13 +84,12 @@ namespace BohgeEngine
 				CHECKERROR;
 				alSourceQueueBuffers(m_SourceHandle, 1, &datahandle);
 				CHECKERROR;
-				_GetSoundResource()->DecoderNextChunk();
 			}
 			else
 			{
-                /* Check if OpenAL is done with any of the queued buffers */
-                alGetSourcei(m_SourceHandle, AL_BUFFERS_PROCESSED, &val);
-                if(val > 0)
+				/* Check if OpenAL is done with any of the queued buffers */
+				alGetSourcei(m_SourceHandle, AL_BUFFERS_PROCESSED, &ProcessedBuffer);
+                if(ProcessedBuffer > 0)
                 {
                     /* Pop the oldest queued buffer from the source, fill it
                      * with the new data, then requeue it */
@@ -112,58 +102,73 @@ namespace BohgeEngine
 					CHECKERROR;
                     alSourceQueueBuffers(m_SourceHandle, 1, &buffer);
                     CHECKERROR;
-					_GetSoundResource()->DecoderNextChunk();
-					for( int i = val - 1; i > 0; i-- )
+					for( int i = ProcessedBuffer - 1; i > 0; i-- )
 					{
-						//DEBUGLOG("popup buffers\n");
 						alSourceUnqueueBuffers(m_SourceHandle, 1, &buffer);
 						m_DataQueue.push( buffer );
 						CHECKERROR;
 					}
 					alGetSourcei(m_SourceHandle, AL_SOURCE_STATE, &status);
-					if(status != AL_PLAYING)
+					if( AL_STOPPED == status )
 					{
 						m_isPlaying = false;
 					}
                 }
 			}
-			//_DoSetPlay( true );
 			if (!m_isPlaying)
 			{
 				m_isPlaying = true;
-				alSourcef(m_SourceHandle, AL_GAIN, 1.0);
-				CHECKERROR;
 				alSourcePlay (m_SourceHandle);
 				CHECKERROR;
+			}
+			if ( _GetSoundResource()->isDone() && !m_isLooping )
+			{
+				_OnPlayDone();
 			}
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetVolume( float volume )
 	{
-		//alSourcef (m_SourceHandle, AL_GAIN, volume );
+		alSourcef (m_SourceHandle, AL_GAIN, volume );
 		CHECKERROR;;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetPitch( float pitch )
 	{
-		//alSourcei (m_SourceHandle, AL_PITCH, pitch );
+		alSourcei (m_SourceHandle, AL_PITCH, pitch );
 		CHECKERROR;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetPaused( bool ispaused )
 	{
+		if ( ispaused )
+		{
+			alSourcePause( m_SourceHandle );
+		}
+		else
+		{
+			m_isPlaying = false;
+		}
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetLoop( bool isloop )
 	{
+		m_isLooping = isloop;
 		//alSourcei (m_SourceHandle, AL_LOOPING, isloop ? AL_TRUE : AL_FALSE );
-		CHECKERROR;
+		//CHECKERROR;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetPlay( bool isplay )
 	{
-		//alSourcePlay( m_SourceHandle );
+		if ( isplay )
+		{
+			m_isPlaying = false;
+		}
+		else
+		{
+			alSourceStop( m_SourceHandle );
+		}
 		CHECKERROR;
 	}
 	//-------------------------------------------------------------------------------------------------------

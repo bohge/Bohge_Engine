@@ -64,9 +64,11 @@ namespace BohgeEngine
 				}
 				m_pMutex->Lock();
 				IAsynJob* job = _DoPopJob();
-				isContinue = _isEmpty() ? false : true;
 				m_pMutex->Unlock();
 				job->AsyncDoJob();
+				m_pMutex->Lock();
+				isContinue = _isEmpty() ? false : true;
+				m_pMutex->Unlock();
 			} while ( isContinue );
 			m_isWorking = false;
 		}

@@ -55,6 +55,13 @@ namespace BohgeEngine
 		{
 			return m_pResource;
 		}
+		BOHGE_FORCEINLINE void _OnPlayDone()//Íê³É²¥·Å
+		{
+			if ( !_GetFlag(SSF_LOOP) )
+			{
+				Stop();
+			}
+		}
 	public:
 		BOHGE_FORCEINLINE int GetIndex() const
 		{

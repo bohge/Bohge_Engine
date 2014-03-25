@@ -14,9 +14,9 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void WAVDecoder::_DoDecodeAsyn( uint form, uint to )
+	uint WAVDecoder::_DoDecodeAsyn( uint form, uint to )
 	{
-
+		return 0;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void WAVDecoder::_DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time )
