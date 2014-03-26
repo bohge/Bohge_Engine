@@ -37,6 +37,26 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pDecodingLessThread );
 	}
 	//-------------------------------------------------------------------------------------------------------
+	void DecoderManager::Update()
+	{
+		for( DecoderTrashList::iterator it = m_DecoderTrashList.begin();
+			it != m_DecoderTrashList.end(); )
+		{
+			if ( !(*it)->isDecoding() && !(*it)->isRequested() )
+			{
+				DecoderTrashList::iterator temp = it;
+				it++;
+				(*temp)->ReleaseDecoder();
+				Decoder::DestoryDecoder( *temp );
+				m_DecoderTrashList.erase( temp );
+			}
+			else
+			{
+				it++;
+			}
+		}
+	}
+	//-------------------------------------------------------------------------------------------------------
 	void DecoderManager::PushDecodeJob( Decoder* job )
 	{
 		m_pDecodingLessThread->PushJob( job );
@@ -68,7 +88,9 @@ namespace BohgeEngine
 		ASSERT( m_DecoderMap.end() != refDecoder );
 		if ( 0 == -- refDecoder->second->m_nReference )
 		{
-			Decoder::DestoryDecoder( refDecoder->second->m_pDecoder );
+			//Decoder::DestoryDecoder( refDecoder->second->m_pDecoder );//不能立即删除，可能在队列中
+			refDecoder->second->m_pDecoder->Deactive();
+			m_DecoderTrashList.push_back( refDecoder->second->m_pDecoder );//放入垃圾箱，等待回收
 			SAFE_DELETE( refDecoder->second );
 			m_DecoderMap.erase( refDecoder );
 		}

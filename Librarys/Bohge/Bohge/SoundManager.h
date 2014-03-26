@@ -1,6 +1,5 @@
 #pragma once
-#include "VariableType.h"
-#include "Predefine.h"
+#include "3DMath.h"
 
 
 
@@ -10,8 +9,8 @@
 
 
 #ifdef WIN32
-//#define OPENSL
-#define _OPENAL
+#define _OPENSL
+//#define _OPENAL
 #endif
 
 #ifdef ANDROID
@@ -83,12 +82,12 @@ namespace BohgeEngine
 		virtual SoundPlayer* CreatePlayer( int hash, int index, Decoder* res ) = 0;
 	public:
 		SoundPlayer* LoadSound( const std::string& path );
-		void ReleaseSound( SoundPlayer* sound );
+		void ReleaseSound( SoundPlayer** sound );
 		void Update();
 	public:
 		BOHGE_FORCEINLINE void SetGlobalVolume( float volume )
 		{
-			m_fGlobalVolume = volume;//0-1
+			m_fGlobalVolume = Math::Clamp0to1( volume );//0-1
 		}
 		BOHGE_FORCEINLINE float GetGlobalVolume() const
 		{

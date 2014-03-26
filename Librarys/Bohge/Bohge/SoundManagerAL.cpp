@@ -5,19 +5,19 @@
 #ifdef _OPENAL
 #include <OpenAL/alc.h>
 #include <OpenAL/al.h>
-#endif
 
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
 	SoundManagerAL::SoundManagerAL(void)
+		:m_pDevice(NULL),
+		m_pContext(NULL)
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
 	SoundManagerAL::~SoundManagerAL(void)
 	{
 	}
-#ifdef _OPENAL
 	//-------------------------------------------------------------------------------------------------------
 	void SoundManagerAL::_OnCreate()
 	{
@@ -58,19 +58,5 @@ namespace BohgeEngine
 	{
 		return NEW SoundPlayerAL( hash, index, res );
 	}
-#else
-	//-------------------------------------------------------------------------------------------------------
-	void SoundManagerAL::_OnCreate()
-	{
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundManagerAL::_OnDestroy()
-	{
-	}
-	//-------------------------------------------------------------------------------------------------------
-	SoundPlayer* SoundManagerAL::CreatePlayer( int hash, int index, Decoder* res )
-	{
-		return NULL;
-	}
-#endif // __OPENAL
 }
+#endif // __OPENAL

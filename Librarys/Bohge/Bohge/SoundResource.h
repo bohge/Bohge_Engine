@@ -26,6 +26,14 @@ namespace BohgeEngine
 	public:
 		void FlushBufferData();
 	public:
+		BOHGE_FORCEINLINE const std::string& GetFilePath() const
+		{
+			return m_pDecoder->GetFilePath();
+		}
+		BOHGE_FORCEINLINE void RequestDecode()//要求解析数据段
+		{
+			m_pDecoder->RequestDecode();
+		}
 		BOHGE_FORCEINLINE void ReleaseResource()//sl需要释放资源，应为sl不需要读取
 		{
 			m_pDecoder->ReleaseDecoder();

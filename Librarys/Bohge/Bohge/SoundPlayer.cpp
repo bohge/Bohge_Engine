@@ -20,10 +20,6 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pResource );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayer::Initialization()
-	{
-	}
-	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayer::Update()
 	{
 		if ( _GetFlag(SSF_PLAYING) && !_GetFlag(SSF_PAUSED) )

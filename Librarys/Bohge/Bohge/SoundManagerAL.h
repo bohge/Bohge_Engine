@@ -1,8 +1,7 @@
 #pragma once
 #include "SoundManager.h"
 
-
-
+#ifdef _OPENAL
 
 
 typedef struct ALCdevice_struct ALCdevice;
@@ -24,3 +23,4 @@ namespace BohgeEngine
 		virtual SoundPlayer* CreatePlayer( int hash, int index, Decoder* res );
 	};
 }
+#endif

@@ -7,6 +7,8 @@ namespace BohgeEngine
 {
 	class WAVDecoder : public Decoder
 	{
+	private:
+		uint			m_DataPosition;
 	public:
 		WAVDecoder(void);
 		~WAVDecoder(void);

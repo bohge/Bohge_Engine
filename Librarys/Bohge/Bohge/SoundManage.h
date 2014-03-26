@@ -45,8 +45,8 @@
 #include <string>
 
 #ifdef WIN32
-//#define OPENSL
-#define OPENAL
+#define OPENSL
+//#define OPENAL
 #endif
 
 #ifdef ANDROID

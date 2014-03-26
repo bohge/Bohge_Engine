@@ -3,6 +3,7 @@
 #include <queue>
 
 
+#ifdef _OPENAL
 namespace BohgeEngine
 {
 	class SoundPlayerAL : public SoundPlayer
@@ -25,6 +26,9 @@ namespace BohgeEngine
 		SoundPlayerAL( int hash, int index, Decoder* res );
 		virtual ~SoundPlayerAL(void);
 	private:
+		int _GetALFormat();
+	private:
+		virtual void _OnInitialization();
 		virtual void _DoSetVolume( float volume );
 		virtual void _DoSetPitch(float pitch);
 		virtual void _DoSetPaused( bool ispaused );
@@ -35,3 +39,4 @@ namespace BohgeEngine
 		virtual void _DoUpdate();
 	};
 }
+#endif

@@ -1,5 +1,5 @@
 #include "GreaterThread.h"
-#include "IAsynJob.h"
+#include "IJob.h"
 
 namespace BohgeEngine
 {
@@ -18,15 +18,15 @@ namespace BohgeEngine
 		return m_JobGreaterMap.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IAsynJob* GreaterThread::_DoPopJob()
+	IJob* GreaterThread::_DoPopJob()
 	{
 		JobGreaterMap::iterator it = m_JobGreaterMap.begin();
-		IAsynJob* job = it->second;
+		IJob* job = it->second;
 		m_JobGreaterMap.erase( it );
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void GreaterThread::_DoPushJob( IAsynJob* job )
+	void GreaterThread::_DoPushJob( IJob* job )
 	{
 		m_JobGreaterMap.insert( std::make_pair( job->GetPriority(), job ) );
 	}

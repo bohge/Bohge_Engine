@@ -5,6 +5,7 @@
 
 #include <string>
 #include <map>
+#include <list>
 
 namespace BohgeEngine
 {	
@@ -22,15 +23,17 @@ namespace BohgeEngine
 	private:
 		struct DecoderReference 
 		{
-			uint					m_nReference;
-			Decoder*	m_pDecoder;
+			uint			m_nReference;
+			Decoder*		m_pDecoder;
 			DecoderReference( Decoder* ptr ):m_nReference(1),m_pDecoder(ptr){}
 		};
 	private:
 		typedef std::map< uint, DecoderReference* >	DecoderReferenceMap;//共享的解码数据段
+		typedef std::list< Decoder* > DecoderTrashList; 
 	private:
 		LessThread*							m_pDecodingLessThread;//异步解码线程
 		DecoderReferenceMap					m_DecoderMap;
+		DecoderTrashList					m_DecoderTrashList;
 	public:
 		static BOHGE_FORCEINLINE DecoderManager* Instance() { return m_pInstance; };
 		static void Create();
@@ -42,5 +45,6 @@ namespace BohgeEngine
 		void PushDecodeJob( Decoder* job );
 		Decoder* LoadSoundDecoder( const std::string& path );
 		void UnloadSoundDecoder( Decoder* sr );
+		void Update();
 	};
 }

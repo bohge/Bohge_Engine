@@ -54,17 +54,21 @@ namespace BohgeEngine
 		m_nFormat( DF_MONO_8 ),
 		m_nChannels( 0 ),
 		m_nSourceTotalSize( 0 ),
-		m_nLoadedBufferIndex( 0 )
+		m_nLoadedBufferIndex( 0 ),
+		m_isRequested(false),
+		m_isDecoding(false),
+		m_isLoaded(false)
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
 	Decoder::~Decoder(void)
 	{
-		ReleaseDecoder();
+		ASSERT( false == m_isLoaded );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void Decoder::LoadResource( const std::string& path )
 	{
+		m_isLoaded = true;
 		m_FilePath = path;
 		m_pFileStream = NEW ReadUsualFile( path );
 		m_pFileStream->OpenFile();
@@ -77,41 +81,16 @@ namespace BohgeEngine
 			m_BufferVector[i] = NEW char[DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE];
 			memset( m_BufferVector[i], 0, DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE );
 		}
-		_RequestDecode();
-		//sample rate * channels * bitrate/8 * length.
-		//switch( m_nChannels )
-		//{
-		//case 1:
-		//	{
-		//		m_nSourceTotalSize = m_dTime * m_nFrequency * 2;
-		//		m_nSourceTotalSize -= (m_nSourceTotalSize % 2);
-		//	}break;
-		//case 2:
-		//	{
-		//		m_nSourceTotalSize = m_dTime * m_nFrequency * 4;
-		//		m_nSourceTotalSize -= (m_nSourceTotalSize % 4);
-		//	}break;
-		//case 4:
-		//	{
-		//		m_nSourceTotalSize = m_dTime * m_nFrequency * 8;
-		//		m_nSourceTotalSize -= (m_nSourceTotalSize % 8);
-		//	}break;
-		//case 6:
-		//	{
-		//		m_nSourceTotalSize = m_dTime * m_nFrequency * 12;
-		//		m_nSourceTotalSize -= (m_nSourceTotalSize % 12);
-		//	}break;
-		//default: ASSERT(false);
-		//}
+		SetJobType( IJob::JT_ASYNCHRONOUS );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void Decoder::ReleaseDecoder()
 	{
-		if ( m_isActived )
+		if ( m_isLoaded )
 		{
+			m_isLoaded = false;
 			_DoReleaseDecoder();
 			m_pFileStream->CloseFile();
-			m_isActived = false;
 			SAFE_DELETE( m_pFileStream );
 			for ( int i = 0 ; i < m_BufferVector.size() ; i ++ )
 			{
@@ -130,23 +109,28 @@ namespace BohgeEngine
 		return BufferChunk( m_BufferVector[index], buffersize, next_index, isdone );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void Decoder::_RequestDecode()
+	void Decoder::RequestDecode()
 	{
-		//添加到解码线程队列，进行解码
-		SetPriority( m_nLoadedBufferIndex );//优先级就是读到第几个buffer
-		DecoderManager::Instance()->PushDecodeJob( this );
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void Decoder::AsyncDoJob()
-	{
-		uint from = m_nLoadedBufferIndex * DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
-		uint to = _GetEndPosition(from);
-		_DoDecodeAsyn( from, to );
-		m_nLoadedBufferIndex ++;
-		if ( m_nLoadedBufferIndex < m_BufferVector.size() )
+		if ( !m_isRequested && m_nLoadedBufferIndex < m_BufferVector.size() )//如果已经要求解码了，就不重复在队列中添加了
 		{
-			_RequestDecode();
+			m_isRequested = true;
+			//添加到解码线程队列，进行解码
+			SetPriority( m_nLoadedBufferIndex );//优先级就是读到第几个buffer
+			DecoderManager::Instance()->PushDecodeJob( this );
 		}
 	}
-
+	//-------------------------------------------------------------------------------------------------------
+	void Decoder::DoJob()
+	{
+		m_isDecoding = true;
+		if ( m_isActived )//这个检测理论是不需要的&& m_nLoadedBufferIndex < m_BufferVector.size() )
+		{
+			uint from = m_nLoadedBufferIndex * DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
+			uint to = _GetEndPosition(from);
+			_DoDecodeAsyn( from, to );
+			m_nLoadedBufferIndex ++;
+		}
+		m_isRequested = false;
+		m_isDecoding = false;
+	}
 }

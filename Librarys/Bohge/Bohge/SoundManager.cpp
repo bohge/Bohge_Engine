@@ -15,7 +15,10 @@ namespace BohgeEngine
 
 	//-------------------------------------------------------------------------------------------------------
 	SoundManager::SoundManager(void)
-		:m_nPlayerIndex(0)
+		:m_nPlayerIndex(0),
+		m_fGlobalVolume(1.0),
+		m_fGlobalPitch(1.0),
+		m_isGlobalMute(false)
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -26,22 +29,12 @@ namespace BohgeEngine
 	void SoundManager::Create( )
 	{
 #ifdef _OPENAL
-		ServerType st = ST_OPENAL;
+		m_pInstance = NEW SoundManagerAL;
 #elif defined _OPENSL
-		ServerType st = ST_OPENSL;
+		m_pInstance = NEW SoundManagerSL;
+#else
+		ASSERT( false && "unkonw platform!" );
 #endif // _OPENSL
-		switch( st )
-		{
-		case ST_OPENSL:
-			{
-				m_pInstance = NEW SoundManagerSL;
-			}break;
-		case ST_OPENAL:
-			{
-				m_pInstance = NEW SoundManagerAL;
-			}break;
-		default: ASSERT( false && "Unkonw Sound server type!" );
-		}
 		m_pInstance->_OnCreate();
 		//初始化资源管理器
 		DecoderManager::Create();
@@ -56,6 +49,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void SoundManager::Update()
 	{
+		DecoderManager::Instance()->Update();
 		for ( SoundPlayerManagerMap::iterator soundmap = m_SoundMapMap.begin();
 			soundmap != m_SoundMapMap.end();
 			soundmap ++ )
@@ -108,20 +102,26 @@ namespace BohgeEngine
 		return player;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void SoundManager::ReleaseSound( SoundPlayer* sound )
+	void SoundManager::ReleaseSound( SoundPlayer** sound )
 	{
-		SoundPlayerManagerMap::iterator findspm = m_SoundMapMap.find( sound->GetHashCode() ); //找到该资源
-		ASSERT( findspm != m_SoundMapMap.end() );
-		SoundPlayerMapManager::SoundPlayerMap::iterator spm = findspm->second->m_SoundPlayerMap.find( (uint)sound );
-		if ( 0 == -- spm->second->m_ReferenceCounting )
+		if ( NULL != *sound )
 		{
-			SAFE_DELETE( spm->second->m_pSoundPlayer );
-			findspm->second->m_SoundPlayerMap.erase( spm );
-			if( 0 == -- findspm->second->m_bCreatedPlayer )
+			SoundPlayerManagerMap::iterator findspm = m_SoundMapMap.find( (*sound)->GetHashCode() ); //找到该资源
+			if( findspm != m_SoundMapMap.end() )
 			{
-				SAFE_DELETE( findspm->second );
-				m_SoundMapMap.erase( findspm );
+				SoundPlayerMapManager::SoundPlayerMap::iterator spm = findspm->second->m_SoundPlayerMap.find( (uint)*sound );
+				if ( 0 == -- spm->second->m_ReferenceCounting )
+				{
+					SAFE_DELETE( spm->second->m_pSoundPlayer );
+					findspm->second->m_SoundPlayerMap.erase( spm );
+					if( 0 == -- findspm->second->m_bCreatedPlayer )
+					{
+						SAFE_DELETE( findspm->second );
+						m_SoundMapMap.erase( findspm );
+					}
+				}
 			}
+			*sound = NULL;
 		}
 	}
 }

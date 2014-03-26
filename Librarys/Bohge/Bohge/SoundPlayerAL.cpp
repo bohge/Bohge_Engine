@@ -3,11 +3,10 @@
 #include "Log.h"
 
 
-
 #ifdef _OPENAL
 #include <OpenAL/alc.h>
 #include <OpenAL/al.h>
-#endif
+
 
 #ifdef _DEBUG
 #define  CHECKERROR ChechError()
@@ -27,11 +26,12 @@ void ChechError()
 
 namespace BohgeEngine
 {
-#ifdef _OPENAL
 	//-------------------------------------------------------------------------------------------------------
 	SoundPlayerAL::SoundPlayerAL( int hash, int index, Decoder* res )
 		:SoundPlayer( hash, index, res ),
-		m_isPlaying(false)
+		m_isPlaying(false),
+		m_isLooping(false),
+		m_SourceHandle(0)
 	{
 		alGenBuffers( SC_DATA_QUEUE_SIZE, m_DataQueueHandles );
 		CHECKERROR;
@@ -47,10 +47,31 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	SoundPlayerAL::~SoundPlayerAL(void)
 	{
+		alSourceStop( m_SourceHandle );
 		alDeleteSources( 1, &m_SourceHandle );
 		CHECKERROR;
 		alDeleteBuffers( SC_DATA_QUEUE_SIZE, m_DataQueueHandles );//清理buffer
 		CHECKERROR;
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void SoundPlayerAL::_OnInitialization()
+	{
+		_GetSoundResource()->RequestDecode();//要求解压数据
+	}
+	//-------------------------------------------------------------------------------------------------------
+	int SoundPlayerAL::_GetALFormat()
+	{
+		Decoder::Format fm = _GetSoundResource()->GetFormat();
+		ALenum al_fm;
+		switch(fm)
+		{
+		case Decoder::DF_MONO_8: al_fm = AL_FORMAT_MONO8;break;
+		case Decoder::DF_STEREO_8: al_fm = AL_FORMAT_STEREO8;break;
+		case Decoder::DF_MONO_16: al_fm = AL_FORMAT_MONO16;break;
+		case Decoder::DF_STEREO_16: al_fm = AL_FORMAT_STEREO16;break;
+		default: ASSERT(false);
+		}
+		return al_fm;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoUpdate()
@@ -61,23 +82,13 @@ namespace BohgeEngine
 		ALint ProcessedBuffer;
 		if ( _GetSoundResource()->isChunkReady() )//有空闲数据的时候
 		{
-			_GetSoundResource()->FlushBufferData();
-			Decoder::Format fm = _GetSoundResource()->GetFormat();
-			ALenum al_fm;
-			switch(fm)
-			{
-			case Decoder::DF_MONO_8: al_fm = AL_FORMAT_MONO8;break;
-			case Decoder::DF_STEREO_8: al_fm = AL_FORMAT_STEREO8;break;
-			case Decoder::DF_MONO_16: al_fm = AL_FORMAT_MONO16;break;
-			case Decoder::DF_STEREO_16: al_fm = AL_FORMAT_STEREO16;break;
-			default: ASSERT(false);
-			}
 			if ( !m_DataQueue.empty() )//如果没有初始化完成
 			{
+				_GetSoundResource()->FlushBufferData();
 				uint datahandle = m_DataQueue.front();
 				m_DataQueue.pop();
 				alBufferData(datahandle,
-					al_fm,
+					_GetALFormat(),
 					_GetSoundResource()->GetBufferChunk(),
 					_GetSoundResource()->GetBufferSize(),
 					_GetSoundResource()->GetFrequency() );
@@ -94,8 +105,9 @@ namespace BohgeEngine
                     /* Pop the oldest queued buffer from the source, fill it
                      * with the new data, then requeue it */
                     alSourceUnqueueBuffers(m_SourceHandle, 1, &buffer);
+					_GetSoundResource()->FlushBufferData();
 					alBufferData(buffer,
-						al_fm,
+						_GetALFormat(),
 						_GetSoundResource()->GetBufferChunk(),
 						_GetSoundResource()->GetBufferSize(),
 						_GetSoundResource()->GetFrequency() );
@@ -130,7 +142,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void SoundPlayerAL::_DoSetVolume( float volume )
 	{
-		alSourcef (m_SourceHandle, AL_GAIN, Math::Clamp0to1( volume ) );
+		alSourcef (m_SourceHandle, AL_GAIN, volume );
 		CHECKERROR;;
 	}
 	//-------------------------------------------------------------------------------------------------------
@@ -181,57 +193,5 @@ namespace BohgeEngine
 	{
 
 	}
-#else
-	//-------------------------------------------------------------------------------------------------------
-	SoundPlayerAL::SoundPlayerAL( int hash, int index, Decoder* res )
-		:SoundPlayer( hash, index, res )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	SoundPlayerAL::~SoundPlayerAL(void)
-	{
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetVolume( float volume )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetPitch( float pitch )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetPaused( bool ispaused )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetLoop( bool isloop )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetPlay( bool isplay )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSet3D( bool is3d )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::_DoSetSoundPosition( const vector3f& pos, const vector3f& forward, const vector3f& up )
-	{
-
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void SoundPlayerAL::Update()
-	{
-
-	}
-#endif
-
 }
+#endif

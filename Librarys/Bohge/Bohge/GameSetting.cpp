@@ -74,7 +74,7 @@ namespace BohgeEngine
 			STRING.Setlanguage( static_cast<LanguageControl::LanguageType>(language) );
 			//Engine::Instance().GetSoundManager()->SetMusicVolume( m_fMusicVolume );
 			//Engine::Instance().GetSoundManager()->SetSoundVolume( m_fSoundVolume );
-			Engine::Instance().GetSoundManager()->SetGlobalVolume( m_fSoundVolume );
+			//Engine::Instance().GetSoundManager()->SetGlobalVolume( m_fSoundVolume );
 			if ( !Engine::Instance().GetDevice()->isPackedDepthStencil() )
 			{
 				m_isBloom = false;

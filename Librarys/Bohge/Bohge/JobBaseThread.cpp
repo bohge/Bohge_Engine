@@ -2,7 +2,7 @@
 #include "ThreadMutex.h"
 #include "ThreadRWLock.h"
 #include "ThreadCondition.h"
-#include "IAsynJob.h"
+#include "IJob.h"
 
 
 namespace BohgeEngine
@@ -51,37 +51,48 @@ namespace BohgeEngine
 		m_pMutex->Unlock();
 		while( true )
 		{
-			m_pCondition->Wait();
-			m_isWorking = true;
-			bool isContinue = true;
-			do 
+			m_pMutex->Lock();
+			bool isContinue = _isEmpty() ? false : true;
+			if ( isContinue )
 			{
-				if ( m_isQuitQueue )
-				{
-					m_isQuitQueue = false;
-					m_isWorking = false;
-					return NULL;
-				}
-				m_pMutex->Lock();
-				IAsynJob* job = _DoPopJob();
+				m_isWorking = true;
 				m_pMutex->Unlock();
-				job->AsyncDoJob();
-				m_pMutex->Lock();
-				isContinue = _isEmpty() ? false : true;
+			}
+			else
+			{
+				m_isWorking = false;
 				m_pMutex->Unlock();
-			} while ( isContinue );
-			m_isWorking = false;
+				m_pCondition->Wait();
+			}
+			if ( m_isQuitQueue )
+			{
+				m_isQuitQueue = false;
+				m_isWorking = false;
+				return NULL;
+			}
+			m_pMutex->Lock();
+			IJob* job = _DoPopJob();
+			m_pMutex->Unlock();
+			job->DoJob();
 		}
 		return NULL;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void JobBaseThread::PushJob( IAsynJob* job )
+	void JobBaseThread::PushJob( IJob* job )
 	{
-		ASSERT( isRunning() );
-		m_pMutex->Lock();
-		_DoPushJob( job );
-		_SendSignal();
-		m_pMutex->Unlock();
+		switch( job->GetJobType() )
+		{
+		case IJob::JT_SYNCHRONOUS: job->DoJob(); break;
+		case IJob::JT_ASYNCHRONOUS:
+			{
+				ASSERT( isRunning() );
+				m_pMutex->Lock();
+				_DoPushJob( job );
+				_SendSignal();
+				m_pMutex->Unlock();
+			}break;
+		default: ASSERT(false);
+		}
 	}
 	//------------------------------------------------------------------------------------------------------
 	void JobBaseThread::_SendSignal()
@@ -92,8 +103,4 @@ namespace BohgeEngine
 			m_pCondition->Signal();
 		}
 	}
-
-
-
-
 }

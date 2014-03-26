@@ -18,14 +18,14 @@ namespace BohgeEngine
 		return m_JobQueue.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IAsynJob* QueueThread::_DoPopJob()
+	IJob* QueueThread::_DoPopJob()
 	{
-		IAsynJob* job = m_JobQueue.front();
+		IJob* job = m_JobQueue.front();
 		m_JobQueue.pop();
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void QueueThread::_DoPushJob( IAsynJob* job )
+	void QueueThread::_DoPushJob( IJob* job )
 	{
 		m_JobQueue.push( job );
 	}

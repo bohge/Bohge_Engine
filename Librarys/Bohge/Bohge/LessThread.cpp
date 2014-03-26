@@ -1,5 +1,5 @@
 #include "LessThread.h"
-#include "IAsynJob.h"
+#include "IJob.h"
 
 namespace BohgeEngine
 {
@@ -18,15 +18,15 @@ namespace BohgeEngine
 		return m_JobLessMap.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IAsynJob* LessThread::_DoPopJob()
+	IJob* LessThread::_DoPopJob()
 	{
 		JobLessMap::iterator it = m_JobLessMap.begin();
-		IAsynJob* job = it->second;
+		IJob* job = it->second;
 		m_JobLessMap.erase( it );
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void LessThread::_DoPushJob( IAsynJob* job )
+	void LessThread::_DoPushJob( IJob* job )
 	{
 		m_JobLessMap.insert( std::make_pair( job->GetPriority(), job ) );
 	}

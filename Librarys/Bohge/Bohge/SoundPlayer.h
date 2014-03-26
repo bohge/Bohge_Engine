@@ -29,6 +29,7 @@ namespace BohgeEngine
 		SoundPlayer( uint hash, int index, Decoder* res );
 		virtual ~SoundPlayer(void);
 	private:
+		virtual void _OnInitialization() = 0;
 		virtual void _DoSetVolume( float volume ) = 0;
 		virtual void _DoSetPitch(float pitch) = 0;
 		virtual void _DoSetPaused( bool ispaused ) = 0;
@@ -39,8 +40,6 @@ namespace BohgeEngine
 		virtual void _DoUpdate() = 0;
 	public:
 		void Update();
-	public:
-		void Initialization();
 	private:
 		BOHGE_FORCEINLINE void _SetFlag( bool isflag, SoundSourceFlag flag )
 		{
@@ -63,6 +62,10 @@ namespace BohgeEngine
 			}
 		}
 	public:
+		BOHGE_FORCEINLINE void Initialization()
+		{
+			_OnInitialization();
+		}
 		BOHGE_FORCEINLINE int GetIndex() const
 		{
 			return m_nIndex;
@@ -71,13 +74,9 @@ namespace BohgeEngine
 		{
 			return m_nHashCode;
 		}
-		BOHGE_FORCEINLINE void Release( )
-		{
-			SoundManager::Instance()->ReleaseSound( this );
-		}
 		BOHGE_FORCEINLINE void SetVolume( float volume )
 		{
-			m_fVolume = volume;
+			m_fVolume = Math::Clamp0to1( volume );
 			_DoSetVolume( volume * SoundManager::Instance()->GetGlobalVolume() );
 		}
 		BOHGE_FORCEINLINE float GetVolume() const

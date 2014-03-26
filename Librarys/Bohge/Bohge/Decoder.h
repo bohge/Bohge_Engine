@@ -1,7 +1,7 @@
 #pragma once
 #include "3DMath.h"
 #include "DecoderManager.h"
-#include "IAsynJob.h"
+#include "IJob.h"
 #include <string>
 
 
@@ -9,7 +9,7 @@
 namespace BohgeEngine
 {
 	class IReadFile;
-	class Decoder : public IAsynJob
+	class Decoder : public IJob
 	{
 	public:
 		enum Format
@@ -70,7 +70,10 @@ namespace BohgeEngine
 		uint			m_nLoadedBufferIndex;//已经加载过的数据位置
 		std::string		m_FilePath;
 		SoundType		m_eDecoderTypes;
+		bool			m_isLoaded;
+		bool			m_isRequested;//是否已经在队列中插入解码请求
 		bool			m_isActived;//资源是否可以进行解码，读取等操作，当调用ReleaseDecoder后设置为false
+		bool			m_isDecoding;//是否在解码之中
 		IReadFile*		m_pFileStream;//io
 		BufferVector	m_BufferVector;//资源池
 	public:
@@ -83,14 +86,13 @@ namespace BohgeEngine
 		virtual void _DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time ) = 0;
 		virtual void _DoReleaseDecoder() = 0;//释放资源
 		virtual uint _DoDecodeAsyn( uint form, uint to ) = 0;//异步解码,返回加载的数量
-	private:
-		void _RequestDecode();//要求解析数据段from to
 	public:
+		void RequestDecode();//要求解析数据段
 		void LoadResource( const std::string& path );
 		void ReleaseDecoder( );//释放io和buffer
 		BufferChunk GetBufferChunk( int index );//得到声音数据,会自动触发下一次加载，这个get只有一次的有效性
 	public:
-		virtual void AsyncDoJob();//继承自IAsynJob
+		virtual void DoJob();//继承自IAsynJob
 	private:
 		BOHGE_FORCEINLINE uint _GetEndPosition( uint form )
 		{
@@ -106,6 +108,10 @@ namespace BohgeEngine
 			return m_BufferVector[m_nLoadedBufferIndex];
 		}
 	public:
+		BOHGE_FORCEINLINE void Deactive()//关闭decoder，准备释放
+		{
+			m_isActived = false;
+		}
 		BOHGE_FORCEINLINE int isChunkReady( uint index ) const //数据段是否准备好
 		{
 			return index < m_nLoadedBufferIndex;
@@ -129,6 +135,14 @@ namespace BohgeEngine
 		BOHGE_FORCEINLINE bool isActived() const
 		{
 			return m_isActived;
+		}
+		BOHGE_FORCEINLINE bool isRequested() const
+		{
+			return m_isRequested;
+		}
+		BOHGE_FORCEINLINE bool isDecoding() const
+		{
+			return m_isDecoding;
 		}
 		BOHGE_FORCEINLINE SoundType GetDecoderType() const
 		{

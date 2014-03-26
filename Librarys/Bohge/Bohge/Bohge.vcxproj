@@ -374,7 +374,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AsynJobManager.cpp" />
+    <ClCompile Include="JobManager.cpp" />
     <ClCompile Include="EmitterBase.cpp" />
     <ClCompile Include="GreaterThread.cpp" />
     <ClCompile Include="IndicesBuffer.cpp" />
@@ -508,14 +508,14 @@
     <ClCompile Include="ShadowCaster.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AsynJobManager.h" />
+    <ClInclude Include="JobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
     <ClInclude Include="BinaryIndex.hpp" />
     <ClInclude Include="EmitterBase.h" />
     <ClInclude Include="EventImplement.hpp" />
     <ClInclude Include="FakeLights.h" />
     <ClInclude Include="GreaterThread.h" />
-    <ClInclude Include="IAsynJob.h" />
+    <ClInclude Include="IJob.h" />
     <ClInclude Include="IndicesBuffer.h" />
     <ClInclude Include="JobBaseThread.h" />
     <ClInclude Include="LessThread.h" />

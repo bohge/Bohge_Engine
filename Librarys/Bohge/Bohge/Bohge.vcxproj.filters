@@ -577,9 +577,6 @@
     <ClCompile Include="ShaderFile.cpp">
       <Filter>Material\Compilers\Source</Filter>
     </ClCompile>
-    <ClCompile Include="AsynJobManager.cpp">
-      <Filter>Thread\Source</Filter>
-    </ClCompile>
     <ClCompile Include="GreaterThread.cpp">
       <Filter>Thread\Source</Filter>
     </ClCompile>
@@ -651,6 +648,9 @@
     </ClCompile>
     <ClCompile Include="Decoder.cpp">
       <Filter>Sound\SoundResource\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="JobManager.cpp">
+      <Filter>Thread\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1086,9 +1086,6 @@
     <ClInclude Include="ShaderFile.h">
       <Filter>Material\Compilers</Filter>
     </ClInclude>
-    <ClInclude Include="AsynJobManager.h">
-      <Filter>Thread</Filter>
-    </ClInclude>
     <ClInclude Include="GreaterThread.h">
       <Filter>Thread</Filter>
     </ClInclude>
@@ -1111,9 +1108,6 @@
       <Filter>Thread</Filter>
     </ClInclude>
     <ClInclude Include="ThreadRWLock.h">
-      <Filter>Thread</Filter>
-    </ClInclude>
-    <ClInclude Include="IAsynJob.h">
       <Filter>Thread</Filter>
     </ClInclude>
     <ClInclude Include="SoundManagerAL.h">
@@ -1166,6 +1160,12 @@
     </ClInclude>
     <ClInclude Include="BinaryIndex.hpp">
       <Filter>Misc\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IJob.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="JobManager.h">
+      <Filter>Thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

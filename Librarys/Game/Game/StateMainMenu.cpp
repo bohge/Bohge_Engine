@@ -112,6 +112,15 @@ BString* str;
 #include "ObjectGroup.h"
 ObjectGroup* objgro;
 
+
+
+SoundPlayer* s1;
+SoundPlayer* s2;
+SoundPlayer* s3;
+SoundPlayer* s4;
+SoundPlayer* s5;
+SoundPlayer* s6;
+
 using namespace std;
 
 namespace BohgeGame
@@ -311,27 +320,26 @@ namespace BohgeGame
 		//}
 
 		//ÉùÒô²âÊÔ
-		SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
-		//SoundPlayer* s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.ogg" );
+		s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.wav" );
 		s1->SetVolume( 1.0 );
-		s1->SetLoop( true );
+		//s1->SetLoop( true );
 		s1->Paly();
-		SoundPlayer* s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
-		s2->SetVolume( 2.0 );
-		s2->SetLoop( true );
-		s2->Paly();
-		SoundPlayer* s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Slider.ogg" );
-		s3->SetVolume( 3.0 );
-		s3->SetLoop( true );
-		s3->Paly();
-		//SoundPlayer* s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
-		//SoundPlayer* s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
-
-		//engine.GetSoundManager()->ReleaseSound( s1 );
-		//engine.GetSoundManager()->ReleaseSound( s2 );
-		//engine.GetSoundManager()->ReleaseSound( s3 );
-		//engine.GetSoundManager()->ReleaseSound( s4 );
-		//engine.GetSoundManager()->ReleaseSound( s5 );
+		//s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.ogg" );
+		//s2->SetVolume( 2.0 );
+		//s2->SetLoop( true );
+		//s2->Paly();
+		//s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Slider.ogg" );
+		//s3->SetVolume( 3.0 );
+		//s3->SetLoop( true );
+		//s3->Paly();
+		//s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//s4->SetVolume( 3.0 );
+		//s4->SetLoop( true );
+		//s4->Paly();
+		//s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//s5->SetVolume( 3.0 );
+		//s5->SetLoop( true );
+		//s5->Paly();
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void StateMainMenu::ReleaseResource(Engine& engine)
@@ -366,6 +374,11 @@ namespace BohgeGame
 	//-------------------------------------------------------------------
 	void StateMainMenu::Update(StateManager& state, Engine& engine, uint millisecond)
 	{
+		//engine.GetSoundManager()->ReleaseSound( s1 );
+		//engine.GetSoundManager()->ReleaseSound( s2 );
+		//engine.GetSoundManager()->ReleaseSound( &s3 );
+		//engine.GetSoundManager()->ReleaseSound( s4 );
+		//engine.GetSoundManager()->ReleaseSound( s5 );
 		//vector3f pos = engine.GetCamera()->GetPosition() + engine.GetCamera()->GetForward() * 80;
 		//pos.m_y = engine.GetSceneManage()->GetWorld().GetHeight( pos.m_x, pos.m_z );
 		//lm2->SetLocalPosition( pos );

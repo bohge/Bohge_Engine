@@ -26,6 +26,7 @@ namespace BohgeEngine
 		m_nBufferSize = buffer.GetSize();
 		m_BufferAddress = buffer.GetBuffer();
 		m_isDone = buffer.isDone();
+		RequestDecode();//要求下一段数据
 		//DEBUGLOG("m_isDone %s\n", m_isDone ? "true" : "false" );
 	}
 

@@ -1,15 +1,15 @@
-#include "AsynJobManager.h"
+#include "JobManager.h"
 
 
 
 namespace BohgeEngine
 {
 	//------------------------------------------------------------------------------------------------------
-	AsynJobManager::AsynJobManager(void)
+	JobManager::JobManager(void)
 	{
 	}
 	//------------------------------------------------------------------------------------------------------
-	AsynJobManager::~AsynJobManager(void)
+	JobManager::~JobManager(void)
 	{
 	}
 }
