@@ -9,8 +9,8 @@
 
 
 #ifdef WIN32
-#define _OPENSL
-//#define _OPENAL
+//#define _OPENSL
+#define _OPENAL
 #endif
 
 #ifdef ANDROID

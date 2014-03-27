@@ -70,7 +70,7 @@ using namespace BohgeEngine;
 // Global variables
 //--------------------------------------------------------------------------------------
 //#define FULLSCREEN
-//#define HOME
+#define HOME
 
 //#define _4_3
 //#define _3_2
