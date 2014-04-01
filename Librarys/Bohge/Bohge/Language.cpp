@@ -37,7 +37,7 @@
 
 #include "Language.h"
 #include "Predefine.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "EncryptFile.h"
 #include "Log.h"
 #include "Utility.h"
@@ -60,7 +60,7 @@ namespace BohgeEngine
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------
 	LanguageControl::LanguageControl()
 		:m_eLanguage(L_English),
-		m_FolderPathName(FILEPATH.FontFolder() + "EN" + PLANTFORMDELIMITER)
+		m_FolderPathName(IOINSTANCE.FontFolder() + "EN" + PLANTFORMDELIMITER)
 	{
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,15 +77,15 @@ namespace BohgeEngine
 		case L_English: filename = "EN"; break;
 		default: filename = "EN"; break;
 		}
-		m_FolderPathName = FILEPATH.FontFolder() + filename + PLANTFORMDELIMITER;
+		m_FolderPathName = IOINSTANCE.FontFolder() + filename + PLANTFORMDELIMITER;
 		DEBUGLOG("size of wchar_t, %d\n",sizeof(wchar_t));
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------
 	std::wstring LanguageControl::_LoadString( const std::string& path )
 	{
 		//ReadEncryptFile readfile(path);
-		ReadUsualFile readfile(path);
-		readfile.OpenFile();
+		IFile* readfile = FILEFACTORY(path);
+		readfile->OpenFile( IFile::AT_READ );
 		std::wstring wstr;
 #ifdef _DEBUG
 		bool isFirst = true;
@@ -93,7 +93,7 @@ namespace BohgeEngine
 		while(true)
 		{
 			wchar_t wchar = 0;
-			if( readfile.ReadFile(&wchar, 2 ) <= 0 ) //读取两个字节，这里不用sizeof(wchar)应为ios android这个值是4
+			if( readfile->ReadFile(&wchar, 2 ) <= 0 ) //读取两个字节，这里不用sizeof(wchar)应为ios android这个值是4
 			{
 				break;
 			}
@@ -109,7 +109,8 @@ namespace BohgeEngine
 				wstr.push_back(wchar);
 			}
 		}
-		readfile.CloseFile();
+		readfile->CloseFile();
+		FILEDESTROY( readfile );
 		return wstr;
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -120,7 +121,7 @@ namespace BohgeEngine
 			m_CurrentPackage = dir;
 			m_WstringMap.clear();
 			string fullpath = m_CurrentPackage == STRING_ROOT_DIR ? m_FolderPathName : m_FolderPathName + m_CurrentPackage;
-			vector<string> files = FILEPATH.GetFileNamesWithExpand( fullpath, BOHGE_STRING_EXPAND );
+			vector<string> files = IOINSTANCE.GetFileNamesWithExpand( fullpath, BOHGE_STRING_EXPAND );
 			for ( vector<string>::iterator it = files.begin();
 				it != files.end();
 				it ++ )

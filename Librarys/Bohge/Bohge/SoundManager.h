@@ -72,8 +72,7 @@ namespace BohgeEngine
 		SoundManager(void);
 		virtual ~SoundManager(void);
 	public:
-		static BOHGE_FORCEINLINE SoundManager* Instance() { return m_pInstance; };
-		static void Create();
+		static SoundManager* Create();
 		static void Destroy();
 	private:
 		virtual void _OnCreate( ) = 0;

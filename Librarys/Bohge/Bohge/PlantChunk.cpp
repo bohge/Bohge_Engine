@@ -43,7 +43,7 @@
 #include "Camera.h"
 #include "GameSetting.h"
 #include "Log.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 using namespace std;
@@ -169,7 +169,7 @@ namespace BohgeEngine
 											std::string name;
 											int ID,pf;
 											loader>>ID>>pf>>name;
-											if( FILEPATH.isExist(texPath + name) )
+											if( IOINSTANCE.isExist(texPath + name) )
 											{
 												Texture2D* temp = m_BufferVector[BufferIndex].m_PlantMaterial->LoadTexture( static_cast<Material::Material_Attribute>(ID), (Device::PixelFormat)pf, texPath + name );
 												temp->SetAnisotropic( 2 );

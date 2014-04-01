@@ -35,8 +35,9 @@
 //			序列化		   //
 /////////////////////////////
 #pragma once
-#include "UsualFile.h"
 #include "3DMath.h"
+#include "IFile.h"
+#include "IOSystem.h"
 
 #include <string>
 
@@ -59,25 +60,25 @@ namespace BohgeEngine
 		{
 			if ( NULL == m_FilePtr )
 			{
-				m_eAction = IFile::FILE_READ;
-				m_FilePtr = NEW ReadUsualFile( m_Url );
-				m_FilePtr->OpenFile();
+				m_eAction = IFile::AT_READ;
+				m_FilePtr = IOSystem::Instance().FileFactory( m_Url );
+				m_FilePtr->OpenFile( m_eAction );
 			}
 			m_Cursor+=bytes;
-			ASSERT( IFile::FILE_READ == m_eAction );
-			return m_FilePtr->DoWork( pBuffer, bytes );
+			ASSERT( IFile::AT_READ == m_eAction );
+			return m_FilePtr->ReadFile( pBuffer, bytes );
 		}
 		BOHGE_FORCEINLINE int Write(int bytes, void * pBuffer)
 		{
 			if ( NULL == m_FilePtr )
 			{
-				m_eAction = IFile::FILE_WRITE;
-				m_FilePtr = NEW WriteUsualFile( m_Url );
-				m_FilePtr->OpenFile();
+				m_eAction = IFile::AT_WRITE;
+				m_FilePtr = IOSystem::Instance().FileFactory( m_Url );
+				m_FilePtr->OpenFile( m_eAction );
 			}
 			m_Cursor+=bytes;
-			ASSERT( IFile::FILE_WRITE == m_eAction );
-			return m_FilePtr->DoWork( pBuffer, bytes );
+			ASSERT( IFile::AT_WRITE == m_eAction );
+			return m_FilePtr->WriteFile( pBuffer, bytes );
 		}
 
 		//这两个函数太危险了，还是不用了，比如当class增加类成员的时候
@@ -241,11 +242,11 @@ namespace BohgeEngine
 	public:
 		BOHGE_FORCEINLINE bool isEnd()
 		{
-			return IFile::FILE_WRITE == m_eAction ? false : m_Cursor >= m_FilePtr->GetSize();
+			return IFile::AT_WRITE == m_eAction ? false : m_Cursor >= m_FilePtr->GetSize();
 		}
 		BOHGE_FORCEINLINE bool IsStoring()
 		{
-			return m_eAction == IFile::FILE_WRITE;
+			return m_eAction == IFile::AT_WRITE;
 		}
 	};
 

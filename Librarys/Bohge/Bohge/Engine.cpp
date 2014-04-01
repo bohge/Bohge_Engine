@@ -34,11 +34,8 @@
 /////////////////////////////
 //			包装层		   //
 /////////////////////////////
-#ifdef IOS
-#include <sys/time.h>
-#endif
-#include <time.h>
 #include "Engine.h"
+#include "IOSystem.h"
 #include "Environment.h"
 #include "Bfont.h"
 #include "UIManager.h"
@@ -59,6 +56,12 @@
 #include "Language.h"
 #include "MaterialManager.h"
 #include "SoundManager.h"
+
+
+#ifdef IOS
+#include <sys/time.h>
+#endif
+#include <time.h>
 
 
 using namespace BohgeNet;
@@ -87,14 +90,16 @@ namespace BohgeEngine
 	{
 	}
 	//-------------------------------------------------------------------
-	void Engine::Initialization( const vector2d& viewport, const vector2d& resolution, DeviceLevel l )
+	void Engine::Initialization( const vector2d& viewport, const vector2d& resolution, DeviceLevel l, const std::string& root, const std::string& wirte )
 	{
 		//构造其他引擎成员必须在engine构造之后
 		//应为其他成员的构造可能会调用engine
+		IOSystem::Create();
+		IOSystem::Instance().SetRootPath( root );
+		IOSystem::Instance().SetWritePath( wirte );
 		SharedBuffer::CreatSharedMemeryInstance();
 		LanguageControl::Create( );
-		SoundManager::Create( );
-		m_Sound = SoundManager::Instance();
+		m_Sound = SoundManager::Create( );
 		m_eDeviceLevel = l;
 		m_pDevice = NEW Device();
 		m_pDevice->OnDeviceCreate();
@@ -161,6 +166,7 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pResource );
 		m_pDevice->OnDeviceDestroy();
 		SAFE_DELETE( m_pDevice );
+		IOSystem::Destroy();
 	}
 	//-------------------------------------------------------------------
 	void Engine::_AttachCamera( ICamera* cptr )
@@ -258,10 +264,10 @@ namespace BohgeEngine
 	}
 	//-------------------------------------------------------------------
 	Engine* Engine::m_pEngine = NULL;
-	Engine* Engine::CreateEngine(const vector2d& viewport, const vector2d& resolution, DeviceLevel l)
+	Engine* Engine::CreateEngine(const vector2d& viewport, const vector2d& resolution, DeviceLevel l, const std::string& root, const std::string& wirte )
 	{
 		m_pEngine = NEW Engine();
-		m_pEngine->Initialization( viewport, resolution, l );
+		m_pEngine->Initialization( viewport, resolution, l, root, wirte );
 		return m_pEngine;
 	}
 	//-------------------------------------------------------------------

@@ -28,47 +28,23 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-
 #pragma once
-#include "SoundPlayer.h"
-#include <queue>
+#include "IOSystemBase.h"
+#ifdef ANDROID
 
-
-#ifdef _OPENAL
 namespace BohgeEngine
 {
-	class SoundPlayerAL : public SoundPlayer
+	class AndroidIOSystem : public IOSystemBase
 	{
-		friend class SoundManagerAL;
-	private:
-		enum Constant
-		{
-			SC_DATA_QUEUE_SIZE = 2,
-		};
-	private:
-		typedef std::queue<uint>	BufferDataQueue;
-	private:
-		BufferDataQueue			m_DataQueue;//“Ù∆µplayer
-		bool					m_isLooping;
-		bool					m_isPlaying;
-		uint					m_DataQueueHandles[SC_DATA_QUEUE_SIZE];//“Ù∆µplayer
-		uint					m_SourceHandle;//≤•∑≈µƒ“Ù‘¥æ‰±˙
-	private:
-		SoundPlayerAL( int hash, int index, Decoder* res );
-		virtual ~SoundPlayerAL(void);
-	private:
-		int _GetALFormat();
-	private:
-		virtual void _OnInitialization();
-		virtual void _DoSetVolume( float volume );
-		virtual void _DoSetPitch(float pitch);
-		virtual void _DoSetPaused( bool ispaused );
-		virtual void _DoSetLoop( bool isloop );
-		virtual void _DoSetPlay( bool isplay );
-		virtual void _DoSet3D( bool is3d );
-		virtual void _DoSetSoundPosition( const vector3f& pos, const vector3f& forward, const vector3f& up );
-		virtual void _DoUpdate();
+	protected:
+		AndroidIOSystem(void);
+		virtual ~AndroidIOSystem(void);
+	public:
+		virtual void MakeFolder( const std::string& path );
+		virtual bool isExist(const std::string& filename);
+		virtual bool DeleteLocalFile(const std::string& strFileName);
+		virtual std::vector<std::string> GetFileNamesWithExpand(const std::string& path, const std::string& exp);
+		virtual IFile* FileFactory( const std::string& path );
 	};
 }
 #endif

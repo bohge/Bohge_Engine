@@ -64,6 +64,7 @@ namespace BohgeEngine
 	class ScriptManager;
 	class Pipeline;
 	class MaterialManager;
+	class IOManager;
 	class Engine
 	{
 		//随机数，时间间隔的engine功能
@@ -113,7 +114,7 @@ namespace BohgeEngine
 		MaterialManager*	m_pMaterial;//材质自动生成器
 		BohgeNet::NetHost*	m_pNet;//网络相关的
 	private:
-		void Initialization(const vector2d& viewport, const vector2d& resolution, DeviceLevel l);
+		void Initialization(const vector2d& viewport, const vector2d& resolution, DeviceLevel l, const std::string& root, const std::string& wirte );
 		void Drop();
 		void _AttachCamera( ICamera* cptr );
 	public:
@@ -216,7 +217,7 @@ namespace BohgeEngine
 		Engine& operator= ( const Engine& r){};
 	public:
 		~Engine();
-		static Engine* CreateEngine(const vector2d& viewport, const vector2d& resolution, DeviceLevel l);
+		static Engine* CreateEngine(const vector2d& viewport, const vector2d& resolution, DeviceLevel l, const std::string& root, const std::string& wirte );
 		static void DropEngine(Engine** engine);
 		static BOHGE_FORCEINLINE Engine& Instance()
 		{

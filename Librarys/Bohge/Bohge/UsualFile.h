@@ -50,38 +50,17 @@ typedef _iobuf FILE;
 
 namespace BohgeEngine
 {
-	class ReadUsualFile : public IReadFile
+	class UsualFile : public IFile
 	{
 	private:
 		FILE*	m_pFile;
 	public:
-		ReadUsualFile(  const std::string& url  );
-		virtual ~ReadUsualFile();
+		UsualFile(  const std::string& url  );
+		virtual ~UsualFile();
 	protected:
+		virtual bool _DoOpenFile( ActionType at );
 		virtual int _DoReadFile( void* data, uint bitesize );
-		virtual bool _DoOpenFile();
-		virtual bool _DoCloseFile();
-		virtual int _DoSeekFile( uint to, int whence );
-		virtual int _DoTell();
-	public:
-		FILE* BaseFile()
-		{
-			return m_pFile;
-		}
-	};
-
-
-
-	class WriteUsualFile : public IWriteFile
-	{
-	private:
-		FILE*	m_pFile;
-	public:
-		WriteUsualFile( const std::string& url );
-		virtual ~WriteUsualFile();
-	protected:
 		virtual int _DoWriteFile( const void* data, uint bitesize );
-		virtual bool _DoOpenFile();
 		virtual bool _DoCloseFile();
 		virtual int _DoSeekFile( uint to, int whence );
 		virtual int _DoTell();

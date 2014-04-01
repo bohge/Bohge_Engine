@@ -35,8 +35,8 @@
 //		资源加载系统		   //
 /////////////////////////////////
 #include "ResLoader.h"
-#include "FilePath.h"
-#include "UsualFile.h"
+#include "IOSystem.h"
+#include "IFile.h"
 #include "EncryptFile.h"
 
 #include "png.h"
@@ -105,22 +105,9 @@ namespace BohgeEngine
 
 		byte* pBits;
 		uint nPixelSize;
-		bool isEncrypted = false;
-
-		if( -1 != filename.find(".enc") ) //是否是加密纹理
-		{
-			isEncrypted = true;
-		}
-		IReadFile* readfile;
-		if( isEncrypted )
-		{
-			readfile = NEW ReadEncryptFile( filename );
-		}
-		else
-		{
-			readfile = NEW ReadUsualFile( filename );
-		}
-		if( !readfile->OpenFile() )
+		IFile* readfile;
+		readfile = FILEFACTORY( filename );
+		if( !readfile->OpenFile( IFile::AT_READ ) )
 		{
 			return NULL;
 		}
@@ -203,7 +190,7 @@ namespace BohgeEngine
 			SAFE_DELETE_ARRAY( colorbuffer );
 		}
 		readfile->CloseFile();
-		SAFE_DELETE( readfile );
+		FILEDESTROY( readfile );
 
 		// Convert the image from BGRA to RGBA
 		if( 2 == header.ImageType )
@@ -233,38 +220,21 @@ namespace BohgeEngine
 		return NEW ResTextrue( vector2d(header.ImageWidth, header.ImageHeight), nPixelSize, pBits);
 	}
 	//------------------------------------------------------------------------------------------------------
-	IReadFile* helper; //为了满足png和从压缩的数据中读取
-	void png_zip_read(png_structp png_ptr, png_bytep data, png_size_t length) 
+	static void png_rw(png_structp png_ptr, png_bytep data, png_size_t length) 
 	{
-		helper->ReadFile(data, length);
+		IFile* file = static_cast<IFile*>(png_ptr->io_ptr);
+		file->ReadFile(data, length);
 		//File::Instance().ReadFile(data, length, 1, file);
 	}
 	ResLoader::ResTextrue* ResLoader::LoadPng(std::string filename)
 	{
 		png_structp PngPtr;
 		png_infop InfoPtr;
-		bool isEncrypted = false;
-		IReadFile* readfile;
+		IFile* readfile;
 
 
-		if( -1 != filename.find(".enc") ) //是否是加密纹理
-		{
-			isEncrypted = true;
-		}
-
-		if( isEncrypted )
-		{
-			/* open file and test for it being a png */
-			readfile = NEW ReadEncryptFile( filename );
-		}
-		else
-		{
-			/* open file and test for it being a png */
-			readfile = NEW ReadUsualFile( filename );
-		}
-
-		helper = readfile;
-		readfile->OpenFile();
+		readfile = FILEFACTORY( filename );
+		readfile->OpenFile( IFile::AT_READ );
 
 		/* initialise structures for reading a png file */
 		PngPtr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
@@ -273,7 +243,7 @@ namespace BohgeEngine
 		setjmp(png_jmpbuf(PngPtr));
 
 		//相同代码
-		png_set_read_fn(PngPtr, NULL, png_zip_read);//调用回调函数读取数据
+		png_set_read_fn(PngPtr, readfile, png_rw);//调用回调函数读取数据
 		png_read_png(PngPtr, InfoPtr, PNG_TRANSFORM_EXPAND, 0);
 
 		int width = png_get_image_width(PngPtr, InfoPtr);
@@ -345,7 +315,7 @@ namespace BohgeEngine
 		png_destroy_read_struct(&PngPtr, &InfoPtr, 0);
 
 		readfile->CloseFile();
-		SAFE_DELETE( readfile );
+		FILEDESTROY( readfile );
 		return NEW ResTextrue( vector2d(width, height), channel, data);
 	}
 	//------------------------------------------------------------------------------------------------------

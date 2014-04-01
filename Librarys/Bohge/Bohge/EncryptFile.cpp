@@ -41,62 +41,67 @@ namespace BohgeEngine
 	//////////////////////
 	//		¶ÁÎÄ¼þ	   //
 	/////////////////////
-	ReadEncryptFile::ReadEncryptFile(  const std::string& url  )
-		:ReadUsualFile( url ),
-		m_PosIndex(0)
+	EncryptFile::EncryptFile(  const std::string& url  )
+		:UsualFile( url ),
+		m_PosIndex(0),
+		m_pDatas(NULL)
 	{
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	ReadEncryptFile::~ReadEncryptFile(void)
+	EncryptFile::~EncryptFile(void)
 	{
+		SAFE_DELETE( m_pDatas );
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	bool ReadEncryptFile::_DoOpenFile()
+	bool EncryptFile::_DoOpenFile( ActionType at )
 	{
-		m_isOpen = ReadUsualFile::_DoOpenFile();
-		if ( m_isOpen )
+		bool isopen = UsualFile::_DoOpenFile( at );
+		if ( isopen )
 		{
-			vector<byte> raw;
-			raw.resize( GetSize() );
-			m_Datas.resize( GetSize() );
-			ReadUsualFile::_DoReadFile( &raw[0], GetSize() );
-			AES::Instance().Decrypt( (char*)&raw[0], (char*)&m_Datas[0], GetSize() );
-			return true;
+			byte* raw = NEW byte[GetSize()];;
+			m_pDatas = NEW byte[GetSize()];
+			UsualFile::_DoReadFile( raw, GetSize() );
+			AES::Instance().Decrypt( (char*)raw, (char*)m_pDatas, GetSize() );
 		}
-		return false;
+		return isopen;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	bool ReadEncryptFile::_DoCloseFile()
+	bool EncryptFile::_DoCloseFile()
 	{
-		return ReadUsualFile::_DoCloseFile();
+		return UsualFile::_DoCloseFile();
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadEncryptFile::_DoReadFile( void* data, uint bitesize )
+	int EncryptFile::_DoReadFile( void* data, uint bitesize )
 	{
 		if ( GetSize() < m_PosIndex + bitesize )
 		{
 			return 0;
 		}
-		memcpy( data, &m_Datas[m_PosIndex], bitesize );
+		memcpy( data, &m_pDatas[m_PosIndex], bitesize );
 		m_PosIndex += bitesize;
 		return bitesize;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadEncryptFile::_DoSeekFile( uint to, int whence )
+	int EncryptFile::_DoSeekFile( uint to, int whence )
 	{
 		switch( whence )
 		{
 		case SEEK_SET: m_PosIndex = 0; return 0;
 		case SEEK_CUR: m_PosIndex += to; return 0;
-		case SEEK_END: m_PosIndex = m_FileSize - to; return 0;
+		case SEEK_END: m_PosIndex = _GetFileSize() - to; return 0;
 		}
 		return -1;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadEncryptFile::_DoTell()
+	int EncryptFile::_DoTell()
 	{
 		return m_PosIndex;
 	}
-
 	//--------------------------------------------------------------------------------------------------------------
+	int EncryptFile::_DoWriteFile( const void* data, uint bitesize )
+	{
+		ASSERT(false);
+		return 0;
+	}
+
 }

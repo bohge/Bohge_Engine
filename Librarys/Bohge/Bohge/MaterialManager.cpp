@@ -36,10 +36,10 @@
 /////////////////////////////////
 
 #include "MaterialManager.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Utility.h"
 #include "Material.h"
-#include "UsualFile.h"
+#include "IFile.h"
 #include "Utility.h"
 #include "MaterialCompiler.h"
 
@@ -72,12 +72,13 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	Material* MaterialManager::_LoadMaterial( const std::string& path )
 	{
-		ReadUsualFile readfile( FILEPATH.ShaderFolder() + path );
-		readfile.OpenFile();
-		char* datas = NEW char[readfile.GetSize()+1];
-		readfile.ReadFile( datas, readfile.GetSize() );
-		datas[readfile.GetSize()] = 0;
-		readfile.CloseFile();
+		IFile* readfile = FILEFACTORY( IOINSTANCE.ShaderFolder() + path );
+		readfile->OpenFile( IFile::AT_READ );
+		char* datas = NEW char[readfile->GetSize()+1];
+		readfile->ReadFile( datas, readfile->GetSize() );
+		datas[readfile->GetSize()] = 0;
+		readfile->CloseFile();
+		FILEDESTROY( readfile );
 		string source = datas;
 		SAFE_DELETE_ARRAY(datas);
 		Utility::RemoveComment( "//", source );
@@ -89,7 +90,7 @@ namespace BohgeEngine
 	void MaterialManager::Initialization( )
 	{
 		m_pMaterialCompiler->Initialization( );
-		vector<string> files = FILEPATH.GetFileNamesWithExpand( FILEPATH.ShaderFolder(), BOHGE_MATERIAL_EXPAND );
+		vector<string> files = IOINSTANCE.GetFileNamesWithExpand( IOINSTANCE.ShaderFolder(), BOHGE_MATERIAL_EXPAND );
 		for ( vector<string>::iterator it = files.begin();
 			it != files.end();
 			it ++ )

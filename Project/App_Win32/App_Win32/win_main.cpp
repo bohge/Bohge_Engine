@@ -53,7 +53,6 @@
 
 #include "Game.h"
 #include "Log.h"
-#include "FilePath.h"
 #include "ShopHelper.h"
 
 #include <stdio.h>
@@ -653,12 +652,10 @@ int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, TCHAR *lpCmdLi
 	(strrchr(strFilePath, ('\\')))[1] = 0;
 	SetCurrentDirectory( strFilePath );
 	string path(strFilePath);
-	FILEPATH.SetRootPath(path);
-	FILEPATH.SetWritePath(path);
 
 	//³õÊ¼»¯
 	Game::Instance().GetAdmobID(AdHelper::PF_ANDROID);
-	Game::Instance().Initialization( vector2d(windowsWidth, windowsHeight), vector2d(WIDTH, HEIGHT), Engine::LEL_ULTRA, false, path, "12345678901234567890123456789012");
+	Game::Instance().Initialization( vector2d(windowsWidth, windowsHeight), vector2d(WIDTH, HEIGHT), Engine::LEL_ULTRA, false, path, path, "12345678901234567890123456789012");
 	//¼ÙµÄitem
 	ShopHelper::Instance().isAllowIAP() = true;
 	Game::Instance().CheckIapStatus();

@@ -131,11 +131,9 @@ namespace BohgeGame
 			return true;
 		}
 	public:
-		BOHGE_FORCEINLINE void Initialization(const vector2d& view, const vector2d& resolution, Engine::DeviceLevel l, bool isForceAD, const std::string& ApkPath, const std::string& udid)
+		BOHGE_FORCEINLINE void Initialization(const vector2d& view, const vector2d& resolution, Engine::DeviceLevel l, bool isForceAD, const std::string& root, const std::string& wirte, const std::string& udid)
 		{
-			DEBUGLOG("Game Initializetion , %s\n", ApkPath.c_str());
-
-			m_pEngine = Engine::CreateEngine( view, resolution, l );
+			m_pEngine = Engine::CreateEngine( view, resolution, l, root, wirte );
 			//m_pengine->GetCamera()->CreatePerspectiveProjection(3.1415926f / 4.0f, w/h, 10.0f , 1000.0f );
 
 

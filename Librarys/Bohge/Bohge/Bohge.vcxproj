@@ -374,6 +374,10 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AndroidIOSystem.cpp" />
+    <ClCompile Include="IOSIOSystem.cpp" />
+    <ClCompile Include="IOSystem.cpp" />
+    <ClCompile Include="IOSystemBase.cpp" />
     <ClCompile Include="JobManager.cpp" />
     <ClCompile Include="EmitterBase.cpp" />
     <ClCompile Include="GreaterThread.cpp" />
@@ -399,7 +403,6 @@
     <ClCompile Include="ShaderLibrary.cpp" />
     <ClCompile Include="ShaderParameter.cpp" />
     <ClCompile Include="ShaderSegment.cpp" />
-    <ClCompile Include="SoundManage.cpp" />
     <ClCompile Include="3DMath.cpp" />
     <ClCompile Include="aabboxDraw.cpp" />
     <ClCompile Include="Bfont.cpp" />
@@ -423,7 +426,6 @@
     <ClCompile Include="ThreadRWLock.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="AES.cpp" />
-    <ClCompile Include="FilePath.cpp" />
     <ClCompile Include="ResLoader.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Serializer.cpp" />
@@ -431,6 +433,7 @@
     <ClCompile Include="UsualFile.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="WAVDecoder.cpp" />
+    <ClCompile Include="WindowsIOSystem.cpp" />
     <ClCompile Include="ZipFile.cpp" />
     <ClCompile Include="ActionManager.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -508,6 +511,9 @@
     <ClCompile Include="ShadowCaster.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AndroidIOSystem.h" />
+    <ClInclude Include="IOSIOSystem.h" />
+    <ClInclude Include="IOSystemBase.h" />
     <ClInclude Include="JobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
     <ClInclude Include="BinaryIndex.hpp" />
@@ -545,7 +551,6 @@
     <ClInclude Include="ShaderLibrary.h" />
     <ClInclude Include="ShaderParameter.h" />
     <ClInclude Include="ShaderSegment.h" />
-    <ClInclude Include="SoundManage.h" />
     <ClInclude Include="3DMath.h" />
     <ClInclude Include="aabbox.hpp" />
     <ClInclude Include="aabrect.hpp" />
@@ -583,7 +588,7 @@
     <ClInclude Include="vector4.hpp" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="AES.h" />
-    <ClInclude Include="FilePath.h" />
+    <ClInclude Include="IOSystem.h" />
     <ClInclude Include="ResLoader.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Serializer.h" />
@@ -592,6 +597,7 @@
     <ClInclude Include="UsualFile.h" />
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="WAVDecoder.h" />
+    <ClInclude Include="WindowsIOSystem.h" />
     <ClInclude Include="ZipFile.h" />
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="Log.h" />

@@ -46,8 +46,8 @@
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	ReadZipFile::ReadZipFile( const std::string& url )
-		:IReadFile( url ),
+	ZipFile::ZipFile( const std::string& url )
+		:IFile( url ),
 		m_pZipArchive( NULL )
 	{
 		uint pos = GetFilePath().find_first_of('.');
@@ -68,12 +68,12 @@ namespace BohgeEngine
 		m_pZipStat = NEW struct zip_stat();
 	}
 	//-------------------------------------------------------------------------------------------------------
-	ReadZipFile::~ReadZipFile()
+	ZipFile::~ZipFile()
 	{
 		SAFE_DELETE( m_pZipStat );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool ReadZipFile::_DoOpenFile()
+	bool ZipFile::_DoOpenFile( ActionType at )
 	{
 		m_pZipArchive = zip_open(m_ZipPath.c_str(), 0, NULL);
 		if (m_pZipArchive == NULL) 
@@ -81,7 +81,7 @@ namespace BohgeEngine
 			DEBUGLOG("Error loading Zip",1);
 		}
 		zip_stat(m_pZipArchive, m_FilePathInZip.c_str(), ZIP_FL_UNCHANGED , m_pZipStat);//读取zip属性
-		m_FileSize = m_pZipStat->size;
+		_SetFileSize( m_pZipStat->size );
 		m_pZipfile = zip_fopen(m_pZipArchive, m_FilePathInZip.c_str(), 0); //打开文件流
 		if ( NULL != m_pZipfile )
 		{
@@ -90,27 +90,32 @@ namespace BohgeEngine
 		return false;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	int ReadZipFile::_DoReadFile( void* data, uint bitesize )
+	int ZipFile::_DoReadFile( void* data, uint bitesize )
 	{
 		return zip_fread(m_pZipfile, data, bitesize); //读取文件
 	}
 	//-------------------------------------------------------------------------------------------------------
-	bool ReadZipFile::_DoCloseFile()
+	int ZipFile::_DoWriteFile( const void* data, uint bitesize )
+	{
+		ASSERT(false);
+		return 0;
+	}
+	//-------------------------------------------------------------------------------------------------------
+	bool ZipFile::_DoCloseFile()
 	{
 		return zip_fclose(m_pZipfile);
 	}
 	//-------------------------------------------------------------------------------------------------------
-	int ReadZipFile::_DoSeekFile( uint to, int whence )
+	int ZipFile::_DoSeekFile( uint to, int whence )
 	{
 		ASSERT( false );
 		return -1;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	int ReadZipFile::_DoTell()
+	int ZipFile::_DoTell()
 	{
 		ASSERT( false );
 		return 0;
 	}
-
 	//-------------------------------------------------------------------------------------------------------
 }

@@ -35,7 +35,6 @@
 //			最基本的文件	   //
 /////////////////////////////////
 #include "Log.h"
-#include "FilePath.h"
 #include "UsualFile.h"
 
 
@@ -57,17 +56,17 @@ namespace BohgeEngine
 	//		写文件	   //
 	/////////////////////
 	//--------------------------------------------------------------------------------------------------------------
-	ReadUsualFile::ReadUsualFile( const std::string& url )
-		:IReadFile( url ),
+	UsualFile::UsualFile( const std::string& url )
+		:IFile( url ),
 		m_pFile(NULL)
 	{
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	ReadUsualFile::~ReadUsualFile(void)
+	UsualFile::~UsualFile(void)
 	{
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	bool ReadUsualFile::_DoOpenFile()
+	bool UsualFile::_DoOpenFile( ActionType at )
 	{
 		DEBUGLOG("Read %s\n", GetFilePath().c_str() );
 		m_pFile = fopen( GetFilePath().c_str(), "rb" );
@@ -80,18 +79,19 @@ namespace BohgeEngine
 		{
 			uint nCurrentPos = ftell( m_pFile );//读文件大小
 			fseek( m_pFile, 0, SEEK_END );
-			m_FileSize = ftell( m_pFile ) + nCurrentPos;
+			uint size = ftell( m_pFile ) + nCurrentPos;
 			fseek( m_pFile, nCurrentPos, SEEK_SET );
+			_SetFileSize( size );
 		}
 		return m_pFile != NULL ? true : false;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	bool ReadUsualFile::_DoCloseFile()
+	bool UsualFile::_DoCloseFile()
 	{
 		return fclose( m_pFile ) == -1 ? false : true;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadUsualFile::_DoReadFile( void* data, uint bitesize )
+	int UsualFile::_DoReadFile( void* data, uint bitesize )
 	{
 		if ( fread( data, bitesize, 1, m_pFile ) == 1 )
 		{
@@ -100,67 +100,17 @@ namespace BohgeEngine
 		return 0;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadUsualFile::_DoSeekFile( uint to, int whence )
+	int UsualFile::_DoSeekFile( uint to, int whence )
 	{
 		return fseek( m_pFile, to, whence );
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int ReadUsualFile::_DoTell()
+	int UsualFile::_DoTell()
 	{
 		return ftell( m_pFile );
 	}
-
-
-
-
-
-	//////////////////////
-	//		写文件	   //
-	/////////////////////
-	WriteUsualFile::WriteUsualFile( const std::string& url )
-		:IWriteFile( url ),
-		m_pFile(NULL)
-	{
-
-	}
 	//--------------------------------------------------------------------------------------------------------------
-	WriteUsualFile::~WriteUsualFile()
-	{
-
-	}
-	//--------------------------------------------------------------------------------------------------------------
-	bool WriteUsualFile::_DoOpenFile()
-	{
-		DEBUGLOG("Wirer into %s\n", GetFilePath().c_str() );
-		for ( size_t found = 0 ; ;)
-		{
-			found = GetFilePath().find_first_of("/\\",found+1);
-			if ( found < GetFilePath().size() )
-			{
-				string dir = GetFilePath().substr(0, found);
-				FILEPATH.MakeFolder(dir);
-			}
-			else
-			{
-				break;
-			}
-		}
-		m_pFile = fopen( GetFilePath().c_str(), "wb" );
-		if( NULL == m_pFile )
-		{
-			DEBUGLOG("File %s Can not Open! \n", GetFilePath().c_str() );
-			ASSERT(false);
-		}
-		return m_pFile != NULL ? true : false;
-	}
-	//--------------------------------------------------------------------------------------------------------------
-	bool WriteUsualFile::_DoCloseFile()
-	{
-		IWriteFile::_DoCloseFile();
-		return fclose( m_pFile ) == -1 ? false : true;
-	}
-	//--------------------------------------------------------------------------------------------------------------
-	int WriteUsualFile::_DoWriteFile( const void* data, uint bitesize )
+	int UsualFile::_DoWriteFile( const void* data, uint bitesize )
 	{
 		if ( fwrite( data, bitesize, 1, m_pFile ) == 1 )
 		{
@@ -168,16 +118,5 @@ namespace BohgeEngine
 		}
 		return 0;
 	}
-	//--------------------------------------------------------------------------------------------------------------
-	int WriteUsualFile::_DoSeekFile( uint to, int whence )
-	{
-		return fseek( m_pFile, to, whence );
-	}
-	//--------------------------------------------------------------------------------------------------------------
-	int WriteUsualFile::_DoTell()
-	{
-		return ftell( m_pFile );
-	}
 
-	//--------------------------------------------------------------------------------------------------------------
 }

@@ -4,6 +4,10 @@
 #include "SoundResource.h"
 #include "LessThread.h"
 #include "Utility.h"
+#include "MPTDecoder.h"
+#include "OGGDecoder.h"
+#include "WAVDecoder.h"
+#include "Log.h"
 
 
 using namespace std;
@@ -37,6 +41,38 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pDecodingLessThread );
 	}
 	//-------------------------------------------------------------------------------------------------------
+	Decoder* DecoderManager::_DecoderFactory( const std::string& path )
+	{
+		//确定声音类型
+		Decoder* decoder = NULL;
+		if ( string::npos != path.find( ".mp3" )
+			|| string::npos != path.find( ".MP3" ) )
+		{
+			decoder = NEW MPTDecoder();
+		}
+		else if ( string::npos != path.find( ".ogg" )
+			|| string::npos != path.find( ".OGG" ) )
+		{
+			decoder = NEW OGGDecoder();
+		}
+		else if ( string::npos != path.find( ".wav" )
+			|| string::npos != path.find( ".WAV" ) )
+		{
+			decoder = NEW WAVDecoder();
+		}
+		else
+		{
+			DEBUGLOG( "Unkonw sound type %s\n", path.c_str() );
+		}
+		decoder->LoadResource( path );
+		return decoder;
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void DecoderManager::_DestoryDecoder( Decoder* decoder )
+	{
+		SAFE_DELETE( decoder );
+	}
+	//-------------------------------------------------------------------------------------------------------
 	void DecoderManager::Update()
 	{
 		for( DecoderTrashList::iterator it = m_DecoderTrashList.begin();
@@ -47,7 +83,7 @@ namespace BohgeEngine
 				DecoderTrashList::iterator temp = it;
 				it++;
 				(*temp)->ReleaseDecoder();
-				Decoder::DestoryDecoder( *temp );
+				_DestoryDecoder( *temp );
 				m_DecoderTrashList.erase( temp );
 			}
 			else
@@ -69,7 +105,7 @@ namespace BohgeEngine
 		DecoderReferenceMap::iterator refDecoder = m_DecoderMap.find( hash );
 		if ( m_DecoderMap.end() == refDecoder )//没找到解码器，创建新的解码器
 		{
-			decoder = Decoder::DecoderFactory( path );
+			decoder = _DecoderFactory( path );
 			DecoderReference* dr = NEW DecoderReference( decoder );
 			m_DecoderMap.insert( make_pair( hash, dr ) );
 		}

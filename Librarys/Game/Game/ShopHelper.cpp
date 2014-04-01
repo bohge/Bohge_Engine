@@ -44,7 +44,7 @@
 #include "Base64.h"
 #include "Engine.h"
 #include "NetHelper.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 #include <sstream>
 #include <math.h>
@@ -78,10 +78,10 @@ namespace BohgeGame
 	//-------------------------------------------------------------------------------------------------------
 	bool ShopHelper::CheckReceipt()
 	{
-		if( FILEPATH.isExist( TempRecepitName )//如果文件目录下有次文件说明上次没有处理完成
+		if( IOINSTANCE.isExist( TempRecepitName )//如果文件目录下有次文件说明上次没有处理完成
 			&& !m_isIAPProcess)//且不能有正在处理的IAP
 		{
-			Serializer ser( FILEPATH.WriteFolder() + TempRecepitName );
+			Serializer ser( IOINSTANCE.WriteFolder() + TempRecepitName );
 			string receipt;
 			ser>>receipt;
 			m_Recepit = receipt;
@@ -94,7 +94,7 @@ namespace BohgeGame
 	//-------------------------------------------------------------------------------------------------------
 	bool ShopHelper::isUnprocessReceipt()
 	{
-		if( FILEPATH.isExist( TempRecepitName )//如果文件目录下有次文件说明上次没有处理完成
+		if( IOINSTANCE.isExist( TempRecepitName )//如果文件目录下有次文件说明上次没有处理完成
 			&& !m_isIAPProcess)//且不能有正在处理的IAP
 		{
 			//this->ShopServerStatus();
@@ -152,7 +152,7 @@ namespace BohgeGame
 	void ShopHelper::PaymentTransactionStatePurchased( const std::string& receipt)
 	{
 		m_Recepit = Base64::Encode( receipt );;//加密订单
-		Serializer ser( FILEPATH.WriteFolder() + TempRecepitName );
+		Serializer ser( IOINSTANCE.WriteFolder() + TempRecepitName );
 		ser<<m_Recepit;//保存加密后的订单
 		this->SendReceipt( m_Recepit );
 	}
@@ -295,7 +295,7 @@ namespace BohgeGame
 				pak>>isAppleRespones>>isReal;
 				if( isAppleRespones )//如果验证了删除这个订单
 				{
-					FILEPATH.DeleteLocalFile( FILEPATH.WriteFolder() + TempRecepitName );
+					IOINSTANCE.DeleteLocalFile( IOINSTANCE.WriteFolder() + TempRecepitName );
 				}
 				m_OnReceiptResult.Multicast(isReal);//如果有监听者，通知监听者处理结果
 				m_isIAPProcess = false;

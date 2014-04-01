@@ -38,7 +38,7 @@
 #include "Texture.h"
 #include "Serializer.h"
 #include "SceneDataIndex.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 using namespace std;
@@ -106,7 +106,7 @@ namespace BohgeEngine
 									std::string name;
 									int ID;
 									loader>>ID>>name;
-									if( FILEPATH.isExist(TexPath + WaterTextureFolder + name) )
+									if( IOINSTANCE.isExist(TexPath + WaterTextureFolder + name) )
 									{
 										Texture2D* temp = m_WaterMaterial->LoadTexture( static_cast<Material::Material_Attribute>(ID), TexPath + WaterTextureFolder + name );
 										if ( Material::ATT_TEX_DIFFUSE == static_cast<Material::Material_Attribute>(ID) )

@@ -42,15 +42,25 @@
 #include "png.h"
 #include "pnginfo.h"
 #include "pngstruct.h"
-#include "UsualFile.h"
+#include "IOSystem.h"
 #include "TextureData.h"
 #include "Engine.h"
+#include "IFile.h"
 
 using namespace std;
 
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------
+	static void png_rw(png_structp png_ptr, png_bytep data, png_size_t length) 
+	{
+		IFile* file = static_cast<IFile*>(png_ptr->io_ptr);
+		file->ReadFile(data, length);
+		//File::Instance().ReadFile(data, length, 1, file);
+	}
+	static void png_flush(png_structp png_ptr) 
+	{
+	}
 	void Texture::SaveTexture( const OutPutTextureData& saveto )
 	{
 		unsigned long i;
@@ -60,13 +70,14 @@ namespace BohgeEngine
 		png_byte *image;
 		png_bytep *row_pointers;
 
-		WriteUsualFile writefile(saveto.m_Path);
-		writefile.OpenFile();
+		IFile* writefile = IOSystem::Instance().FileFactory(saveto.m_Path);
+		writefile->OpenFile( IFile::AT_READ );
 
 
 		png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 		info_ptr = png_create_info_struct(png_ptr);
-		png_init_io(png_ptr, writefile.BaseFile() );
+		png_set_write_fn( png_ptr, writefile, png_rw, png_flush );
+		//png_init_io(png_ptr, writefile.BaseFile() );
 
 		int colortype, bitesize;
 		switch( saveto.m_Pixel )
@@ -93,7 +104,8 @@ namespace BohgeEngine
 		png_destroy_write_struct(&png_ptr, &info_ptr);
 		free(row_pointers);
 		row_pointers = NULL;
-		writefile.CloseFile( );
+		writefile->CloseFile( );
+		IOSystem::Instance().FileDestroy( writefile );
 	}
 
 

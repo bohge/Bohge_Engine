@@ -36,7 +36,7 @@
 /////////////////////////////
 #include "Device.h"
 #include "3DMath.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Texture.h"
 #include "ShaderManager.h"
 #include "Vertex.h"
@@ -47,7 +47,7 @@
 #include "Material.h"
 #include "EngineResourceList.h"
 #include "TextureData.h"
-#include "UsualFile.h"
+#include "IFile.h"
 #include "EncryptFile.h"
 #include "Utility.h"
 #include "glsl/glsl_optimizer.h"
@@ -488,16 +488,9 @@ namespace BohgeEngine
 	string LoadShaderSource( const std::string& strFileName )
 	{
 		string source;
-		IReadFile* readfile;
-		if ( -1 == strFileName.find(".enc") )//·Ç¼ÓÃÜ
-		{
-			readfile = NEW ReadUsualFile( strFileName );
-		}
-		else
-		{
-			readfile = NEW ReadEncryptFile( strFileName );
-		}
-		if( false == readfile->OpenFile() )
+		IFile* readfile;
+		readfile = FILEFACTORY( strFileName );
+		if( false == readfile->OpenFile( IFile::AT_READ ) )
 		{
 			DEBUGLOG( "ERROR: Could not load shader file %s !\n", strFileName.c_str() );
 			return false;
@@ -507,7 +500,7 @@ namespace BohgeEngine
 		datas[readfile->GetSize()] = 0;
 		source = datas;
 		readfile->CloseFile();
-		SAFE_DELETE( readfile );
+		FILEDESTROY( readfile );
 		SAFE_DELETE_ARRAY(datas);
 		return source;
 	}
@@ -618,13 +611,13 @@ namespace BohgeEngine
 				int second = source.find_first_of('\"', first+1 );
 				string includefile = source.substr( first+1, second - first - 1 );
 				string includetext;
-				if ( FILEPATH.isExist( FILEPATH.ShaderFolder() + includefile ) )
+				if ( IOINSTANCE.isExist( IOINSTANCE.ShaderFolder() + includefile ) )
 				{
-					includetext = LoadShaderSource( FILEPATH.ShaderFolder() + includefile );
+					includetext = LoadShaderSource( IOINSTANCE.ShaderFolder() + includefile );
 				}
 				else
 				{
-					includetext = LoadShaderSource( FILEPATH.AddtionFolder() + includefile );
+					includetext = LoadShaderSource( IOINSTANCE.AddtionFolder() + includefile );
 				}
 				source.erase( begin, second - begin + 1 );
 				source.insert( begin, includetext );

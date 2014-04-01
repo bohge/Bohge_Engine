@@ -38,7 +38,8 @@
 #include "Engine.h"
 #include "ScriptManager.h"
 #include "Log.h"
-#include "UsualFile.h"
+#include "IFile.h"
+#include "IOSystem.h"
 
 
 using namespace std;
@@ -139,11 +140,12 @@ namespace BohgeEngine
 		//¼ÓÔØ½Å±¾
 		m_Scriptname = filename;
 		string buffer;
-		ReadUsualFile ruf( m_Scriptname );
-		ruf.OpenFile();
-		buffer.resize( ruf.GetSize() );
-		ruf.ReadFile( &buffer[0], ruf.GetSize() );
-		ruf.CloseFile();
+		IFile* ruf = FILEFACTORY( m_Scriptname );
+		ruf->OpenFile( IFile::AT_READ );
+		buffer.resize( ruf->GetSize() );
+		ruf->ReadFile( &buffer[0], ruf->GetSize() );
+		ruf->CloseFile();
+		FILEDESTROY( ruf );
 		buffer.push_back( 0 );
 #ifdef LUA_DEBUG_MODE
 		Engine::Instance().GetScriptManager()->OnScriptErrorEvent( m_OnErrorFunc );

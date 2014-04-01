@@ -45,8 +45,9 @@ struct zip_file;
 
 namespace BohgeEngine
 {
-	class ReadZipFile : public IReadFile
+	class ZipFile : public IFile
 	{
+		friend class IOSystem;
 	private:
 		zip*			m_pZipArchive;
 		zip_stat*		m_pZipStat;
@@ -54,13 +55,14 @@ namespace BohgeEngine
 		std::string		m_ZipPath;
 		std::string		m_FilePathInZip;
 	public:
-		ReadZipFile( const std::string& url );
-		~ReadZipFile( );
+		ZipFile( const std::string& url );
+		~ZipFile( );
 	public:
-		virtual int _DoReadFile( void* data, uint bitesize );
-		virtual bool _DoOpenFile();
+		virtual bool _DoOpenFile( ActionType at );
 		virtual bool _DoCloseFile();
 		virtual int _DoSeekFile( uint to, int whence );
 		virtual int _DoTell();
+		virtual int _DoReadFile( void* data, uint bitesize );
+		virtual int _DoWriteFile( const void* data, uint bitesize );
 	};
 }

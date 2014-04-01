@@ -47,7 +47,7 @@
 #include "UIAnimation.h"
 #include "RendBuffer.h"
 #include "Shaders2D.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Utility.h"
 
 
@@ -86,7 +86,7 @@ namespace BohgeEngine
 		m_vScale(1,1),
 		m_isManaged(true)//默认是被托管绘制的
 	{
-		string fullpath = FILEPATH.isExist( filename ) ? filename : FILEPATH.UIFolder() + filename;
+		string fullpath = IOINSTANCE.isExist( filename ) ? filename : IOINSTANCE.UIFolder() + filename;
 		Serializer file( fullpath );
 		string texName;//读取UI纹理
 		file>>texName;
@@ -102,7 +102,7 @@ namespace BohgeEngine
 		}
 		UIData data;
 		m_pTexture = NEW Texture2D();
-		m_pTexture->LoadTexture( Device::PF_R8G8B8A8, FILEPATH.TextureFolder() + texName);
+		m_pTexture->LoadTexture( Device::PF_R8G8B8A8, IOINSTANCE.TextureFolder() + texName);
 		m_pBox = NEW aabrectf( );
 		for (int i = 0 ; i < size ; i ++)
 		{

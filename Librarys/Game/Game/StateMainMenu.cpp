@@ -34,7 +34,7 @@
 /////////////////////////////////////////
 //			State Manage class		   //
 /////////////////////////////////////////
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "ActionManager.h"
 #include "StateMainMenu.h"
 #include "StateManager.h"
@@ -184,9 +184,9 @@ namespace BohgeGame
 			vector2f( 2, 4),
 			vector2d( 100, 200),
 			-1,
-			FILEPATH.TextureFolder() + "Smoke.png");
+			IOINSTANCE.TextureFolder() + "Smoke.png");
 		e->CaculateBindBox();
-		e->LoadScript( FILEPATH.ScriptFolder() + "Test.lua" );
+		e->LoadScript( IOINSTANCE.ScriptFolder() + "Test.lua" );
 
 		//engine.GetSceneManage()->LoadScene( "light.sfd" );
 		//engine.GetSceneManage()->LoadScene( "tt.sfd" );
@@ -197,7 +197,7 @@ namespace BohgeGame
 		//engine.GetSceneManage()->LoadScene( "Test.sfd" );
 		engine.GetSceneManager()->GetSkyBox().AndSkyBox( SkyBox::BACKGROUND, "fl.png", "bl.png", "ul.png", "dl.png", "ll.png", "rl.png" );
 		lm = new LocatableModel();
-		lm->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		lm->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//lm->InitPhysical( 10, vector3f(0,0,0) );
 		lm->SetLocalScale( vector3f( 5,5,5 ) );
 		//lm->SetLocalScale( vector3f( 50,50,50 ) );
@@ -222,13 +222,13 @@ namespace BohgeGame
 		//light2->SetRange( 0.05 );
 
 		////lm3 = new LocatableModel();
-		////lm3->LoadModel( FILEPATH.ModelFolder() + "cone" );
+		////lm3->LoadModel( IOINSTANCE.ModelFolder() + "cone" );
 		////lm3->SetLocalScale( vector3f(5,5,5) );
 		////lm3->SetLocalRotation( Math::AxisToAxis( FORWARD, vector3f(0,1,0) ) );
 		////lm3->SetLocalPosition( vector3f( 0,0.01,0 ) );
 
 		//lm2 = new LocatableModel();
-		//lm2->LoadModel( FILEPATH.ModelFolder() + "Chameleon" );
+		//lm2->LoadModel( IOINSTANCE.ModelFolder() + "Chameleon" );
 		////lm2->InitPhysical( 10, vector3f(0,0,0) );
 		//lm2->SetLocalScale( vector3f( 200,200,200 ) );
 		//lm2->SetLocalPosition( vector3f( -650,5,-1030 ) );
@@ -239,7 +239,7 @@ namespace BohgeGame
 		////lm2->GetJointNode( 11 )->AttachNode( lm3 );
 
 		////lm5 = new LocatableModel;
-		////lm5->LoadModel( FILEPATH.ModelFolder() + "Cube" );
+		////lm5->LoadModel( IOINSTANCE.ModelFolder() + "Cube" );
 		////lm5->SetLocalPosition( vector3f( -650,2,-1080 ) );
 		////lm5->SetLocalScale(vector3f(0.1,0.1,0.1) );
 		////lm5->SetStatus( ISceneNode::RS_SHADOW );
@@ -247,56 +247,56 @@ namespace BohgeGame
 		//{//²âÊÔRenderTargetCube
 
 		//	//lm = new LocatableModel;
-		//	//lm->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		//	//lm->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//	//lm->SetLocalPosition( vector3f(40,-10,0) );
 		//	//lm->SetStatus( ISceneNode::RS_SHADOW );
 		//	//lm->SetLocalScale( vector3f(2,2,2) );
 		//	//lm->AnimationPlay();
 
 		//	//lm4 = new LocatableModel;
-		//	//lm4->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		//	//lm4->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//	//lm4->SetLocalPosition( vector3f(-40,-10,0) );
 		//	//lm4->SetStatus( ISceneNode::RS_SHADOW );
 		//	//lm4->SetLocalScale( vector3f(2,2,2) );
 		//	//lm4->AnimationPlay();
 
 		//	//lm2 = new LocatableModel;
-		//	//lm2->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		//	//lm2->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//	//lm2->SetLocalPosition( vector3f(0,-10,40) );
 		//	//lm2->SetStatus( ISceneNode::RS_SHADOW );
 		//	//lm2->SetLocalScale( vector3f(2,2,2) );
 		//	//lm2->AnimationPlay();
 
 		//	//lm4 = new LocatableModel;
-		//	//lm4->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		//	//lm4->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//	//lm4->SetLocalPosition( vector3f(0,-10,-40) );
 		//	//lm4->SetStatus( ISceneNode::RS_SHADOW );
 		//	//lm4->SetLocalScale( vector3f(2,2,2) );
 		//	//lm4->AnimationPlay();
 
 		//	//lm3 = new LocatableModel;
-		//	//lm3->LoadModel( FILEPATH.ModelFolder() + "Fox" );
+		//	//lm3->LoadModel( IOINSTANCE.ModelFolder() + "Fox" );
 		//	//lm3->SetLocalPosition( vector3f(0,30,0) );
 		//	//lm3->SetStatus( ISceneNode::RS_SHADOW );
 		//	//lm3->SetLocalScale( vector3f(2,2,2) );
 		//	//lm3->AnimationPlay();
 
 		//	lm3 = new LocatableModel;
-		//	lm3->LoadModel( FILEPATH.ModelFolder() + "Cube" );
+		//	lm3->LoadModel( IOINSTANCE.ModelFolder() + "Cube" );
 		//	lm3->GetRendMeshVector()[0].m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelSpotLightPerpixel );
 		//	lm3->SetLocalPosition( vector3f(0,25,5) );
 		//	lm3->SetLocalScale( vector3f(0.2,0.2,0.2) );
 		//	lm3->SetStatus( ISceneNode::RS_SHADOW );
 
 		//	lm3 = new LocatableModel;
-		//	lm3->LoadModel( FILEPATH.ModelFolder() + "Cube" );
+		//	lm3->LoadModel( IOINSTANCE.ModelFolder() + "Cube" );
 		//	lm3->GetRendMeshVector()[0].m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelSpotLightPerpixel );
 		//	lm3->SetLocalPosition( vector3f(0,1,-25) );
 		//	lm3->SetLocalScale( vector3f(0.2,0.2,0.2) );
 		//	lm3->SetStatus( ISceneNode::RS_SHADOW );
 
 		//	lm3 = new LocatableModel;
-		//	lm3->LoadModel( FILEPATH.ModelFolder() + "Cube" );
+		//	lm3->LoadModel( IOINSTANCE.ModelFolder() + "Cube" );
 		//	lm3->GetRendMeshVector()[0].m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelSpotLightPerpixel );
 		//	lm3->SetLocalPosition( vector3f(0,0,0) );
 		//	lm3->SetStatus( ISceneNode::RS_SHADOW );
@@ -304,7 +304,7 @@ namespace BohgeGame
 		//	//lm3->AnimationPlay();
 
 		//	lm5 = new LocatableModel;
-		//	lm5->LoadModel( FILEPATH.ModelFolder() + "Cube" );
+		//	lm5->LoadModel( IOINSTANCE.ModelFolder() + "Cube" );
 		//	lm5->GetRendMeshVector()[0].m_pMaterial->SetShader( Pipeline::PT_LIGHTING, ShaderManage::ModelSpotLightPerpixel );
 		//	lm5->SetLocalPosition( vector3f(0,-100,0) );
 		//	lm5->SetLocalScale(vector3f(50,5,50) );
@@ -320,23 +320,23 @@ namespace BohgeGame
 		//}
 
 		//ÉùÒô²âÊÔ
-		s1 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.wav" );
+		s1 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "backGroundMusic.wav" );
 		s1->SetVolume( 1.0 );
 		//s1->SetLoop( true );
 		s1->Paly();
-		//s2 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "backGroundMusic.ogg" );
+		//s2 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "backGroundMusic.ogg" );
 		//s2->SetVolume( 2.0 );
 		//s2->SetLoop( true );
 		//s2->Paly();
-		//s3 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Slider.ogg" );
+		//s3 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "Slider.ogg" );
 		//s3->SetVolume( 3.0 );
 		//s3->SetLoop( true );
 		//s3->Paly();
-		//s4 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//s4 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "Button.ogg" );
 		//s4->SetVolume( 3.0 );
 		//s4->SetLoop( true );
 		//s4->Paly();
-		//s5 = engine.GetSoundManager()->LoadSound( FILEPATH.SoundFolder() + "Button.ogg" );
+		//s5 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "Button.ogg" );
 		//s5->SetVolume( 3.0 );
 		//s5->SetLoop( true );
 		//s5->Paly();

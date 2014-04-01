@@ -46,24 +46,36 @@ namespace BohgeEngine
 	//基本类型
 	class IFile
 	{
+		friend class IOSystemBase;
 	public:
 		enum ActionType
 		{
-			FILE_READ,
-			FILE_WRITE,
+			AT_NONE = 0, //没有初始化的
+			AT_READ,
+			AT_WRITE,
 		};
 	private:
-		ActionType			m_ActionType;
-		std::string			m_FileUrl;
+		enum Constant
+		{
+			FC_FILEBUFFER = 1024*64,//64kb缓存的buffer
+		};
+	private:
+		std::string				m_FileUrl;
+		ActionType				m_ActionType;
+		byte*					m_pDatas;
+		uint					m_BufferSize;//缓存的大小，当文件小于FC_FILEBUFFER就需要计算缓存大小
+		uint					m_FileSize;
+		uint					m_PosIndex;
+		bool					m_isOpen;
 	protected:
-		bool				m_isOpen;
-		uint				m_FileSize;
-	public:
-		IFile( const std::string& url, ActionType action )
+		IFile( const std::string& url )
 			:m_FileUrl( url ),
-			m_ActionType(action),
+			m_ActionType(AT_NONE),
 			m_isOpen(false),
-			m_FileSize(0)
+			m_FileSize(0),
+			m_PosIndex(0),
+			m_BufferSize(0),
+			m_pDatas(NULL)
 		{
 		}
 		virtual ~IFile(void)
@@ -74,138 +86,173 @@ namespace BohgeEngine
 			}
 		}
 	protected:
-		virtual bool _DoOpenFile() = 0;
+		virtual bool _DoOpenFile( ActionType at ) = 0;
 		virtual bool _DoCloseFile() = 0;
 		virtual int _DoSeekFile( uint to, int whence ) = 0;
 		virtual int _DoTell() = 0;
+		virtual int _DoReadFile( void* data, uint bitesize ) = 0; //实际的读取函数
+		virtual int _DoWriteFile( const void* data, uint bitesize ) = 0; //实际的写入函数
+	protected:
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE uint _GetFileSize( )
+		{
+			return m_FileSize;
+		}
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE void _SetFileSize( uint size )
+		{
+			m_FileSize = size;
+		}
 	public:
-		virtual int DoWork( void* ptr, uint bitesize ) = 0;//读取或者写入
-	public:
-		BOHGE_FORCEINLINE bool OpenFile()
-		{
-			ASSERT( m_isOpen == false );
-			m_isOpen = _DoOpenFile();
-			return m_isOpen;
-		}
-		BOHGE_FORCEINLINE bool CloseFile()
-		{
-			ASSERT( m_isOpen == true );
-			m_isOpen = false;
-			_DoCloseFile();
-			return !m_isOpen;
-		}
-		BOHGE_FORCEINLINE int Seek( uint to, int whence )
-		{
-			ASSERT( m_isOpen == true );
-			return _DoSeekFile( to, whence );
-		}
-		BOHGE_FORCEINLINE int Tell()
-		{
-			return _DoTell();
-		}
+		//-------------------------------------------------------------------------------------------------------
 		BOHGE_FORCEINLINE const std::string& GetFilePath()
 		{
 			return m_FileUrl;
 		}
-		BOHGE_FORCEINLINE uint GetSize()
-		{
-			ASSERT( m_isOpen == true );
-			return m_FileSize;
-		}
-		BOHGE_FORCEINLINE void NewFile( const std::string& path )
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE bool OpenFile( ActionType at )
 		{
 			ASSERT( m_isOpen == false );
-			m_FileUrl = path;
+			m_isOpen = _DoOpenFile( at );
+			if ( m_isOpen )
+			{
+				switch( at )
+				{
+				case AT_READ:
+					{
+						m_BufferSize = m_FileSize > FC_FILEBUFFER ? FC_FILEBUFFER : m_FileSize;
+						m_pDatas = NEW byte[m_BufferSize];
+						_DoReadFile( m_pDatas, m_BufferSize );//重新填充
+					}break;
+				case AT_WRITE:
+					{
+						m_BufferSize = FC_FILEBUFFER;
+						m_pDatas = NEW byte[m_BufferSize];
+					}break;
+				default:ASSERT(false);
+				}
+			}
+			m_ActionType = m_isOpen ? at : AT_NONE;
+			return m_isOpen;
 		}
-	};
-
-
-
-
-	//读取文件基本类型
-	class IReadFile : public IFile
-	{
-	public:
-		IReadFile( const std::string& url )
-			:IFile( url, IFile::FILE_READ )
-		{
-		}
-		virtual ~IReadFile(void){}
-	protected:
-		virtual int _DoReadFile( void* data, uint bitesize ) = 0; //实际的读取函数
-	public:
-		virtual int DoWork( void* ptr, uint bitesize )
-		{
-			return ReadFile( ptr, bitesize );
-		}
-	public:
-		BOHGE_FORCEINLINE int ReadFile( void* ptr, uint size )
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE bool CloseFile()
 		{
 			ASSERT( m_isOpen == true );
-			return _DoReadFile( ptr, size );
-		}
-	};
-
-
-	//写入文件
-	class IWriteFile : public IFile
-	{
-	private:
-		enum Constant
-		{
-			WC_FILEBUFFER = 32*1024,//缓存的buffer
-		};
-	private:
-		std::vector<byte>		m_Datas;
-		uint					m_PosIndex;
-	public:
-		IWriteFile( const std::string& url )
-			:IFile( url, IFile::FILE_READ ),
-			m_PosIndex(0)
-		{
-			m_Datas.resize( WC_FILEBUFFER );
-		}
-		virtual ~IWriteFile(void)
-		{
-			ASSERT( 0 == m_PosIndex );
-		}
-	protected:
-		virtual int _DoWriteFile( const void* data, uint bitesize ) = 0; //实际的写入函数
-		virtual bool _DoCloseFile()
-		{
-			if ( m_PosIndex != 0 )
+			if ( m_PosIndex != 0 && AT_WRITE == m_ActionType )
 			{
-				_DoWriteFile( &m_Datas[0], m_PosIndex );
+				_DoWriteFile( m_pDatas, m_PosIndex );
 			}
+			m_isOpen = _DoCloseFile();
 			m_PosIndex = 0;
-			return true;
+			SAFE_DELETE( m_pDatas );
+			return !m_isOpen;
 		}
-	public:
-		virtual int DoWork( void* ptr, uint bitesize )
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE int Seek( uint to, int whence )
 		{
-			return WriteFile( ptr, bitesize );
+			int result = 0;
+			ASSERT( m_isOpen == true );
+			switch( m_ActionType )
+			{
+			case AT_READ:
+				{
+					result = _DoSeekFile( to, whence );
+					int pos = _DoTell();
+					m_BufferSize = m_FileSize - pos > FC_FILEBUFFER ? FC_FILEBUFFER : m_FileSize - pos;
+					_DoReadFile( m_pDatas, m_BufferSize );//重新加载
+					m_PosIndex = 0;
+				}break;
+			case AT_WRITE:
+				{
+					if ( 0 != m_PosIndex )
+					{
+						_DoWriteFile( m_pDatas, m_PosIndex );//把已有数据写入
+						m_PosIndex = 0;
+					}
+					result = _DoSeekFile( to, whence );
+				}break;
+			default:
+				{
+					ASSERT( false );
+				}break;
+			}
+			return result;
 		}
-	public:
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE int Tell()
+		{
+			ASSERT( m_isOpen == true );
+			return _DoTell() - m_BufferSize + m_PosIndex;
+		}
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE uint GetSize()
+		{
+			return m_FileSize;
+		}
+		//-------------------------------------------------------------------------------------------------------
+		template<typename T> BOHGE_FORCEINLINE int ReadFile( T* ptr )
+		{
+			ReadFile( ptr, sizeof(T) );
+		}
+		//-------------------------------------------------------------------------------------------------------
+		BOHGE_FORCEINLINE int ReadFile( void* data, uint bitesize )
+		{
+			if ( !m_isOpen )
+			{
+				OpenFile( AT_READ );
+			}
+			ASSERT( AT_READ == m_ActionType );
+			if ( bitesize > m_BufferSize || bitesize > ( m_BufferSize - m_PosIndex ) )
+			{
+				uint readsize = m_BufferSize - m_PosIndex;//buffer中的剩余数据加载出来先
+				memcpy( data, m_pDatas + m_PosIndex, readsize );
+				int pos = _DoTell();
+				m_BufferSize = m_FileSize - pos > FC_FILEBUFFER ? FC_FILEBUFFER : m_FileSize - pos;
+				if ( 0 == _DoReadFile( m_pDatas, m_BufferSize ) )//重新填充,0为没有数据
+				{
+					return 0;
+				}
+				uint remainsize = bitesize - readsize;//剩余需要读取的
+				memcpy( ((byte*)data)+readsize, m_pDatas, remainsize );
+				m_PosIndex = remainsize;
+			}
+			else
+			{
+				memcpy( data, m_pDatas + m_PosIndex, bitesize );
+				m_PosIndex += bitesize;
+			}
+			return bitesize;
+		}
+		//-------------------------------------------------------------------------------------------------------
+		template<typename T> BOHGE_FORCEINLINE int WriteFile( T* ptr )
+		{
+			WriteFile( ptr, sizeof(T) );
+		}
+		//-------------------------------------------------------------------------------------------------------
 		BOHGE_FORCEINLINE int WriteFile( const void* data, uint bitesize )
 		{
-			ASSERT( m_isOpen == true );
-			if ( bitesize > WC_FILEBUFFER || bitesize > ( WC_FILEBUFFER - m_PosIndex ) )
+			if ( !m_isOpen )
+			{
+				OpenFile( AT_WRITE );
+			}
+			ASSERT( AT_WRITE == m_ActionType );
+			if ( bitesize > m_BufferSize || bitesize > ( m_BufferSize - m_PosIndex ) )
 			{
 				if ( 0 != m_PosIndex )
 				{
-					_DoWriteFile( &m_Datas[0], m_PosIndex );
+					_DoWriteFile( m_pDatas, m_PosIndex );
 				}
 				_DoWriteFile( data, bitesize );
 				m_PosIndex = 0;
 			}
 			else
 			{
-				memcpy( &m_Datas[m_PosIndex], data, bitesize );
+				memcpy( m_pDatas + m_PosIndex, data, bitesize );
 				m_PosIndex += bitesize;
 			}
 			m_FileSize += bitesize;
 			return bitesize;
 		}
 	};
-
 }

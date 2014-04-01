@@ -53,7 +53,7 @@ namespace BohgeEngine
 		if ( NULL != m_FilePtr )
 		{
 			m_FilePtr->CloseFile();
-			SAFE_DELETE( m_FilePtr );
+			m_FilePtr = IOSystem::Instance().FileDestroy( m_FilePtr );
 		}
 	}
 

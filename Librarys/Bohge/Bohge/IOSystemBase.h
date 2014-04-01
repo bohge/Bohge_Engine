@@ -28,27 +28,19 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-
-
-/////////////////////////////////
-//			文件系统		   //
-/////////////////////////////////
 #pragma once
+#include "Predefine.h"
 
 
 #include <string>
 #include <vector>
-#include "Predefine.h"
-#include "VariableType.h"
-
-
 
 
 
 namespace BohgeEngine
 {
-	class FilePath
+	class IFile;
+	class IOSystemBase
 	{
 	private:
 		//引擎默认的几个资源文件夹
@@ -63,25 +55,25 @@ namespace BohgeEngine
 		std::string			m_ScriptFolder;
 		std::string			m_WriteFolder;
 		std::string			m_AddtionPath;
-	private:
-		FilePath();
-		~FilePath();
+	protected:
+		IOSystemBase(void);
+		virtual ~IOSystemBase(void);
 	public:
-		BOHGE_FORCEINLINE static FilePath& Instance()
-		{
-			static FilePath file;
-			return file;
-		}
-	public:
-		void MakeFolder( const std::string& path );
 		void SetRootPath(const std::string& path);//设置一个资源目录的根目录
 		void SetWritePath(const std::string& path);//设置一个可写的目录
 		void SetAddtionPath( const std::string& path );
-		bool isExist(const std::string& filename);
-		bool DeleteLocalFile(const std::string& strFileName);
-		std::vector<std::string> GetFileNames(const std::string& path);//取得文件夹下的所有文件的名称
-		std::vector<std::string> GetFileNamesWithExpand(const std::string& path, const std::string& exp);
+		IFile* FileDestroy( IFile* ptr );
 	public:
+		virtual void MakeFolder( const std::string& path ) = 0;
+		virtual bool isExist(const std::string& filename) = 0;
+		virtual bool DeleteLocalFile(const std::string& strFileName) = 0;
+		virtual std::vector<std::string> GetFileNamesWithExpand(const std::string& path, const std::string& exp) = 0;
+		virtual IFile* FileFactory( const std::string& path ) = 0;
+	public:
+		BOHGE_FORCEINLINE std::vector<std::string> GetFileNames(const std::string& path)//取得文件夹下的所有文件的名称
+		{
+			return GetFileNamesWithExpand( path, "" );
+		}
 		BOHGE_FORCEINLINE const std::string& TextureFolder()
 		{
 			return m_TextureFolder;
@@ -123,8 +115,4 @@ namespace BohgeEngine
 			return m_AddtionPath;
 		}
 	};
-
-
-#define FILEPATH FilePath::Instance()
-
 }

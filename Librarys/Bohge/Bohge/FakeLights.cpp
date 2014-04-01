@@ -35,7 +35,7 @@
 //		ตฦนโ	   //
 /////////////////////
 #include "FakeLights.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Vertex.h"
 #include "RendBuffer.h"
 #include "Texture.h"
@@ -59,7 +59,7 @@ namespace BohgeEngine
 		m_pIndicesBuffer->FlushIndiesBuffer( COUNT_OF_INDIES, &Indies[0] );
 		if ( !m_pTexture->isLoaded() )
 		{
-			m_pTexture->LoadTexture( Device::PF_A8, FILEPATH.TextureFolder() + "Smoke.png" );
+			m_pTexture->LoadTexture( Device::PF_A8, IOINSTANCE.TextureFolder() + "Smoke.png" );
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------

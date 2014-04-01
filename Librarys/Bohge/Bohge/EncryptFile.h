@@ -42,19 +42,21 @@
 
 namespace BohgeEngine
 {
-	class ReadEncryptFile : public ReadUsualFile
+	class EncryptFile : public UsualFile
 	{
+		friend class IOSystem;
 	private:
-		std::vector< byte >		m_Datas;
-		uint					m_PosIndex;
+		byte*			m_pDatas;
+		uint			m_PosIndex;
 	public:
-		ReadEncryptFile( const std::string& url );
-		~ReadEncryptFile();
+		EncryptFile( const std::string& url );
+		~EncryptFile();
 	private:
-		virtual int _DoReadFile( void* data, uint bitesize );
-		virtual bool _DoOpenFile();
+		virtual bool _DoOpenFile( ActionType at );
 		virtual bool _DoCloseFile();
 		virtual int _DoSeekFile( uint to, int whence );
 		virtual int _DoTell();
+		virtual int _DoReadFile( void* data, uint bitesize );
+		virtual int _DoWriteFile( const void* data, uint bitesize );
 	};
 }

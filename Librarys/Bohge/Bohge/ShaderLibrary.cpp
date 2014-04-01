@@ -36,8 +36,8 @@
 /////////////////////////////////////
 
 #include "ShaderLibrary.h"
-#include "UsualFile.h"
-#include "FilePath.h"
+#include "IFile.h"
+#include "IOSystem.h"
 #include "Utility.h"
 #include "ShaderSegment.h"
 #include "ShaderParameter.h"

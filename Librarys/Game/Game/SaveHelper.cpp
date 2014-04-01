@@ -36,7 +36,7 @@
 //////////////////////////////////
 
 #include "SaveHelper.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Serializer.h"
 #include <sstream>
 
@@ -59,10 +59,10 @@ namespace BohgeGame
 	{
 		m_isLoad = false;
 		int score = 0;
-		m_hasSaveData = FILEPATH.isExist( FILEPATH.WriteFolder()+m_FileName );
+		m_hasSaveData = IOINSTANCE.isExist( IOINSTANCE.WriteFolder()+m_FileName );
 		if( m_hasSaveData )
 		{
-			Serializer file( FILEPATH.WriteFolder()+m_FileName );
+			Serializer file( IOINSTANCE.WriteFolder()+m_FileName );
 			file>>score;
 		}
 		std::wstringstream wsscore;

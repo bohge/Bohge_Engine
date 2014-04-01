@@ -1,3 +1,34 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
 #pragma once
 #include "3DMath.h"
 #include "DecoderManager.h"
@@ -8,9 +39,10 @@
 
 namespace BohgeEngine
 {
-	class IReadFile;
+	class IFile;
 	class Decoder : public IJob
 	{
+		friend class DecoderManager;
 	public:
 		enum Format
 		{
@@ -74,11 +106,8 @@ namespace BohgeEngine
 		bool			m_isRequested;//是否已经在队列中插入解码请求
 		bool			m_isActived;//资源是否可以进行解码，读取等操作，当调用ReleaseDecoder后设置为false
 		bool			m_isDecoding;//是否在解码之中
-		IReadFile*		m_pFileStream;//io
+		IFile*			m_pFileStream;//io
 		BufferVector	m_BufferVector;//资源池
-	public:
-		static Decoder* DecoderFactory( const std::string& path );
-		static void DestoryDecoder( Decoder* decoder );
 	protected:
 		Decoder( SoundType type );
 		virtual ~Decoder(void);
@@ -99,7 +128,7 @@ namespace BohgeEngine
 			return form + DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE > m_nSourceTotalSize ? m_nSourceTotalSize : form + DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
 		}
 	protected:
-		BOHGE_FORCEINLINE IReadFile* _GetFileSteam()
+		BOHGE_FORCEINLINE IFile* _GetFileSteam()
 		{
 			return m_pFileStream;
 		}

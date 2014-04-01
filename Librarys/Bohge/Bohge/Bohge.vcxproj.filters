@@ -16,21 +16,6 @@
     <Filter Include="Action\Source">
       <UniqueIdentifier>{7160d50b-f28a-4eba-89c7-45e82aa05195}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{fb96c703-61fe-4c9d-84db-17aa5f04648b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\DebugTool">
-      <UniqueIdentifier>{c945c738-c294-4ee8-8913-477eaf2a2fb5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\DOC">
-      <UniqueIdentifier>{0fbf5fae-cf49-4e7a-a88e-c90344d31000}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Setting">
-      <UniqueIdentifier>{38b06156-f13f-4b71-802b-2ec031175b1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Language">
-      <UniqueIdentifier>{fcc0549a-4d14-467f-9ea4-e0b440e43fec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Script">
       <UniqueIdentifier>{db9424ab-26de-4be7-84a3-6a933dad2db8}</UniqueIdentifier>
     </Filter>
@@ -182,9 +167,6 @@
     <Filter Include="Scene\SceneEntity\Terrain\Source">
       <UniqueIdentifier>{8ab25d56-7162-47a8-a858-3ea44f82e0e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc\Utility">
-      <UniqueIdentifier>{0d30bf05-00f5-4334-b6a7-d64f09a1b55d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Culiing">
       <UniqueIdentifier>{4a45495b-5328-4894-9668-83ff821c5cc2}</UniqueIdentifier>
     </Filter>
@@ -239,9 +221,6 @@
     <Filter Include="Sound\IndependentLayer\SoundPlayer">
       <UniqueIdentifier>{d2d83cc7-1d42-4ec8-b884-0d69ac3954e6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sound\old">
-      <UniqueIdentifier>{6d70b5ff-48eb-4c99-83b4-cfbaae081377}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sound\SoundResource">
       <UniqueIdentifier>{7646d886-2315-455f-a309-6f29ae839395}</UniqueIdentifier>
     </Filter>
@@ -253,6 +232,24 @@
     </Filter>
     <Filter Include="Sound\SoundResource\Resource">
       <UniqueIdentifier>{0854b87e-d474-4dd6-81ec-3f608124c2de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{cb1966c5-00f5-421a-ab92-bed2c208f8f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Source">
+      <UniqueIdentifier>{79e7f3b6-bbc5-4c90-849c-070e851c030c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DebugTool">
+      <UniqueIdentifier>{c945c738-c294-4ee8-8913-477eaf2a2fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Language">
+      <UniqueIdentifier>{fcc0549a-4d14-467f-9ea4-e0b440e43fec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Setting">
+      <UniqueIdentifier>{38b06156-f13f-4b71-802b-2ec031175b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{0d30bf05-00f5-4334-b6a7-d64f09a1b55d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -277,18 +274,6 @@
     <ClCompile Include="Vertex.cpp">
       <Filter>Core\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AES.cpp">
-      <Filter>File\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FilePath.cpp">
-      <Filter>File\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResLoader.cpp">
-      <Filter>File\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>File\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Serializer.cpp">
       <Filter>File\Source Files</Filter>
     </ClCompile>
@@ -302,16 +287,16 @@
       <Filter>File\FileEntity\Source</Filter>
     </ClCompile>
     <ClCompile Include="Log.cpp">
-      <Filter>Misc\DebugTool</Filter>
+      <Filter>DebugTool</Filter>
     </ClCompile>
     <ClCompile Include="Track.cpp">
-      <Filter>Misc\DebugTool</Filter>
+      <Filter>DebugTool</Filter>
     </ClCompile>
     <ClCompile Include="GameSetting.cpp">
-      <Filter>Misc\Setting</Filter>
+      <Filter>Setting</Filter>
     </ClCompile>
     <ClCompile Include="Language.cpp">
-      <Filter>Misc\Language</Filter>
+      <Filter>Language</Filter>
     </ClCompile>
     <ClCompile Include="ScriptManager.cpp">
       <Filter>Script\Source</Filter>
@@ -613,9 +598,6 @@
     <ClCompile Include="SoundPlayerSL.cpp">
       <Filter>Sound\DependentLayer\OpenSL</Filter>
     </ClCompile>
-    <ClCompile Include="SoundManage.cpp">
-      <Filter>Sound\old</Filter>
-    </ClCompile>
     <ClCompile Include="SoundPlayer.cpp">
       <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
     </ClCompile>
@@ -651,6 +633,30 @@
     </ClCompile>
     <ClCompile Include="JobManager.cpp">
       <Filter>Thread\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Resources\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ResLoader.cpp">
+      <Filter>Resources\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AES.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="IOSIOSystem.cpp">
+      <Filter>File\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidIOSystem.cpp">
+      <Filter>File\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsIOSystem.cpp">
+      <Filter>File\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOSystemBase.cpp">
+      <Filter>File\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOSystem.cpp">
+      <Filter>File\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -702,18 +708,6 @@
     <ClInclude Include="Vertex.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="AES.h">
-      <Filter>File</Filter>
-    </ClInclude>
-    <ClInclude Include="FilePath.h">
-      <Filter>File</Filter>
-    </ClInclude>
-    <ClInclude Include="ResLoader.h">
-      <Filter>File</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>File</Filter>
-    </ClInclude>
     <ClInclude Include="Serializer.h">
       <Filter>File</Filter>
     </ClInclude>
@@ -730,16 +724,16 @@
       <Filter>File\FileEntity</Filter>
     </ClInclude>
     <ClInclude Include="Log.h">
-      <Filter>Misc\DebugTool</Filter>
+      <Filter>DebugTool</Filter>
     </ClInclude>
     <ClInclude Include="Track.h">
-      <Filter>Misc\DebugTool</Filter>
+      <Filter>DebugTool</Filter>
     </ClInclude>
     <ClInclude Include="GameSetting.h">
-      <Filter>Misc\Setting</Filter>
+      <Filter>Setting</Filter>
     </ClInclude>
     <ClInclude Include="Language.h">
-      <Filter>Misc\Language</Filter>
+      <Filter>Language</Filter>
     </ClInclude>
     <ClInclude Include="ScriptInterface.hpp">
       <Filter>Script</Filter>
@@ -1003,7 +997,7 @@
       <Filter>Scene\SceneEntity\Object</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
-      <Filter>Misc\Utility</Filter>
+      <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="Line.hpp">
       <Filter>Core</Filter>
@@ -1122,9 +1116,6 @@
     <ClInclude Include="SoundPlayerSL.h">
       <Filter>Sound\DependentLayer\OpenSL</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManage.h">
-      <Filter>Sound\old</Filter>
-    </ClInclude>
     <ClInclude Include="SoundPlayer.h">
       <Filter>Sound\IndependentLayer\SoundPlayer</Filter>
     </ClInclude>
@@ -1159,7 +1150,7 @@
       <Filter>Sound\SoundResource\Resource</Filter>
     </ClInclude>
     <ClInclude Include="BinaryIndex.hpp">
-      <Filter>Misc\Utility</Filter>
+      <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="IJob.h">
       <Filter>Thread</Filter>
@@ -1167,10 +1158,32 @@
     <ClInclude Include="JobManager.h">
       <Filter>Thread</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="ResLoader.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="AES.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidIOSystem.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSIOSystem.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsIOSystem.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSystemBase.h">
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSystem.h">
+      <Filter>File</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Readme.txt">
-      <Filter>Misc\DOC</Filter>
-    </None>
+    <None Include="Readme.txt" />
   </ItemGroup>
 </Project>

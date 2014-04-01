@@ -36,7 +36,7 @@
 /////////////////////////////////////
 #pragma once
 #include "Predefine.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 #include <map>
 #include <string>
@@ -47,7 +47,7 @@ namespace BohgeEngine
 {
 	//字体资源
 	static const char* FontName = "font.bf";
-#define BS(x) FILEPATH.ShaderFolder()+(x)
+#define BS(x) IOSystem::Instance().ShaderFolder()+(x)
 
 	//引擎的shader的索引必须是唯一的
 	class ShaderResource

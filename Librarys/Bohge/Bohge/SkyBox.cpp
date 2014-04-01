@@ -46,7 +46,7 @@
 #include "Device.h"
 #include "RendBuffer.h"
 #include "EnvironmentShaders.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 namespace BohgeEngine
@@ -80,7 +80,7 @@ namespace BohgeEngine
 		m_pIndicesBuffer->FlushIndiesBuffer( sizeof(indies)/sizeof(ushort), indies );
 
 		m_Texture = NEW TextureCube();
-		std::string basepath = FILEPATH.isExist( f ) ? "" : FILEPATH.TextureFolder();
+		std::string basepath = IOINSTANCE.isExist( f ) ? "" : IOINSTANCE.TextureFolder();
 		if( isAlpha )
 		{
 			m_Texture->LoadTexture( Device::PF_R8G8B8A8, basepath+f, basepath+b, basepath+u, basepath+d, basepath+l, basepath+r);

@@ -51,7 +51,7 @@
 #include "RendBuffer.h"
 #include "EnvironmentShaders.h"
 #include "Texture.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 namespace BohgeEngine
@@ -95,7 +95,7 @@ namespace BohgeEngine
 			static_cast< LightNode::LightHalo::VertexType* >( m_pSharedBuffer->VertexPtr( ) ) );
 		m_pIndicesBuffer->FlushIndiesBuffer( m_pSharedBuffer->CountOfAllIndies(), m_pSharedBuffer->IndiesPtr() );
 		m_pTexture = NEW Texture2D();
-		m_pTexture->LoadTexture( Device::PF_A8, FILEPATH.TextureFolder() + "lighthalo.png" );
+		m_pTexture->LoadTexture( Device::PF_A8, IOINSTANCE.TextureFolder() + "lighthalo.png" );
 		m_LightsArray.reserve( 100 );
 	}
 	//-------------------------------------------------------------------

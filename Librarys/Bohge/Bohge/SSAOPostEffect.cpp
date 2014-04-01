@@ -44,7 +44,7 @@
 #include "Pipeline.h"
 #include "ConcisePEShaders.h"
 #include "UtilityShaders.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 
@@ -63,7 +63,7 @@ namespace BohgeEngine
 	{
 		Engine::Instance().GetPipeline()->NeedNoramlBuffer();
 		m_JitterTex = NEW Texture2D();
-		m_JitterTex->LoadTexture( Device::PF_R8G8B8, FILEPATH.TextureFolder() + "Jitter.tga");
+		m_JitterTex->LoadTexture( Device::PF_R8G8B8, IOINSTANCE.TextureFolder() + "Jitter.tga");
 		m_JitterTex->SetWarp( Device::TW_REPEAT, Device::TW_REPEAT );
 		vector2d size = Engine::Instance().GetDevice()->GetResolutionSize();
 		m_pDownSimple_1 = NEW RenderTarget(size / 4, Device::FBO_TCOLOR);

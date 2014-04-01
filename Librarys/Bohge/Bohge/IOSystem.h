@@ -28,47 +28,49 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-
 #pragma once
-#include "SoundPlayer.h"
-#include <queue>
+#include "Predefine.h"
 
 
-#ifdef _OPENAL
+#ifdef WIN32
+#include "WindowsIOSystem.h"
 namespace BohgeEngine
 {
-	class SoundPlayerAL : public SoundPlayer
+	class IOSystem : public WindowsIOSystem
 	{
-		friend class SoundManagerAL;
-	private:
-		enum Constant
-		{
-			SC_DATA_QUEUE_SIZE = 2,
-		};
-	private:
-		typedef std::queue<uint>	BufferDataQueue;
-	private:
-		BufferDataQueue			m_DataQueue;//“Ù∆µplayer
-		bool					m_isLooping;
-		bool					m_isPlaying;
-		uint					m_DataQueueHandles[SC_DATA_QUEUE_SIZE];//“Ù∆µplayer
-		uint					m_SourceHandle;//≤•∑≈µƒ“Ù‘¥æ‰±˙
-	private:
-		SoundPlayerAL( int hash, int index, Decoder* res );
-		virtual ~SoundPlayerAL(void);
-	private:
-		int _GetALFormat();
-	private:
-		virtual void _OnInitialization();
-		virtual void _DoSetVolume( float volume );
-		virtual void _DoSetPitch(float pitch);
-		virtual void _DoSetPaused( bool ispaused );
-		virtual void _DoSetLoop( bool isloop );
-		virtual void _DoSetPlay( bool isplay );
-		virtual void _DoSet3D( bool is3d );
-		virtual void _DoSetSoundPosition( const vector3f& pos, const vector3f& forward, const vector3f& up );
-		virtual void _DoUpdate();
-	};
-}
+#elif defined (IOS)
+#include "IOSIOSystem.h"
+namespace BohgeEngine 
+{
+	class IOSystem : public IOSIOSystem
+	{
+#elif defined (ANDROID)
+#include "AndroidIOSystem.h"
+namespace BohgeEngine  : public AndroidIOSystem
+{
+	class IOSystem : public IOSIOSystem
+	{
 #endif
+	private:
+		static IOSystem*		m_pSelf;
+	private:
+		IOSystem();
+		~IOSystem();
+	public:
+		BOHGE_FORCEINLINE static void Create()
+		{
+			m_pSelf = NEW IOSystem();
+		}
+		BOHGE_FORCEINLINE static void Destroy()
+		{
+			SAFE_DELETE( m_pSelf );
+		}
+		BOHGE_FORCEINLINE static IOSystem& Instance()
+		{
+			return *m_pSelf;
+		}
+	};
+#define IOINSTANCE IOSystem::Instance()
+#define FILEFACTORY(x) IOSystem::Instance().FileFactory( x );
+#define FILEDESTROY(x) IOSystem::Instance().FileDestroy( x );
+}

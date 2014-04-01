@@ -38,7 +38,6 @@
 #include "Game.h"
 #include "Log.h"
 #include "Device.h"
-#include "FilePath.h"
 #include "GameSetting.h"
 #include "AdHelper.h"
 #include <jni.h>
@@ -62,6 +61,8 @@ extern "C" {
 	JNIEXPORT jstring JNICALL Java_com_BPGames_Lord_GL2JNILib_GetAdmobID(JNIEnv * env, jobject obj);
 };
 
+string rootPath;
+string writePath;
 static vector2d g_Rsize;
 JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_file(JNIEnv * env, jobject obj, jstring dir)
 {
@@ -70,8 +71,8 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_file(JNIEnv * env, jobjec
 	cdir = env->GetStringUTFChars(dir, &isCopy);
 	//File::Instance().SetRootPath(string(cdir) + "/");
 	//File::Instance().SetWritePath(string(cdir) + "/");
-	FILEPATH.SetRootPath("/sdcard/Lord/");
-	FILEPATH.SetWritePath("/sdcard/Lord/");
+	rootPath = "/sdcard/Lord/";
+	writePath = "/sdcard/Lord/";
 	env->ReleaseStringUTFChars( dir, cdir );
 	env->DeleteLocalRef( dir );
 }
@@ -92,7 +93,7 @@ JNIEXPORT void JNICALL Java_com_BPGames_Lord_GL2JNILib_init(JNIEnv * env, jobjec
 	Engine::DeviceLevel dl = isds ? Engine::LEL_ULTRA : Engine::LEL_BASE;
 	vector2d size( width, height );
 	g_Rsize = size;
-	Game::Instance().Initialization(size, size, dl, false, str, "111111111111111");
+	Game::Instance().Initialization(size, size, dl, false, rootPath, writePath, "111111111111111");
 	env->ReleaseStringUTFChars( path, str );
 	env->DeleteLocalRef( path );
 }

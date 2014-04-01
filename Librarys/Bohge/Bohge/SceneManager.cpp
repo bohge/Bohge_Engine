@@ -47,7 +47,7 @@
 #include "SceneMain.h"
 #include "Serializer.h"
 #include "Environment.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 #include <string>
@@ -380,7 +380,7 @@ namespace BohgeEngine
 	//---------------------------------------------------------------
 	void SceneManager::LoadScene( const std::string& path )
 	{
-		string fullpath = FILEPATH.SceneFolder() + path;
+		string fullpath = IOINSTANCE.SceneFolder() + path;
 		Serializer loader( fullpath );
 		bool isExport;
 		loader>>isExport;

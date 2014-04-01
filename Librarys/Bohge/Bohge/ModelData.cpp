@@ -41,7 +41,7 @@
 #include "Material.h"
 #include "Vertex.h"
 #include "RendBuffer.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "ObjectDataIndex.h"
 #include <vector>
 

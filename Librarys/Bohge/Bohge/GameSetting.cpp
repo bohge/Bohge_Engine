@@ -36,7 +36,7 @@
 //////////////////////////////
 
 #include "GameSetting.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Serializer.h"
 #include "Language.h"
 #include "Engine.h"
@@ -66,9 +66,9 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void GameSetting::LoadData()
 	{
-		if(  FILEPATH.isExist( FILEPATH.WriteFolder()+m_FileName ) )
+		if(  IOINSTANCE.isExist( IOINSTANCE.WriteFolder()+m_FileName ) )
 		{
-			Serializer file( FILEPATH.WriteFolder()+m_FileName );
+			Serializer file( IOINSTANCE.WriteFolder()+m_FileName );
 			int language = 0;
 			file>>m_isBloom>>m_isVolumeLight>>language>>m_isVolumeLightHighEffect>>m_fMusicVolume>>m_fSoundVolume;
 			STRING.Setlanguage( static_cast<LanguageControl::LanguageType>(language) );
@@ -131,13 +131,13 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void GameSetting::SaveData()
 	{
-		Serializer file( FILEPATH.WriteFolder() + m_FileName );
+		Serializer file( IOINSTANCE.WriteFolder() + m_FileName );
 		file<<m_isBloom<<m_isVolumeLight<<static_cast<int>(STRING.GetLanguage())<<m_isVolumeLightHighEffect<<m_fMusicVolume<<m_fSoundVolume;
 	}
 	//-------------------------------------------------------------------------------------------------------
 	bool GameSetting::isSettingExist()
 	{
-		return FILEPATH.isExist( FILEPATH.WriteFolder()+m_FileName );
+		return IOINSTANCE.isExist( IOINSTANCE.WriteFolder()+m_FileName );
 	}
 	//-------------------------------------------------------------------------------------------------------
 

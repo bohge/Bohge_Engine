@@ -40,7 +40,7 @@
 #include "Texture.h"
 #include "ShaderManager.h"
 #include "string.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 #include "Log.h"
 #include "Shapes.h"
 #include "RendBuffer.h"
@@ -231,7 +231,7 @@ namespace BohgeEngine
 		FT_Init_FreeType( &m_FT2Lib);
 		//加载一个字体,取默认的Face,一般为Regualer
 		FT_New_Face( m_FT2Lib,
-			( FILEPATH.FontFolder() + filename).c_str(),
+			( IOINSTANCE.FontFolder() + filename).c_str(),
 			0, &m_FT_Face ); 
 		FT_Select_Charmap(m_FT_Face, FT_ENCODING_UNICODE);
 		m_FT_Face->num_fixed_sizes;

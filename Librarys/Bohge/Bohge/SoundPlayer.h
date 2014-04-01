@@ -1,5 +1,5 @@
 #pragma once
-#include "3DMath.h"
+#include "Engine.h"
 #include "SoundManager.h"
 
 
@@ -77,7 +77,7 @@ namespace BohgeEngine
 		BOHGE_FORCEINLINE void SetVolume( float volume )
 		{
 			m_fVolume = Math::Clamp0to1( volume );
-			_DoSetVolume( volume * SoundManager::Instance()->GetGlobalVolume() );
+			_DoSetVolume( volume * Engine::Instance().GetSoundManager()->GetGlobalVolume() );
 		}
 		BOHGE_FORCEINLINE float GetVolume() const
 		{
@@ -86,7 +86,7 @@ namespace BohgeEngine
 		BOHGE_FORCEINLINE void SetPitch( float pitch )
 		{
 			m_fPitch = pitch;
-			_DoSetPitch( pitch * SoundManager::Instance()->GetGlobalPitch() );
+			_DoSetPitch( pitch * Engine::Instance().GetSoundManager()->GetGlobalPitch() );
 		}
 		BOHGE_FORCEINLINE float GetPitch() const
 		{

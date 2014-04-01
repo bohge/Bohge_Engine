@@ -41,7 +41,7 @@
 #include "Texture.h"
 #include "TerrainChunk.h"
 #include "Camera.h"
-#include "FilePath.h"
+#include "IOSystem.h"
 
 
 namespace BohgeEngine
@@ -154,7 +154,7 @@ namespace BohgeEngine
 									std::string name;
 									int ID;
 									loader>>ID>>name;
-									if( FILEPATH.isExist(TexPath + name) )
+									if( IOINSTANCE.isExist(TexPath + name) )
 									{
 										Texture2D* temp = m_TerrainMaterial->LoadTexture( static_cast<Material::Material_Attribute>(ID), TexPath + name );
 										temp->SetWarp( Device::TW_REPEAT, Device::TW_REPEAT );

@@ -35,8 +35,8 @@
 //		新的shader文件管理		   //
 /////////////////////////////////////
 #include "ShaderFile.h"
-#include "UsualFile.h"
-#include "FilePath.h"
+#include "IFile.h"
+#include "IOSystem.h"
 #include "Utility.h"
 #include "ShaderSegment.h"
 
@@ -67,12 +67,13 @@ namespace BohgeEngine
 	void ShaderFile::LoadShaderFile( const std::string& file )
 	{
 		m_FileName = file;
-		ReadUsualFile readfile( FILEPATH.ShaderFolder() + file );
-		readfile.OpenFile();
-		char* datas = NEW char[readfile.GetSize()+1];
-		readfile.ReadFile( datas, readfile.GetSize() );
-		datas[readfile.GetSize()] = 0;
-		readfile.CloseFile();
+		IFile* readfile = FILEFACTORY( IOINSTANCE.ShaderFolder() + file );
+		readfile->OpenFile( IFile::AT_READ );
+		char* datas = NEW char[readfile->GetSize()+1];
+		readfile->ReadFile( datas, readfile->GetSize() );
+		datas[readfile->GetSize()] = 0;
+		readfile->CloseFile();
+		FILEDESTROY( readfile );
 		string source = datas;
 		SAFE_DELETE_ARRAY(datas);
 		Utility::RemoveComment( "//", source );
