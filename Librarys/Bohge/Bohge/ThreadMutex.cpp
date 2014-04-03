@@ -45,7 +45,7 @@ namespace BohgeEngine
 	ThreadMutex::~ThreadMutex(void)
 	{
 		pthread_mutex_destroy( static_cast<pthread_mutex_t*>(m_pMutex) );
-		SAFE_DELETE(m_pMutex);
+		delete static_cast<pthread_mutex_t*>(m_pMutex);
 	}
 	//------------------------------------------------------------------------------------------------------
 	void ThreadMutex::Lock()//¼ÓËø

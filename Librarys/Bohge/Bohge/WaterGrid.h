@@ -100,9 +100,9 @@ namespace BohgeEngine
 	private:
 		typedef std::vector<VertexNormal> VertexVector;
 	private:
-		bool			m_isChange;
-		bool			m_UpdataDone;
-		bool			m_isRender;//是否需要绘制
+		volatile bool			m_isChange;
+		volatile bool			m_UpdataDone;
+		volatile bool			m_isRender;//是否需要绘制
 		//绘制相关
 		Material*				m_pMaterial;
 		VertexVector			m_Vertex;

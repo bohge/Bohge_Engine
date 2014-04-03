@@ -82,7 +82,7 @@ namespace BohgeEngine
 		return bitesize;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int EncryptFile::_DoSeekFile( uint to, int whence )
+	int EncryptFile::_DoSeekFile( int to, int whence )
 	{
 		switch( whence )
 		{

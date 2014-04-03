@@ -34,23 +34,22 @@
 
 #ifdef WIN32
 #include "WindowsIOSystem.h"
-namespace BohgeEngine
-{
-	class IOSystem : public WindowsIOSystem
-	{
 #elif defined (IOS)
 #include "IOSIOSystem.h"
-namespace BohgeEngine 
-{
-	class IOSystem : public IOSIOSystem
-	{
 #elif defined (ANDROID)
 #include "AndroidIOSystem.h"
-namespace BohgeEngine  : public AndroidIOSystem
-{
-	class IOSystem : public IOSIOSystem
-	{
 #endif
+
+namespace BohgeEngine
+{
+#ifdef WIN32
+	class IOSystem : public WindowsIOSystem
+#elif defined (IOS)
+	class IOSystem : public IOSIOSystem
+#elif defined (ANDROID)
+	class IOSystem : public AndroidIOSystem
+#endif
+	{
 	private:
 		static IOSystem*		m_pSelf;
 	private:

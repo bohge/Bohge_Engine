@@ -121,6 +121,8 @@ SoundPlayer* s4;
 SoundPlayer* s5;
 SoundPlayer* s6;
 
+#include "ThreadSafeOprator.h"
+
 using namespace std;
 
 namespace BohgeGame
@@ -129,6 +131,8 @@ namespace BohgeGame
 	//-------------------------------------------------------------------------------------------------------
 	void StateMainMenu::LoadResource(Engine& engine)
 	{
+		DEBUGLOG( "StateMainMenu::LoadResource(Engine& engine)" );
+		LoadScript( IOINSTANCE.ScriptFolder() + "Scene.lua" );
 		//m_Bloom = NEW BloomPS;
 		m_Bloom = NEW HDRPostEffect;
 		//m_Bloom = (HDRPostEffect*)malloc( sizeof(HDRPostEffect) );//operator newºÍnew operator
@@ -192,8 +196,8 @@ namespace BohgeGame
 		//engine.GetSceneManage()->LoadScene( "tt.sfd" );
 		//engine.GetSceneManage()->LoadScene( "GIS.sfd" );
 		//engine.GetSceneManage()->LoadScene( "proj.sfd" );
-		engine.GetSceneManager()->LoadScene( "Demo.sfd" );
-		//engine.GetSceneManage()->LoadScene( "demo_island.sfd" );
+		engine.GetSceneManager()->LoadScene( m_SceneName );
+		//engine.GetSceneManager()->LoadScene( "demo_island.sfd" );
 		//engine.GetSceneManage()->LoadScene( "Test.sfd" );
 		engine.GetSceneManager()->GetSkyBox().AndSkyBox( SkyBox::BACKGROUND, "fl.png", "bl.png", "ul.png", "dl.png", "ll.png", "rl.png" );
 		lm = new LocatableModel();
@@ -320,10 +324,10 @@ namespace BohgeGame
 		//}
 
 		//ÉùÒô²âÊÔ
-		s1 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "backGroundMusic.wav" );
-		s1->SetVolume( 1.0 );
-		//s1->SetLoop( true );
-		s1->Paly();
+		//s1 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "backGroundMusic.ogg" );
+		//s1->SetVolume( 1.0 );
+		////s1->SetLoop( true );
+		//s1->Paly();
 		//s2 = engine.GetSoundManager()->LoadSound( IOINSTANCE.SoundFolder() + "backGroundMusic.ogg" );
 		//s2->SetVolume( 2.0 );
 		//s2->SetLoop( true );
@@ -390,4 +394,10 @@ namespace BohgeGame
 		//}
 		//lm2->SetLocalScale( vector3f(size, size, size) );
 	}
+
+	void StateMainMenu::_OnScriptLoaded()
+	{
+		m_SceneName = GetGlobal<char*>( "SceneName" );
+	}
+
 }

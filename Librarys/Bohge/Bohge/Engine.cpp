@@ -240,7 +240,6 @@ namespace BohgeEngine
 			time = 0;
 			frame = 0;
 			DEBUGLOG("FPS %d\n", m_uFPS);
-			//printf("FPS %d\n", m_uFPS);
 		}
 	}
 	//-------------------------------------------------------------------

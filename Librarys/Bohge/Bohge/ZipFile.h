@@ -60,7 +60,7 @@ namespace BohgeEngine
 	public:
 		virtual bool _DoOpenFile( ActionType at );
 		virtual bool _DoCloseFile();
-		virtual int _DoSeekFile( uint to, int whence );
+		virtual int _DoSeekFile( int to, int whence );
 		virtual int _DoTell();
 		virtual int _DoReadFile( void* data, uint bitesize );
 		virtual int _DoWriteFile( const void* data, uint bitesize );

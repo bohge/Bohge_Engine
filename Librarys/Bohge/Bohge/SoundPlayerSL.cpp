@@ -68,8 +68,8 @@ namespace BohgeEngine
 	void SoundPlayerSL::CreatePlayer( SLEngineItf engine, SLObjectItf mixer )
 	{
 		SLresult result;
-#ifdef WIN32
 		std::string path = _GetSoundResource()->GetFilePath();
+#ifdef WIN32
 		std::string temp = _GetSoundResource()->GetFilePath();
 		int t = temp.find_last_of(".");
 		path.clear();

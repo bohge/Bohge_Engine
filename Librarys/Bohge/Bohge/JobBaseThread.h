@@ -46,8 +46,8 @@ namespace BohgeEngine
 	private:
 		ThreadMutex*		m_pMutex;
 		ThreadCondition*	m_pCondition;
-		bool				m_isQuitQueue;
-		bool				m_isWorking;
+		volatile bool		m_isQuitQueue;
+		volatile bool		m_isWorking;
 	public:
 		JobBaseThread(void);
 		virtual ~JobBaseThread(void);

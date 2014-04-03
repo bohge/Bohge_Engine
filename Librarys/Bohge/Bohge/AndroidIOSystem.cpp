@@ -2,6 +2,9 @@
 #ifdef ANDROID
 #include "Predefine.h"
 #include "Log.h"
+#include "ZipFile.h"
+#include "UsualFile.h"
+#include "EncryptFile.h"
 
 
 #include <string.h>
@@ -80,7 +83,20 @@ namespace BohgeEngine
 	//--------------------------------------------------------------------------------------------------------------------------------------
 	IFile* AndroidIOSystem::FileFactory( const std::string& path )
 	{
-
+		if ( string::npos != path.find(".enc") )
+		{
+			return NEW EncryptFile( path );
+		}
+		else if ( string::npos != path.find(".zip") )
+		{
+			return NEW ZipFile( path );
+		}
+		else
+		{
+			return NEW UsualFile( path );
+		}
+		ASSERT(false);
+		return NULL;
 	}
 
 }

@@ -24,7 +24,7 @@ LOCAL_SRC_FILES := \
 	../../../../Librarys/Game/Game/ShopHelper.cpp \
 	../../../../Librarys/Game/Game/StateLogo.cpp \
 	../../../../Librarys/Game/Game/StateMainMenu.cpp \
-	../../../../Librarys/Game/Game/StateManage.cpp
+	../../../../Librarys/Game/Game/StateManager.cpp
 
 
 

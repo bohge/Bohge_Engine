@@ -28,39 +28,30 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //
 //////////////////////////////////////////////////////////////////////////////////////
+#include "Predefine.h"
 
-#include "ThreadCondition.h"
+#ifndef THREADSAFEOPRATOR
+#error( "Do not include this file in other files" )
+#endif
 
 
-#include <pthread.h>
-
-
-namespace BohgeEngine
+//------------------------------------------------------------------------------------------------------
+static BOHGE_FORCEINLINE int Increment( volatile int& var )
 {
-	//------------------------------------------------------------------------------------------------------
-	ThreadCondition::ThreadCondition(void)
-	{
-		m_pCondition = NEW pthread_cond_t;
-		m_pMutex = NEW pthread_mutex_t;
-		pthread_cond_init( static_cast<pthread_cond_t*>(m_pCondition), NULL );
-		pthread_mutex_init( static_cast<pthread_mutex_t*>(m_pMutex), NULL );
-	}
-	//------------------------------------------------------------------------------------------------------
-	ThreadCondition::~ThreadCondition(void)
-	{
-		pthread_cond_destroy( static_cast<pthread_cond_t*>(m_pCondition) );
-		pthread_mutex_destroy( static_cast<pthread_mutex_t*>(m_pMutex) );
-		delete static_cast<pthread_cond_t*>(m_pCondition);
-		delete static_cast<pthread_mutex_t*>(m_pMutex);
-	}
-	//------------------------------------------------------------------------------------------------------
-	void ThreadCondition::Wait()
-	{
-		pthread_cond_wait( static_cast<pthread_cond_t*>(m_pCondition), static_cast<pthread_mutex_t*>(m_pMutex) );
-	}
-	//------------------------------------------------------------------------------------------------------
-	void ThreadCondition::Signal()
-	{
-		pthread_cond_signal( static_cast<pthread_cond_t*>(m_pCondition) );
-	}
+	return __sync_add_and_fetch(&var, 1);
+}
+//------------------------------------------------------------------------------------------------------
+static BOHGE_FORCEINLINE int Decrement( volatile int& var )
+{
+	return __sync_sub_and_fetch(&var, 1);
+}
+//------------------------------------------------------------------------------------------------------
+static BOHGE_FORCEINLINE int Add( volatile int& var, int add )
+{
+	return __sync_add_and_fetch(&var, add);
+}
+//------------------------------------------------------------------------------------------------------
+static BOHGE_FORCEINLINE int Swap( volatile int* dest, int value )
+{
+	return __sync_lock_test_and_set(dest, value);
 }

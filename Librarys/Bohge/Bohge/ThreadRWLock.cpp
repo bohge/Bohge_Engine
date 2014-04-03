@@ -45,7 +45,7 @@ namespace BohgeEngine
 	ThreadRWLock::~ThreadRWLock(void)
 	{
 		pthread_rwlock_destroy( static_cast<pthread_rwlock_t*>(m_pRWLock) );
-		SAFE_DELETE( m_pRWLock );
+		delete static_cast<pthread_rwlock_t*>(m_pRWLock);
 	}
 	//------------------------------------------------------------------------------------------------------
 	void ThreadRWLock::ReadLock()//共享方式的读取锁

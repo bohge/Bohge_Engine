@@ -40,9 +40,15 @@
 #include "Device.h"
 #include "GameSetting.h"
 #include "AdHelper.h"
+
+
 #include <jni.h>
 #include <EGL/egl.h>
 #include <GLES/gl.h>
+#include <string>
+
+
+using namespace std;
 
 using namespace BohgeGame;
 

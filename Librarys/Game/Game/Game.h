@@ -133,6 +133,7 @@ namespace BohgeGame
 	public:
 		BOHGE_FORCEINLINE void Initialization(const vector2d& view, const vector2d& resolution, Engine::DeviceLevel l, bool isForceAD, const std::string& root, const std::string& wirte, const std::string& udid)
 		{
+			DEBUGLOG("Game Initialization!\n");
 			m_pEngine = Engine::CreateEngine( view, resolution, l, root, wirte );
 			//m_pengine->GetCamera()->CreatePerspectiveProjection(3.1415926f / 4.0f, w/h, 10.0f , 1000.0f );
 
@@ -149,7 +150,8 @@ namespace BohgeGame
 			//GetAdmobID(AdHelper::PF_IPAD);
 			if( false == isForceAD )
 			{
-				this->ADConnect();
+				GetAdmobID( AdHelper::PF_ANDROID );
+				ADConnect();
 			}
 			//…Ë÷√…Ë±∏UDID
 			NetHelper::Instance().UDID() = udid;

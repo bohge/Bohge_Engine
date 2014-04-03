@@ -46,7 +46,7 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	Threading::~Threading(void)
 	{
-		SAFE_DELETE( m_pThreadID );
+		delete static_cast<pthread_t*>( m_pThreadID );
 	}
 	//------------------------------------------------------------------------------------------------------
 	void* Threading::ThreadProc( void* param )

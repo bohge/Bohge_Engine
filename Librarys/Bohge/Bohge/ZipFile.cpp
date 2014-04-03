@@ -106,7 +106,7 @@ namespace BohgeEngine
 		return zip_fclose(m_pZipfile);
 	}
 	//-------------------------------------------------------------------------------------------------------
-	int ZipFile::_DoSeekFile( uint to, int whence )
+	int ZipFile::_DoSeekFile( int to, int whence )
 	{
 		ASSERT( false );
 		return -1;

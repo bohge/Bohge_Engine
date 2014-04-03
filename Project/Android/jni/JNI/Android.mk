@@ -22,6 +22,6 @@ $(LOCAL_PATH)/../../../../Librarys/Bohge/BohgeNet/BohgeNet \
 $(LOCAL_PATH)/../../../../Librarys/Bohge/Bohge
 
 LOCAL_LDLIBS := -lstdc++  -ldl -lc -lGLESv2 -lz  -llog -lOpenSLES
-LOCAL_STATIC_LIBRARIES := game bohge zip freetype png BohgeNet lua bullet NeonMath cpufeatures glsloptimizer
+LOCAL_STATIC_LIBRARIES := game bohge zip freetype png BohgeNet lua bullet NeonMath cpufeatures glsloptimizer libvorbis libogg
   
 include $(BUILD_SHARED_LIBRARY)

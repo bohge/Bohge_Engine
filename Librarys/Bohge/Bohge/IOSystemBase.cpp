@@ -31,6 +31,7 @@
 #include "IOSystemBase.h"
 #include "Predefine.h"
 #include "Log.h"
+#include "IFile.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

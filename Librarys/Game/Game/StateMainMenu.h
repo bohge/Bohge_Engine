@@ -39,6 +39,9 @@
 
 
 #include "StateInterface.h"
+#include "ScriptBase.h"
+
+#include <string>
 
 namespace BohgeEngine
 {
@@ -52,13 +55,16 @@ namespace BohgeEngine
 namespace BohgeGame
 {
 	class GameMessageBox;
-	class StateMainMenu : public IGameState
+	class StateMainMenu : public IGameState , public BohgeEngine::ScriptBase
 	{
 	private:
+		std::string					m_SceneName;
 		BohgeEngine::IPostEffect*	m_Bloom;
 		BohgeEngine::IPostEffect*	m_SSAO;
 		BohgeEngine::IPostEffect*	m_DOF;
 		BohgeEngine::IPostEffect*	m_FXAA;
+	private:
+		virtual void _OnScriptLoaded();
 	public:
 		virtual void LoadResource(BohgeEngine::Engine& engine);
 		virtual void ReleaseResource(BohgeEngine::Engine& engine);

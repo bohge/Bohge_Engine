@@ -28,39 +28,25 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-#include "ThreadCondition.h"
-
-
-#include <pthread.h>
+#pragma once
 
 
 namespace BohgeEngine
 {
-	//------------------------------------------------------------------------------------------------------
-	ThreadCondition::ThreadCondition(void)
+	namespace ThreadSafeOprator
 	{
-		m_pCondition = NEW pthread_cond_t;
-		m_pMutex = NEW pthread_mutex_t;
-		pthread_cond_init( static_cast<pthread_cond_t*>(m_pCondition), NULL );
-		pthread_mutex_init( static_cast<pthread_mutex_t*>(m_pMutex), NULL );
-	}
-	//------------------------------------------------------------------------------------------------------
-	ThreadCondition::~ThreadCondition(void)
-	{
-		pthread_cond_destroy( static_cast<pthread_cond_t*>(m_pCondition) );
-		pthread_mutex_destroy( static_cast<pthread_mutex_t*>(m_pMutex) );
-		delete static_cast<pthread_cond_t*>(m_pCondition);
-		delete static_cast<pthread_mutex_t*>(m_pMutex);
-	}
-	//------------------------------------------------------------------------------------------------------
-	void ThreadCondition::Wait()
-	{
-		pthread_cond_wait( static_cast<pthread_cond_t*>(m_pCondition), static_cast<pthread_mutex_t*>(m_pMutex) );
-	}
-	//------------------------------------------------------------------------------------------------------
-	void ThreadCondition::Signal()
-	{
-		pthread_cond_signal( static_cast<pthread_cond_t*>(m_pCondition) );
+		//static BOHGE_FORCEINLINE int Increment( volatile int& var );//返回新值
+		//static BOHGE_FORCEINLINE int Decrement( volatile int& var );//返回新值
+		//static BOHGE_FORCEINLINE int Add( volatile int& var, int add );//返回旧值
+		//static BOHGE_FORCEINLINE int Swap( volatile int* dest, int value );//返回旧值
+#define THREADSAFEOPRATOR
+#ifdef WIN32
+#include "WindowsThreadSafeOprator.h"
+#elif defined (IOS)
+#include "IOSThreadSafeOprator.h"
+#elif defined (ANDROID)
+#include "AndroidThreadSafeOprator.h"
+#endif
+#undef THREADSAFEOPRATOR
 	}
 }

@@ -100,7 +100,7 @@ namespace BohgeEngine
 		return 0;
 	}
 	//--------------------------------------------------------------------------------------------------------------
-	int UsualFile::_DoSeekFile( uint to, int whence )
+	int UsualFile::_DoSeekFile( int to, int whence )
 	{
 		return fseek( m_pFile, to, whence );
 	}
