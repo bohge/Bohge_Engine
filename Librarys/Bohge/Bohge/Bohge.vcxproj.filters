@@ -251,6 +251,9 @@
     <Filter Include="Utility">
       <UniqueIdentifier>{0d30bf05-00f5-4334-b6a7-d64f09a1b55d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Thread\ThreadSafe">
+      <UniqueIdentifier>{7568954e-43dd-44b9-990d-bd857b7acc12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aabboxDraw.cpp">
@@ -657,6 +660,9 @@
     </ClCompile>
     <ClCompile Include="IOSystem.cpp">
       <Filter>File\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IFile.cpp">
+      <Filter>File\FileEntity\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1181,6 +1187,18 @@
     </ClInclude>
     <ClInclude Include="IOSystem.h">
       <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidThreadSafeOprator.h">
+      <Filter>Thread\ThreadSafe</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSThreadSafeOprator.h">
+      <Filter>Thread\ThreadSafe</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsThreadSafeOprator.h">
+      <Filter>Thread\ThreadSafe</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadSafeOprator.h">
+      <Filter>Thread\ThreadSafe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

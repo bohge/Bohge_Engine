@@ -375,6 +375,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndroidIOSystem.cpp" />
+    <ClCompile Include="IFile.cpp" />
     <ClCompile Include="IOSIOSystem.cpp" />
     <ClCompile Include="IOSystem.cpp" />
     <ClCompile Include="IOSystemBase.cpp" />
@@ -512,7 +513,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndroidIOSystem.h" />
+    <ClInclude Include="AndroidThreadSafeOprator.h" />
     <ClInclude Include="IOSIOSystem.h" />
+    <ClInclude Include="IOSThreadSafeOprator.h" />
     <ClInclude Include="IOSystemBase.h" />
     <ClInclude Include="JobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
@@ -581,6 +584,7 @@
     <ClInclude Include="Threading.h" />
     <ClInclude Include="ThreadMutex.h" />
     <ClInclude Include="ThreadRWLock.h" />
+    <ClInclude Include="ThreadSafeOprator.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="VariableType.h" />
     <ClInclude Include="vector2.hpp" />
@@ -598,6 +602,7 @@
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="WAVDecoder.h" />
     <ClInclude Include="WindowsIOSystem.h" />
+    <ClInclude Include="WindowsThreadSafeOprator.h" />
     <ClInclude Include="ZipFile.h" />
     <ClInclude Include="ActionManager.h" />
     <ClInclude Include="Log.h" />
