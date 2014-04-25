@@ -159,9 +159,13 @@ namespace BohgeEngine
 			return *this;
 		}
 		//µ¥¸öÊý×Ö
-		BOHGE_FORCEINLINE Quaternion operator* ( T rhs ) const
+		friend BOHGE_FORCEINLINE Quaternion<T> operator* ( T rhs, const Quaternion<T>& lhs )
 		{
-			return Quaternion( m_x*rhs, m_y*rhs, m_z*rhs, m_w*rhs );
+			return Quaternion<T>( lhs.m_x*rhs, lhs.m_y*rhs, lhs.m_z*rhs, lhs.m_w*rhs );
+		}
+		friend BOHGE_FORCEINLINE Quaternion<T> operator* ( const Quaternion<T>& lhs, T rhs )
+		{
+			return Quaternion<T>( lhs.m_x*rhs, lhs.m_y*rhs, lhs.m_z*rhs, lhs.m_w*rhs );
 		}
 		BOHGE_FORCEINLINE Quaternion operator/ ( T rhs ) const
 		{

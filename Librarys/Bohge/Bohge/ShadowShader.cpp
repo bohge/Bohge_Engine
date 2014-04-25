@@ -109,44 +109,44 @@ namespace BohgeEngine
 
 
 
-	/////////////////////////
-	//	ShadowVolume	   //
-	/////////////////////////
-	//--------------------------------------------------------------------------------------
-	ShadowVolumeInstance::ShadowVolumeInstance()
-		:m_hLightDirectionLoc(-1),
-		m_hViewProjLoc(-1)
-	{
-	}
-	//--------------------------------------------------------------------------------------
-	bool ShadowVolumeInstance::Initialization()
-	{
-		m_Attributes.PushAttribute( "g_vVertex",	Attributes::ATTRIBUTE_POSITION );
-		m_Attributes.PushAttribute( "g_vNormal",	Attributes::ATTRIBUTE_NORMAL );
-		m_Attributes.PushAttribute( "matColum1",	Attributes::ATTRIBUTE_MATIRX_COLUMN1 );
-		m_Attributes.PushAttribute( "matColum2",	Attributes::ATTRIBUTE_MATIRX_COLUMN2 );
-		m_Attributes.PushAttribute( "matColum3",	Attributes::ATTRIBUTE_MATIRX_COLUMN3 );
-		m_Attributes.PushAttribute( "matColum4",	Attributes::ATTRIBUTE_MATIRX_COLUMN4 );
+	///////////////////////////
+	////	ShadowVolume	   //
+	///////////////////////////
+	////--------------------------------------------------------------------------------------
+	//ShadowVolumeInstance::ShadowVolumeInstance()
+	//	:m_hLightDirectionLoc(-1),
+	//	m_hViewProjLoc(-1)
+	//{
+	//}
+	////--------------------------------------------------------------------------------------
+	//bool ShadowVolumeInstance::Initialization()
+	//{
+	//	m_Attributes.PushAttribute( "g_vVertex",	Attributes::ATTRIBUTE_POSITION );
+	//	m_Attributes.PushAttribute( "g_vNormal",	Attributes::ATTRIBUTE_NORMAL );
+	//	m_Attributes.PushAttribute( "matColum1",	Attributes::ATTRIBUTE_MATIRX_COLUMN1 );
+	//	m_Attributes.PushAttribute( "matColum2",	Attributes::ATTRIBUTE_MATIRX_COLUMN2 );
+	//	m_Attributes.PushAttribute( "matColum3",	Attributes::ATTRIBUTE_MATIRX_COLUMN3 );
+	//	m_Attributes.PushAttribute( "matColum4",	Attributes::ATTRIBUTE_MATIRX_COLUMN4 );
 
-		if( false == Engine::Instance().GetDevice()->CreateShaderProgram(m_hShaderProgram, m_Attributes, ShaderResource::rShadowVolumeInstance ) )
-			return false;
-		// Make a record of the location for each shader constant
-		m_hLightDirectionLoc	= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "g_vLightDirection" );
-		m_hViewProjLoc			= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "g_matViewProj" );
+	//	if( false == Engine::Instance().GetDevice()->CreateShaderProgram(m_hShaderProgram, m_Attributes, ShaderResource::rShadowVolumeInstance ) )
+	//		return false;
+	//	// Make a record of the location for each shader constant
+	//	m_hLightDirectionLoc	= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "g_vLightDirection" );
+	//	m_hViewProjLoc			= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "g_matViewProj" );
 
-		return true;
-	}
-	//--------------------------------------------------------------------------------------
-	void ShadowVolumeInstance::_SetParameters ()
-	{
-		Engine& engine = Engine::Instance();
-		Device* device = engine.GetDevice();
-		Environment* env = engine.GetEnvironment();
-		ICamera* camera = engine.GetCamera();
-		device->SetShaderParameter(m_hLightDirectionLoc, env->GetCurrentLight().GetWorldDirection());
-		device->SetShaderParameter(m_hViewProjLoc, camera->GetViewProjBias());
-	}
-	//--------------------------------------------------------------------------------------
+	//	return true;
+	//}
+	////--------------------------------------------------------------------------------------
+	//void ShadowVolumeInstance::_SetParameters ()
+	//{
+	//	Engine& engine = Engine::Instance();
+	//	Device* device = engine.GetDevice();
+	//	Environment* env = engine.GetEnvironment();
+	//	ICamera* camera = engine.GetCamera();
+	//	device->SetShaderParameter(m_hLightDirectionLoc, env->GetCurrentLight().GetWorldDirection());
+	//	device->SetShaderParameter(m_hViewProjLoc, camera->GetViewProjBias());
+	//}
+	////--------------------------------------------------------------------------------------
 
 
 

@@ -102,18 +102,18 @@ namespace BohgeEngine
 				return NULL;
 			}
 			m_pMutex->Lock();
-			IJob* job = _DoPopJob();
+			SmartPtr<IJob> job = _DoPopJob();
 			m_pMutex->Unlock();
-			job->DoJob();
+			job->DoJob( job );
 		}
 		return NULL;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void JobBaseThread::PushJob( IJob* job )
+	void JobBaseThread::PushJob( SmartPtr<IJob>& job )
 	{
 		switch( job->GetJobType() )
 		{
-		case IJob::JT_SYNCHRONOUS: job->DoJob(); break;
+		case IJob::JT_SYNCHRONOUS: job->DoJob( job ); break;
 		case IJob::JT_ASYNCHRONOUS:
 			{
 				ASSERT( isRunning() );
@@ -134,4 +134,5 @@ namespace BohgeEngine
 			m_pCondition->Signal();
 		}
 	}
+
 }

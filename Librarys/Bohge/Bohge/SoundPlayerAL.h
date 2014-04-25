@@ -55,7 +55,7 @@ namespace BohgeEngine
 		uint					m_DataQueueHandles[SC_DATA_QUEUE_SIZE];//ÒôÆµplayer
 		uint					m_SourceHandle;//²¥·ÅµÄÒôÔ´¾ä±ú
 	private:
-		SoundPlayerAL( int hash, int index, Decoder* res );
+		SoundPlayerAL( int hash, int index, SmartPtr<Decoder>& res );
 		virtual ~SoundPlayerAL(void);
 	private:
 		int _GetALFormat();

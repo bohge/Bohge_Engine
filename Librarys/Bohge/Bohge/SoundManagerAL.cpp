@@ -86,7 +86,7 @@ namespace BohgeEngine
 		alcCloseDevice(m_pDevice);
 	}
 	//-------------------------------------------------------------------------------------------------------
-	SoundPlayer* SoundManagerAL::CreatePlayer( int hash, int index, Decoder* res )
+	SoundPlayer* SoundManagerAL::CreatePlayer( int hash, int index, SmartPtr<Decoder>& res )
 	{
 		return NEW SoundPlayerAL( hash, index, res );
 	}

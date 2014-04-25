@@ -295,14 +295,7 @@ namespace BohgeEngine
 			);
 			return *this;
 		}
-		BOHGE_FORCEINLINE Matrix44<T> operator* (const T& num) const
-		{
-			return Matrix44<T>(	a11*num, a12*num, a13*num, a14*num,
-				a21*num, a22*num, a23*num, a24*num,
-				a31*num, a32*num, a33*num, a34*num,
-				a41*num, a42*num, a43*num, a44*num);
-		}
-		BOHGE_FORCEINLINE Matrix44<T> operator/ ( const T& n) const
+		BOHGE_FORCEINLINE Matrix44<T> operator/ ( T n ) const
 		{
 			ASSERT( false == Math::isZero(n) );
 			T num = T(1.0)/n;
@@ -311,7 +304,7 @@ namespace BohgeEngine
 				a31*num, a32*num, a33*num, a34*num,
 				a41*num, a42*num, a43*num, a44*num);
 		}
-		BOHGE_FORCEINLINE Matrix44<T>& operator*= (const T& num)
+		BOHGE_FORCEINLINE Matrix44<T>& operator*= ( T num )
 		{
 			for ( int i = 0; i < 16; i ++ )
 			{
@@ -319,7 +312,7 @@ namespace BohgeEngine
 			}
 			return *this;
 		}
-		BOHGE_FORCEINLINE Matrix44<T>& operator/= (const T& num)
+		BOHGE_FORCEINLINE Matrix44<T>& operator/= ( T num )
 		{
 			for ( int i = 0; i < 16; i ++ )
 			{
@@ -327,6 +320,22 @@ namespace BohgeEngine
 			}
 			return *this;
 		}
+	public:
+		friend BOHGE_FORCEINLINE Matrix44<T> operator* ( T num, const Matrix44<T>& rhs )
+		{
+			return Matrix44<T>(	rhs.a11*num, rhs.a12*num, rhs.a13*num, rhs.a14*num,
+				rhs.a21*num, rhs.a22*num, rhs.a23*num, rhs.a24*num,
+				rhs.a31*num, rhs.a32*num, rhs.a33*num, rhs.a34*num,
+				rhs.a41*num, rhs.a42*num, rhs.a43*num, rhs.a44*num);
+		}
+		friend BOHGE_FORCEINLINE Matrix44<T> operator* ( const Matrix44<T>& rhs, T num )
+		{
+			return Matrix44<T>(	rhs.a11*num, rhs.a12*num, rhs.a13*num, rhs.a14*num,
+				rhs.a21*num, rhs.a22*num, rhs.a23*num, rhs.a24*num,
+				rhs.a31*num, rhs.a32*num, rhs.a33*num, rhs.a34*num,
+				rhs.a41*num, rhs.a42*num, rhs.a43*num, rhs.a44*num);
+		}
+	public:
 		BOHGE_FORCEINLINE bool GetInverse(Matrix44<T>& out, bool isQuick = true) const
 		{
 			//这个矩阵算法有些问题，在一些特殊矩阵可能导致计算出错，在摄像机这种可以旋转的东西上面还是不要用了

@@ -116,7 +116,7 @@ namespace BohgeEngine
 		if ( spvm->m_bCreatedPlayer < SMC_MAX_REPEAT_SOUND_PLAYER ) //如果相同资源加载不到规定最大重复的个数
 		{
 			int index = spvm->m_bCreatedPlayer ++;
-			Decoder* decoder = DecoderManager::Instance()->LoadSoundDecoder( path );
+			SmartPtr<Decoder> decoder = DecoderManager::Instance()->LoadSoundDecoder( path );
 			player = m_pInstance->CreatePlayer( hash, index, decoder );
 			player->Initialization();
 			SharedSoundPlayer* ssp = NEW SharedSoundPlayer();

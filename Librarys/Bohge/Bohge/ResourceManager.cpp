@@ -42,6 +42,10 @@
 #include "Log.h"
 #include "TextureData.h"
 #include "Utility.h"
+#include "ISource.h"
+#include "IResource.h"
+#include "GreaterThread.h"
+#include "ThreadMutex.h"
 
 
 using namespace std;
@@ -52,10 +56,18 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	ResourceManager::ResourceManager()
 	{
+		m_pLoadingThread = NEW GreaterThread();
+		m_pLoadingThread->SetPriority( Threading::TP_HIGH );
+		m_pLoadingThread->Start();
+
+		m_pMutex = NEW ThreadMutex();
 	}
 	//------------------------------------------------------------------------------------------------------
 	ResourceManager::~ResourceManager()
 	{
+		m_pLoadingThread->Stop();
+		SAFE_DELETE( m_pLoadingThread );
+		SAFE_DELETE( m_pMutex );
 	}
 	//------------------------------------------------------------------------------------------------------
 	const TextureData& ResourceManager::LoadTexture2D( Device::PixelFormat pf, const std::string& filename)
@@ -145,4 +157,94 @@ namespace BohgeEngine
 			}
 		}
 	}
+
+
+
+	//------------------------------------------------------------------------------------------------------
+	void ResourceManager::OnSourceLoaded( SmartPtr<ISource>& source )
+	{
+		//当数据在异步线程加载完毕后，会调用这个函数将数据push到队列中，等待在主线程制作成资源
+		m_pMutex->Lock();
+		m_LoadedSource.push( source );
+		m_pMutex->Unlock();
+	}
+	//------------------------------------------------------------------------------------------------------
+	void ResourceManager::LoadResource( SmartPtr<ISource>& source )
+	{
+		m_pMutex->Lock();//这里也需要加锁，在异步线程可能调用这里，push新的资源进来
+		IResourcePairMap::iterator res = m_IResourcePairMap.find( source->GetHashCode() );
+		if ( m_IResourcePairMap.end() != res )//找到这个资源就直接通知拷贝,或者添加到等待队列中
+		{
+			if ( NULL != res->second->Resource )
+			{
+				res->second->Resource->Increment();//增加引用计数
+				Event<bool,IResource*>::FunctionType* ptr = source->GetListener();
+				res->second->User->Connect( ptr );
+				ptr->Invoker( res->second->Resource );//通知客户资源已经准备好了
+			}
+			else//资源还在加载中
+			{
+				Event<bool,IResource*>::FunctionType* ptr = source->GetListener();
+				res->second->User->Connect( ptr );
+			}
+		}
+		else
+		{
+				//如果都没找到，就添加到加载队列中
+				Event<bool,IResource*>* eventPtr = NEW Event<bool,IResource*>();
+				eventPtr->Connect( source->GetListener() );
+				ResourcePair* pair = NEW ResourcePair();
+				pair->User = eventPtr;
+				m_IResourcePairMap.insert( make_pair( source->GetHashCode(), pair ) );
+				m_pLoadingThread->PushJob( source );
+		}
+		m_pMutex->Unlock();
+	}
+	//------------------------------------------------------------------------------------------------------
+	void ResourceManager::Update()
+	{
+		while( !m_LoadedSource.empty() )
+		{
+			m_pMutex->Lock();
+			SmartPtr<ISource> ptr = m_LoadedSource.front();
+			m_LoadedSource.pop();
+			m_pMutex->Unlock();
+			IResourcePairMap::iterator pair = m_IResourcePairMap.find( ptr->GetHashCode() );
+			uint neederCount = pair->second->User->GetListenerCount();
+			if ( 0 != neederCount )//如果还有需求者
+			{
+				IResource* res = ptr->DoMakeResource();//制作数据
+				pair->second->Resource = res;
+				pair->second->User->Multicast( res );//通知客户，资源已经准备完毕
+				res->Increment( neederCount );//添加引用计数
+			}
+			else//没有需求就白加载了，直接删除资源
+			{
+				SAFE_DELETE( pair->second->User );//删除事件
+				SAFE_DELETE( pair->second );//删除资源对
+				m_IResourcePairMap.erase( pair );//删除资源队列中的数据
+			}
+		}
+	}
+	//------------------------------------------------------------------------------------------------------
+	void ResourceManager::UnloadResource( SmartPtr<ISource>& source )
+	{
+		IResourcePairMap::iterator pair = m_IResourcePairMap.find( source->GetHashCode() );
+		if ( NULL != pair->second->Resource )//找到这个资源就直接减少引用计数
+		{
+			if( 0 == pair->second->Resource->Decrement() )//减少引用计数
+			{
+				pair->second->Resource->ReleaseResource();//释放资源
+				SAFE_DELETE( pair->second->Resource );//删除资源
+				SAFE_DELETE( pair->second->User );//删除事件
+				SAFE_DELETE( pair->second );//删除资源对
+				m_IResourcePairMap.erase( pair );//删除资源队列中的数据
+			}
+		}
+		else
+		{
+			pair->second->User->Remove( source->GetListener() );//如果在加载队列中就去掉事件监听者
+		}
+	}
+
 }

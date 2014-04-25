@@ -47,13 +47,13 @@ namespace BohgeEngine
 		//当一个声音资源被重复使用的时候，decoder不在流式加载资源，换言之不会再去释放旧资源
 		//这样做可以用一定的空间资源换取时间
 	private:
-		Decoder*		m_pDecoder;
-		const char*		m_BufferAddress;
-		uint			m_nBufferSize;
-		uint			m_nCurrentBufferIndex;//当前声音buffer的index
-		bool			m_isDone;
+		SmartPtr<Decoder>		m_pDecoder;
+		const char*				m_BufferAddress;
+		uint					m_nBufferSize;
+		uint					m_nCurrentBufferIndex;//当前声音buffer的index
+		bool					m_isDone;
 	public:
-		SoundResource( Decoder* decoder );
+		SoundResource( SmartPtr<Decoder> decoder );
 		~SoundResource(void);
 	public:
 		void FlushBufferData();
@@ -64,7 +64,7 @@ namespace BohgeEngine
 		}
 		BOHGE_FORCEINLINE void RequestDecode()//要求解析数据段
 		{
-			m_pDecoder->RequestDecode();
+			DecoderManager::Instance()->PushDecodeJob( m_pDecoder );
 		}
 		BOHGE_FORCEINLINE void ReleaseResource()//sl需要释放资源，应为sl不需要读取
 		{

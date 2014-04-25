@@ -229,9 +229,13 @@ namespace BohgeEngine
 			T inv = T(1) / num;
 			return vector3( data[0] * inv, data[1] * inv, data[2] * inv );
 		}
-		BOHGE_FORCEINLINE vector3 operator* (const T num ) const
+		friend BOHGE_FORCEINLINE vector3<T> operator* ( const T num, const vector3<T>& rhs )
 		{
-			return vector3( data[0] * num, data[1] * num, data[2] * num );
+			return vector3<T>( rhs.data[0] * num, rhs.data[1] * num, rhs.data[2] * num );
+		}
+		friend BOHGE_FORCEINLINE vector3<T> operator* ( const vector3<T>& rhs, const T num )
+		{
+			return vector3<T>( rhs.data[0] * num, rhs.data[1] * num, rhs.data[2] * num );
 		}
 		BOHGE_FORCEINLINE vector3 operator- (const T num ) const
 		{

@@ -36,10 +36,14 @@
 /////////////////////////
 
 #pragma once
+#include "Device.h"
+#include "SmartPtr.hpp"
+#include "Event.hpp"
+
 
 #include <string>
+#include <queue>
 #include <map>
-#include "Device.h"
 
 
 namespace BohgeEngine
@@ -48,6 +52,11 @@ namespace BohgeEngine
 	class Texture2D;
 	class TextureCube;
 	class ModelData;
+
+	class ISource;
+	class IResource;
+	class GreaterThread;
+	class ThreadMutex;
 	class ResourceManager
 	{
 	public:
@@ -74,6 +83,30 @@ namespace BohgeEngine
 	public:
 		const ModelData& LoadModel( const std::string& name );
 		void ReleaseModel( const std::string& name );
+
+
+		//新结构
+	private:
+		struct ResourcePair
+		{
+			IResource*					Resource;
+			Event<bool,IResource*>*		User;
+			ResourcePair():Resource(NULL),User(NULL){}
+		};
+	private:
+		typedef std::map< uint, ResourcePair* > IResourcePairMap;//资源的map
+		typedef std::queue< SmartPtr<ISource> > LoadedISourceQueue;//已经加载完毕等待make的队列
+	private:
+		IResourcePairMap		m_IResourcePairMap;
+		LoadedISourceQueue		m_LoadedSource;
+		ThreadMutex*			m_pMutex;
+		GreaterThread*			m_pLoadingThread;//加载线程
+	public:
+		void OnSourceLoaded( SmartPtr<ISource>& source );//当数据在异步线程加载完毕后，会调用这个函数将数据push到队列中，等待在主线程制作成资源
+	public:
+		void Update();
+		void LoadResource( SmartPtr<ISource>& source );//加载资源
+		void UnloadResource( SmartPtr<ISource>& source );//卸载资源
 	};
 
 }

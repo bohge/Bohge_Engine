@@ -49,14 +49,14 @@ namespace BohgeEngine
 		return m_JobQueue.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IJob* QueueThread::_DoPopJob()
+	SmartPtr<IJob> QueueThread::_DoPopJob()
 	{
-		IJob* job = m_JobQueue.front();
+		SmartPtr<IJob> job = m_JobQueue.front();
 		m_JobQueue.pop();
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void QueueThread::_DoPushJob( IJob* job )
+	void QueueThread::_DoPushJob( SmartPtr<IJob>& job )
 	{
 		m_JobQueue.push( job );
 	}

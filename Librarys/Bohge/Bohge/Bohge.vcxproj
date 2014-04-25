@@ -375,10 +375,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndroidIOSystem.cpp" />
+    <ClCompile Include="GPUProgramResource.cpp" />
+    <ClCompile Include="GPUProgramRespurceGL.cpp" />
     <ClCompile Include="IFile.cpp" />
+    <ClCompile Include="IndicesBufferResource.cpp" />
+    <ClCompile Include="IndicesBufferResourceGL.cpp" />
     <ClCompile Include="IOSIOSystem.cpp" />
     <ClCompile Include="IOSystem.cpp" />
     <ClCompile Include="IOSystemBase.cpp" />
+    <ClCompile Include="ISource.cpp" />
+    <ClCompile Include="TextureResource.cpp" />
     <ClCompile Include="JobManager.cpp" />
     <ClCompile Include="EmitterBase.cpp" />
     <ClCompile Include="GreaterThread.cpp" />
@@ -420,7 +426,10 @@
     <ClCompile Include="SoundResource.cpp" />
     <ClCompile Include="Decoder.cpp" />
     <ClCompile Include="DecoderManager.cpp" />
+    <ClCompile Include="TextureResourceGL.cpp" />
+    <ClCompile Include="TextureSource.cpp" />
     <ClCompile Include="TextureState.cpp" />
+    <ClCompile Include="TextureTemp.cpp" />
     <ClCompile Include="ThreadCondition.cpp" />
     <ClCompile Include="Threading.cpp" />
     <ClCompile Include="ThreadMutex.cpp" />
@@ -433,6 +442,9 @@
     <ClCompile Include="EncryptFile.cpp" />
     <ClCompile Include="UsualFile.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="VertexBufferResource.cpp" />
+    <ClCompile Include="VertexBufferResourceGL.cpp" />
+    <ClCompile Include="VertexStream.cpp" />
     <ClCompile Include="WAVDecoder.cpp" />
     <ClCompile Include="WindowsIOSystem.cpp" />
     <ClCompile Include="ZipFile.cpp" />
@@ -514,9 +526,18 @@
   <ItemGroup>
     <ClInclude Include="AndroidIOSystem.h" />
     <ClInclude Include="AndroidThreadSafeOprator.h" />
+    <ClInclude Include="BufferObjectStatus.h" />
+    <ClInclude Include="GPUProgramResource.h" />
+    <ClInclude Include="GPUProgramRespurceGL.h" />
+    <ClInclude Include="IDevice.h" />
+    <ClInclude Include="IndicesBufferResource.h" />
+    <ClInclude Include="IndicesBufferResourceGL.h" />
     <ClInclude Include="IOSIOSystem.h" />
     <ClInclude Include="IOSThreadSafeOprator.h" />
     <ClInclude Include="IOSystemBase.h" />
+    <ClInclude Include="IResource.h" />
+    <ClInclude Include="VertexBufferResourceGL.h" />
+    <ClInclude Include="VertexCompress.h" />
     <ClInclude Include="JobManager.h" />
     <ClInclude Include="BaseMathImplement.hpp" />
     <ClInclude Include="BinaryIndex.hpp" />
@@ -547,6 +568,7 @@
     <ClInclude Include="OGGDecoder.h" />
     <ClInclude Include="Quaternion.hpp" />
     <ClInclude Include="QueueThread.h" />
+    <ClInclude Include="ISource.h" />
     <ClInclude Include="ScriptNodeInterface.h" />
     <ClInclude Include="AssembledMaterialShader.h" />
     <ClInclude Include="ShaderAssembler.h" />
@@ -570,6 +592,7 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="RendBuffer.h" />
     <ClInclude Include="RenderTarget.h" />
+    <ClInclude Include="SmartPtr.hpp" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SoundManagerAL.h" />
     <ClInclude Include="SoundManagerSL.h" />
@@ -579,7 +602,12 @@
     <ClInclude Include="SoundResource.h" />
     <ClInclude Include="Decoder.h" />
     <ClInclude Include="DecoderManager.h" />
+    <ClInclude Include="TextureResource.h" />
+    <ClInclude Include="TextureResourceGL.h" />
+    <ClInclude Include="TextureSource.h" />
     <ClInclude Include="TextureState.h" />
+    <ClInclude Include="TextureStatus.h" />
+    <ClInclude Include="TextureTemp.h" />
     <ClInclude Include="ThreadCondition.h" />
     <ClInclude Include="Threading.h" />
     <ClInclude Include="ThreadMutex.h" />
@@ -600,6 +628,9 @@
     <ClInclude Include="IFile.h" />
     <ClInclude Include="UsualFile.h" />
     <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="VertexBufferResource.h" />
+    <ClInclude Include="VertexStream.h" />
+    <ClInclude Include="VertexStreamLayout.h" />
     <ClInclude Include="WAVDecoder.h" />
     <ClInclude Include="WindowsIOSystem.h" />
     <ClInclude Include="WindowsThreadSafeOprator.h" />

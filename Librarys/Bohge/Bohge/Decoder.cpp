@@ -105,26 +105,31 @@ namespace BohgeEngine
 		return BufferChunk( m_BufferVector[index], buffersize, next_index, isdone );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void Decoder::RequestDecode()
+	bool Decoder::_PrepareDecode()
 	{
 		if ( !m_isRequested && m_nLoadedBufferIndex < m_BufferVector.size() )//如果已经要求解码了，就不重复在队列中添加了
 		{
 			m_isRequested = true;
 			//添加到解码线程队列，进行解码
 			SetPriority( m_nLoadedBufferIndex );//优先级就是读到第几个buffer
-			DecoderManager::Instance()->PushDecodeJob( this );
+			return true;
 		}
+		return false;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void Decoder::DoJob()
+	void Decoder::DoJob(SmartPtr<IJob>& self)
 	{
 		m_isDecoding = true;
-		if ( m_isActived )//这个检测理论是不需要的&& m_nLoadedBufferIndex < m_BufferVector.size() )
+		if ( m_isActived )
 		{
 			uint from = m_nLoadedBufferIndex * DecoderManager::DC_DEFUALT_SOUND_BUFFER_SIZE;
 			uint to = _GetEndPosition(from);
 			_DoDecodeAsyn( from, to );
 			m_nLoadedBufferIndex ++;
+		}		
+		if ( !m_isActived )
+		{
+			ReleaseDecoder();//如果释放的时候decoder已经在异步队列中,则需要在这里释放资源
 		}
 		m_isRequested = false;
 		m_isDecoding = false;

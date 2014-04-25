@@ -194,52 +194,52 @@ namespace BohgeEngine
 
 
 
-	/////////////////////////////////
-	//	PrePixelLightInstance	   //
-	/////////////////////////////////
-	//--------------------------------------------------------------------------------------
-	PrePixelLightInstance::PrePixelLightInstance()
-		:m_hViewProjMatrixLoc(-1),
-		m_hLightDirectionLoc(-1),
-		m_hCameraPositionLoc(-1),
-		m_hAmbientLoc(-1),
-		m_hLightLoc(-1)
-	{
-	}
-	//--------------------------------------------------------------------------------------
-	bool PrePixelLightInstance::Initialization()
-	{
-		m_Attributes.PushAttribute( "position",	Attributes::ATTRIBUTE_POSITION );
-		m_Attributes.PushAttribute( "texCoord",	Attributes::ATTRIBUTE_TEXCOORD0 );
-		m_Attributes.PushAttribute( "normal",	Attributes::ATTRIBUTE_NORMAL );
-		m_Attributes.PushAttribute( "matColum1",	Attributes::ATTRIBUTE_MATIRX_COLUMN1 );
-		m_Attributes.PushAttribute( "matColum2",	Attributes::ATTRIBUTE_MATIRX_COLUMN2 );
-		m_Attributes.PushAttribute( "matColum3",	Attributes::ATTRIBUTE_MATIRX_COLUMN3 );
-		m_Attributes.PushAttribute( "matColum4",	Attributes::ATTRIBUTE_MATIRX_COLUMN4 );
+	///////////////////////////////////
+	////	PrePixelLightInstance	   //
+	///////////////////////////////////
+	////--------------------------------------------------------------------------------------
+	//PrePixelLightInstance::PrePixelLightInstance()
+	//	:m_hViewProjMatrixLoc(-1),
+	//	m_hLightDirectionLoc(-1),
+	//	m_hCameraPositionLoc(-1),
+	//	m_hAmbientLoc(-1),
+	//	m_hLightLoc(-1)
+	//{
+	//}
+	////--------------------------------------------------------------------------------------
+	//bool PrePixelLightInstance::Initialization()
+	//{
+	//	m_Attributes.PushAttribute( "position",	Attributes::ATTRIBUTE_POSITION );
+	//	m_Attributes.PushAttribute( "texCoord",	Attributes::ATTRIBUTE_TEXCOORD0 );
+	//	m_Attributes.PushAttribute( "normal",	Attributes::ATTRIBUTE_NORMAL );
+	//	m_Attributes.PushAttribute( "matColum1",	Attributes::ATTRIBUTE_MATIRX_COLUMN1 );
+	//	m_Attributes.PushAttribute( "matColum2",	Attributes::ATTRIBUTE_MATIRX_COLUMN2 );
+	//	m_Attributes.PushAttribute( "matColum3",	Attributes::ATTRIBUTE_MATIRX_COLUMN3 );
+	//	m_Attributes.PushAttribute( "matColum4",	Attributes::ATTRIBUTE_MATIRX_COLUMN4 );
 
-		if( false == Engine::Instance().GetDevice()->CreateShaderProgram(m_hShaderProgram, m_Attributes, ShaderResource::rPrePixelLightInstance ) )
-			return false;
-		// Make a record of the location for each shader constant
-		m_hViewProjMatrixLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "ViewProj" );
-		m_hLightDirectionLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "vLightDir" );
-		m_hCameraPositionLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "vCamPos" );
-		m_hAmbientLoc				= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "fAmbient" );
-		m_hLightLoc					= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "Light" );
-		return true;
-	}
-	//--------------------------------------------------------------------------------------
-	void PrePixelLightInstance::_SetParameters ()
-	{
-		Engine& engine = Engine::Instance();
-		Device* device = engine.GetDevice();
-		Environment* env = engine.GetEnvironment();
-		ICamera* camera = engine.GetCamera();
-		device->SetShaderParameter(m_hViewProjMatrixLoc, camera->GetViewProj());
-		device->SetShaderParameter(m_hLightDirectionLoc, -env->GetCurrentLight().GetWorldDirection());//phong光是像素到光源的方向，所以这里反向
-		device->SetShaderParameter(m_hCameraPositionLoc, camera->GetPosition() );
-		device->SetShaderParameter(m_hAmbientLoc, env->GetAmbient());
-		device->SetShaderParameter(m_hLightLoc, env->GetCurrentLight().GetColor());
-	}
-	//--------------------------------------------------------------------------------------
+	//	if( false == Engine::Instance().GetDevice()->CreateShaderProgram(m_hShaderProgram, m_Attributes, ShaderResource::rPrePixelLightInstance ) )
+	//		return false;
+	//	// Make a record of the location for each shader constant
+	//	m_hViewProjMatrixLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "ViewProj" );
+	//	m_hLightDirectionLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "vLightDir" );
+	//	m_hCameraPositionLoc		= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "vCamPos" );
+	//	m_hAmbientLoc				= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "fAmbient" );
+	//	m_hLightLoc					= Engine::Instance().GetDevice()->GetShaderParameterHandle( m_hShaderProgram,  "Light" );
+	//	return true;
+	//}
+	////--------------------------------------------------------------------------------------
+	//void PrePixelLightInstance::_SetParameters ()
+	//{
+	//	Engine& engine = Engine::Instance();
+	//	Device* device = engine.GetDevice();
+	//	Environment* env = engine.GetEnvironment();
+	//	ICamera* camera = engine.GetCamera();
+	//	device->SetShaderParameter(m_hViewProjMatrixLoc, camera->GetViewProj());
+	//	device->SetShaderParameter(m_hLightDirectionLoc, -env->GetCurrentLight().GetWorldDirection());//phong光是像素到光源的方向，所以这里反向
+	//	device->SetShaderParameter(m_hCameraPositionLoc, camera->GetPosition() );
+	//	device->SetShaderParameter(m_hAmbientLoc, env->GetAmbient());
+	//	device->SetShaderParameter(m_hLightLoc, env->GetCurrentLight().GetColor());
+	//}
+	////--------------------------------------------------------------------------------------
 
 }

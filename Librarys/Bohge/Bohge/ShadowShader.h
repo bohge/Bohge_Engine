@@ -65,19 +65,19 @@ namespace BohgeEngine
 	};
 
 
-	//---------------------------------------------------------------------
-	class ShadowVolumeInstance : public Shader
-	{
-	private:
-		handle              m_hLightDirectionLoc;
-		handle              m_hViewProjLoc;
+	////---------------------------------------------------------------------
+	//class ShadowVolumeInstance : public Shader
+	//{
+	//private:
+	//	handle              m_hLightDirectionLoc;
+	//	handle              m_hViewProjLoc;
 
-	protected:
-		virtual void _SetParameters();
-	public:
-		ShadowVolumeInstance();
-		virtual bool Initialization();
-	};
+	//protected:
+	//	virtual void _SetParameters();
+	//public:
+	//	ShadowVolumeInstance();
+	//	virtual bool Initialization();
+	//};
 
 
 

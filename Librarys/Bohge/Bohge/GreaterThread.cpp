@@ -49,15 +49,15 @@ namespace BohgeEngine
 		return m_JobGreaterMap.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IJob* GreaterThread::_DoPopJob()
+	SmartPtr<IJob> GreaterThread::_DoPopJob()
 	{
 		JobGreaterMap::iterator it = m_JobGreaterMap.begin();
-		IJob* job = it->second;
+		SmartPtr<IJob> job = it->second;
 		m_JobGreaterMap.erase( it );
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void GreaterThread::_DoPushJob( IJob* job )
+	void GreaterThread::_DoPushJob( SmartPtr<IJob>& job )
 	{
 		m_JobGreaterMap.insert( std::make_pair( job->GetPriority(), job ) );
 	}

@@ -100,20 +100,20 @@ namespace BohgeEngine
 
 
 
-	//---------------------------------------------------------------------
-	class PrePixelLightInstance : public Shader //Geometry instanceµÄPrePixelLight
-	{
-	private:
-		handle			m_hViewProjMatrixLoc;
-		handle			m_hLightDirectionLoc;
-		handle			m_hCameraPositionLoc;
-		handle			m_hAmbientLoc;
-		handle			m_hLightLoc;
-	protected:
-		virtual void _SetParameters();
-	public:
-		PrePixelLightInstance();
-		virtual bool Initialization();
-	};
+	////---------------------------------------------------------------------
+	//class PrePixelLightInstance : public Shader //Geometry instanceµÄPrePixelLight
+	//{
+	//private:
+	//	handle			m_hViewProjMatrixLoc;
+	//	handle			m_hLightDirectionLoc;
+	//	handle			m_hCameraPositionLoc;
+	//	handle			m_hAmbientLoc;
+	//	handle			m_hLightLoc;
+	//protected:
+	//	virtual void _SetParameters();
+	//public:
+	//	PrePixelLightInstance();
+	//	virtual bool Initialization();
+	//};
 
 }

@@ -932,7 +932,12 @@ namespace BohgeEngine
 			uint ptr = 
 				NULL;	//这个是用VBO的方法
 			//buff.VertexPtr();
-			glBindBuffer(GL_ARRAY_BUFFER, buff.VertexHanle());
+			if ( m_hCurrentVertexBuffer != buff.VertexHanle() )
+			{
+				m_hCurrentVertexBuffer = buff.VertexHanle();
+				glBindBuffer(GL_ARRAY_BUFFER, buff.VertexHanle());
+			}
+			//glBindBuffer(GL_ARRAY_BUFFER, buff.VertexHanle());
 			for (VertexLayoutList::const_iterator it = list->begin();
 				it !=list->end();
 				it ++
@@ -987,7 +992,12 @@ namespace BohgeEngine
 #endif
 			if( buff.hasIndies() ) //如果有索引，用
 			{
-				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buff.IndexHandle());
+				if ( m_hCurrentIndicesBuffer != buff.IndexHandle() )
+				{
+					m_hCurrentIndicesBuffer = buff.IndexHandle();
+					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buff.IndexHandle());
+				}
+				//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buff.IndexHandle());
 				glDrawElements(GL_POINTS + static_cast<uint>(buff.RenderMode()),
 					buff.DrawCount(), GL_UNSIGNED_SHORT, //标准的gles2只能用short或者byte
 					NULL); //这个是用VBO的方法
@@ -1041,7 +1051,11 @@ namespace BohgeEngine
 			uint ptr = 
 				NULL;	//这个是用VBO的方法
 			//buff.VertexPtr();
-			glBindBuffer(GL_ARRAY_BUFFER, buff.VertexHanle());
+			if ( m_hCurrentVertexBuffer != buff.VertexHanle() )
+			{
+				m_hCurrentVertexBuffer = buff.VertexHanle();
+				glBindBuffer(GL_ARRAY_BUFFER, buff.VertexHanle());
+			}
 			for (VertexLayoutList::const_iterator it = list->begin();
 				it !=list->end();
 				it ++
@@ -1090,7 +1104,11 @@ namespace BohgeEngine
 #endif
 			if( buff.hasIndies() ) //如果有索引，用
 			{
-				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buff.IndexHandle());
+				if ( m_hCurrentIndicesBuffer != buff.IndexHandle() )
+				{
+					m_hCurrentIndicesBuffer = buff.IndexHandle();
+					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buff.IndexHandle());
+				}
 				glDrawElements(GL_POINTS + static_cast<uint>(buff.RenderMode()),
 					buff.DrawCount(), GL_UNSIGNED_SHORT, //标准的gles2只能用short或者byte
 					NULL); //这个是用VBO的方法
@@ -1155,6 +1173,7 @@ namespace BohgeEngine
 	void Device::DeleteTexture(handle& h)
 	{
 		glDeleteTextures(1, &h);
+		m_hCurrentTexture = -1;
 	}
 	//------------------------------------------------------------------------------------------------------
 	void Device::SetTexture(const Texture& tex)
@@ -1677,7 +1696,11 @@ namespace BohgeEngine
 		CHECK_ERROR_GLES;
 		glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
 		CHECK_ERROR_GLES;
-		m_hCurrentBuffer = h;
+		switch( type )
+		{
+		case BufferType::INDIES_BUFFER: m_hCurrentIndicesBuffer = h; break;
+		case BufferType::VERTEX_BUFFER: m_hCurrentVertexBuffer = h; break;
+		}
 		switch( use )
 		{
 		case Device::MU_STATIC:glBufferData(GL_ARRAY_BUFFER + static_cast<int>(type), totleSize, dataptr, GL_STATIC_DRAW);break;
@@ -1689,10 +1712,24 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void Device::ReallocBuffer(handle& h, BufferType type, uint totleSize, const void* dataptr, MemoryUseage use)
 	{
-		if ( m_hCurrentBuffer != h )
+		switch( type )
 		{
-			m_hCurrentBuffer = h;
-			glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+		case BufferType::INDIES_BUFFER:
+			{
+				if ( m_hCurrentIndicesBuffer != h )
+				{
+					m_hCurrentIndicesBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
+		case BufferType::VERTEX_BUFFER:
+			{
+				if ( m_hCurrentVertexBuffer != h )
+				{
+					m_hCurrentVertexBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
 		}
 		switch( use )
 		{
@@ -1703,20 +1740,48 @@ namespace BohgeEngine
 	//------------------------------------------------------------------------------------------------------
 	void Device::ChangeData(handle h, BufferType type, uint offset, uint biteSize, const void* dataptr )
 	{
-		if ( m_hCurrentBuffer != h )
+		switch( type )
 		{
-			m_hCurrentBuffer = h;
-			glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+		case BufferType::INDIES_BUFFER:
+			{
+				if ( m_hCurrentIndicesBuffer != h )
+				{
+					m_hCurrentIndicesBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
+		case BufferType::VERTEX_BUFFER:
+			{
+				if ( m_hCurrentVertexBuffer != h )
+				{
+					m_hCurrentVertexBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
 		}
 		glBufferSubData(GL_ARRAY_BUFFER + static_cast<int>(type), offset, biteSize, dataptr);
 	}
 	//------------------------------------------------------------------------------------------------------
 	void Device::BindBuffer(handle h, BufferType type)
 	{
-		if ( m_hCurrentBuffer != h )
+		switch( type )
 		{
-			m_hCurrentBuffer = h;
-			glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+		case BufferType::INDIES_BUFFER:
+			{
+				if ( m_hCurrentIndicesBuffer != h )
+				{
+					m_hCurrentIndicesBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
+		case BufferType::VERTEX_BUFFER:
+			{
+				if ( m_hCurrentVertexBuffer != h )
+				{
+					m_hCurrentVertexBuffer = h;
+					glBindBuffer(GL_ARRAY_BUFFER + static_cast<int>(type), h);
+				}
+			}break;
 		}
 	}
 	//------------------------------------------------------------------------------------------------------
@@ -1724,6 +1789,8 @@ namespace BohgeEngine
 	{
 		//DEBUGLOG("Delete VBO %d\n",h);
 		glDeleteBuffers( 1, &h);
+		m_hCurrentIndicesBuffer = -1;
+		m_hCurrentVertexBuffer = -1;
 		h = -1;
 	}
 	//------------------------------------------------------------------------------------------------------

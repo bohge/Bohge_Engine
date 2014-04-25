@@ -88,11 +88,6 @@ namespace BohgeEngine
 			this->Copy(*this, input);
 			return *this;
 		}
-		BOHGE_FORCEINLINE Matrix22<T> operator/ (T num) const
-		{
-			ASSERT(false == Math::isZero(num));
-			return Matrix22<T>(a11/num, a12/num, a21/num, a22/num);
-		}
 		//BOHGE_FORCEINLINE Matrix22f& operator/= (float num)
 		//{
 		//	ASSERT(false == isZero(num));
@@ -102,14 +97,15 @@ namespace BohgeEngine
 		//	this->a22/=num;
 		//	return *this;
 		//}
-		BOHGE_FORCEINLINE Matrix22<T> operator* (T num) const
-		{
-			return Matrix22f(a11*num, a12*num, a21*num, a22*num);
-		}
 		BOHGE_FORCEINLINE Matrix22<T> operator* (const Matrix22<T>& input) const
 		{
 			return Matrix22<T>(	a11*input.a11 + a12*input.a21,   a11*input.a12 + a12*input.a22,
 				a21*input.a11 + a22*input.a21,   a21*input.a12 + a22*input.a22);
+		}
+		BOHGE_FORCEINLINE Matrix22<T> operator/ (T num)
+		{
+			ASSERT(false == Math::isZero(num));
+			return Matrix22<T>(a11/num, a12/num, a21/num, a22/num);
 		}
 		BOHGE_FORCEINLINE Matrix22<T> operator- ()
 		{
@@ -119,6 +115,15 @@ namespace BohgeEngine
 		{
 			return Matrix22<T>(	a11-input.a11,	a12-input.a12,
 				a21-input.a21,	a22-input.a22);
+		}
+	public:
+		friend BOHGE_FORCEINLINE Matrix22<T> operator* ( T lhs, const Matrix22<T>& rhs)
+		{
+			return  Matrix22<T>(rhs.a11*lhs, rhs.a12*lhs, rhs.a21*lhs, rhs.a22*lhs);
+		}
+		friend BOHGE_FORCEINLINE Matrix22<T> operator* ( const Matrix22<T>& rhs, T lhs )
+		{
+			return  Matrix22<T>(rhs.a11*lhs, rhs.a12*lhs, rhs.a21*lhs, rhs.a22*lhs);
 		}
 	public://接口函数
 		BOHGE_FORCEINLINE void FromRadian( T r )//旋转一定弧度

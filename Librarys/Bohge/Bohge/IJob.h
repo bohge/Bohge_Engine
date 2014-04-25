@@ -32,7 +32,7 @@
 #pragma once
 #include "Predefine.h"
 #include "VariableType.h"
-
+#include "SmartPtr.hpp"
 
 
 namespace BohgeEngine
@@ -52,7 +52,7 @@ namespace BohgeEngine
 		IJob():m_nPriority(0),m_eAsynJob(JT_ASYNCHRONOUS){}
 		virtual ~IJob(void){}
 	public:
-		virtual void DoJob() = 0;
+		virtual void DoJob( SmartPtr<IJob>& self ) = 0;
 	public:
 		BOHGE_FORCEINLINE void SetJobType( JobType jt )
 		{

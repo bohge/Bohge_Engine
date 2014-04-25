@@ -106,12 +106,6 @@
     <Filter Include="Scene\Manage">
       <UniqueIdentifier>{b423d187-3a64-4f5d-9848-66d180bcc3b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{e0ed93c7-ecb0-4bbd-9758-2255a4a89b31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Texture\Source">
-      <UniqueIdentifier>{e2407a24-ce4e-4441-9fb1-f1ad529d7b64}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Mesh">
       <UniqueIdentifier>{24764d1e-0d4f-4426-90ce-bae36d31a1a8}</UniqueIdentifier>
     </Filter>
@@ -254,6 +248,66 @@
     <Filter Include="Thread\ThreadSafe">
       <UniqueIdentifier>{7568954e-43dd-44b9-990d-bd857b7acc12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphic">
+      <UniqueIdentifier>{dffc765c-8f58-4533-9093-7220d0a9e864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\Source">
+      <UniqueIdentifier>{994847ec-45a8-4e66-9000-b1ba28664830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer">
+      <UniqueIdentifier>{167e442e-9d09-4bd9-b9ea-b0a34728dedf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL">
+      <UniqueIdentifier>{1ee440c5-b517-485c-b5d0-21f1fe400c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL\Texture">
+      <UniqueIdentifier>{04fcd758-6ac1-4b36-97fc-460a0c9a6ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGLES">
+      <UniqueIdentifier>{f3f736dd-b5ea-425c-90ab-ad9ebcae45e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGLES\Texture">
+      <UniqueIdentifier>{51958c1c-70d3-4169-90c0-80a2a0f0c0e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer">
+      <UniqueIdentifier>{c4503c8f-f3c0-4d73-8fa7-a9ac4fbb943c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\Texture">
+      <UniqueIdentifier>{b447274d-4a5d-4ee1-99d2-1b399d3b8851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\Device">
+      <UniqueIdentifier>{a4a28315-7bc5-4b73-8ece-54454e9c6e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL\BufferObject">
+      <UniqueIdentifier>{6f6ca557-8e7e-485d-af0b-4237ab462e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\BufferObject">
+      <UniqueIdentifier>{fc8eea0a-92a2-41d0-bab9-9df126d7f5ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\BufferObject\IndicesBuffer">
+      <UniqueIdentifier>{d5b2471e-f05c-4bfa-a3e0-593b1170d0e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL\BufferObject\IndicesBuffer">
+      <UniqueIdentifier>{765d796f-431c-4d47-8db8-72fe68855197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\BufferObject\VertexBuffer">
+      <UniqueIdentifier>{3023ac04-16f9-4494-aa1b-25b077fcb0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\BufferObject\VertexCompress">
+      <UniqueIdentifier>{d6ba06b7-8269-4426-acf9-b781924a5098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\BufferObject\BufferStream">
+      <UniqueIdentifier>{271d5bdd-9b13-4c70-a6dd-ec22b06b296b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL\BufferObject\VertexBuffer">
+      <UniqueIdentifier>{c4f29cc9-9cba-4e22-9bc4-13b9ea4d1f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\IndependentLayer\GPUProgram">
+      <UniqueIdentifier>{9a13afc9-d9e2-4871-bfd5-c66dbfb27f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphic\DependentLayer\OpenGL\GPUProgram">
+      <UniqueIdentifier>{b42aeaac-a7ac-4d3a-ac05-448bcfe0d1bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aabboxDraw.cpp">
@@ -266,15 +320,6 @@
       <Filter>Core\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MemoryPool.c">
-      <Filter>Core\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RendBuffer.cpp">
-      <Filter>Core\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderTarget.cpp">
-      <Filter>Core\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Vertex.cpp">
       <Filter>Core\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Serializer.cpp">
@@ -478,9 +523,6 @@
     <ClCompile Include="Environment.cpp">
       <Filter>Scene\Manage\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Texture\Source</Filter>
-    </ClCompile>
     <ClCompile Include="triangle.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
@@ -498,12 +540,6 @@
     </ClCompile>
     <ClCompile Include="LightMaped.cpp">
       <Filter>Light\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp">
-      <Filter>Core\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IndicesBuffer.cpp">
-      <Filter>Core\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjectGroup.cpp">
       <Filter>Object\Source</Filter>
@@ -664,6 +700,60 @@
     <ClCompile Include="IFile.cpp">
       <Filter>File\FileEntity\Source</Filter>
     </ClCompile>
+    <ClCompile Include="IndicesBuffer.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RendBuffer.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTarget.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ISource.cpp">
+      <Filter>Resources\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Graphic\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureSource.cpp">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResourceGL.cpp">
+      <Filter>Graphic\DependentLayer\OpenGL\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureTemp.cpp">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesBufferResource.cpp">
+      <Filter>Graphic\IndependentLayer\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResource.cpp">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferResource.cpp">
+      <Filter>Graphic\IndependentLayer\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesBufferResourceGL.cpp">
+      <Filter>Graphic\DependentLayer\OpenGL\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexStream.cpp">
+      <Filter>Graphic\IndependentLayer\BufferObject\BufferStream</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferResourceGL.cpp">
+      <Filter>Graphic\DependentLayer\OpenGL\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="GPUProgramResource.cpp">
+      <Filter>Graphic\IndependentLayer\GPUProgram</Filter>
+    </ClCompile>
+    <ClCompile Include="GPUProgramRespurceGL.cpp">
+      <Filter>Graphic\DependentLayer\OpenGL\GPUProgram</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aabbox.hpp">
@@ -702,16 +792,7 @@
     <ClInclude Include="Ray.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="RendBuffer.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderTarget.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="VariableType.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Serializer.h">
@@ -954,12 +1035,6 @@
     <ClInclude Include="ISceneNode.h">
       <Filter>Scene\Manage</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureData.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
     <ClInclude Include="triangle.h">
       <Filter>Mesh</Filter>
     </ClInclude>
@@ -977,12 +1052,6 @@
     </ClInclude>
     <ClInclude Include="LightMaped.h">
       <Filter>Light</Filter>
-    </ClInclude>
-    <ClInclude Include="IndicesBuffer.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexBuffer.h">
-      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="ObjectDataIndex.h">
       <Filter>Object</Filter>
@@ -1199,6 +1268,84 @@
     </ClInclude>
     <ClInclude Include="ThreadSafeOprator.h">
       <Filter>Thread\ThreadSafe</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtr.hpp">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBuffer.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTarget.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="RendBuffer.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="ISource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="IResource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureData.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureSource.h">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureStatus.h">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="IDevice.h">
+      <Filter>Graphic\IndependentLayer\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResourceGL.h">
+      <Filter>Graphic\DependentLayer\OpenGL\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureTemp.h">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResource.h">
+      <Filter>Graphic\IndependentLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBufferResource.h">
+      <Filter>Graphic\IndependentLayer\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferResource.h">
+      <Filter>Graphic\IndependentLayer\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBufferResourceGL.h">
+      <Filter>Graphic\DependentLayer\OpenGL\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferObjectStatus.h">
+      <Filter>Graphic\IndependentLayer\BufferObject</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexCompress.h">
+      <Filter>Graphic\IndependentLayer\BufferObject\VertexCompress</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexStream.h">
+      <Filter>Graphic\IndependentLayer\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexStreamLayout.h">
+      <Filter>Graphic\IndependentLayer\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferResourceGL.h">
+      <Filter>Graphic\DependentLayer\OpenGL\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="GPUProgramResource.h">
+      <Filter>Graphic\IndependentLayer\GPUProgram</Filter>
+    </ClInclude>
+    <ClInclude Include="GPUProgramRespurceGL.h">
+      <Filter>Graphic\DependentLayer\OpenGL\GPUProgram</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

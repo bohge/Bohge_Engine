@@ -37,7 +37,7 @@
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	SoundResource::SoundResource( Decoder* decoder )
+	SoundResource::SoundResource( SmartPtr<Decoder> decoder )
 		:m_pDecoder(decoder ),
 		m_nBufferSize(0),
 		m_nCurrentBufferIndex(0),

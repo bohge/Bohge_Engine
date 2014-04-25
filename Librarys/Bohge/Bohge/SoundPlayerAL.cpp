@@ -59,7 +59,7 @@ void ChechError()
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
-	SoundPlayerAL::SoundPlayerAL( int hash, int index, Decoder* res )
+	SoundPlayerAL::SoundPlayerAL( int hash, int index, SmartPtr<Decoder>& res )
 		:SoundPlayer( hash, index, res ),
 		m_isPlaying(false),
 		m_isLooping(false),

@@ -1,3 +1,33 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
 #include "Predefine.h"
 #include "DecoderManager.h"
 #include "Decoder.h"
@@ -41,7 +71,7 @@ namespace BohgeEngine
 		SAFE_DELETE( m_pDecodingLessThread );
 	}
 	//-------------------------------------------------------------------------------------------------------
-	Decoder* DecoderManager::_DecoderFactory( const std::string& path )
+	SmartPtr<Decoder> DecoderManager::_DecoderFactory( const std::string& path )
 	{
 		//确定声音类型
 		Decoder* decoder = NULL;
@@ -65,42 +95,24 @@ namespace BohgeEngine
 			DEBUGLOG( "Unkonw sound type %s\n", path.c_str() );
 		}
 		decoder->LoadResource( path );
-		return decoder;
-	}
-	//-------------------------------------------------------------------------------------------------------
-	void DecoderManager::_DestoryDecoder( Decoder* decoder )
-	{
-		SAFE_DELETE( decoder );
+		return SmartPtr<Decoder>(decoder);
 	}
 	//-------------------------------------------------------------------------------------------------------
 	void DecoderManager::Update()
 	{
-		for( DecoderTrashList::iterator it = m_DecoderTrashList.begin();
-			it != m_DecoderTrashList.end(); )
+	}
+	//-------------------------------------------------------------------------------------------------------
+	void DecoderManager::PushDecodeJob( SmartPtr<Decoder>& job )
+	{
+		if ( job->_PrepareDecode() )
 		{
-			if ( !(*it)->isDecoding() && !(*it)->isRequested() )
-			{
-				DecoderTrashList::iterator temp = it;
-				it++;
-				(*temp)->ReleaseDecoder();
-				_DestoryDecoder( *temp );
-				m_DecoderTrashList.erase( temp );
-			}
-			else
-			{
-				it++;
-			}
+			m_pDecodingLessThread->PushJob( job );
 		}
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void DecoderManager::PushDecodeJob( Decoder* job )
+	SmartPtr<Decoder> DecoderManager::LoadSoundDecoder( const std::string& path )
 	{
-		m_pDecodingLessThread->PushJob( job );
-	}
-	//-------------------------------------------------------------------------------------------------------
-	Decoder* DecoderManager::LoadSoundDecoder( const std::string& path )
-	{
-		Decoder* decoder;
+		SmartPtr<Decoder> decoder;
 		uint hash = Utility::HashCode( path );
 		DecoderReferenceMap::iterator refDecoder = m_DecoderMap.find( hash );
 		if ( m_DecoderMap.end() == refDecoder )//没找到解码器，创建新的解码器
@@ -117,16 +129,18 @@ namespace BohgeEngine
 		return decoder;
 	}
 	//-------------------------------------------------------------------------------------------------------
-	void DecoderManager::UnloadSoundDecoder( Decoder* sr )
+	void DecoderManager::UnloadSoundDecoder( SmartPtr<Decoder>& sr )
 	{
 		uint hash = Utility::HashCode( sr->GetFilePath() );
 		DecoderReferenceMap::iterator refDecoder = m_DecoderMap.find( hash );
 		ASSERT( m_DecoderMap.end() != refDecoder );
 		if ( 0 == -- refDecoder->second->m_nReference )
 		{
-			//Decoder::DestoryDecoder( refDecoder->second->m_pDecoder );//不能立即删除，可能在队列中
-			refDecoder->second->m_pDecoder->Deactive();
-			m_DecoderTrashList.push_back( refDecoder->second->m_pDecoder );//放入垃圾箱，等待回收
+			refDecoder->second->m_pDecoder->_Deactive();
+			if ( !refDecoder->second->m_pDecoder->isRequested() )//如果不在解码队列中，直接销毁
+			{
+				refDecoder->second->m_pDecoder->ReleaseDecoder();
+			}
 			SAFE_DELETE( refDecoder->second );
 			m_DecoderMap.erase( refDecoder );
 		}

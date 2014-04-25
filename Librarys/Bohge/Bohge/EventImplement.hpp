@@ -88,6 +88,8 @@ IFUNCTION_CLASS<R, EVENT_PARAM_TYPES>*  const make_bind( R (T::*fn)(EVENT_PARAM_
 template <typename R, EVENT_PARAM_TEMPLATE >
 class EVENT_CLASS //¶à²¥ÊÂ¼þ
 {
+public:
+	typedef IFUNCTION_CLASS<R, EVENT_PARAM_TYPES> FunctionType;
 private:
 	typedef std::map< int, IFUNCTION_CLASS<R,EVENT_PARAM_TYPES>* >		FunctionPtrMap;
 	typedef typename FunctionPtrMap::iterator										FunctionIterator;
@@ -102,7 +104,7 @@ public:
 	{
 		this->ClearConnect();
 	}
-	BOHGE_FORCEINLINE FunctionPtr Connect(IFUNCTION_CLASS<R, EVENT_PARAM_TYPES>* const input)
+	BOHGE_FORCEINLINE FunctionPtr Connect( FunctionType* const input )
 	{
 		m_FuncMap.insert( std::make_pair( (int)input, input ) );
 		return input;
@@ -113,6 +115,7 @@ public:
 		if ( m_FuncMap.end() != it )
 		{
 			m_FuncMap.erase( it );
+			SAFE_DELETE(ptr);
 		}
 	}
 	BOHGE_FORCEINLINE void RemoveAll()
@@ -147,6 +150,10 @@ public:
 		{
 			it->second->Invoker(EVENT_PARAM_INPUTS);
 		}
+	}
+	BOHGE_FORCEINLINE unsigned int GetListenerCount()
+	{
+		return m_FuncMap.size();
 	}
 };
 

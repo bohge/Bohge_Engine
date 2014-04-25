@@ -34,14 +34,16 @@
 #include "Decoder.h"
 
 
-#include <vorbis/vorbisfile.h> 
+
+struct OggVorbis_File;
+typedef struct OggVorbis_File OggVorbis_File;
 
 namespace BohgeEngine
 {
 	class OGGDecoder : public Decoder
 	{
 	private:
-		OggVorbis_File		m_OggFile;
+		OggVorbis_File*		m_pOggFile;
 	public:
 		OGGDecoder(void);
 		~OGGDecoder(void);

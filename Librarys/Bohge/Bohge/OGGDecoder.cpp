@@ -33,18 +33,20 @@
 #include "IFile.h"
 #include "Log.h"
 
-
+#include <vorbis/vorbisfile.h>
 
 namespace BohgeEngine
 {
 	//-------------------------------------------------------------------------------------------------------
 	OGGDecoder::OGGDecoder(void)
-		:Decoder( Decoder::ST_OGG )
+		:Decoder( Decoder::ST_OGG ),
+		m_pOggFile(NULL)
 	{
 	}
 	//-------------------------------------------------------------------------------------------------------
 	OGGDecoder::~OGGDecoder(void)
 	{
+		SAFE_DELETE( m_pOggFile );
 	}
 	//-------------------------------------------------------------------------------------------------------
 	uint OGGDecoder::_DoDecodeAsyn( uint form, uint to )
@@ -55,7 +57,7 @@ namespace BohgeEngine
 		DEBUGLOG( "ogg decoding from %d to %d\n", form, to );
 		if ( 0 == form )
 		{
-			ov_time_seek( &m_OggFile, 0.0 );
+			ov_time_seek( m_pOggFile, 0.0 );
 		}
 		long bytes;
 		int endian = 0;
@@ -65,7 +67,7 @@ namespace BohgeEngine
 		int loaded = 0;
 		do
 		{
-			bytes = ov_read(&m_OggFile, buffer, size - loaded, endian, 2, 1, &bitStream);  
+			bytes = ov_read(m_pOggFile, buffer, size - loaded, endian, 2, 1, &bitStream);  
 			if ( bytes < 0 )
 			{
 				break;
@@ -102,15 +104,16 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void OGGDecoder::_DoInitialization( int& freq, Format& format, int& ch, int& buffersize, double& time )
 	{
+		m_pOggFile = NEW OggVorbis_File();
 		vorbis_info *pInfo;
 		ov_callbacks callbacks;
 		callbacks.read_func = &ReadHelp;
 		callbacks.close_func = NULL;
 		callbacks.tell_func = &TellHelp;
 		callbacks.seek_func = &SeekHelp;
-		int res = ov_open_callbacks( _GetFileSteam(), &m_OggFile, NULL, 0, callbacks );
-		pInfo = ov_info(&m_OggFile, -1);
-		time = ov_time_total( &m_OggFile, -1 );
+		int res = ov_open_callbacks( _GetFileSteam(), m_pOggFile, NULL, 0, callbacks );
+		pInfo = ov_info(m_pOggFile, -1);
+		time = ov_time_total( m_pOggFile, -1 );
 		ch = pInfo->channels;
 		freq = pInfo->rate;
 		//buffersize = ov_pcm_total( &m_OggFile, -1 ) * ch * pInfo->channels;
@@ -128,7 +131,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------------------------------------------
 	void OGGDecoder::_DoReleaseDecoder()
 	{
-		ov_clear(&m_OggFile);
+		ov_clear(m_pOggFile);
 	}
 
 }

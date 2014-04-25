@@ -51,7 +51,7 @@ namespace BohgeEngine
 		virtual void _OnCreate( );
 		virtual void _OnDestroy( );
 	public:
-		virtual SoundPlayer* CreatePlayer( int hash, int index, Decoder* res );
+		virtual SoundPlayer* CreatePlayer( int hash, int index, SmartPtr<Decoder>& res );
 	};
 }
 #endif

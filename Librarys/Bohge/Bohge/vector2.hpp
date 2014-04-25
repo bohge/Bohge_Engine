@@ -139,9 +139,13 @@ namespace BohgeEngine
 		{
 			return vector2( m_x/num , m_y/num );
 		}
-		BOHGE_FORCEINLINE vector2 operator* (T num) const
+		friend BOHGE_FORCEINLINE vector2<T> operator* ( T num, const vector2<T>& rhs )
 		{
-			return vector2( m_x*num , m_y*num );
+			return vector2<T>( rhs.m_x*num , rhs.m_y*num );
+		}
+		friend BOHGE_FORCEINLINE vector2<T> operator* ( const vector2<T>& rhs, T num )
+		{
+			return vector2<T>( rhs.m_x*num , rhs.m_y*num );
 		}
 		BOHGE_FORCEINLINE vector2 operator- (T num) const
 		{

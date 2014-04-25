@@ -32,6 +32,7 @@
 
 #pragma once
 #include "Threading.h"
+#include "SmartPtr.hpp"
 
 
 
@@ -55,8 +56,8 @@ namespace BohgeEngine
 		void _SendSignal();
 	private:
 		virtual bool _isEmpty() = 0;//数据是否为空
-		virtual IJob* _DoPopJob() = 0;//弹出一个数据
-		virtual void _DoPushJob( IJob* job ) = 0;//写入一个数据
+		virtual SmartPtr<IJob> _DoPopJob() = 0;//弹出一个数据
+		virtual void _DoPushJob( SmartPtr<IJob>& job ) = 0;//写入一个数据
 	private:
 		virtual void _OnBeforeStart();//启动线程前的事件
 		virtual void _OnAfterStart();//启动线程后的事件
@@ -64,6 +65,6 @@ namespace BohgeEngine
 	public:
 		virtual void* DoWork();//工作线程
 	public:
-		void PushJob( IJob* job );//写入一个工作
+		void PushJob( SmartPtr<IJob>& job );//写入一个工作
 	};
 }

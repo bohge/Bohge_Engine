@@ -185,6 +185,7 @@ namespace BohgeEngine
 	//-------------------------------------------------------------------
 	void Engine::Update()	//更新engine中的各种manage
 	{
+		m_pResource->Update();
 		m_pDevice->Update();
 		m_pAction->Update( m_uTimeSpan );
 		m_pViewCamera->Update();	//更新摄像机

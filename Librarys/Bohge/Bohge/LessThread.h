@@ -43,7 +43,7 @@ namespace BohgeEngine
 	class LessThread : public JobBaseThread
 	{
 	private:
-		typedef std::multimap< int, IJob* > JobLessMap;
+		typedef std::multimap< int, SmartPtr<IJob> > JobLessMap;
 	private:
 		JobLessMap		m_JobLessMap;//数据队列
 	public:
@@ -51,7 +51,7 @@ namespace BohgeEngine
 		~LessThread(void);
 	private:
 		virtual bool _isEmpty();//数据是否为空
-		virtual IJob* _DoPopJob();//弹出一个数据
-		virtual void _DoPushJob( IJob* job );//写入一个数据	
+		virtual SmartPtr<IJob> _DoPopJob();//弹出一个数据
+		virtual void _DoPushJob( SmartPtr<IJob>& job );//写入一个数据	
 	};
 }

@@ -200,9 +200,13 @@ namespace BohgeEngine
 			return *this;
 		}
 		//µ¥¸öÊý×Ö
-		BOHGE_FORCEINLINE vector4 operator* ( T input ) const
+		friend BOHGE_FORCEINLINE vector4<T> operator* ( T input, const vector4<T>& rhs )
 		{
-			return vector4(m_x * input, m_y * input, m_z * input, m_w * input);
+			return vector4<T>(rhs.m_x * input, rhs.m_y * input, rhs.m_z * input, rhs.m_w * input);
+		}
+		friend BOHGE_FORCEINLINE vector4<T> operator* ( const vector4<T>& rhs, T input )
+		{
+			return vector4<T>(rhs.m_x * input, rhs.m_y * input, rhs.m_z * input, rhs.m_w * input);
 		}
 		BOHGE_FORCEINLINE vector4 operator/ ( T input ) const
 		{

@@ -90,7 +90,7 @@ namespace BohgeEngine
 		// Õ∑≈œµÕ≥
 	}
 	//-------------------------------------------------------------------------------------------------------
-	SoundPlayer* SoundManagerSL::CreatePlayer( int hash, int index, Decoder* res )
+	SoundPlayer* SoundManagerSL::CreatePlayer( int hash, int index, SmartPtr<Decoder>& res )
 	{
 		SLresult result;
 		SoundPlayerSL* player = NEW SoundPlayerSL( hash, index, res );

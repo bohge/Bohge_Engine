@@ -49,15 +49,15 @@ namespace BohgeEngine
 		return m_JobLessMap.empty();
 	}
 	//------------------------------------------------------------------------------------------------------
-	IJob* LessThread::_DoPopJob()
+	SmartPtr<IJob> LessThread::_DoPopJob()
 	{
 		JobLessMap::iterator it = m_JobLessMap.begin();
-		IJob* job = it->second;
+		SmartPtr<IJob> job = it->second;
 		m_JobLessMap.erase( it );
 		return job;
 	}
 	//------------------------------------------------------------------------------------------------------
-	void LessThread::_DoPushJob( IJob* job )
+	void LessThread::_DoPushJob( SmartPtr<IJob>& job )
 	{
 		m_JobLessMap.insert( std::make_pair( job->GetPriority(), job ) );
 	}

@@ -465,7 +465,8 @@ namespace BohgeEngine
 
 		//VBO
 	protected:
-		handle		m_hCurrentBuffer;//≈–∂œ «∑Ò±‰ªªbuffer
+		handle		m_hCurrentIndicesBuffer;//≈–∂œ «∑Ò±‰ªªbuffer
+		handle		m_hCurrentVertexBuffer;//≈–∂œ «∑Ò±‰ªªbuffer
 	public:
 		enum BufferType
 		{
@@ -509,7 +510,8 @@ namespace BohgeEngine
 			m_hCurrentShader(-1),
 			m_hCurrentTexture(-1),
 			m_pCurrentFBO(NULL),
-			m_hCurrentBuffer(-1)
+			m_hCurrentIndicesBuffer(-1),
+			m_hCurrentVertexBuffer(-1)
 #ifdef _DEBUG
 			,
 			m_AlphaChange(0),

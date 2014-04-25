@@ -30,7 +30,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 #include "Predefine.h"
 
-#include <intrin.h>
+//#include <intrin.h>
 
 #ifndef THREADSAFEOPRATOR
 #error( "Do not include this file in other files" )
@@ -38,6 +38,11 @@
 
 
 
+extern "C" long __cdecl _InterlockedIncrement( long volatile * );
+extern "C" long __cdecl _InterlockedDecrement( long volatile * );
+extern "C" long __cdecl _InterlockedCompareExchange( long volatile *, long, long );
+extern "C" long __cdecl _InterlockedExchange( long volatile *, long );
+extern "C" long __cdecl _InterlockedExchangeAdd( long volatile *, long );
 
 //------------------------------------------------------------------------------------------------------
 static BOHGE_FORCEINLINE int Increment( volatile int& var )

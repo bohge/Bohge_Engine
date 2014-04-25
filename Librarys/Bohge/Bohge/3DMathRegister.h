@@ -64,7 +64,7 @@ namespace BohgeEngine
 		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(const vector2<T>&) >( "DivideEqualVector", &vector2<T>::operator/= );
 		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "AddNumber", &vector2<T>::operator+ );
 		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "MinusNumber", &vector2<T>::operator- );
-		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "MultiplyNumber", &vector2<T>::operator* );
+		//s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "MultiplyNumber", &vector2<T>::operator* );
 		s->RegClassFunc< vector2<T>, vector2<T> (vector2<T>::*)(T) const >( "DivideNumber", &vector2<T>::operator/ );
 		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "AddEqualNumber", &vector2<T>::operator+= );
 		s->RegClassFunc< vector2<T>, vector2<T>& (vector2<T>::*)(T) >( "MinusEqualNumber", &vector2<T>::operator-= );
@@ -104,7 +104,7 @@ namespace BohgeEngine
 		s->RegClassFunc< vector3<T>, vector3<T>& (vector3<T>::*)(const vector3<T>&) >( "DivideEqualVector", &vector3<T>::operator/= );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(T) const >( "AddNumber", &vector3<T>::operator+ );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(T) const >( "MinusNumber", &vector3<T>::operator- );
-		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(T) const >( "MultiplyNumber", &vector3<T>::operator* );
+		//s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(T) const >( "MultiplyNumber", &vector3<T>::operator* );
 		s->RegClassFunc< vector3<T>, vector3<T> (vector3<T>::*)(T) const >( "DivideNumber", &vector3<T>::operator/ );
 		s->RegClassFunc< vector3<T>, vector3<T>& (vector3<T>::*)(T) >( "AddEqualNumber", &vector3<T>::operator+= );
 		s->RegClassFunc< vector3<T>, vector3<T>& (vector3<T>::*)(T) >( "MinusEqualNumber", &vector3<T>::operator-= );
@@ -150,7 +150,7 @@ namespace BohgeEngine
 		s->RegClassFunc< vector4<T>, vector4<T>& (vector4<T>::*)(const vector4<T>&) >( "DivideEqualVector", &vector4<T>::operator/= );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(T) const >( "AddNumber", &vector4<T>::operator+ );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(T) const >( "MinusNumber", &vector4<T>::operator- );
-		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(T) const >( "MultiplyNumber", &vector4<T>::operator* );
+		//s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(T) const >( "MultiplyNumber", &vector4<T>::operator* );
 		s->RegClassFunc< vector4<T>, vector4<T> (vector4<T>::*)(T) const >( "DivideNumber", &vector4<T>::operator/ );
 		s->RegClassFunc< vector4<T>, vector4<T>& (vector4<T>::*)(T) >( "AddEqualNumber", &vector4<T>::operator+= );
 		s->RegClassFunc< vector4<T>, vector4<T>& (vector4<T>::*)(T) >( "MinusEqualNumber", &vector4<T>::operator-= );
@@ -191,7 +191,7 @@ namespace BohgeEngine
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(const Quaternion<T>&) >( "AddEqualQuaternion", &Quaternion<T>::operator+= );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(const Quaternion<T>&) >( "MinusEqualQuaternion", &Quaternion<T>::operator-= );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(const Quaternion<T>&) >( "MultiplyEqualQuaternion", &Quaternion<T>::operator*= );
-		s->RegClassFunc< Quaternion<T>, Quaternion<T> (Quaternion<T>::*)(T) const >( "MultiplyNumber", &Quaternion<T>::operator* );
+		//s->RegClassFunc< Quaternion<T>, Quaternion<T> (Quaternion<T>::*)(T) const >( "MultiplyNumber", &Quaternion<T>::operator* );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T> (Quaternion<T>::*)(T) const >( "DivideNumber", &Quaternion<T>::operator/ );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(T) >( "MultiplyEqualNumber", &Quaternion<T>::operator*= );
 		s->RegClassFunc< Quaternion<T>, Quaternion<T>& (Quaternion<T>::*)(T) >( "DivideEqualNumber", &Quaternion<T>::operator/= );
@@ -262,8 +262,8 @@ namespace BohgeEngine
 		//注册table成员函数
 		//操作符
 		s->RegClassFunc< Matrix44f, Matrix44f (Matrix44f::*)(const Matrix44f&) const >( "MultiplyMatrix44", &Matrix44f::operator* );
-		s->RegClassFunc< Matrix44f, Matrix44f (Matrix44f::*)(const float&) const >( "MultiplyNumber", &Matrix44f::operator* );
-		s->RegClassFunc< Matrix44f, Matrix44f (Matrix44f::*)(const float&) const >( "DivideNumber", &Matrix44f::operator/ );
+		//s->RegClassFunc< Matrix44f, Matrix44f (Matrix44f::*)(const float&) const >( "MultiplyNumber", &Matrix44f::operator* );
+		s->RegClassFunc< Matrix44f, Matrix44f (Matrix44f::*)(float) const >( "DivideNumber", &Matrix44f::operator/ );
 		s->RegClassFunc< Matrix44f, Matrix44f& (Matrix44f::*)(const Matrix44f&) >( "MultiplyEqualMatrix44", &Matrix44f::operator*= );
 		//函数
 		s->RegClassFunc< Matrix44f >( "Identitat", &Matrix44f::Identitat );
