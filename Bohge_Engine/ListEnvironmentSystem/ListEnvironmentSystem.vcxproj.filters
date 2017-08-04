@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ListEnvironmentSystem">
+      <UniqueIdentifier>{2f91e8f0-0301-429a-8aea-8a28f5ebd10c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{911088bc-d666-4b09-ae08-7ad30ef8afed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="ListEnvironmentSystem.cpp">
+      <Filter>ListEnvironmentSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListEnvironmentSystem.h">
+      <Filter>ListEnvironmentSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

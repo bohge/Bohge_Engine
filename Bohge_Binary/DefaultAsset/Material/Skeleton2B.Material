@@ -1,0 +1,138 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#include "Shaders/SkeletonModel.shader"
+#include "Shaders/Transform.shader"
+#include "Shaders/DirectionLight.shader"
+#include "Shaders/Outputs.shader"
+#include "Shaders/Sampling.shader"
+#include "Shaders/Coordinate.shader"
+#include "Shaders/LinerDepth.shader"
+#include "Shaders/PackageDepth.shader"
+#include "Shaders/PackageNormal.shader"
+#include "Shaders/SurfaceLighting.shader"
+
+#LIGHTING_AMBIENT_FORWARD_SINGLE		Skeleton2BDirectionLight
+#LIGHTING_DIRECTION_FORWARD_SINGLE 		Skeleton2BDirectionLight
+#LIGHTING_POINT_FORWARD_SINGLE 			Skeleton2BDirectionLight
+#LIGHTING_SPOT_FORWARD_SINGLE 			Skeleton2BDirectionLight
+
+#LIGHTING_AMBIENT_FORWARD_MULTI			EmptyMaterial
+#LIGHTING_DIRECTION_FORWARD_MULTI 		EmptyMaterial
+#LIGHTING_POINT_FORWARD_MULTI 			EmptyMaterial
+#LIGHTING_SPOT_FORWARD_MULTI			EmptyMaterial
+
+#LIGHTING_AMBIENT_DEFFERRED 			EmptyMaterial
+#LIGHTING_DIRECTION_DEFFERRED 			EmptyMaterial
+#LIGHTING_POINT_DEFFERRED 				EmptyMaterial
+#LIGHTING_SPOT_DEFFERRED 				EmptyMaterial
+
+#UNIVERSAL_DEPTH 						Skeleton2BDepth
+#UNIVERSAL_NORMAL 						Skeleton2BNormal
+#UNIVERSAL_DECAL 						EmptyMaterial
+#UNIVERSAL_MRT	 						EmptyMaterial
+
+
+
+//两个骨骼平行光
+#MATERIAL_DEFINE Skeleton2BDirectionLight
+	RENDER_QUEUE = OPAQUE
+	COLOR_MASK = COLOR_RGB
+	ALPAH_MODE = { ALPAH_OFF }
+	DRAW_MODE = { CULL_FACE_BACK, DEPTH_MASK_ON, DEPTH_TEST_ON, DEPTH_FUNCTION_LESS }
+	STENCIL_MODE = {STENCIL_OFF}
+	--填入SetStencil, SetStencilMask, SetStencilFunction, SetStencilOperation
+	--STENCIL_MODE = { STENCIL_ON, 0xFFFFFFFF, STENCIL_FUNCTION_ALWAYS, 0, 0, STENCIL_OPERATION_INCR, STENCIL_OPERATION_INCR, STENCIL_OPERATION_INCR}
+	
+	--暂时不需要以下这两个属性了吧
+	--TEXTURE_SLOT	= { TEXTURE_DIFFUSE }
+	--TEXTURE_DIFFUSE = { CLAMP_TO_EDGE, CLAMP_TO_EDGE, NEAREST, NEAREST, R8G8B8, 0 }
+	
+	VERTEX_SHADER = 
+	{
+		"Skeleton2Bone",
+		"TransfromWorldPosition",
+		"DirectionLightVertex",
+		"VertexOutput",
+		"Base2DCoordinate",
+	}
+	FRAGMENT_SHADER = 
+	{
+		"Texture2DSampling",
+		"DirectionLightSurface",
+		"SurfaceLighting",
+		"FragmentOutput",
+	}
+#END_DEFINE //材质定义结束
+
+#MATERIAL_DEFINE Skeleton2BDepth
+	RENDER_QUEUE = OPAQUE
+	COLOR_MASK = COLOR_NONE
+	ALPAH_MODE = { ALPAH_OFF }
+	DRAW_MODE = { DEPTH_TEST_ON, DEPTH_MASK_ON, DEPTH_FUNCTION_LESS, CULL_FACE_BACK }
+	STENCIL_MODE = {STENCIL_OFF}
+	
+	VERTEX_SHADER = 
+	{
+		"Skeleton2Bone",
+		"TransfromWorldPosition",
+		"VertexOutput",
+		"LinerDepth",
+	}
+	FRAGMENT_SHADER = 
+	{
+		"PackageFloatToVec",
+		"FragmentOutput",
+	}
+#END_DEFINE //材质定义结束
+
+
+#MATERIAL_DEFINE Skeleton2BNormal
+	RENDER_QUEUE = OPAQUE
+	COLOR_MASK = COLOR_RGB
+	ALPAH_MODE = { ALPAH_OFF }
+	DRAW_MODE = { DEPTH_TEST_ON, DEPTH_MASK_ON, DEPTH_FUNCTION_LESS, CULL_FACE_BACK }
+	STENCIL_MODE = {STENCIL_OFF}
+	
+	VERTEX_SHADER = 
+	{
+		"Skeleton2Bone",
+		"TransfromWorldPosition",
+		"VertexOutput",
+	}
+	FRAGMENT_SHADER = 
+	{
+		"PackageNormal",
+		"FragmentOutput",
+	}
+#END_DEFINE //材质定义结束

@@ -1,0 +1,84 @@
+{
+	"version":1,
+	"Data":
+	{
+		"Name":"Layout1",
+		"Depth":0,
+		"Widgets":
+		{
+			"Type":1,
+			"Property":
+			{
+				"Name":"HostPanel_1",
+				"Position":{ "x":0, "y":0 },
+				"Rectangle":{ "x":0, "y":0, "w":400, "h":300 },
+				"ImageSource":"root:DefaultAsset/UserInterface/Test.png",
+				"ImageUV":{ "us":0.1, "vs":0.6, "ue":0.1, "ve":0.6 },
+				"Child":
+				[
+					{
+						"Type":1,
+						"Property":
+						{
+							"Name":"LabelTest_1",
+							"Position":{ "x":5, "y":5 },
+							"Rectangle":{ "x":0, "y":0, "w":200, "h":100 },
+							"ImageSource":"root:DefaultAsset/UserInterface/Test.png",
+							"ImageUV":{ "us":0.0, "vs":0.0, "ue":0.2, "ve":0.2 },
+							"Child":[]
+						}
+					},
+					{
+						"Type":1,
+						"Property":
+						{
+							"Name":"LabelTest_2",
+							"Position":{ "x":210, "y":110 },
+							"Rectangle":{ "x":0, "y":0, "w":185, "h":185 },
+							"ImageSource":"root:DefaultAsset/UserInterface/Test.png",
+							"ImageUV":{ "us":0.2, "vs":0.2, "ue":0.4, "ve":0.5 },
+							"Child":
+							[
+								{
+									"Type":2,
+									"Property":
+									{
+										"Name":"ButtonTest_1",
+										"Position":{ "x":40, "y":40 },
+										"Rectangle":{ "x":0, "y":0, "w":105, "h":105 },
+										"ImageSource":"root:DefaultAsset/UserInterface/Test.png",
+										"ImageUVArray":
+										[
+											{ "us":0.6, "vs":0.7, "ue":0.6, "ve":0.7 },
+											{ "us":0.1, "vs":0.6, "ue":0.1, "ve":0.6 },
+											{ "us":0.4, "vs":0.5, "ue":0.6, "ve":0.7 }
+										],
+										"Script":"root:DefaultAsset/UserInterface/Test_1.lua",
+										"Child":
+										[
+											{ 
+												"Type":3, 
+												"Property":
+												{
+													"Name":"StringTest_1",
+													"Position":{ "x":5, "y":5 },
+													"Rectangle":{ "x":0, "y":0, "w":95, "h":95 },	
+													"StringID":1,
+													"FontSize":25,
+													"Align":1,
+													"Color":{ "r":1, "g":1, "b":1, "a":1 },
+													"Text":"root:DefaultAsset/Main.Text",
+													"Child":[]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

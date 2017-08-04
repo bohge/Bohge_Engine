@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FileEntity">
+      <UniqueIdentifier>{f7dfb8ed-7737-4511-bcc4-00ee9a8353a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IOSystem">
+      <UniqueIdentifier>{a37c4f16-3284-4958-8331-edae7830e875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileEntity\Source">
+      <UniqueIdentifier>{5b58ace5-96ec-4be0-94f1-f02930ee9d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AES">
+      <UniqueIdentifier>{6b2d360a-f2d9-4811-82cf-ab02af0c006d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IOSystem\Source">
+      <UniqueIdentifier>{fc4902c8-7684-4408-a179-f8e00a616a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{639d3c40-1e74-4590-be8d-a86e10fe4b85}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EncryptFile.cpp">
+      <Filter>FileEntity\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UsualFile.cpp">
+      <Filter>FileEntity\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ZipFile.cpp">
+      <Filter>FileEntity\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AES.cpp">
+      <Filter>AES</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFile.cpp">
+      <Filter>FileEntity\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidIOSystem.cpp">
+      <Filter>IOSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IOSIOSystem.cpp">
+      <Filter>IOSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsIOSystem.cpp">
+      <Filter>IOSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EncryptFile.h">
+      <Filter>FileEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="UsualFile.h">
+      <Filter>FileEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ZipFile.h">
+      <Filter>FileEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="AES.h">
+      <Filter>AES</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFile.h">
+      <Filter>FileEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidIOSystem.h">
+      <Filter>IOSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSIOSystem.h">
+      <Filter>IOSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsIOSystem.h">
+      <Filter>IOSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

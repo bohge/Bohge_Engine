@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{e84dd074-1453-4bc8-a2bb-4328082a1595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderQueueSystem">
+      <UniqueIdentifier>{ce141ec9-3b98-4f96-8b87-8a2c9a045610}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="NoCullRenderQueueSystem.cpp">
+      <Filter>RenderQueueSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NoCullRenderQueueSystem.h">
+      <Filter>RenderQueueSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

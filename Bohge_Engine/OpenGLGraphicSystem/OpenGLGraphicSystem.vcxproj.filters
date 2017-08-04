@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{a61210c9-8b99-45fc-a5b3-d78b25282acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicSystem">
+      <UniqueIdentifier>{a0de75a4-e612-453e-9f7b-2d9175375fb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{6bd50e77-160c-4c71-a194-5e419b82526c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLGraphicSystem.cpp">
+      <Filter>GraphicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesBufferResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectResourceGL.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OpenGLGraphicSystem.h">
+      <Filter>GraphicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBufferResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectResourceGL.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

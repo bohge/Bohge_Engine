@@ -1,0 +1,12 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Font":"root:DefaultAsset/Font.ttf",
+		"TextSet":
+		[
+			{ "ID":1, "CN":"好", "EN":"OK" },
+			{ "ID":2, "CN":"不", "EN":"NO" }
+		]
+	}
+}

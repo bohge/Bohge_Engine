@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Entry>lite:main.lua</Entry>
+<Plugins>
+	<Plugin name = "MEMORY" 	library = "NedMemorySystem"/>
+	<Plugin name = "THREAD" 	library = "ThreadSystem"/>
+	<Plugin name = "IO" 		library = "IOSystem"/>
+	<Plugin name = "MATERIAL" 	library = "LuaMaterialSystem"/>
+	<Plugin name = "RESOURCE" 	library = "ResourceSystem"/>
+	<Plugin name = "CONTROL" 	library = "BaseActionSystem"/>
+	<Plugin name = "ENVIR" 		library = "ListEnvironmentSystem"/>
+	<!--<Plugin name = "QUEUE" 		library = "OCTreeRenderQueueSystem"/>-->
+	<!--<Plugin name = "QUEUE" 		library = "NoCullRenderQueueSystem"/>-->
+	<Plugin name = "PHYSIC"		library = "BulletPhysicSystem"/>
+	<Plugin name = "QUEUE" 		library = "ListRenderQueueSystem"/>
+	<Plugin name = "PIPE" 		library = "ForwardPipelineSystem"/>
+	<Plugin name = "TIME" 		library = "TimeSystem"/>
+	<Plugin name = "SOUND" 		library = "OpenALSoundSystem"/>
+	<!--<Plugin name = "SOUND" 	library = "OpenSLESSoundSystem"/>-->
+	<Plugin name = "TEXT" 		library = "BTextSystem"/>
+	<Plugin name = "WEB" 		library = "CurlWebSystem"/>
+	<Plugin name = "GRAPHIC" 	library = "OpenGLGraphicSystem"/>
+	<Plugin name = "GUI" 		library = "BGUI"/>
+	<Plugin name = "PARTICLE" 	library = "BParticle"/>
+	<Plugin name = "SCRIPT" 	library = "LuaScriptSystem"/><!--脚本系统必须最后挂载，防止其他系统运行期添加系统类型-->
+</Plugins>

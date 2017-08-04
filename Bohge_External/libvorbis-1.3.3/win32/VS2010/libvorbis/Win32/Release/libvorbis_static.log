@@ -1,0 +1,37 @@
+﻿生成启动时间为 2014/10/16 10:11:42。
+     1>项目“E:\Bohge_Engine_New_Architecture\Bohge_External\libvorbis-1.3.3\win32\VS2010\libvorbis\libvorbis_static.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Win32\Release\libvorbis_static.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Lib:
+         D:\Tools\VS2010\VC\bin\Lib.exe /OUT:"E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Win32\Release\libvorbis_static.lib" /NOLOGO /LTCG Win32\Release\analysis.obj
+         Win32\Release\bitrate.obj
+         Win32\Release\block.obj
+         Win32\Release\codebook.obj
+         Win32\Release\envelope.obj
+         Win32\Release\floor0.obj
+         Win32\Release\floor1.obj
+         Win32\Release\info.obj
+         Win32\Release\lookup.obj
+         Win32\Release\lpc.obj
+         Win32\Release\lsp.obj
+         Win32\Release\mapping0.obj
+         Win32\Release\mdct.obj
+         Win32\Release\psy.obj
+         Win32\Release\registry.obj
+         Win32\Release\res0.obj
+         Win32\Release\sharedbook.obj
+         Win32\Release\smallft.obj
+         Win32\Release\synthesis.obj
+         Win32\Release\vorbisenc.obj
+         Win32\Release\window.obj
+         libvorbis_static.vcxproj -> E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Win32\Release\libvorbis_static.lib
+       FinalizeBuildStatus:
+         正在删除文件“Win32\Release\libvorbis_static.unsuccessfulbuild”。
+         正在对“Win32\Release\libvorbis_static.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Bohge_Engine_New_Architecture\Bohge_External\libvorbis-1.3.3\win32\VS2010\libvorbis\libvorbis_static.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.75

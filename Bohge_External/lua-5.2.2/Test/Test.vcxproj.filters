@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="RttiLibrary.cpp" />
+    <ClCompile Include="ScriptFunction.cpp">
+      <Filter>ScriptSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptClass.cpp">
+      <Filter>ScriptSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaScriptSystem.cpp">
+      <Filter>ScriptSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptType.cpp">
+      <Filter>ScriptType</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptValue.cpp">
+      <Filter>ScriptSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Matrix22.hpp" />
+    <ClInclude Include="Predefine.h" />
+    <ClInclude Include="RttiObject.hpp" />
+    <ClInclude Include="Rtti.hpp" />
+    <ClInclude Include="RttiLibrary.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="vector2.hpp" />
+    <ClInclude Include="ScriptFunction.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="MathRegister.h">
+      <Filter>ScriptRegister</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptType.h">
+      <Filter>ScriptType</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptClass.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaScriptSystem.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptUtility.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptTypeConstruct.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptCallBridge.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptValue.h">
+      <Filter>ScriptSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ScriptType">
+      <UniqueIdentifier>{bc4457b9-16b0-4cf7-be11-e04e731de901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptSystem">
+      <UniqueIdentifier>{b9c47e60-871b-4fc2-a0b3-93c939d76c55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptRegister">
+      <UniqueIdentifier>{d7512f6b-e0fd-4897-9f01-d3917fb317db}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

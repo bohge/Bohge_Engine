@@ -1,2 +1,0 @@
-1.设置可接受的最大的buffer尺寸在BohgeNet.h中的#define BUFFER_SIZE 256来设置
-2.Socket底层发送的时候要添加识别码与序列码，PROTOCOL_ID为识别码

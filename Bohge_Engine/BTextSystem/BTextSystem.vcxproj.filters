@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{992cf304-d939-48c5-ad1c-485899fc7963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TextSystem">
+      <UniqueIdentifier>{4e57fdc7-79c3-48bc-983b-8765762825fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ITextSet">
+      <UniqueIdentifier>{a027ac45-7002-47b1-bdc0-a39d9ac1f15d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JsonReader">
+      <UniqueIdentifier>{3445de84-b49d-4a01-80fa-804187b4c7ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ITextSet\FontEntity">
+      <UniqueIdentifier>{0003c3cb-0d7d-4c81-8a1b-a0951a3b7acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ITextSet\FontEntity\GlyphMap">
+      <UniqueIdentifier>{31f444af-04bf-4c12-8d52-2d8263ae44f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="BTextSystem.cpp">
+      <Filter>TextSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="BTextSet.cpp">
+      <Filter>ITextSet</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLoader_1.cpp">
+      <Filter>JsonReader</Filter>
+    </ClCompile>
+    <ClCompile Include="GlyphLoader.cpp">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClCompile>
+    <ClCompile Include="GlyphPool.cpp">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClCompile>
+    <ClCompile Include="FontEntity.cpp">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="FontResource.cpp">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="FontSource.cpp">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedGlyph.cpp">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BTextSystem.h">
+      <Filter>TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BTextSet.h">
+      <Filter>ITextSet</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLoader_1.h">
+      <Filter>JsonReader</Filter>
+    </ClInclude>
+    <ClInclude Include="GlyphLoader.h">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeTypeDeclear.h">
+      <Filter>TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GlyphPool.h">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClInclude>
+    <ClInclude Include="FontEntity.h">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="FontResource.h">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="FontSource.h">
+      <Filter>ITextSet\FontEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SharedGlyph.h">
+      <Filter>ITextSet\FontEntity\GlyphMap</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

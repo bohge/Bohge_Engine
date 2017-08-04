@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{6d8c5bc2-e1bb-4530-b984-71ce313929b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TimeSystem">
+      <UniqueIdentifier>{fb762fb0-88b1-4e33-85c7-d22ed4f633cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsTimeSystem.cpp">
+      <Filter>TimeSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WindowsTimeSystem.h">
+      <Filter>TimeSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

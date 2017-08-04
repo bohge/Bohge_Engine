@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{88f6bda0-3d0c-4220-8e77-cbdaf5ccc1e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BGUISystem">
+      <UniqueIdentifier>{db09441f-8ee6-48d1-aae9-9c0e37679b5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet">
+      <UniqueIdentifier>{0e9062a2-5cd4-4318-a416-ab725f1f4258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIEntity">
+      <UniqueIdentifier>{b9bfbc57-ae45-44f5-bb4d-6ee591a4fe17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIGeometry">
+      <UniqueIdentifier>{bfd3ffa8-8032-4ea6-b393-ab394981d2aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UINode">
+      <UniqueIdentifier>{7ad0153f-9a9d-4987-ac47-74437b3de957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\JsonReader">
+      <UniqueIdentifier>{56047b51-007e-40b4-b296-64f1f7f26bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWarp">
+      <UniqueIdentifier>{e514ced0-ecf0-46f4-940c-b1e445f3296c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIWidgets">
+      <UniqueIdentifier>{431260ae-0bab-4c3e-b9ac-c092601eae5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIWidgets\Widgets">
+      <UniqueIdentifier>{dfe93554-d7fd-4f53-b77c-7b2570d18b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIWidgets\Widgets\UIString">
+      <UniqueIdentifier>{23a60071-03a1-4f6f-b1a9-0a90f2e74693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIWidgets\Layout">
+      <UniqueIdentifier>{dc865d1e-f258-438a-b4a9-f53696a4d8ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIComponet\UIWidgets\Windows">
+      <UniqueIdentifier>{8e3a0714-93e2-4923-8269-483cf277cb5f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="BGUISystem.cpp">
+      <Filter>BGUISystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPanel.cpp">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="UILabel.cpp">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="UIEntity.cpp">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="UIResource.cpp">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="UISource.cpp">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="UIWindows.cpp">
+      <Filter>UIComponet\UIWidgets\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="UILayout.cpp">
+      <Filter>UIComponet\UIWidgets\Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLoader_1.cpp">
+      <Filter>UIComponet\JsonReader</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetComponent.cpp">
+      <Filter>UIComponet\UINode</Filter>
+    </ClCompile>
+    <ClCompile Include="UIWidget.cpp">
+      <Filter>UIComponet\UINode</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="UIGeometry.cpp">
+      <Filter>UIComponet\UIGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="UIString.cpp">
+      <Filter>UIComponet\UIWidgets\Widgets\UIString</Filter>
+    </ClCompile>
+    <ClCompile Include="UIGlyph.cpp">
+      <Filter>UIComponet\UIWidgets\Widgets\UIString</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BGUISystem.h">
+      <Filter>BGUISystem</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPanel.h">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="UILabel.h">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="UIEntity.h">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="UISource.h">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="UIResource.h">
+      <Filter>UIComponet\UIEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="UIWindows.h">
+      <Filter>UIComponet\UIWidgets\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="UILayout.h">
+      <Filter>UIComponet\UIWidgets\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLoader_1.h">
+      <Filter>UIComponet\JsonReader</Filter>
+    </ClInclude>
+    <ClInclude Include="WidgetProperty.h">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="WidgetComponent.h">
+      <Filter>UIComponet\UINode</Filter>
+    </ClInclude>
+    <ClInclude Include="UIWidget.h">
+      <Filter>UIComponet\UINode</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>UIComponet\UIWidgets\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="UIGeometry.h">
+      <Filter>UIComponet\UIGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="DoRegister.h">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UIWidgetWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButtonWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UIEntityWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UIString.h">
+      <Filter>UIComponet\UIWidgets\Widgets\UIString</Filter>
+    </ClInclude>
+    <ClInclude Include="UIGlyph.h">
+      <Filter>UIComponet\UIWidgets\Widgets\UIString</Filter>
+    </ClInclude>
+    <ClInclude Include="UILayoutWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UIStringWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="UILabelWrap.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

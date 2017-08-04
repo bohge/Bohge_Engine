@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E5A177A8-FA49-48AD-8070-AAFB03D08131}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BulletPhysicSystem</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\Bohge_Binary\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\Bohge_Binary\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_PLATFORM_WINDOWS;_DYNAMIC_PLUGIN;_DEBUG;_WINDOWS;_USRDLL;BULLETPHYSICSYSTEM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\Bohge_External\EASTL\include\;..\..\Bohge_External\bullet\src\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>MSVCR100D.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_PLATFORM_WINDOWS;_DYNAMIC_PLUGIN;NDEBUG;_WINDOWS;_USRDLL;BULLETPHYSICSYSTEM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\Bohge_External\EASTL\include\;..\..\Bohge_External\bullet\src\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BulletPhysicComponent.cpp" />
+    <ClCompile Include="BulletPhysicSystem.cpp" />
+    <ClCompile Include="PluginEntry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bohge_External\bullet\Extras\ConvexDecomposition\ConvexDecomposition.vcxproj">
+      <Project>{6222f3bb-30ba-4734-821d-5e8d36f46f9a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\Extras\GIMPACTUtils\GIMPACTUtils.vcxproj">
+      <Project>{d864020a-609e-45ba-9b31-219e1fc17e81}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\Extras\HACD\HACD.vcxproj">
+      <Project>{6911f9ad-3496-423b-b83f-25141ab54b03}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{08fa2d4c-a0fb-429c-97c7-9033a5b717d8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{41b77781-3585-4251-a5f6-0b1bf8d77abb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\src\BulletMultiThreaded\BulletMultiThreaded.vcxproj">
+      <Project>{6fe1f34c-b1a8-4b14-b170-6ad0d862d201}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\src\BulletSoftBody\BulletSoftBody.vcxproj">
+      <Project>{f2853757-a5e1-4a45-8fdc-b662a42a2866}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\bullet\src\LinearMath\LinearMath.vcxproj">
+      <Project>{d9cd1651-85bb-4122-9160-05a98a8af366}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\EASTL\win\eastl.vcxproj">
+      <Project>{5b220262-f0fc-42a4-84ff-51e41f5a9481}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.vcxproj">
+      <Project>{679b6db2-84b0-4be2-8861-13cfd50d9700}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BulletPhysicComponent.h" />
+    <ClInclude Include="BulletPhysicSystem.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

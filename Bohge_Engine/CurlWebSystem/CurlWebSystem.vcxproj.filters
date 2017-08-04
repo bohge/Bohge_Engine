@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WebJobs">
+      <UniqueIdentifier>{9393c030-7f5f-4228-9d73-2fdb8e40dd54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Handles">
+      <UniqueIdentifier>{eb61f96b-1a0d-499e-92e0-6645408ff1e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{718a7a54-29b4-491e-a297-62deb70448f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WebSystem">
+      <UniqueIdentifier>{7703160c-e4e5-4df9-963a-96c10c7232a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Handles\Download">
+      <UniqueIdentifier>{5b226593-aeed-48f9-9542-1d63867d2f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Handles\Post">
+      <UniqueIdentifier>{0c076a00-45da-450e-9ea4-80b5a6dbd783}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DownloadHandle.cpp">
+      <Filter>Handles\Download</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSlices.cpp">
+      <Filter>Handles\Download</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="DownloadJob.cpp">
+      <Filter>WebJobs</Filter>
+    </ClCompile>
+    <ClCompile Include="ICurlJob.cpp">
+      <Filter>WebJobs</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoJob.cpp">
+      <Filter>WebJobs</Filter>
+    </ClCompile>
+    <ClCompile Include="PostJob.cpp">
+      <Filter>WebJobs</Filter>
+    </ClCompile>
+    <ClCompile Include="WebSystem.cpp">
+      <Filter>WebSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PostHandle.cpp">
+      <Filter>Handles\Post</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileSlices.h">
+      <Filter>Handles\Download</Filter>
+    </ClInclude>
+    <ClInclude Include="DownloadHandle.h">
+      <Filter>Handles\Download</Filter>
+    </ClInclude>
+    <ClInclude Include="DownloadJob.h">
+      <Filter>WebJobs</Filter>
+    </ClInclude>
+    <ClInclude Include="ICurlJob.h">
+      <Filter>WebJobs</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoJob.h">
+      <Filter>WebJobs</Filter>
+    </ClInclude>
+    <ClInclude Include="PostJob.h">
+      <Filter>WebJobs</Filter>
+    </ClInclude>
+    <ClInclude Include="WebSystem.h">
+      <Filter>WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PostHandle.h">
+      <Filter>Handles\Post</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

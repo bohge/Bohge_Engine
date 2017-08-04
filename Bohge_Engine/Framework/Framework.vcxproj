@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ClassEntity.cpp" />
+    <ClCompile Include="ClassSource.cpp" />
+    <ClCompile Include="IClassResource.cpp" />
+    <ClCompile Include="IJob.cpp" />
+    <ClCompile Include="IMaterialSystem.cpp" />
+    <ClCompile Include="IWebProperty.cpp" />
+    <ClCompile Include="JsonWriter.cpp" />
+    <ClCompile Include="LogicJob.cpp" />
+    <ClCompile Include="NodeManager.cpp" />
+    <ClCompile Include="PackageTree.cpp" />
+    <ClCompile Include="PackageNode.cpp" />
+    <ClCompile Include="ITextSystem.cpp" />
+    <ClCompile Include="JsonMaterialLoader.cpp" />
+    <ClCompile Include="PackagedVertexStream.cpp" />
+    <ClCompile Include="AttributeData.cpp" />
+    <ClCompile Include="JsonReadable.cpp" />
+    <ClCompile Include="OrientationComponent.cpp" />
+    <ClCompile Include="ReflushStream.cpp" />
+    <ClCompile Include="Rtti.cpp" />
+    <ClCompile Include="ScriptMetadata.cpp" />
+    <ClCompile Include="JsonTextureLoader.cpp" />
+    <ClCompile Include="SubTextureBuffer.cpp" />
+    <ClCompile Include="TextSetEntity.cpp" />
+    <ClCompile Include="ITextSetResource.cpp" />
+    <ClCompile Include="TextSetSource.cpp" />
+    <ClCompile Include="TextureAtlas.cpp" />
+    <ClCompile Include="TouchInfo.cpp" />
+    <ClCompile Include="Allocator.cpp" />
+    <ClCompile Include="AmbientLight.cpp" />
+    <ClCompile Include="DirectionLight.cpp" />
+    <ClCompile Include="EnvironmentBuffer.cpp" />
+    <ClCompile Include="GlobalDefine.cpp" />
+    <ClCompile Include="IActionSystem.cpp" />
+    <ClCompile Include="IMonopolySource.cpp" />
+    <ClCompile Include="IEnvironmentSystem.cpp" />
+    <ClCompile Include="KeyboardAction.cpp" />
+    <ClCompile Include="TouchAction.cpp" />
+    <ClCompile Include="IPhysicSystem.cpp" />
+    <ClCompile Include="IPipelineSystem.cpp" />
+    <ClCompile Include="ICamera.cpp" />
+    <ClCompile Include="ComponentFactory.cpp" />
+    <ClCompile Include="IBaseHandle.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Framework.cpp" />
+    <ClCompile Include="IComponent.cpp" />
+    <ClCompile Include="IThreadSystem.cpp" />
+    <ClCompile Include="JsonData.cpp" />
+    <ClCompile Include="JsonDefualtDataType.cpp" />
+    <ClCompile Include="JsonReader.cpp" />
+    <ClCompile Include="IRenderQueueSystem.cpp" />
+    <ClCompile Include="IGraphicSystem.cpp" />
+    <ClCompile Include="IIOSystem.cpp" />
+    <ClCompile Include="IMemorySystem.cpp" />
+    <ClCompile Include="IMetadata.cpp" />
+    <ClCompile Include="IndicesBufferEntity.cpp" />
+    <ClCompile Include="IndicesBufferResource.cpp" />
+    <ClCompile Include="IndicesMetadata.cpp" />
+    <ClCompile Include="IndicesSource.cpp" />
+    <ClCompile Include="IndicesStream.cpp" />
+    <ClCompile Include="IPlugin.cpp" />
+    <ClCompile Include="IFunctionInvoker.cpp" />
+    <ClCompile Include="ScriptComponent.cpp" />
+    <ClCompile Include="ScriptEntity.cpp" />
+    <ClCompile Include="IScriptResource.cpp" />
+    <ClCompile Include="IScriptSystem.cpp" />
+    <ClCompile Include="ISoundComponent.cpp" />
+    <ClCompile Include="ISharedSource.cpp" />
+    <ClCompile Include="IAsyncSource.cpp" />
+    <ClCompile Include="ISystemRttiImplement.cpp" />
+    <ClCompile Include="ITimeSystem.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="MaterialEntity.cpp" />
+    <ClCompile Include="MaterialResource.cpp" />
+    <ClCompile Include="MaterialSource.cpp" />
+    <ClCompile Include="NodeMessage.cpp" />
+    <ClCompile Include="NeonMath.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="PhysicComponent.cpp" />
+    <ClCompile Include="PointLight.cpp" />
+    <ClCompile Include="PostEffect.cpp" />
+    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="RenderBufferState.cpp" />
+    <ClCompile Include="RenderObjectEntity.cpp" />
+    <ClCompile Include="RenderObjectMetadata.cpp" />
+    <ClCompile Include="RenderObjectResource.cpp" />
+    <ClCompile Include="RenderObjectSource.cpp" />
+    <ClCompile Include="RenderObjectWarp.hpp" />
+    <ClCompile Include="RenderState.cpp" />
+    <ClCompile Include="RenderTargetEntity.cpp" />
+    <ClCompile Include="RenderTargetMetadata.cpp" />
+    <ClCompile Include="RenderTargetResource.cpp" />
+    <ClCompile Include="RenderTargetSource.cpp" />
+    <ClCompile Include="ClassRegister.cpp" />
+    <ClCompile Include="FunctionRegister.cpp" />
+    <ClCompile Include="ScriptSource.cpp" />
+    <ClCompile Include="ScriptValue.cpp" />
+    <ClCompile Include="Serializer.cpp" />
+    <ClCompile Include="ShaderEntity.cpp" />
+    <ClCompile Include="ShaderParameter.cpp" />
+    <ClCompile Include="ShaderResource.cpp" />
+    <ClCompile Include="ShaderSource.cpp" />
+    <ClCompile Include="ShapeBufferUtility.cpp" />
+    <ClCompile Include="SkeletonComponent.cpp" />
+    <ClCompile Include="SkeletonEntity.cpp" />
+    <ClCompile Include="SkeletonResource.cpp" />
+    <ClCompile Include="SkeletonSource.cpp" />
+    <ClCompile Include="SkeletonKeyFrame.cpp" />
+    <ClCompile Include="SpotLight.cpp" />
+    <ClCompile Include="StaticCamera.cpp" />
+    <ClCompile Include="TextureEntity.cpp" />
+    <ClCompile Include="TextureMetadata.cpp" />
+    <ClCompile Include="TextureResource.cpp" />
+    <ClCompile Include="TextureSource.cpp" />
+    <ClCompile Include="TimeCounter.cpp" />
+    <ClCompile Include="Track.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="JsonTransformLoader.cpp" />
+    <ClCompile Include="TripleEnvironmentBuffer.cpp" />
+    <ClCompile Include="TripleRenderBuffer.cpp" />
+    <ClCompile Include="SquareIndicesMetadata.cpp" />
+    <ClCompile Include="ReferenceVertexMetadata.cpp" />
+    <ClCompile Include="Type.cpp" />
+    <ClCompile Include="VertexBufferEntity.cpp" />
+    <ClCompile Include="VertexBufferResource.cpp" />
+    <ClCompile Include="VertexMetadata.cpp" />
+    <ClCompile Include="VertexSource.cpp" />
+    <ClCompile Include="VertexStream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="3DMath.h" />
+    <ClInclude Include="Aabbox.hpp" />
+    <ClInclude Include="Aabrect.hpp" />
+    <ClInclude Include="Aabround.hpp" />
+    <ClInclude Include="Aabsphere.hpp" />
+    <ClInclude Include="ActionPropery.h" />
+    <ClInclude Include="Bool.h" />
+    <ClInclude Include="ClassEntity.h" />
+    <ClInclude Include="ClassSource.h" />
+    <ClInclude Include="IClassResource.h" />
+    <ClInclude Include="Instance.h" />
+    <ClInclude Include="NodeManager.h" />
+    <ClInclude Include="TextureWrap.hpp" />
+    <ClInclude Include="Type.h" />
+    <ClInclude Include="Vector1Wrap.hpp" />
+    <ClInclude Include="FrameworkEvent.h" />
+    <ClInclude Include="Function.h" />
+    <ClInclude Include="Glyph.h" />
+    <ClInclude Include="IActionSystemWarp.hpp" />
+    <ClInclude Include="IBaseHandleWarp.hpp" />
+    <ClInclude Include="IDownloadHandleWarp.hpp" />
+    <ClInclude Include="IEnvironmentSystemWarp.hpp" />
+    <ClInclude Include="IFunctionInvokerWrap.hpp" />
+    <ClInclude Include="IGraphicSystemWarp.hpp" />
+    <ClInclude Include="IMemorySystemWarp.hpp" />
+    <ClInclude Include="IPhysicSystemWarp.hpp" />
+    <ClInclude Include="IPostHandleWarp.hpp" />
+    <ClInclude Include="IRenderQueueSystemWarp.hpp" />
+    <ClInclude Include="IResourceSystemWarp.hpp" />
+    <ClInclude Include="ITextSystemWarp.hpp" />
+    <ClInclude Include="ITimeSystemWarp.hpp" />
+    <ClInclude Include="IWebSystemWarp.hpp" />
+    <ClInclude Include="JsonWriter.h" />
+    <ClInclude Include="LogicJob.h" />
+    <ClInclude Include="Matrix33Wrap.hpp" />
+    <ClInclude Include="Matrix44Wrap.hpp" />
+    <ClInclude Include="Number.h" />
+    <ClInclude Include="PackageData.h" />
+    <ClInclude Include="PackageTree.h" />
+    <ClInclude Include="PackageNode.h" />
+    <ClInclude Include="ITextSystem.h" />
+    <ClInclude Include="JsonMaterialLoader.h" />
+    <ClInclude Include="ObjectWarp.hpp" />
+    <ClInclude Include="PackagedVertexStream.h" />
+    <ClInclude Include="AttributeData.h" />
+    <ClInclude Include="ComponentWarp.hpp" />
+    <ClInclude Include="IAsynvEntityWrap.hpp" />
+    <ClInclude Include="JsonReadable.h" />
+    <ClInclude Include="LimitedIndex.h" />
+    <ClInclude Include="OrientationComponent.h" />
+    <ClInclude Include="PathMetadataWarp.hpp" />
+    <ClInclude Include="NodeWarp.hpp" />
+    <ClInclude Include="QuaternionWrap.hpp" />
+    <ClInclude Include="ReflushStream.h" />
+    <ClInclude Include="ScriptCallback.h" />
+    <ClInclude Include="ScriptComponentWarp.hpp" />
+    <ClInclude Include="ScriptMetadata.h" />
+    <ClInclude Include="ScriptProperty.h" />
+    <ClInclude Include="JsonTextureLoader.h" />
+    <ClInclude Include="String.h" />
+    <ClInclude Include="StringConvert.hpp" />
+    <ClInclude Include="SubTextureBuffer.h" />
+    <ClInclude Include="TextProperty.h" />
+    <ClInclude Include="TextSetEntity.h" />
+    <ClInclude Include="ITextSetResource.h" />
+    <ClInclude Include="TextSetSource.h" />
+    <ClInclude Include="TextureAtlas.h" />
+    <ClInclude Include="TextString.h" />
+    <ClInclude Include="TouchInfo.h" />
+    <ClInclude Include="Allocator.h" />
+    <ClInclude Include="AmbientLight.h" />
+    <ClInclude Include="AndroidThreadSafeOprator.h" />
+    <ClInclude Include="BinaryIndex.hpp" />
+    <ClInclude Include="BufferObjectProperty.h" />
+    <ClInclude Include="Color.hpp" />
+    <ClInclude Include="ComponentProperty.h" />
+    <ClInclude Include="DirectionLight.h" />
+    <ClInclude Include="DoRegister.h" />
+    <ClInclude Include="EnvironmentBuffer.h" />
+    <ClInclude Include="ByteHelper.hpp" />
+    <ClInclude Include="GlobalDefine.h" />
+    <ClInclude Include="IActionSystem.h" />
+    <ClInclude Include="IAsyncResource.h" />
+    <ClInclude Include="ICamera.h" />
+    <ClInclude Include="ComponentFactory.h" />
+    <ClInclude Include="Frustum.hpp" />
+    <ClInclude Include="IMonopolyResource.h" />
+    <ClInclude Include="IAsyncEntity.h" />
+    <ClInclude Include="IBaseHandle.h" />
+    <ClInclude Include="ICameraWarp.hpp" />
+    <ClInclude Include="IPostHandle.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Delegate.hpp" />
+    <ClInclude Include="DelegateImplement.hpp" />
+    <ClInclude Include="IComponent.h" />
+    <ClInclude Include="IMonopolySource.h" />
+    <ClInclude Include="IEnvironmentSystem.h" />
+    <ClInclude Include="IInserter.h" />
+    <ClInclude Include="ILightEntity.h" />
+    <ClInclude Include="IMaterialSystemWarp.hpp" />
+    <ClInclude Include="KeyboardAction.h" />
+    <ClInclude Include="TouchAction.h" />
+    <ClInclude Include="IPhysicSystem.h" />
+    <ClInclude Include="IPipelineSystemWarp.hpp" />
+    <ClInclude Include="JsonData.h" />
+    <ClInclude Include="JsonDefualtDataType.h" />
+    <ClInclude Include="JsonReader.h" />
+    <ClInclude Include="IRenderQueueSystem.h" />
+    <ClInclude Include="IDownloadHandle.h" />
+    <ClInclude Include="Framework.h" />
+    <ClInclude Include="BaseMathDeclaration.h" />
+    <ClInclude Include="BaseMathImplement.hpp" />
+    <ClInclude Include="FrameworkWrap.hpp" />
+    <ClInclude Include="IFile.h" />
+    <ClInclude Include="IGraphicSystem.h" />
+    <ClInclude Include="IJob.h" />
+    <ClInclude Include="IJobDispatcher.h" />
+    <ClInclude Include="IMetadata.h" />
+    <ClInclude Include="IndicesBufferEntity.h" />
+    <ClInclude Include="IndicesBufferResource.h" />
+    <ClInclude Include="IndicesMetadata.h" />
+    <ClInclude Include="IndicesSource.h" />
+    <ClInclude Include="IndicesStream.h" />
+    <ClInclude Include="IOSThreadSafeOprator.h" />
+    <ClInclude Include="IIOSystem.h" />
+    <ClInclude Include="IOSystemWrap.hpp" />
+    <ClInclude Include="IPipelineSystem.h" />
+    <ClInclude Include="IPlugin.h" />
+    <ClInclude Include="ISharedResource.h" />
+    <ClInclude Include="ILoader.h" />
+    <ClInclude Include="IResourceProperty.h" />
+    <ClInclude Include="IFunctionInvoker.h" />
+    <ClInclude Include="ScriptComponent.h" />
+    <ClInclude Include="ScriptEntity.h" />
+    <ClInclude Include="IScriptResource.h" />
+    <ClInclude Include="IScriptSystem.h" />
+    <ClInclude Include="IScriptSystemWrap.hpp" />
+    <ClInclude Include="ISoundComponent.h" />
+    <ClInclude Include="ISoundSystem.h" />
+    <ClInclude Include="ISoundSystemWrap.hpp" />
+    <ClInclude Include="ISharedSource.h" />
+    <ClInclude Include="IAsyncSource.h" />
+    <ClInclude Include="LightComponent.h" />
+    <ClInclude Include="PhysicComponent.h" />
+    <ClInclude Include="PhysicProperty.h" />
+    <ClInclude Include="PointLight.h" />
+    <ClInclude Include="PostEffect.h" />
+    <ClInclude Include="PostEffectWarp.hpp" />
+    <ClInclude Include="ScriptSource.h" />
+    <ClInclude Include="ShapeBufferUtility.h" />
+    <ClInclude Include="RenderTargetWarp.hpp" />
+    <ClInclude Include="ShapeMathDeclaration.h" />
+    <ClInclude Include="ShapeMathImplement.hpp" />
+    <ClInclude Include="SkeletonComponent.h" />
+    <ClInclude Include="SkeletonProperty.h" />
+    <ClInclude Include="SkeletonEntity.h" />
+    <ClInclude Include="SkeletonJoint.hpp" />
+    <ClInclude Include="SkeletonResource.h" />
+    <ClInclude Include="SkeletonSource.h" />
+    <ClInclude Include="SkeletonKeyFrame.h" />
+    <ClInclude Include="SpotLight.h" />
+    <ClInclude Include="SystemSingleton.h" />
+    <ClInclude Include="ISystemPluginName.h" />
+    <ClInclude Include="IThreadEntity.h" />
+    <ClInclude Include="IThreadEvent.h" />
+    <ClInclude Include="IThreadMutex.h" />
+    <ClInclude Include="IThreadRWLock.h" />
+    <ClInclude Include="IThreadSpecific.h" />
+    <ClInclude Include="ITimeSystem.h" />
+    <ClInclude Include="Line.hpp" />
+    <ClInclude Include="MaterialEntity.h" />
+    <ClInclude Include="MaterialProperty.h" />
+    <ClInclude Include="MaterialResource.h" />
+    <ClInclude Include="MaterialSource.h" />
+    <ClInclude Include="IMaterialSystem.h" />
+    <ClInclude Include="NodeMessage.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="NodeProperty.h" />
+    <ClInclude Include="PipelineProperty.h" />
+    <ClInclude Include="Plane.hpp" />
+    <ClInclude Include="Plugindefine.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="Matrix22.hpp" />
+    <ClInclude Include="Matrix33.hpp" />
+    <ClInclude Include="Matrix44.hpp" />
+    <ClInclude Include="IMemorySystem.h" />
+    <ClInclude Include="NeonMath.h" />
+    <ClInclude Include="Predefine.h" />
+    <ClInclude Include="Quaternion.hpp" />
+    <ClInclude Include="IResourceSystem.h" />
+    <ClInclude Include="Ray.hpp" />
+    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="RenderBufferState.h" />
+    <ClInclude Include="RenderObjectEntity.h" />
+    <ClInclude Include="RenderObjectMetadata.h" />
+    <ClInclude Include="RenderObjectProperty.h" />
+    <ClInclude Include="RenderObjectResource.h" />
+    <ClInclude Include="RenderObjectSource.h" />
+    <ClInclude Include="RenderState.h" />
+    <ClInclude Include="RenderTargetEntity.h" />
+    <ClInclude Include="RenderTargetMetadata.h" />
+    <ClInclude Include="RenderTargetProperty.h" />
+    <ClInclude Include="RenderTargetResource.h" />
+    <ClInclude Include="RenderTargetSource.h" />
+    <ClInclude Include="Rtti.hpp" />
+    <ClInclude Include="Object.hpp" />
+    <ClInclude Include="ClassRegister.h" />
+    <ClInclude Include="FunctionRegister.h" />
+    <ClInclude Include="JsonTransformLoader.h" />
+    <ClInclude Include="ScriptUtility.h" />
+    <ClInclude Include="ScriptValue.h" />
+    <ClInclude Include="Serializer.h" />
+    <ClInclude Include="ShaderAttributes.h" />
+    <ClInclude Include="ShaderEntity.h" />
+    <ClInclude Include="ShaderParameter.h" />
+    <ClInclude Include="ShaderProperty.h" />
+    <ClInclude Include="ShaderResource.h" />
+    <ClInclude Include="ShaderSource.h" />
+    <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="SmartPtr.hpp" />
+    <ClInclude Include="StaticCamera.h" />
+    <ClInclude Include="StaticCameraWrap.hpp" />
+    <ClInclude Include="TextureEntity.h" />
+    <ClInclude Include="TextureMetadata.h" />
+    <ClInclude Include="TextureProperty.h" />
+    <ClInclude Include="TextureResource.h" />
+    <ClInclude Include="TextureSource.h" />
+    <ClInclude Include="ThreadProperty.h" />
+    <ClInclude Include="ThreadSafeOprator.h" />
+    <ClInclude Include="IThreadSystem.h" />
+    <ClInclude Include="IThreadSystemWrap.hpp" />
+    <ClInclude Include="TimeCounter.h" />
+    <ClInclude Include="Track.h" />
+    <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="TripleEnvironmentBuffer.h" />
+    <ClInclude Include="TripleRenderBuffer.h" />
+    <ClInclude Include="SquareIndicesMetadata.h" />
+    <ClInclude Include="ReferenceVertexMetadata.h" />
+    <ClInclude Include="Utility.hpp" />
+    <ClInclude Include="VariableType.h" />
+    <ClInclude Include="vector1.hpp" />
+    <ClInclude Include="vector2.hpp" />
+    <ClInclude Include="vector2array.hpp" />
+    <ClInclude Include="vector3.hpp" />
+    <ClInclude Include="Vector2Wrap.hpp" />
+    <ClInclude Include="vector3array.hpp" />
+    <ClInclude Include="Vector3Wrap.hpp" />
+    <ClInclude Include="vector4.hpp" />
+    <ClInclude Include="IWebProperty.h" />
+    <ClInclude Include="IWebSystem.h" />
+    <ClInclude Include="vector4array.hpp" />
+    <ClInclude Include="Vector4Wrap.hpp" />
+    <ClInclude Include="VertexBufferEntity.h" />
+    <ClInclude Include="VertexBufferResource.h" />
+    <ClInclude Include="VertexCompress.h" />
+    <ClInclude Include="VertexMetadata.h" />
+    <ClInclude Include="VertexSource.h" />
+    <ClInclude Include="VertexStream.h" />
+    <ClInclude Include="VertexStreamLayout.h" />
+    <ClInclude Include="Volume.hpp" />
+    <ClInclude Include="WindowsThreadSafeOprator.h" />
+    <ClInclude Include="WrapTemplate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bohge_External\EASTL\win\eastl.vcxproj">
+      <Project>{5b220262-f0fc-42a4-84ff-51e41f5a9481}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Bohge_External\neonmath\NeonMath.vcxproj">
+      <Project>{d4d1ec8b-4bcf-4b59-ac11-ce9234127337}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{679B6DB2-84B0-4BE2-8861-13CFD50D9700}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Framework</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\Bohge_Binary\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\Bohge_Binary\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_PLATFORM_WINDOWS;_FRAMEWORK_EXPORT;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\Bohge_External\EASTL\include\;..\..\Bohge_External\rapidjson\include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_PLATFORM_WINDOWS;_FRAMEWORK_EXPORT;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\Bohge_External\EASTL\include\;..\..\Bohge_External\rapidjson\include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

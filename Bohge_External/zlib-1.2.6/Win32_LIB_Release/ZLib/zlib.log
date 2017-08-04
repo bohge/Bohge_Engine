@@ -1,0 +1,31 @@
+﻿生成启动时间为 2014/10/16 10:11:42。
+     1>项目“E:\Bohge_Engine_New_Architecture\Bohge_External\zlib-1.2.6\zlib.vcxproj”在节点 3 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“.\Win32_LIB_Release\ZLib\zlib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Lib:
+         D:\Tools\VS2010\VC\bin\Lib.exe /OUT:".\Win32_LIB_Release\ZLib\zlib.lib" /NOLOGO .\Win32_LIB_Release\ZLib\adler32.obj
+         .\Win32_LIB_Release\ZLib\compress.obj
+         .\Win32_LIB_Release\ZLib\crc32.obj
+         .\Win32_LIB_Release\ZLib\deflate.obj
+         .\Win32_LIB_Release\ZLib\gzclose.obj
+         .\Win32_LIB_Release\ZLib\gzlib.obj
+         .\Win32_LIB_Release\ZLib\gzread.obj
+         .\Win32_LIB_Release\ZLib\gzwrite.obj
+         .\Win32_LIB_Release\ZLib\infback.obj
+         .\Win32_LIB_Release\ZLib\inffast.obj
+         .\Win32_LIB_Release\ZLib\inflate.obj
+         .\Win32_LIB_Release\ZLib\inftrees.obj
+         .\Win32_LIB_Release\ZLib\trees.obj
+         .\Win32_LIB_Release\ZLib\uncompr.obj
+         .\Win32_LIB_Release\ZLib\zutil.obj
+         zlib.vcxproj -> E:\Bohge_Engine_New_Architecture\Bohge_External\zlib-1.2.6\.\Win32_LIB_Release\ZLib\zlib.lib
+       FinalizeBuildStatus:
+         正在删除文件“.\Win32_LIB_Release\ZLib\zlib.unsuccessfulbuild”。
+         正在对“.\Win32_LIB_Release\ZLib\zlib.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Bohge_Engine_New_Architecture\Bohge_External\zlib-1.2.6\zlib.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.83

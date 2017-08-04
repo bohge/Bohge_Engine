@@ -1,0 +1,196 @@
+﻿生成启动时间为 2014/12/15 18:38:43。
+     1>项目“E:\Bohge_Engine_New_Architecture\Bohge_External\curl-7.37.0\projects\Windows\VC10\lib\libcurl.vcxproj”在节点 5 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“..\..\..\..\build\Win32\VC10\LIB Debug\lib\libcurl.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         D:\Tools\VS2010\VC\bin\CL.exe /c /I..\..\..\..\include /I..\..\..\..\lib /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D BUILDING_LIBCURL /D CURL_STATICLIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\..\..\..\build\Win32\VC10\LIB Debug\lib\\" /Fd"..\..\..\..\build\Win32\VC10\LIB Debug\lib\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt "..\..\..\..\lib\asyn-thread.c" ..\..\..\..\lib\base64.c ..\..\..\..\lib\bundles.c ..\..\..\..\lib\conncache.c ..\..\..\..\lib\connect.c ..\..\..\..\lib\cookie.c ..\..\..\..\lib\curl_addrinfo.c ..\..\..\..\lib\curl_fnmatch.c ..\..\..\..\lib\curl_memrchr.c ..\..\..\..\lib\curl_sasl.c ..\..\..\..\lib\curl_threads.c ..\..\..\..\lib\dict.c ..\..\..\..\lib\dotdot.c ..\..\..\..\lib\easy.c ..\..\..\..\lib\escape.c ..\..\..\..\lib\file.c ..\..\..\..\lib\fileinfo.c ..\..\..\..\lib\formdata.c ..\..\..\..\lib\ftp.c ..\..\..\..\lib\ftplistparser.c ..\..\..\..\lib\getenv.c ..\..\..\..\lib\getinfo.c ..\..\..\..\lib\gopher.c ..\..\..\..\lib\hash.c ..\..\..\..\lib\hmac.c ..\..\..\..\lib\hostasyn.c ..\..\..\..\lib\hostip.c ..\..\..\..\lib\hostip4.c ..\..\..\..\lib\hostip6.c ..\..\..\..\lib\hostsyn.c ..\..\..\..\lib\http.c ..\..\..\..\lib\http_chunks.c ..\..\..\..\lib\http_digest.c ..\..\..\..\lib\http_proxy.c ..\..\..\..\lib\if2ip.c ..\..\..\..\lib\imap.c ..\..\..\..\lib\ldap.c ..\..\..\..\lib\llist.c ..\..\..\..\lib\md5.c ..\..\..\..\lib\mprintf.c ..\..\..\..\lib\multi.c ..\..\..\..\lib\netrc.c ..\..\..\..\lib\pingpong.c ..\..\..\..\lib\pipeline.c ..\..\..\..\lib\pop3.c ..\..\..\..\lib\rtsp.c ..\..\..\..\lib\sendf.c ..\..\..\..\lib\share.c ..\..\..\..\lib\slist.c ..\..\..\..\lib\smtp.c ..\..\..\..\lib\socks.c ..\..\..\..\lib\strerror.c ..\..\..\..\lib\telnet.c ..\..\..\..\lib\tftp.c ..\..\..\..\lib\transfer.c ..\..\..\..\lib\url.c ..\..\..\..\lib\vtls\openssl.c ..\..\..\..\lib\vtls\vtls.c ..\..\..\..\lib\wildcard.c
+         wildcard.c
+         vtls.c
+         openssl.c
+         url.c
+         transfer.c
+         tftp.c
+         telnet.c
+         strerror.c
+         socks.c
+         smtp.c
+         slist.c
+         share.c
+         sendf.c
+         rtsp.c
+         pop3.c
+         pipeline.c
+         pingpong.c
+         netrc.c
+         multi.c
+         mprintf.c
+         正在生成代码...
+         正在编译...
+         md5.c
+         llist.c
+         ldap.c
+         imap.c
+         if2ip.c
+         http_proxy.c
+         http_digest.c
+         http_chunks.c
+         http.c
+         hostsyn.c
+         hostip6.c
+         hostip4.c
+         hostip.c
+         hostasyn.c
+         hmac.c
+         hash.c
+         gopher.c
+         getinfo.c
+         getenv.c
+         ftplistparser.c
+         正在生成代码...
+         正在编译...
+         ftp.c
+         formdata.c
+         fileinfo.c
+         file.c
+         escape.c
+         easy.c
+         dotdot.c
+         dict.c
+         curl_threads.c
+         curl_sasl.c
+         curl_memrchr.c
+         curl_fnmatch.c
+         curl_addrinfo.c
+         cookie.c
+         connect.c
+         conncache.c
+         bundles.c
+         base64.c
+         asyn-thread.c
+         正在生成代码...
+       ResourceCompile:
+         所有输出均为最新。
+       Lib:
+         D:\Tools\VS2010\VC\bin\Lib.exe /OUT:"..\..\..\..\build\Win32\VC10\LIB Debug\libcurld.lib" /NOLOGO /MACHINE:X86 "..\..\..\..\build\Win32\VC10\LIB Debug\lib\libcurl.res"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\amigaos.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\asyn-ares.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\asyn-thread.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\base64.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\bundles.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\conncache.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\connect.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\content_encoding.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\cookie.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_addrinfo.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_fnmatch.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_gethostname.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_gssapi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_memrchr.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_multibyte.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_ntlm.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_ntlm_core.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_ntlm_msgs.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_ntlm_wb.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_rtmp.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_sasl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_sasl_sspi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_sspi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_threads.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\dict.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\dotdot.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\easy.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\escape.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\file.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\fileinfo.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\formdata.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\ftp.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\ftplistparser.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\getenv.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\getinfo.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\gopher.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hash.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hmac.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostasyn.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostcheck.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostip4.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostip6.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostip.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\hostsyn.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http2.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http_chunks.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http_digest.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http_negotiate.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http_negotiate_sspi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\http_proxy.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\idn_win32.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\if2ip.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\imap.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\inet_ntop.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\inet_pton.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\krb5.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\ldap.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\llist.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\md4.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\md5.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\memdebug.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\mprintf.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\multi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\netrc.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\non-ascii.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\nonblock.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\openldap.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\parsedate.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\pingpong.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\pipeline.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\pop3.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\progress.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\rawstr.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\rtsp.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\security.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\select.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\sendf.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\share.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\slist.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\smtp.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\socks.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\socks_gssapi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\socks_sspi.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\speedcheck.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\splay.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\ssh.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\strdup.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\strequal.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\strerror.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\strtok.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\strtoofft.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\telnet.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\tftp.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\timeval.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\transfer.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\url.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\version.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\warnless.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\wildcard.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\x509asn1.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\axtls.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_darwinssl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\curl_schannel.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\cyassl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\gskit.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\gtls.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\nss.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\openssl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\polarssl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\polarssl_threadlock.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\qssl.obj"
+         "..\..\..\..\build\Win32\VC10\LIB Debug\lib\vtls.obj"
+         libcurl.vcxproj -> E:\Bohge_Engine_New_Architecture\Bohge_External\curl-7.37.0\projects\Windows\VC10\lib\..\..\..\..\build\Win32\VC10\LIB Debug\libcurld.lib
+       FinalizeBuildStatus:
+         正在删除文件“..\..\..\..\build\Win32\VC10\LIB Debug\lib\libcurl.unsuccessfulbuild”。
+         正在对“..\..\..\..\build\Win32\VC10\LIB Debug\lib\libcurl.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Bohge_Engine_New_Architecture\Bohge_External\curl-7.37.0\projects\Windows\VC10\lib\libcurl.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:11.68

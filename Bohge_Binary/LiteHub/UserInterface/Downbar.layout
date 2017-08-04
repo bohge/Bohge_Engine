@@ -1,0 +1,95 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Name":"Downbar",
+		"Depth":0,
+		"Adaptive":2,
+		"Rectangle":{ "x":0, "y":1080, "w":720, "h":200 },
+		"Widgets":
+		{
+			"Type":1,
+			"Property":
+			{
+				"Name":"Downbar_Panel",
+				"Adaptive":2,
+				"Rectangle":{ "x":0, "y":0, "w":720, "h":200 },
+				"ImageSource":"lite:UserInterface/ui.png",
+				"ImageUV":{ "us":0.08, "vs":0.54, "ue":0.1, "ve":0.55 },
+				"Child":
+				[
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_Next",
+							"Adaptive":2,
+							"Rectangle":{ "x":480, "y":10, "w":230, "h":180 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+								{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+								{ "us":0.0, "vs":0.4981, "ue":0.263671875, "ve":0.61328125 }
+							],
+							"Script":"lite:Button_Next.lua",
+							"Child":
+							[
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"String_Next",
+										"Rectangle":{ "x":15, "y":75, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":2,
+										"FontSize":30,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_Previou",
+							"Adaptive":2,
+							"Rectangle":{ "x":245, "y":10, "w":230, "h":180 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+								{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+								{ "us":0.0, "vs":0.4981, "ue":0.263671875, "ve":0.61328125 }
+							],
+							"Script":"lite:Button_Previou.lua",
+							"Child":
+							[
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"String_Previou",
+										"Rectangle":{ "x":15, "y":75, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":3,
+										"FontSize":30,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					}					
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,448 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Name":"Content",
+		"Depth":0,
+		"Adaptive":2,
+		"Rectangle":{ "x":0, "y":0, "w":720, "h":780 },
+		"Widgets":
+		{
+			"Type":1,
+			"Property":
+			{
+				"Name":"Content_Background",
+				"Adaptive":2,
+				"Rectangle":{ "x":0, "y":0, "w":720, "h":780 },
+				"ImageSource":"lite:UserInterface/ui.png",
+				"ImageUV":{ "us":0.0, "vs":0.70703125, "ue":0.291015625, "ve":1.0 },
+				"Child":
+				[
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_1",
+							"Adaptive":2,
+							"Rectangle":{ "x":0, "y":0, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_1",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/1.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_1",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_2",
+							"Adaptive":2,
+							"Rectangle":{ "x":240, "y":0, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_2",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/2.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_2",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_3",
+							"Adaptive":2,
+							"Rectangle":{ "x":480, "y":0, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_3",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/3.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_3",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_4",
+							"Adaptive":2,
+							"Rectangle":{ "x":0, "y":260, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_4",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/4.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_4",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_5",
+							"Adaptive":2,
+							"Rectangle":{ "x":240, "y":260, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_5",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/5.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_5",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_6",
+							"Adaptive":2,
+							"Rectangle":{ "x":480, "y":260, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_6",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/6.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_6",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_7",
+							"Adaptive":2,
+							"Rectangle":{ "x":0, "y":520, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_7",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/7.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_7",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_8",
+							"Adaptive":2,
+							"Rectangle":{ "x":240, "y":520, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_8",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/8.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_8",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					},
+					{
+						"Type":2,
+						"Property":
+						{
+							"Name":"Button_9",
+							"Adaptive":2,
+							"Rectangle":{ "x":480, "y":520, "w":240, "h":260 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUVArray":
+							[
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 },
+								{ "us":0.388671875, "vs":0.3515625, "ue":0.552734375, "ve":0.515625 }
+							],
+							"Script":"lite:Button_OnlineGame.lua",
+							"Child":
+							[
+								{
+									"Type":1,
+									"Property":
+									{
+										"Name":"LiteIcon_9",
+										"Adaptive":0,
+										"Rectangle":{ "x":40, "y":30, "w":160, "h":160 },
+										"ImageSource":"lite:UserInterface/9.png",
+										"ImageUV":{ "us":0.0, "vs":0.0, "ue":1.0, "ve":1.0 },
+										"Child":[]
+									}									
+								},
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"LiteName_9",
+										"Rectangle":{ "x":20, "y":190, "w":200, "h":30 },	
+										"Adaptive":0,
+										"StringID":1,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

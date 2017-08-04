@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{bede8e07-276b-4793-9202-bc4b58603aa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadSystem">
+      <UniqueIdentifier>{1bd0c216-0109-4ee5-b0da-039f2aeea85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Container">
+      <UniqueIdentifier>{09cf123d-effd-44e9-a23c-955c8d9b0ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Threading">
+      <UniqueIdentifier>{d06673c2-3daf-491f-afaa-840229ae5233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadEntity">
+      <UniqueIdentifier>{d383a351-75bb-413e-a446-71984d2103c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThreadPool">
+      <UniqueIdentifier>{808ece7a-644c-459c-84c6-1355a83860bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadMutex.cpp">
+      <Filter>ThreadEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadRWLock.cpp">
+      <Filter>ThreadEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadSystem.cpp">
+      <Filter>ThreadSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Threading.cpp">
+      <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadEvent.cpp">
+      <Filter>ThreadEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="JobDispatcher.cpp">
+      <Filter>ThreadEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="JobThread.cpp">
+      <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadSpecific.cpp">
+      <Filter>ThreadEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="JobThreadPool.cpp">
+      <Filter>ThreadPool</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ThreadMutex.h">
+      <Filter>ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadRWLock.h">
+      <Filter>ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadSystem.h">
+      <Filter>ThreadSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GreaterContainer.hpp">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="IJobContainer.h">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="LessContaniner.hpp">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueContainer.hpp">
+      <Filter>Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Threading.h">
+      <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadEvent.h">
+      <Filter>ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="JobDispatcher.h">
+      <Filter>ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="JobThread.h">
+      <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadSpecific.h">
+      <Filter>ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="JobThreadPool.h">
+      <Filter>ThreadPool</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

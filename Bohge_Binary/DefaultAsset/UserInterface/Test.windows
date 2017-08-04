@@ -1,0 +1,17 @@
+{
+	"version":1,
+	"Data":
+	{
+		"Design":{ "w":1280, "h":720 },
+		"Source":
+		[
+			"root:DefaultAsset/UserInterface/Test_1.layout",
+			"root:DefaultAsset/UserInterface/Test_2.layout"
+		],
+		"Layout":
+		[
+			{ "Widget":"Layout1", "Position":{ "x":0, "y":0 } },
+			{ "Widget":"Layout2", "Position":{ "x":640, "y":360 } }
+		]
+	}
+}

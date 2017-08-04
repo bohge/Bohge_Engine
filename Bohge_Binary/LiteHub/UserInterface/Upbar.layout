@@ -1,0 +1,23 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Name":"Upbar",
+		"Depth":0,
+		"Adaptive":2,
+		"Rectangle":{ "x":0, "y":0, "w":720, "h":300 },
+		"Widgets":
+		{
+			"Type":1,
+			"Property":
+			{
+				"Name":"Upbar_Panel",
+				"Adaptive":2,
+				"Rectangle":{ "x":0, "y":0, "w":720, "h":300 },
+				"ImageSource":"lite:UserInterface/ui.png",
+				"ImageUV":{ "us":0.08, "vs":0.41, "ue":0.1, "ve":0.42 },
+				"Child":[]
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{fdf0d141-250a-4d84-a6b9-66381d6afbd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicSystem">
+      <UniqueIdentifier>{e383321b-2222-486f-87bb-a84165e7caba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicComponent">
+      <UniqueIdentifier>{9c364a83-c4bf-424a-b9ca-7f1c0ca95bdd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPhysicSystem.cpp">
+      <Filter>PhysicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPhysicComponent.cpp">
+      <Filter>PhysicComponent</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BulletPhysicSystem.h">
+      <Filter>PhysicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPhysicComponent.h">
+      <Filter>PhysicComponent</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

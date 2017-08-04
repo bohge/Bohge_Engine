@@ -1,0 +1,15 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Font":"root:DefaultAsset/Font.ttf",
+		"TextSet":
+		[
+			{ "ID":1, "CN":"加载", "EN":"Loading" },
+			{ "ID":2, "CN":"下页", "EN":"Next" },
+			{ "ID":3, "CN":"上页", "EN":"Previou" },
+			{ "ID":4, "CN":"好", "EN":"Ok" },
+			{ "ID":5, "CN":"服务器错误", "EN":"Server Error!" }
+		]
+	}
+}

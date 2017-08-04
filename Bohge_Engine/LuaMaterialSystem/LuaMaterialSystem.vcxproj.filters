@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Parser">
+      <UniqueIdentifier>{6c162e69-a003-4878-a56f-a4afc6ad1706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{5399842d-48b0-45a6-bbf8-6a9ece4730ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua">
+      <UniqueIdentifier>{1f3a2c9b-b621-44f9-bc22-3e9617d4aeef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderAssembler.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderFile.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderLibrary.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderParser.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderSegment.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSystem.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptOutPut.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ShaderAssembler.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderFile.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLibrary.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderParser.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderSegment.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptParser.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialSystem.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

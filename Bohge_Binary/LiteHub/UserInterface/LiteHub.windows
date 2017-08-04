@@ -1,0 +1,22 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Design":{ "w":720, "h":1280 },
+		"Adaptive":2,
+		"Source":
+		[
+			"lite:UserInterface/Upbar.layout",
+			"lite:UserInterface/Content.layout",
+			"lite:UserInterface/Downbar.layout",
+			"lite:UserInterface/Error.layout"
+		],
+		"Layout":
+		[
+			{ "Widget":"Upbar", "Position":{ "x":0, "y":0 } },
+			{ "Widget":"Content", "Position":{ "x":0, "y":300 } },
+			{ "Widget":"Downbar", "Position":{ "x":0, "y":1080 } },
+			{ "Widget":"Error", "Position":{ "x":0, "y":0 } }
+		]
+	}
+}

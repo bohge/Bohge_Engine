@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Liteapp">
+      <UniqueIdentifier>{9339e55a-47d0-4d76-9680-c51efc59afe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{e717ca73-5cba-4ebc-81d3-b64520e68291}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ILiteapp.cpp">
+      <Filter>Liteapp</Filter>
+    </ClCompile>
+    <ClCompile Include="IPluginLoader.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="IApplication.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ILiteapp.h">
+      <Filter>Liteapp</Filter>
+    </ClInclude>
+    <ClInclude Include="IPluginLoader.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="IApplication.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{d76f8deb-176a-4ee6-96bf-cf2a42d773c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ActionSystem">
+      <UniqueIdentifier>{9b541748-bc05-408a-be27-bcbda5456b61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseActionSystem.cpp">
+      <Filter>ActionSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseActionSystem.h">
+      <Filter>ActionSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

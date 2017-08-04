@@ -1,0 +1,46 @@
+{
+	"version":1,
+	"Data":
+	{
+		"Transform":
+		{
+			"LocalScale":{ "x":1, "y":1, "z":1 },
+			"LocalPosition":{ "x":0, "y":0, "z":0 },
+			"LocalRotation":{ "x":0, "y":0, "z":0, "w":1 }
+		},
+		"Material":
+		{
+			"Path":"root:DefaultAsset/Material/SimpleParticle.Material",
+			"Ambient":{ "x":0, "y":0, "z":0 },
+			"Diffuse":{ "x":0, "y":0, "z":0 },
+			"Specular":{ "x":0, "y":0, "z":0 },
+			"Emit":{ "x":0, "y":0, "z":0 },
+			"Opacity_SpeLevel_Shininess":{ "x":0, "y":0, "z":0 },
+			"TextureSlots":
+			[
+				{
+					"Slot":1,
+					"Texture":
+					{
+						"Path":"root:DefaultAsset/Smoke.png",
+						"Format":-1,
+						"SWarp":1,
+						"TWarp":1,
+						"MagFilter":1,
+						"MinFilter":5,
+						"Anisotropic":1,
+						"MipMap":true
+					}					
+				}
+			]
+		},
+		"Affector":
+		[
+			{ "Affect":1, "DataType":0, "Min":{ "n":1 }, "Max":{ "n":2 } },
+			{ "Affect":0, "DataType":0, "Min":{ "n":10 }, "Max":{ "n":100 } },
+			{ "Affect":2, "DataType":0, "Min":{ "n":5 }, "Max":{ "n":10 } },
+			{ "Affect":9, "DataType":2, "Min":{ "x":0, "y":0, "z":0 }, "Max":{ "x":0, "y":0, "z":0 } },
+			{ "Affect":10, "DataType":2, "Min":{ "x":-3.14, "y":-3.14, "z":-3.14 }, "Max":{ "x":3.14, "y":3.14, "z":3.14 } }
+		]
+	}
+}

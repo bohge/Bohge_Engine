@@ -1,0 +1,33 @@
+{
+	"version":1,
+	"Data":
+	{
+		"Name":"Layout2",
+		"Depth":1,
+		"Widgets":
+		{
+			"Type":0,
+			"Property":
+			{
+				"Name":"HostPanel_2",
+				"Position":{ "x":0, "y":0 },
+				"Rectangle":{ "x":0, "y":0, "w":300, "h":150 },
+				"Child":
+				[
+					{
+						"Type":1,
+						"Property":
+						{
+							"Name":"LabelTest_1",
+							"Position":{ "x":0, "y":0 },
+							"Rectangle":{ "x":0, "y":0, "w":300, "h":150 },
+							"ImageSource":"root:DefaultAsset/UserInterface/Test.png",
+							"ImageUV":{ "us":0.4, "vs":0.5, "ue":0.6, "ve":0.7 },
+							"Child":[]
+						}
+					}
+				]
+			}
+		}
+	}
+}

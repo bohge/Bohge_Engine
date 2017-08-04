@@ -1,0 +1,101 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//
+//						The Bohge Engine License (BEL)
+//
+//	Copyright (c) 2011-2014 Peng Zhao
+//
+//	Permission is hereby granted, free of charge, to any person obtaining a copy
+//	of this software and associated documentation files (the "Software"), to deal
+//	in the Software without restriction, including without limitation the rights
+//	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//	copies of the Software, and to permit persons to whom the Software is
+//	furnished to do so, subject to the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included in 
+//	all copies or substantial portions of the Software. And the logo of 
+//	Bohge Engine shall be displayed full screen for more than 3 seconds 
+//	when the software is started. Copyright holders are allowed to develop 
+//	game edit based on Bohge Engine, The edit must be released under the MIT 
+//	open source license if it is going to be published. In no event shall 
+//	copyright holders be prohibited from using any code of Bohge Engine 
+//	to develop any other analogous game engines.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+#SHADER_DEFINE SpotLightVertex
+
+	FUNCTION_INPUT = 
+	{
+		{ CAMERA_WORLDPOSITION,			HIGH,	VEC3,	"in_CameraPosition" },
+		{ LIGHT_POSITION,				HIGH,	VEC3,	"in_LightPosition" },
+		{ WORLDSPACE_POSITION,			HIGH,	VEC4,	"in_PositionWS" },
+	}
+
+	FUNCTION_OUTPUT = 
+	{
+		{ WORLDSPACE_VIEWDIRECTION,		HIGH,	VEC3,	"out_ViewDirection" },
+		{ LIGHT_VERTEX_DIRECTION,		MEDIUM,	VEC3,	"out_LightDirection" },
+	}
+
+#SHADER_CODE
+    vec3 out_ViewDirection  = in_CameraPosition - in_PositionWS.xyz;
+	vec3 out_LightDirection = in_LightPosition - in_PositionWS.xyz;
+#END_CODE
+#END_DEFINE
+
+
+#SHADER_DEFINE SpotLightSurface
+
+	FUNCTION_INPUT = 
+	{
+		{ WORLDSPACE_NORMAL, 			MEDIUM,		VEC3,		"in_Normal" },
+		{ LIGHT_VERTEX_DIRECTION,		MEDIUM,		VEC3,		"in_LightDirection" },
+		{ LIGHT_GIVEN_DIRECTION,		MEDIUM,		VEC3,		"in_SpotDirection" },
+		{ WORLDSPACE_VIEWDIRECTION,		MEDIUM,		VEC3,		"in_ViewDirection" },
+		{ LIGHT_RANGE_INV,				MEDIUM,		FLOAT,		"in_RangeInv" },
+		{ LIGHT_ATTENUATION,			MEDIUM,		VEC4,		"in_LinghtAtten" },
+		{ LIGHT_INNER_DIFF_INV,			MEDIUM,		VEC2,		"in_vInner_DiffInv" },
+		{ MATERIAL_SHININESS,			MEDIUM,		FLOAT,		"in_Shininess" },
+		{ LIGHT_MATERIAL_AMBIENT,		LOW,		VEC3,		"in_Ambient_Light" },
+		{ LIGHT_MATERIAL_LIGHT,			LOW,		VEC3,		"in_LightColor" },
+		{ LIGHT_MATERIAL_SPECULAR,		LOW,		VEC3,		"in_Specular_Light" },
+	}
+
+	FUNCTION_OUTPUT = 
+	{
+		{ LIGHTING_DIFFUSE,				LOW,	VEC3,		"out_Diffuse" },
+		{ LIGHTING_SPECULAR,			LOW,	VEC3,		"out_Specular" },
+	}
+
+#SHADER_CODE
+	mediump float dis = length( in_LightDirection );
+	mediump float disRange = clamp( dis * in_RangeInv, 0.0, 1.0 );
+	lowp float g_fAttenuation = (1.0 - disRange ) / ( in_LinghtAtten.x + disRange * in_LinghtAtten.y + disRange * disRange * in_LinghtAtten.z );
+
+    mediump vec3 vNormal    	= normalize( in_Normal );
+    
+    mediump vec3  vLight    	= normalize( in_LightDirection );
+    mediump vec3  vView     	= normalize( in_ViewDirection );
+    mediump vec3  vHalf     	= normalize( vLight + vView );
+    mediump float dotLightNormal= dot( vLight, vNormal );
+	mediump float fDiffuse = clamp( dotLightNormal, 0.0, 1.0 );	
+	mediump float fSpecular = pow( clamp( dot( vHalf, vNormal ), 0.0, 1.0 ) , in_Shininess );		
+	
+	lowp float attenAngle = clamp( 1.0 - ( in_vInner_DiffInv.x - dot(vLight, in_SpotDirection) ) * in_vInner_DiffInv.y, 0.0, 1.0 );
+	g_fAttenuation *= attenAngle;
+	
+	lowp vec3 out_Diffuse = in_Ambient_Light + ( fDiffuse * g_fAttenuation ) * in_LightColor;
+	lowp vec3 out_Specular = ( fSpecular * g_fAttenuation ) * in_Specular_Light;
+#END_CODE
+#END_DEFINE

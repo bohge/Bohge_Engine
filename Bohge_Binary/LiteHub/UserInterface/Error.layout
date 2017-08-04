@@ -1,0 +1,89 @@
+{
+	"Version":1,
+	"Data":
+	{
+		"Name":"Error",
+		"Depth":5,
+		"Adaptive":2,
+		"Rectangle":{ "x":0, "y":0, "w":720, "h":1280 },
+		"Widgets":
+		{
+			"Type":1,
+			"Property":
+			{
+				"Name":"Error_Background",
+				"Adaptive":2,
+				"Rectangle":{ "x":0, "y":0, "w":720, "h":1280 },
+				"ImageSource":"lite:UserInterface/ui.png",
+				"ImageUV":{ "us":0.708984375, "vs":0.03125, "ue":0.822265625, "ve":0.142578125 },
+				"Child":
+				[
+					{
+						"Type":1,
+						"Property":
+						{
+							"Name":"MessageBox",
+							"Adaptive":2,
+							"Rectangle":{ "x":40, "y":500, "w":640, "h":280 },
+							"ImageSource":"lite:UserInterface/ui.png",
+							"ImageUV":{ "us":0.294921875, "vs":0.77734375, "ue":0.5625, "ve":1.0 },
+							"Child":
+							[
+								{ 
+									"Type":3, 
+									"Property":
+									{
+										"Name":"Error_Message",
+										"Rectangle":{ "x":20, "y":60, "w":600, "h":80 },	
+										"Adaptive":0,
+										"StringID":5,
+										"FontSize":25,
+										"Align":1,
+										"Color":{ "r":1, "g":1, "b":1, "a":1 },
+										"Text":"lite:Main.Text",
+										"Child":[]
+									}
+								},
+								{
+									"Type":2,
+									"Property":
+									{
+										"Name":"Button_Ok",
+										"Adaptive":2,
+										"Rectangle":{ "x":240, "y":160, "w":160, "h":80 },
+										"ImageSource":"lite:UserInterface/ui.png",
+										"ImageUVArray":
+										[
+											{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+											{ "us":0.0, "vs":0.3789, "ue":0.263671875, "ve":0.494140625 },
+											{ "us":0.0, "vs":0.4981, "ue":0.263671875, "ve":0.61328125 }
+										],
+										"Script":"lite:Button_OnError.lua",
+										"Child":
+										[
+											{ 
+												"Type":3, 
+												"Property":
+												{
+													"Name":"Ok_String",
+													"Rectangle":{ "x":30, "y":20, "w":100, "h":40 },	
+													"Adaptive":0,
+													"StringID":4,
+													"FontSize":25,
+													"Align":1,
+													"Color":{ "r":1, "g":1, "b":1, "a":1 },
+													"Text":"lite:Main.Text",
+													"Child":[]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

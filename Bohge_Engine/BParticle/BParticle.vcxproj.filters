@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{f4fa071a-3d81-42c9-89ec-83f1247ea2e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParticleSystem">
+      <UniqueIdentifier>{6155032f-61e0-4c6c-bdd2-be3f9bd6ac86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JsonRender">
+      <UniqueIdentifier>{e811c619-af5f-405c-bec7-368260559544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParticleEntity">
+      <UniqueIdentifier>{f8bddff9-ef5e-4545-a53b-523511964ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneralEmitter">
+      <UniqueIdentifier>{41798dd9-f7a2-478a-8ff5-1ad4796e5c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWarp">
+      <UniqueIdentifier>{10d05d3e-584f-4f6a-a97c-f5bd17baddf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Affector">
+      <UniqueIdentifier>{662a1d59-49b8-4360-9029-31a30c9bf559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Affector\IAffector">
+      <UniqueIdentifier>{e96bac8e-4f1d-4fbf-b993-c41cf526c647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Affector\RandVolume">
+      <UniqueIdentifier>{163f58df-9955-4926-adf0-3ce0ac22a5a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralEmitter.cpp">
+      <Filter>GeneralEmitter</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLoader_1.cpp">
+      <Filter>JsonRender</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEntity.cpp">
+      <Filter>ParticleEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleResource.cpp">
+      <Filter>ParticleEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSource.cpp">
+      <Filter>ParticleEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionNoiseAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="BornAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="IAffector.cpp">
+      <Filter>Affector\IAffector</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedAxisAffector.cpp">
+      <Filter>Affector</Filter>
+    </ClCompile>
+    <ClCompile Include="RandVolume.cpp">
+      <Filter>Affector\RandVolume</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralEmitter.h">
+      <Filter>GeneralEmitter</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLoader_1.h">
+      <Filter>JsonRender</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEntity.h">
+      <Filter>ParticleEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleResource.h">
+      <Filter>ParticleEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSource.h">
+      <Filter>ParticleEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="EmitterProperty.h">
+      <Filter>GeneralEmitter</Filter>
+    </ClInclude>
+    <ClInclude Include="DoRegister.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionNoiseAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="BornAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="IAffector.h">
+      <Filter>Affector\IAffector</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedAxisAffector.h">
+      <Filter>Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="RandVolume.h">
+      <Filter>Affector\RandVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEmtityWarp.hpp">
+      <Filter>ScriptWarp</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

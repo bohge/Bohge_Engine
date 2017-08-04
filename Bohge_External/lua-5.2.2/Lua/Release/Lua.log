@@ -1,0 +1,58 @@
+﻿生成启动时间为 2014/10/16 10:12:00。
+     1>项目“E:\Bohge_Engine_New_Architecture\Bohge_External\lua-5.2.2\Lua\Lua.vcxproj”在节点 4 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\Lua.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         D:\Tools\VS2010\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt lua_tinker.cpp
+         lua_tinker.cpp
+     1>e:\bohge_engine_new_architecture\bohge_external\lua-5.2.2\lua\lua_tinker.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>lua_tinker.cpp(40): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 D:\Tools\VS2010\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>lua_tinker.cpp(102): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 D:\Tools\VS2010\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>lua_tinker.cpp(257): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 D:\Tools\VS2010\VC\include\stdio.h(371) : 参见“vsprintf”的声明
+       Lib:
+         D:\Tools\VS2010\VC\bin\Lib.exe /OUT:"E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Release\Lua.lib" /NOLOGO /LTCG Release\lapi.obj
+         Release\lauxlib.obj
+         Release\lbaselib.obj
+         Release\lbitlib.obj
+         Release\lcode.obj
+         Release\lcorolib.obj
+         Release\lctype.obj
+         Release\ldblib.obj
+         Release\ldebug.obj
+         Release\ldo.obj
+         Release\ldump.obj
+         Release\lfunc.obj
+         Release\lgc.obj
+         Release\linit.obj
+         Release\liolib.obj
+         Release\llex.obj
+         Release\lmathlib.obj
+         Release\lmem.obj
+         Release\loadlib.obj
+         Release\lobject.obj
+         Release\lopcodes.obj
+         Release\loslib.obj
+         Release\lparser.obj
+         Release\lstate.obj
+         Release\lstring.obj
+         Release\lstrlib.obj
+         Release\ltable.obj
+         Release\ltablib.obj
+         Release\ltm.obj
+         Release\lundump.obj
+         Release\lvm.obj
+         Release\lzio.obj
+         Release\lua_tinker.obj
+         Lua.vcxproj -> E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Release\Lua.lib
+       FinalizeBuildStatus:
+         正在删除文件“Release\Lua.unsuccessfulbuild”。
+         正在对“Release\Lua.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Bohge_Engine_New_Architecture\Bohge_External\lua-5.2.2\Lua\Lua.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.27

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{44b3827e-2934-4f6d-8190-64442af34619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OCTree">
+      <UniqueIdentifier>{ad7c68e2-bdc5-4987-892b-48634e10cb9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderQueueSystem">
+      <UniqueIdentifier>{501d776e-6b11-4045-be5a-e3b209c4a8e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="OCTreeRenderQueueSystem.cpp">
+      <Filter>RenderQueueSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="OCTree.cpp">
+      <Filter>OCTree</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeIterator.cpp">
+      <Filter>OCTree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OCTreeRenderQueueSystem.h">
+      <Filter>RenderQueueSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="OCTree.h">
+      <Filter>OCTree</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeIterator.h">
+      <Filter>OCTree</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

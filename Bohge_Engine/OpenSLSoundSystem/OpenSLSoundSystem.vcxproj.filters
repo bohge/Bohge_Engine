@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SoundSystem">
+      <UniqueIdentifier>{4675a38f-63e2-4255-9735-751e2fc73220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundPlayer">
+      <UniqueIdentifier>{5a454b26-4042-438d-9927-e92da41d43c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{c4935897-6866-4c49-b92b-63fcf350f250}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundSystemSLES.cpp">
+      <Filter>SoundSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundPlayerSLES.cpp">
+      <Filter>SoundPlayer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SoundSystemSLES.h">
+      <Filter>SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundPlayerSLES.h">
+      <Filter>SoundPlayer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

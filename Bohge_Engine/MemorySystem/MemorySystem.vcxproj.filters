@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{cc4249aa-d890-45f4-8fbe-11276b27b626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MemorySystem">
+      <UniqueIdentifier>{4798308b-a490-460f-a8a8-97e58d9e3800}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MemorySystem.cpp">
+      <Filter>MemorySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPool.c">
+      <Filter>MemorySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemorySystem.h">
+      <Filter>MemorySystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

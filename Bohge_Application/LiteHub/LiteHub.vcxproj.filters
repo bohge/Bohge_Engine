@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BLiteapp">
+      <UniqueIdentifier>{1ba29e9b-c8a7-4640-a4ac-9b9fb8415717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Checking">
+      <UniqueIdentifier>{777849a4-a05e-498f-a6f4-e585e40430f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xml">
+      <UniqueIdentifier>{2f465ce5-ebfb-46ff-bb9c-d5a22b2b454d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Constant">
+      <UniqueIdentifier>{8e49b991-b494-47fd-a5e4-4b53708bfbc0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="BLiteapp.cpp">
+      <Filter>BLiteapp</Filter>
+    </ClCompile>
+    <ClCompile Include="Checking.cpp">
+      <Filter>Checking</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonResourceList.cpp">
+      <Filter>Checking</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="DefualtResource.h">
+      <Filter>Constant</Filter>
+    </ClInclude>
+    <ClInclude Include="BLiteapp.h">
+      <Filter>BLiteapp</Filter>
+    </ClInclude>
+    <ClInclude Include="Checking.h">
+      <Filter>Checking</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonResourceList.h">
+      <Filter>Checking</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

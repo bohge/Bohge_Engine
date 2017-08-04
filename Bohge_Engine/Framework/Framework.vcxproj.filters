@@ -1,0 +1,1497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{f0df1802-9714-48d6-8388-de82fe10e394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader">
+      <UniqueIdentifier>{f98f3476-4049-42a6-9e3c-92c56b844cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader\Json">
+      <UniqueIdentifier>{70b61999-8b02-44da-a8ca-059e69518900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader\Material">
+      <UniqueIdentifier>{76d5cbeb-60a9-4010-9894-6fbdf647412e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader\Transform">
+      <UniqueIdentifier>{79ab5875-4447-48ab-8665-ffe2c6cd7141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader\Texture">
+      <UniqueIdentifier>{f0d74bc4-643a-4d0e-9b18-5771ee74701d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{d068f672-9bf4-4b69-975f-68709a34f577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Definition">
+      <UniqueIdentifier>{2a41b868-f2a1-4e78-a42d-016eba30d800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math">
+      <UniqueIdentifier>{74045693-262e-4621-84ab-bbbbaa50df09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math\Source">
+      <UniqueIdentifier>{334e3763-c2c6-45e9-b001-a60c13d60a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Math\Shape">
+      <UniqueIdentifier>{51141213-4473-4ee6-9bb7-b3d4a5214d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Delegate">
+      <UniqueIdentifier>{77918e98-9df2-4a1f-b51d-266b5275f2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Log">
+      <UniqueIdentifier>{9325fb22-70f7-4b83-bff0-eea83a14d438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\ThreadSafeOprator">
+      <UniqueIdentifier>{30deef49-a995-47fa-a120-e7362b07fc79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Rtti">
+      <UniqueIdentifier>{3106082c-661b-4d02-9b3f-aaa2812cac6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Track">
+      <UniqueIdentifier>{a98d3635-2ce4-41a6-acef-388ca2106bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Camera">
+      <UniqueIdentifier>{41f480af-8efa-4263-9540-f7f3a56faae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Plugin">
+      <UniqueIdentifier>{4834878a-34ac-44e7-99c3-b9c96dd1efec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node">
+      <UniqueIdentifier>{b03b34ee-64bd-4d2b-b6a8-b1ca77f17ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component">
+      <UniqueIdentifier>{f108362e-020d-4706-a9a3-e10b6cb4c4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\ScriptComponent">
+      <UniqueIdentifier>{4f989a40-aa39-4db5-b9c9-532ff40786d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\SoundComponent">
+      <UniqueIdentifier>{9d5ee5c3-4728-43e0-be62-2e7a69230715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\TransformComponent">
+      <UniqueIdentifier>{47266d36-fe5a-4485-89e6-ca61f5c4432b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\RenderComponent">
+      <UniqueIdentifier>{48985d4c-62e5-48ba-8ca9-1ac90ad4ed28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent">
+      <UniqueIdentifier>{eb2355ab-b11b-4898-9922-e7a14ec540b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\LightEntity">
+      <UniqueIdentifier>{a33b0cc5-429b-429d-9c97-489629205845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\LightEntity\DirectionLight">
+      <UniqueIdentifier>{df5e17e4-1ceb-49cf-8b6d-fb0fcca5f518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\LightEntity\PointLight">
+      <UniqueIdentifier>{0349b66f-8395-4620-a0b7-8beb9e00c818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\LightEntity\SpotLight">
+      <UniqueIdentifier>{1da652d0-ba24-4cdb-b7c2-3658e5d1fbc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\LightEntity\AmbientLight">
+      <UniqueIdentifier>{248cfdbb-8756-4c13-b1d2-f7746e1a5878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\LightComponent\ShadowCaster">
+      <UniqueIdentifier>{1acbb6c2-4d94-499a-bc4b-0eca5b993f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\PhysicComponent">
+      <UniqueIdentifier>{fe2445a7-ee89-4e72-b0d3-08cc02295a7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\IComponent">
+      <UniqueIdentifier>{e208a050-e264-490a-ab1b-1814f5b1a0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\SkeletonComponent">
+      <UniqueIdentifier>{4eb93460-935f-4fa7-b3b3-c78a42338637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\SkeletonComponent\SkeletonEntity">
+      <UniqueIdentifier>{05837879-daf8-4131-95f5-71a12dac8598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Node\Component\OrientationComponent">
+      <UniqueIdentifier>{8db78b1c-84ea-49ae-b14b-d157d362634f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{012d0f5a-7687-4671-a55d-58ce612e0342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\ShapeBufferUtility">
+      <UniqueIdentifier>{e27526ca-f658-4853-8d62-f82c8958d42d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\SquareIndicesStream">
+      <UniqueIdentifier>{c18ae6e7-0b87-461a-a876-77c0cc0ed8c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility\ReferenceVertexStream">
+      <UniqueIdentifier>{c4d74fa4-4654-40fd-951a-338a8fdb6979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{17f49ad9-ff47-42f5-bd2e-abec65253e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\IOSystem">
+      <UniqueIdentifier>{8fc233a9-12d7-4c5d-93b9-33a78242e667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\IOSystem\Source">
+      <UniqueIdentifier>{850d8803-d403-4df5-89fd-11d18612a99b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\MemorySystem">
+      <UniqueIdentifier>{ec824ace-15d1-478c-ab61-6f63c3887fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\MemorySystem\Allocator">
+      <UniqueIdentifier>{10612871-a695-4c97-9ae0-242d94404d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\SoundSystem">
+      <UniqueIdentifier>{a68d7381-4c82-4449-b1f0-9d109b57f7de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ThreadSystem">
+      <UniqueIdentifier>{e9a390f5-62fa-468c-a836-a97f17d2206d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ThreadSystem\ThreadEntity">
+      <UniqueIdentifier>{c920b85b-74fe-4546-a7c2-b5e9e4567d29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ThreadSystem\ThreadEntity\ThreadEntityBase">
+      <UniqueIdentifier>{db802337-e391-44e1-8343-1639c976d632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem">
+      <UniqueIdentifier>{15d5ea5f-d936-4538-9f40-f241083862fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptRegister">
+      <UniqueIdentifier>{ce8efec3-e87e-45e6-a91e-8ec4417f9273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptUtility">
+      <UniqueIdentifier>{2524be68-c462-448d-b3a7-4bb187935ce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptInvoker">
+      <UniqueIdentifier>{32dfc525-9160-4ff0-bdc9-0e25a3d631d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptEntity">
+      <UniqueIdentifier>{787cbf0e-bd46-41cd-8ec8-7b4121910464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\WebSystem">
+      <UniqueIdentifier>{f12b49a2-fec2-42f3-b066-75d24f13a803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\WebSystem\Handles">
+      <UniqueIdentifier>{7bf35d4a-876d-432c-be5b-2de4300afb0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ResourceSystem">
+      <UniqueIdentifier>{046795b5-55ee-4ee8-b6ff-d9caec2d71fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ResourceSystem\Source">
+      <UniqueIdentifier>{06fbe650-bf2a-4926-9d60-db301d5b9768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ResourceSystem\Source\SharedSource">
+      <UniqueIdentifier>{f566dea7-37ea-4411-b917-826493c6cc6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ResourceSystem\Source\MonopolySource">
+      <UniqueIdentifier>{fe987b9a-ba1c-4bd2-8a2d-20e6af3fcf9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\MaterialSystem">
+      <UniqueIdentifier>{509382c4-9a20-493e-87e4-08209957ba19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\GraphicSystem">
+      <UniqueIdentifier>{8919706a-17d2-43ce-a3e7-94cbfbbdcc10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\BaseSystem">
+      <UniqueIdentifier>{a0da34f6-b25b-4eb6-ab7f-8fd6b5b8afb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\TimeSystem">
+      <UniqueIdentifier>{d5222555-dc58-45c3-b90f-acbb0cfc360f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem">
+      <UniqueIdentifier>{851b856b-157a-4632-abbf-42b894b11f13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem\TripleRenderBuffer">
+      <UniqueIdentifier>{5bf31784-c21b-4445-8237-a01c1761f6e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem\TripleRenderBuffer\RenderBufferState">
+      <UniqueIdentifier>{4170a1c6-c306-48db-9937-8cb064b8ea95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem\TripleEnvironmentBuffer">
+      <UniqueIdentifier>{e78fede9-672a-41fc-9c97-ed041cf25ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem\TripleEnvironmentBuffer\EnvironmentBuffer">
+      <UniqueIdentifier>{4781f31a-7cd2-4d80-a3ab-e1f2adeb3227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PipelineSystem\PostEffect">
+      <UniqueIdentifier>{e61cfd20-3114-4a7b-8980-0914d61f880c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\EnvironmentSystem">
+      <UniqueIdentifier>{6070a6b1-771d-4b30-8061-da9ddae07236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\PhysicSystem">
+      <UniqueIdentifier>{4a969b0e-d933-4c0c-8463-4560653a0e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\RenderQueueSystem">
+      <UniqueIdentifier>{c311e01f-66db-4c3a-98b9-5bba0db7c27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ActionSystem">
+      <UniqueIdentifier>{989f6541-8be3-477f-8882-ecf6c6e1b692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\TextSystem">
+      <UniqueIdentifier>{c2e080d7-9820-47b5-b05d-cb38e3601eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\TextSystem\Entity">
+      <UniqueIdentifier>{53a06cb8-c7c6-449c-b6a3-c879029fece0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap">
+      <UniqueIdentifier>{8fb8c271-7fcf-4d5d-a99c-9d59b9635069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\MathWrap">
+      <UniqueIdentifier>{8fd6e604-5f6c-410e-ad3c-2b4469e403b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\SystemWrap">
+      <UniqueIdentifier>{fbd533a3-69bf-4f93-a4b8-57b9be9a76ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\CameraWarp">
+      <UniqueIdentifier>{8cc5f9ff-5262-4a5e-b1c1-24fd15b6ec9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\ComponentWrap">
+      <UniqueIdentifier>{08d96079-d9d2-426a-bca9-11f0ecb74652}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\RenderWarp">
+      <UniqueIdentifier>{6f6eff10-bf65-45cc-958e-298e2e97842f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\Framework">
+      <UniqueIdentifier>{13646197-292c-4b31-b9b6-c6b8c203f732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{2fbe8d39-ada6-4440-bbb1-7c0903dd99ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject">
+      <UniqueIdentifier>{f83a13f8-c429-4cbc-b23a-73b44288da00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject\BufferStream">
+      <UniqueIdentifier>{d23d802e-25f9-47c3-b4c5-5d14df0d0719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject\BufferStream\PackagedStream">
+      <UniqueIdentifier>{9b268e9b-25e3-44f6-a87c-8daf18002abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject\IndicesBuffer">
+      <UniqueIdentifier>{9348ba96-867d-4bb9-836d-303deaf64659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject\VertexBuffer">
+      <UniqueIdentifier>{bf85c807-ffed-46f7-b6c8-131b61c6e7c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\BufferObject\VertexCompress">
+      <UniqueIdentifier>{0c455c80-e7d2-4edc-a4ea-8936dd43b361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Texture">
+      <UniqueIdentifier>{71aa685f-82d0-4528-ae7d-e94bad0f3ded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Texture\TextureAtlas">
+      <UniqueIdentifier>{3af51503-2375-4c92-9aaf-02d2c34863be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Material">
+      <UniqueIdentifier>{fb8d7eff-ba22-4d43-9820-67d315528e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Material\RenderState">
+      <UniqueIdentifier>{881405c4-b539-4bde-b7a3-3be11fab51ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\RenderTarget">
+      <UniqueIdentifier>{8b088460-10ed-4f41-b632-0ce0bfb649cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Shader">
+      <UniqueIdentifier>{0b9c627a-38ad-43a9-bb43-e4fb7c6c3337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\RenderObject">
+      <UniqueIdentifier>{dc01a654-4397-487e-9463-b7dad530e06f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\LogicJob">
+      <UniqueIdentifier>{205b3579-b37a-43d5-8f06-97c174fb1cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\SystemWrap\WebSystem">
+      <UniqueIdentifier>{96ddc692-b037-4c1f-960e-6a7f2490b0fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\ComponentWrap\ObjectWarp">
+      <UniqueIdentifier>{5302a289-6364-490d-afc3-3d5d68f0d232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\SystemWrap\ResourceSystem">
+      <UniqueIdentifier>{f5c214e9-8716-43e1-90a8-6487fa2cc095}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\SystemWrap\ResourceSystem\EntityWarp">
+      <UniqueIdentifier>{36f7bb6d-728e-4fe8-b09a-bfccc28020bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptWrap\SystemWrap\ScriptSystem">
+      <UniqueIdentifier>{46e0f324-4d87-4502-9463-c1d59fbc187a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptVolume">
+      <UniqueIdentifier>{cec0760b-a7cb-4bbf-8fce-7037f47d8c1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\ScriptSystem\ScriptEntity\ClassEntity">
+      <UniqueIdentifier>{9a18d19e-b118-461d-9a2c-312163a78d80}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NeonMath.cpp">
+      <Filter>Core\Math\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Core\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="IIOSystem.cpp">
+      <Filter>System\IOSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IScriptSystem.cpp">
+      <Filter>System\ScriptSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="IMemorySystem.cpp">
+      <Filter>System\MemorySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="IPlugin.cpp">
+      <Filter>Core\Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Allocator.cpp">
+      <Filter>System\MemorySystem\Allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="Serializer.cpp">
+      <Filter>System\IOSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IBaseHandle.cpp">
+      <Filter>System\WebSystem\Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureEntity.cpp">
+      <Filter>Render\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMetadata.cpp">
+      <Filter>Render\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResource.cpp">
+      <Filter>Render\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureSource.cpp">
+      <Filter>Render\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderResource.cpp">
+      <Filter>Render\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderSource.cpp">
+      <Filter>Render\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderEntity.cpp">
+      <Filter>Render\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderState.cpp">
+      <Filter>Render\Material\RenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialEntity.cpp">
+      <Filter>Render\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialResource.cpp">
+      <Filter>Render\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSource.cpp">
+      <Filter>Render\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderParameter.cpp">
+      <Filter>Render\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ISystemRttiImplement.cpp">
+      <Filter>System\BaseSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetEntity.cpp">
+      <Filter>Render\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetResource.cpp">
+      <Filter>Render\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetSource.cpp">
+      <Filter>Render\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexStream.cpp">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesStream.cpp">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesBufferEntity.cpp">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesBufferResource.cpp">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesMetadata.cpp">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="IndicesSource.cpp">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferEntity.cpp">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBufferResource.cpp">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexMetadata.cpp">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexSource.cpp">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="IGraphicSystem.cpp">
+      <Filter>System\GraphicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Node</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeMessage.cpp">
+      <Filter>Node</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Node\Component\TransformComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ISoundComponent.cpp">
+      <Filter>Node\Component\SoundComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="IComponent.cpp">
+      <Filter>Node\Component\IComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentFactory.cpp">
+      <Filter>Node\Component\IComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectSource.cpp">
+      <Filter>Render\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectResource.cpp">
+      <Filter>Render\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectMetadata.cpp">
+      <Filter>Render\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectEntity.cpp">
+      <Filter>Render\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ITimeSystem.cpp">
+      <Filter>System\TimeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeCounter.cpp">
+      <Filter>System\TimeSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ICamera.cpp">
+      <Filter>Core\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticCamera.cpp">
+      <Filter>Core\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Track.cpp">
+      <Filter>Core\Track</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetMetadata.cpp">
+      <Filter>Render\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Node\Component\RenderComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderQueueSystem.cpp">
+      <Filter>System\RenderQueueSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TripleRenderBuffer.cpp">
+      <Filter>System\PipelineSystem\TripleRenderBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="LightComponent.cpp">
+      <Filter>Node\Component\LightComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="IPipelineSystem.cpp">
+      <Filter>System\PipelineSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="IEnvironmentSystem.cpp">
+      <Filter>System\EnvironmentSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBufferState.cpp">
+      <Filter>System\PipelineSystem\TripleRenderBuffer\RenderBufferState</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvironmentBuffer.cpp">
+      <Filter>System\PipelineSystem\TripleEnvironmentBuffer\EnvironmentBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="TripleEnvironmentBuffer.cpp">
+      <Filter>System\PipelineSystem\TripleEnvironmentBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionLight.cpp">
+      <Filter>Node\Component\LightComponent\LightEntity\DirectionLight</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalDefine.cpp">
+      <Filter>Core\Definition</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Node\Component\LightComponent\LightEntity\PointLight</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotLight.cpp">
+      <Filter>Node\Component\LightComponent\LightEntity\SpotLight</Filter>
+    </ClCompile>
+    <ClCompile Include="AmbientLight.cpp">
+      <Filter>Node\Component\LightComponent\LightEntity\AmbientLight</Filter>
+    </ClCompile>
+    <ClCompile Include="IPhysicSystem.cpp">
+      <Filter>System\PhysicSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicComponent.cpp">
+      <Filter>Node\Component\PhysicComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeBufferUtility.cpp">
+      <Filter>Utility\ShapeBufferUtility</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectWarp.hpp">
+      <Filter>ScriptWrap\RenderWarp</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Core\Rtti</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptEntity.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="IAsyncSource.cpp">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="IMetadata.cpp">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptComponent.cpp">
+      <Filter>Node\Component\ScriptComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PostEffect.cpp">
+      <Filter>System\PipelineSystem\PostEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonComponent.cpp">
+      <Filter>Node\Component\SkeletonComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonEntity.cpp">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonResource.cpp">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonSource.cpp">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptSource.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonKeyFrame.cpp">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="IMonopolySource.cpp">
+      <Filter>System\ResourceSystem\Source\MonopolySource</Filter>
+    </ClCompile>
+    <ClCompile Include="ISharedSource.cpp">
+      <Filter>System\ResourceSystem\Source\SharedSource</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonData.cpp">
+      <Filter>Loader\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonDefualtDataType.cpp">
+      <Filter>Loader\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonReader.cpp">
+      <Filter>Loader\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="IThreadSystem.cpp">
+      <Filter>System\ThreadSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="IActionSystem.cpp">
+      <Filter>System\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TouchAction.cpp">
+      <Filter>System\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardAction.cpp">
+      <Filter>System\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TouchInfo.cpp">
+      <Filter>System\ActionSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ReflushStream.cpp">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionRegister.cpp">
+      <Filter>System\ScriptSystem\ScriptRegister</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassRegister.cpp">
+      <Filter>System\ScriptSystem\ScriptRegister</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptValue.cpp">
+      <Filter>System\ScriptSystem\ScriptUtility</Filter>
+    </ClCompile>
+    <ClCompile Include="IFunctionInvoker.cpp">
+      <Filter>System\ScriptSystem\ScriptInvoker</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptMetadata.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="OrientationComponent.cpp">
+      <Filter>Node\Component\OrientationComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareIndicesMetadata.cpp">
+      <Filter>Utility\SquareIndicesStream</Filter>
+    </ClCompile>
+    <ClCompile Include="ReferenceVertexMetadata.cpp">
+      <Filter>Utility\ReferenceVertexStream</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonReadable.cpp">
+      <Filter>Loader\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="AttributeData.cpp">
+      <Filter>Render\BufferObject\BufferStream\PackagedStream</Filter>
+    </ClCompile>
+    <ClCompile Include="PackagedVertexStream.cpp">
+      <Filter>Render\BufferObject\BufferStream\PackagedStream</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonMaterialLoader.cpp">
+      <Filter>Loader\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonTextureLoader.cpp">
+      <Filter>Loader\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonTransformLoader.cpp">
+      <Filter>Loader\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="ITextSystem.cpp">
+      <Filter>System\TextSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSetEntity.cpp">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSetSource.cpp">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="ITextSetResource.cpp">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureAtlas.cpp">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageTree.cpp">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageNode.cpp">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClCompile>
+    <ClCompile Include="SubTextureBuffer.cpp">
+      <Filter>Render\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicJob.cpp">
+      <Filter>Framework\LogicJob</Filter>
+    </ClCompile>
+    <ClCompile Include="Rtti.cpp">
+      <Filter>Core\Rtti</Filter>
+    </ClCompile>
+    <ClCompile Include="JsonWriter.cpp">
+      <Filter>Loader\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="IJob.cpp">
+      <Filter>System\ThreadSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Type.cpp">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="IWebProperty.cpp">
+      <Filter>System\WebSystem\Handles</Filter>
+    </ClCompile>
+    <ClCompile Include="IMaterialSystem.cpp">
+      <Filter>System\MaterialSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassEntity.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassSource.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="IClassResource.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="IScriptResource.cpp">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeManager.cpp">
+      <Filter>Node</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="3DMath.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMathDeclaration.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseMathImplement.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix22.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix33.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="NeonMath.h">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector4.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Core\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Predefine.h">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableType.h">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="IFile.h">
+      <Filter>System\IOSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlugin.h">
+      <Filter>Core\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.hpp">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h">
+      <Filter>System\MemorySystem\Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugindefine.h">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="IMemorySystem.h">
+      <Filter>System\MemorySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadSystem.h">
+      <Filter>System\ThreadSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IIOSystem.h">
+      <Filter>System\IOSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IScriptSystem.h">
+      <Filter>System\ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtti.hpp">
+      <Filter>Core\Rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegate.hpp">
+      <Filter>Core\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="DelegateImplement.hpp">
+      <Filter>Core\Delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="IJob.h">
+      <Filter>System\ThreadSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IJobDispatcher.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadRWLock.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadEvent.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadMutex.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadEntity.h">
+      <Filter>System\ThreadSystem\ThreadEntity\ThreadEntityBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp">
+      <Filter>Core\Rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="ISoundSystem.h">
+      <Filter>System\SoundSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializer.h">
+      <Filter>System\IOSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IWebSystem.h">
+      <Filter>System\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IWebProperty.h">
+      <Filter>System\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IDownloadHandle.h">
+      <Filter>System\WebSystem\Handles</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseHandle.h">
+      <Filter>System\WebSystem\Handles</Filter>
+    </ClInclude>
+    <ClInclude Include="IResourceSystem.h">
+      <Filter>System\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IResourceProperty.h">
+      <Filter>System\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureEntity.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMetadata.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureProperty.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResource.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureSource.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphicSystem.h">
+      <Filter>System\GraphicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProperty.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderResource.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderSource.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderEntity.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderAttributes.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderState.h">
+      <Filter>Render\Material\RenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialEntity.h">
+      <Filter>Render\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialProperty.h">
+      <Filter>Render\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialResource.h">
+      <Filter>Render\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialSource.h">
+      <Filter>Render\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterialSystem.h">
+      <Filter>System\MaterialSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderParameter.h">
+      <Filter>Render\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetEntity.h">
+      <Filter>Render\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetProperty.h">
+      <Filter>Render\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetResource.h">
+      <Filter>Render\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetSource.h">
+      <Filter>Render\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexStream.h">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexStreamLayout.h">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesStream.h">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBufferEntity.h">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesBufferResource.h">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesMetadata.h">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IndicesSource.h">
+      <Filter>Render\BufferObject\IndicesBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferEntity.h">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexBufferResource.h">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexMetadata.h">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexSource.h">
+      <Filter>Render\BufferObject\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexCompress.h">
+      <Filter>Render\BufferObject\VertexCompress</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferObjectProperty.h">
+      <Filter>Render\BufferObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ISystemPluginName.h">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidThreadSafeOprator.h">
+      <Filter>Core\ThreadSafeOprator</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsThreadSafeOprator.h">
+      <Filter>Core\ThreadSafeOprator</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSThreadSafeOprator.h">
+      <Filter>Core\ThreadSafeOprator</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadSafeOprator.h">
+      <Filter>Core\ThreadSafeOprator</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtr.hpp">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Node</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeProperty.h">
+      <Filter>Node</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeMessage.h">
+      <Filter>Node</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Node\Component\TransformComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ISoundComponent.h">
+      <Filter>Node\Component\SoundComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponent.h">
+      <Filter>Node\Component\IComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentFactory.h">
+      <Filter>Node\Component\IComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectSource.h">
+      <Filter>Render\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectResource.h">
+      <Filter>Render\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectMetadata.h">
+      <Filter>Render\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectProperty.h">
+      <Filter>Render\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectEntity.h">
+      <Filter>Render\RenderObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadProperty.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ITimeSystem.h">
+      <Filter>System\TimeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadSpecific.h">
+      <Filter>System\ThreadSystem\ThreadEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeCounter.h">
+      <Filter>System\TimeSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Aabbox.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Aabrect.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Frustum.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Aabround.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Aabsphere.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ICamera.h">
+      <Filter>Core\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticCamera.h">
+      <Filter>Core\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Track.h">
+      <Filter>Core\Track</Filter>
+    </ClInclude>
+    <ClInclude Include="IOSystemWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ISoundSystemWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IThreadSystemWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IPipelineSystem.h">
+      <Filter>System\PipelineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetMetadata.h">
+      <Filter>Render\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Node\Component\RenderComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderQueueSystem.h">
+      <Filter>System\RenderQueueSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TripleRenderBuffer.h">
+      <Filter>System\PipelineSystem\TripleRenderBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemSingleton.h">
+      <Filter>System\BaseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LightComponent.h">
+      <Filter>Node\Component\LightComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="IEnvironmentSystem.h">
+      <Filter>System\EnvironmentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PipelineProperty.h">
+      <Filter>System\PipelineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBufferState.h">
+      <Filter>System\PipelineSystem\TripleRenderBuffer\RenderBufferState</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentBuffer.h">
+      <Filter>System\PipelineSystem\TripleEnvironmentBuffer\EnvironmentBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="TripleEnvironmentBuffer.h">
+      <Filter>System\PipelineSystem\TripleEnvironmentBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IInserter.h">
+      <Filter>System\PipelineSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ILightEntity.h">
+      <Filter>Node\Component\LightComponent\LightEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionLight.h">
+      <Filter>Node\Component\LightComponent\LightEntity\DirectionLight</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalDefine.h">
+      <Filter>Core\Definition</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Node\Component\LightComponent\LightEntity\PointLight</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotLight.h">
+      <Filter>Node\Component\LightComponent\LightEntity\SpotLight</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="AmbientLight.h">
+      <Filter>Node\Component\LightComponent\LightEntity\AmbientLight</Filter>
+    </ClInclude>
+    <ClInclude Include="IPhysicSystem.h">
+      <Filter>System\PhysicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicProperty.h">
+      <Filter>System\PhysicSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicComponent.h">
+      <Filter>Node\Component\PhysicComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ICameraWarp.hpp">
+      <Filter>ScriptWrap\CameraWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticCameraWrap.hpp">
+      <Filter>ScriptWrap\CameraWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="PostEffectWarp.hpp">
+      <Filter>ScriptWrap\ComponentWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetWarp.hpp">
+      <Filter>ScriptWrap\RenderWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryIndex.hpp">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeMathImplement.hpp">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeMathDeclaration.h">
+      <Filter>Core\Math\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeBufferUtility.h">
+      <Filter>Utility\ShapeBufferUtility</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterialSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IPipelineSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IScriptResource.h">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptEntity.h">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IAsyncResource.h">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="IAsyncSource.h">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="IAsyncEntity.h">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="IMetadata.h">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="ILoader.h">
+      <Filter>System\ResourceSystem\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptComponent.h">
+      <Filter>Node\Component\ScriptComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="PostEffect.h">
+      <Filter>System\PipelineSystem\PostEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonComponent.h">
+      <Filter>Node\Component\SkeletonComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentProperty.h">
+      <Filter>Node\Component\IComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonJoint.hpp">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonSource.h">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonEntity.h">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonResource.h">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptSource.h">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonProperty.h">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonKeyFrame.h">
+      <Filter>Node\Component\SkeletonComponent\SkeletonEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteHelper.hpp">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IMonopolyResource.h">
+      <Filter>System\ResourceSystem\Source\MonopolySource</Filter>
+    </ClInclude>
+    <ClInclude Include="IMonopolySource.h">
+      <Filter>System\ResourceSystem\Source\MonopolySource</Filter>
+    </ClInclude>
+    <ClInclude Include="ISharedResource.h">
+      <Filter>System\ResourceSystem\Source\SharedSource</Filter>
+    </ClInclude>
+    <ClInclude Include="ISharedSource.h">
+      <Filter>System\ResourceSystem\Source\SharedSource</Filter>
+    </ClInclude>
+    <ClInclude Include="DoRegister.h">
+      <Filter>ScriptWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameworkWrap.hpp">
+      <Filter>ScriptWrap\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonData.h">
+      <Filter>Loader\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonDefualtDataType.h">
+      <Filter>Loader\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonReader.h">
+      <Filter>Loader\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="IActionSystem.h">
+      <Filter>System\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionPropery.h">
+      <Filter>System\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchAction.h">
+      <Filter>System\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardAction.h">
+      <Filter>System\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TouchInfo.h">
+      <Filter>System\ActionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ReflushStream.h">
+      <Filter>Render\BufferObject\BufferStream</Filter>
+    </ClInclude>
+    <ClInclude Include="vector4array.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2array.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3array.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionRegister.h">
+      <Filter>System\ScriptSystem\ScriptRegister</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassRegister.h">
+      <Filter>System\ScriptSystem\ScriptRegister</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptValue.h">
+      <Filter>System\ScriptSystem\ScriptUtility</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptUtility.h">
+      <Filter>System\ScriptSystem\ScriptUtility</Filter>
+    </ClInclude>
+    <ClInclude Include="IFunctionInvoker.h">
+      <Filter>System\ScriptSystem\ScriptInvoker</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeWarp.hpp">
+      <Filter>ScriptWrap\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptProperty.h">
+      <Filter>System\ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptMetadata.h">
+      <Filter>System\ScriptSystem\ScriptEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IAsynvEntityWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap\ResourceSystem\EntityWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMetadataWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\ResourceSystem\EntityWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="OrientationComponent.h">
+      <Filter>Node\Component\OrientationComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="LimitedIndex.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareIndicesMetadata.h">
+      <Filter>Utility\SquareIndicesStream</Filter>
+    </ClInclude>
+    <ClInclude Include="ReferenceVertexMetadata.h">
+      <Filter>Utility\ReferenceVertexStream</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonReadable.h">
+      <Filter>Loader\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="AttributeData.h">
+      <Filter>Render\BufferObject\BufferStream\PackagedStream</Filter>
+    </ClInclude>
+    <ClInclude Include="PackagedVertexStream.h">
+      <Filter>Render\BufferObject\BufferStream\PackagedStream</Filter>
+    </ClInclude>
+    <ClInclude Include="Volume.hpp">
+      <Filter>Core\Rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonMaterialLoader.h">
+      <Filter>Loader\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonTextureLoader.h">
+      <Filter>Loader\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonTransformLoader.h">
+      <Filter>Loader\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextSystem.h">
+      <Filter>System\TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TextProperty.h">
+      <Filter>System\TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="StringConvert.hpp">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSetSource.h">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSetEntity.h">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextSetResource.h">
+      <Filter>System\TextSystem\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAtlas.h">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageTree.h">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageNode.h">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageData.h">
+      <Filter>Render\Texture\TextureAtlas</Filter>
+    </ClInclude>
+    <ClInclude Include="SubTextureBuffer.h">
+      <Filter>Render\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Glyph.h">
+      <Filter>System\TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TextString.h">
+      <Filter>System\TextSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IPostHandle.h">
+      <Filter>System\WebSystem\Handles</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameworkEvent.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicJob.h">
+      <Filter>Framework\LogicJob</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonWriter.h">
+      <Filter>Loader\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Bool.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix33Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="WrapTemplate.h">
+      <Filter>ScriptWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="QuaternionWrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseHandleWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IPostHandleWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IDownloadHandleWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IWebSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\WebSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IEnvironmentSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IActionSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IMemorySystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IPhysicSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderQueueSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ITimeSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentWarp.hpp">
+      <Filter>ScriptWrap\ComponentWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectWarp.hpp">
+      <Filter>ScriptWrap\ComponentWrap\ObjectWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptComponentWarp.hpp">
+      <Filter>ScriptWrap\ComponentWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptCallback.h">
+      <Filter>System\ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IResourceSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap\ResourceSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="IScriptSystemWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap\ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IFunctionInvokerWrap.hpp">
+      <Filter>ScriptWrap\SystemWrap\ScriptSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="vector1.hpp">
+      <Filter>Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector1Wrap.hpp">
+      <Filter>ScriptWrap\MathWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphicSystemWarp.hpp">
+      <Filter>ScriptWrap\SystemWrap</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureWrap.hpp">
+      <Filter>ScriptWrap\RenderWarp</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassEntity.h">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassSource.h">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="IClassResource.h">
+      <Filter>System\ScriptSystem\ScriptEntity\ClassEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Instance.h">
+      <Filter>System\ScriptSystem\ScriptVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeManager.h">
+      <Filter>Node</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,49 @@
+﻿生成启动时间为 2014/10/16 10:11:42。
+     1>项目“E:\Bohge_Engine_New_Architecture\Bohge_External\neonmath\NeonMath.vcxproj”在节点 5 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\NeonMath.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Lib:
+         D:\Tools\VS2010\VC\bin\Lib.exe /OUT:"E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Release\NeonMath.lib" /NOLOGO /LTCG Release\math_acosf.obj
+         Release\math_asinf.obj
+         Release\math_atan2f.obj
+         Release\math_atanf.obj
+         Release\math_ceilf.obj
+         Release\math_cosf.obj
+         Release\math_coshf.obj
+         Release\math_expf.obj
+         Release\math_fabsf.obj
+         Release\math_floorf.obj
+         Release\math_fmodf.obj
+         Release\math_frexpf.obj
+         Release\math_invsqrtf.obj
+         Release\math_ldexpf.obj
+         Release\math_log10f.obj
+         Release\math_logf.obj
+         Release\math_mat2.obj
+         Release\math_mat3.obj
+         Release\math_mat4.obj
+         Release\math_modf.obj
+         Release\math_powf.obj
+         Release\math_runfast.obj
+         Release\math_sincosf.obj
+         Release\math_sinf.obj
+         Release\math_sinfv.obj
+         Release\math_sinhf.obj
+         Release\math_sqrtf.obj
+         Release\math_sqrtfv.obj
+         Release\math_tanf.obj
+         Release\math_tanhf.obj
+         Release\math_vec2.obj
+         Release\math_vec3.obj
+         Release\math_vec4.obj
+         NeonMath.vcxproj -> E:\Bohge_Engine_New_Architecture\Bohge_Project\Windows\Release\NeonMath.lib
+       FinalizeBuildStatus:
+         正在删除文件“Release\NeonMath.unsuccessfulbuild”。
+         正在对“Release\NeonMath.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\Bohge_Engine_New_Architecture\Bohge_External\neonmath\NeonMath.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.80

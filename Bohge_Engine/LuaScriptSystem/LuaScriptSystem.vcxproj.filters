@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="PluginEntry">
+      <UniqueIdentifier>{0c9ed2d9-2e8f-41bb-98b2-80fb5db31f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LuaScript">
+      <UniqueIdentifier>{84e0b143-e9a4-47a7-907e-59576a6a3f93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptUtility">
+      <UniqueIdentifier>{9f6c4f45-882b-47db-8b79-cd717c4e97ac}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginEntry.cpp">
+      <Filter>PluginEntry</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaScriptSystem.cpp">
+      <Filter>LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaScriptHandle.cpp">
+      <Filter>LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaFunctionInvoker.cpp">
+      <Filter>LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptOutPut.cpp">
+      <Filter>ScriptUtility</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaClassResource.cpp">
+      <Filter>LuaScript</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LuaScriptSystem.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptCallBridge.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaScriptHandle.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaScriptConst.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaFunctionInvoker.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintScriptClassInfo.h">
+      <Filter>ScriptUtility</Filter>
+    </ClInclude>
+    <ClInclude Include="GetScriptArgumenFunctions.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="GetScriptResultFunction.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaDobufferHelp.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaClassResource.h">
+      <Filter>LuaScript</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

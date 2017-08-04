@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\auxiliar.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wsocket.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\buffer.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\except.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inet.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\io.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\luasocket.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\options.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\select.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tcp.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\timeout.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="src\udp.c">
+      <Filter>Socket</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="src\ltn12.lua">
+      <Filter>cdir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\socket.lua">
+      <Filter>cdir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\ftp.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\headers.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\http.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\smtp.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\tp.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\url.lua">
+      <Filter>ldir</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="cdir">
+      <UniqueIdentifier>{b053460d-5439-4e3a-a2eb-c31a95b5691f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ldir">
+      <UniqueIdentifier>{b301b82c-37cb-4e05-9333-194e92ed7a62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{64ba591e-e509-4126-a655-d253e835ccf0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
